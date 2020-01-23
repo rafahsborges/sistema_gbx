@@ -1,0 +1,46 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:5.7.21
+    container_name: sistemagbx-db
+    environment:
+      MYSQL_ROOT_PASSWORD: sistemagbx
+      MYSQL_DATABASE: sistemagbx
+      MYSQL_USER: sistemagbx
+      MYSQL_PASSWORD: sistemagbx
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - 3310:3310
+    networks:
+      sistemagbx-net:
+        ipv4_address: 172.46.0.101
+  backend:
+    container_name: sistemagbx-backend
+    build:
+      context: .
+    environment:
+      LARAVEL_APP_ENV: local
+      LARAVEL_APP_DEBUG: "true"
+      LARAVEL_APP_URL: http://sistemagbx.com/
+      LARAVEL_DB_CONNECTION: sistemagbx-db
+      LARAVEL_DB_HOST: sistemagbx
+      LARAVEL_DB_PORT: 3310
+      LARAVEL_DB_DATABASE: sistemagbx
+      LARAVEL_DB_USERNAME: sistemagbx
+      LARAVEL_DB_PASSWORD: sistemagbx
+    ports:
+      - 86:86
+    volumes:
+      - ./:/var/www/sistemagbx
+    networks:
+      sistemagbx-net:
+        ipv4_address: 172.46.0.102
+
+networks:
+  sistemagbx-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.46.0.0/24
