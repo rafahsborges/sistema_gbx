@@ -26,7 +26,15 @@ class CreateAdminUsersTable extends Migration
                 $table->string('email3')->nullable();
                 $table->string('telefone', 10)->nullable();
                 $table->string('celular', 11)->nullable();
-                $table->date('nascimento')->nullable();
+                $table->string('logradouro')->nullable();
+                $table->string('numero', 15)->nullable();
+                $table->string('complemento')->nullable();
+                $table->string('bairro')->nullable();
+                $table->string('cidade')->nullable();
+                $table->string('uf', 2)->nullable();
+                $table->string('cep', 9)->nullable();
+                $table->date('vencimento');
+                $table->decimal('valor', 9);
                 $table->string('password');
                 $table->rememberToken();
                 $table->boolean('is_admin')->default(false);
