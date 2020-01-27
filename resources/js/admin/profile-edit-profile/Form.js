@@ -5,6 +5,7 @@ Vue.component('profile-edit-profile-form', {
     data: function() {
         return {
             form: {
+                tipo:  false ,
                 nome:  '' ,
                 razao_social:  '' ,
                 cpf:  '' ,

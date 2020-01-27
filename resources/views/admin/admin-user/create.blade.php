@@ -6,38 +6,33 @@
 
     <div class="container-xl">
 
-        <div class="card">
+        <admin-user-form
+            :action="'{{ url('admin/admin-users') }}'"
+            :activation="!!'{{ $activation }}'"
+            v-cloak
+            inline-template>
 
-            <admin-user-form
-                :action="'{{ url('admin/admin-users') }}'"
-                :activation="!!'{{ $activation }}'"
-                
-                inline-template>
+            <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="this.action"
+                  novalidate>
 
-                <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action">
-
-                    <div class="card-header">
-                        <i class="fa fa-plus"></i> {{ trans('admin.admin-user.actions.create') }}
-                    </div>
-
-                    <div class="card-body">
-
+                <div class="row">
+                    <div class="col">
                         @include('admin.admin-user.components.form-elements')
-
                     </div>
 
-                    <div class="card-footer">
-	                    <button type="submit" class="btn btn-primary" :disabled="submiting">
-		                    <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-download'"></i>
-                            {{ trans('brackets/admin-ui::admin.btn.save') }}
-	                    </button>
+                    <div class="col-md-12 col-lg-12 col-xl-5 col-xxl-4">
+                        @include('admin.admin-user.components.form-elements-right')
                     </div>
+                </div>
 
-                </form>
+                <button type="submit" class="btn btn-primary fixed-cta-button" :disabled="submiting">
+                    <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-save'"></i>
+                    {{ trans('brackets/admin-ui::admin.btn.save') }}
+                </button>
 
-            </admin-user-form>
+            </form>
 
-        </div>
+        </admin-user-form>
 
     </div>
 

@@ -28,6 +28,7 @@ class StoreAdminUser extends FormRequest
     public function rules(): array
     {
         $rules = [
+            'tipo' => ['required', 'boolean'],
             'nome' => ['nullable', 'string'],
             'razao_social' => ['nullable', 'string'],
             'cpf' => ['nullable', Rule::unique('admin_users', 'cpf'), 'string'],

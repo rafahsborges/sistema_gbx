@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factory;
 /** @var  Factory $factory */
 $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Generator $faker) {
     return [
+        'tipo' => $faker->boolean(),
         'nome' => $faker->sentence,
         'razao_social' => $faker->sentence,
         'cpf' => $faker->sentence,
@@ -38,6 +39,61 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Representante::class, static function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->sentence,
+        'email' => $faker->email,
+        'telefone' => $faker->sentence,
+        'celular' => $faker->sentence,
+        'cargo' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+
+
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Servico::class, static function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->sentence,
+        'valor' => $faker->randomNumber(5),
+        'orgao' => $faker->sentence,
+        'descricao' => $faker->text(),
+        'status' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+
+
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Ponto::class, static function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->sentence,
+        'logradouro' => $faker->sentence,
+        'numero' => $faker->sentence,
+        'complemento' => $faker->sentence,
+        'bairro' => $faker->sentence,
+        'cidade' => $faker->sentence,
+        'uf' => $faker->sentence,
+        'cep' => $faker->sentence,
+        'estacao' => $faker->sentence,
+        'entidade' => $faker->sentence,
+        'latitude' => $faker->sentence,
+        'longitude' => $faker->sentence,
+        'altura' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+
 
     ];
 });

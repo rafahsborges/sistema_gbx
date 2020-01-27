@@ -28,6 +28,7 @@ class UpdateAdminUser extends FormRequest
     public function rules(): array
     {
         $rules = [
+            'tipo' => ['sometimes', 'boolean'],
             'nome' => ['nullable', 'string'],
             'razao_social' => ['nullable', 'string'],
             'cpf' => ['nullable', Rule::unique('admin_users', 'cpf')->ignore($this->adminUser->getKey(), $this->adminUser->getKeyName()), 'string'],

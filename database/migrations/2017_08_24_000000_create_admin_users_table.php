@@ -17,6 +17,7 @@ class CreateAdminUsersTable extends Migration
         DB::transaction(static function () {
             Schema::create('admin_users', static function (Blueprint $table) {
                 $table->bigIncrements('id');
+                $table->boolean('tipo')->default(false);
                 $table->string('nome')->nullable();
                 $table->string('razao_social')->nullable();
                 $table->string('cpf', 11)->nullable();

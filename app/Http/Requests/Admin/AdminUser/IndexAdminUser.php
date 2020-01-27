@@ -25,7 +25,7 @@ class IndexAdminUser extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,razao_social,cpf,cnpj,email,email2,email3,telefone,celular,logradouro,numero,complemento,bairro,cidade,uf,cep,vencimento,valor,ini_contrato,fim_contrato,fistel,is_admin,activated,forbidden,language,enabled|nullable',
+            'orderBy' => 'in:id,tipo,nome,razao_social,cpf,cnpj,email,email2,email3,telefone,celular,logradouro,numero,complemento,bairro,cidade,uf,cep,vencimento,valor,ini_contrato,fim_contrato,fistel,is_admin,activated,forbidden,language,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

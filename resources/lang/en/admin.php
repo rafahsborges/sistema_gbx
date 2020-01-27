@@ -14,6 +14,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            'tipo' => 'Tipo',
             'nome' => 'Nome',
             'razao_social' => 'Razao social',
             'cpf' => 'Cpf',
@@ -45,6 +46,74 @@ return [
 
             //Belongs to many relations
             'roles' => 'Roles',
+
+        ],
+    ],
+
+    'representante' => [
+        'title' => 'Representantes',
+
+        'actions' => [
+            'index' => 'Representantes',
+            'create' => 'New Representante',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'email' => 'Email',
+            'telefone' => 'Telefone',
+            'celular' => 'Celular',
+            'cargo' => 'Cargo',
+
+        ],
+    ],
+
+    'servico' => [
+        'title' => 'Servicos',
+
+        'actions' => [
+            'index' => 'Servicos',
+            'create' => 'New Servico',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'valor' => 'Valor',
+            'orgao' => 'Orgao',
+            'descricao' => 'Descricao',
+            'status' => 'Status',
+
+        ],
+    ],
+
+    'ponto' => [
+        'title' => 'Pontos',
+
+        'actions' => [
+            'index' => 'Pontos',
+            'create' => 'New Ponto',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'logradouro' => 'Logradouro',
+            'numero' => 'Numero',
+            'complemento' => 'Complemento',
+            'bairro' => 'Bairro',
+            'cidade' => 'Cidade',
+            'uf' => 'Uf',
+            'cep' => 'Cep',
+            'estacao' => 'Estacao',
+            'entidade' => 'Entidade',
+            'latitude' => 'Latitude',
+            'longitude' => 'Longitude',
+            'altura' => 'Altura',
 
         ],
     ],

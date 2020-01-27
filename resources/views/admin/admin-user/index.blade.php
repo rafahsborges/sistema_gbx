@@ -44,6 +44,7 @@
                             <thead>
                                 <tr>
                                     <th is='sortable' :column="'id'">{{ trans('admin.admin-user.columns.id') }}</th>
+                                    <th is='sortable' :column="'tipo'">{{ trans('admin.admin-user.columns.tipo') }}</th>
                                     <th is='sortable' :column="'nome'">{{ trans('admin.admin-user.columns.nome') }}</th>
                                     <th is='sortable' :column="'razao_social'">{{ trans('admin.admin-user.columns.razao_social') }}</th>
                                     <th is='sortable' :column="'cpf'">{{ trans('admin.admin-user.columns.cpf') }}</th>
@@ -77,6 +78,7 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td >@{{ item.id }}</td>
+                                    <td >@{{ item.tipo }}</td>
                                     <td >@{{ item.nome }}</td>
                                     <td >@{{ item.razao_social }}</td>
                                     <td >@{{ item.cpf }}</td>
