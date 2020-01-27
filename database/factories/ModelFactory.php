@@ -53,8 +53,6 @@ $factory->define(App\Models\Representante::class, static function (Faker\Generat
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
-
-
     ];
 });
 
@@ -69,8 +67,6 @@ $factory->define(App\Models\Servico::class, static function (Faker\Generator $fa
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
-
-
     ];
 });
 
@@ -93,7 +89,15 @@ $factory->define(App\Models\Ponto::class, static function (Faker\Generator $fake
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
+    ];
+});
 
-
+/** @var  Factory $factory */
+$factory->define(App\Models\Observaco::class, static function (Faker\Generator $faker) {
+    return [
+        'descricao' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
     ];
 });

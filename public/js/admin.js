@@ -112609,8 +112609,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_edit_password__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile-edit-password */ "./resources/js/admin/profile-edit-password/index.js");
 /* harmony import */ var _representante__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./representante */ "./resources/js/admin/representante/index.js");
 /* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
-/* harmony import */ var _observacao__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./observacao */ "./resources/js/admin/observacao/index.js");
-/* harmony import */ var _ponto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ponto */ "./resources/js/admin/ponto/index.js");
+/* harmony import */ var _ponto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ponto */ "./resources/js/admin/ponto/index.js");
+/* harmony import */ var _observaco__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./observaco */ "./resources/js/admin/observaco/index.js");
 
 
 
@@ -112621,10 +112621,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/admin/observacao/Form.js":
-/*!***********************************************!*\
-  !*** ./resources/js/admin/observacao/Form.js ***!
-  \***********************************************/
+/***/ "./resources/js/admin/observaco/Form.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/observaco/Form.js ***!
+  \**********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -112632,21 +112632,23 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('observacao-form', {
+Vue.component('observaco-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
-      form: {}
+      form: {
+        descricao: ''
+      }
     };
   }
 });
 
 /***/ }),
 
-/***/ "./resources/js/admin/observacao/Listing.js":
-/*!**************************************************!*\
-  !*** ./resources/js/admin/observacao/Listing.js ***!
-  \**************************************************/
+/***/ "./resources/js/admin/observaco/Listing.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/observaco/Listing.js ***!
+  \*************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -112654,23 +112656,23 @@ Vue.component('observacao-form', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
-Vue.component('observacao-listing', {
+Vue.component('observaco-listing', {
   mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
 
-/***/ "./resources/js/admin/observacao/index.js":
-/*!************************************************!*\
-  !*** ./resources/js/admin/observacao/index.js ***!
-  \************************************************/
+/***/ "./resources/js/admin/observaco/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/observaco/index.js ***!
+  \***********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/observacao/Listing.js");
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/observacao/Form.js");
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/observaco/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/observaco/Form.js");
 
 
 

@@ -46,7 +46,6 @@ return [
 
             //Belongs to many relations
             'roles' => 'Roles',
-
         ],
     ],
 
@@ -66,7 +65,6 @@ return [
             'telefone' => 'Telefone',
             'celular' => 'Celular',
             'cargo' => 'Cargo',
-
         ],
     ],
 
@@ -86,7 +84,6 @@ return [
             'orgao' => 'Orgao',
             'descricao' => 'Descricao',
             'status' => 'Status',
-
         ],
     ],
 
@@ -114,7 +111,21 @@ return [
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
             'altura' => 'Altura',
+        ],
+    ],
 
+    'observaco' => [
+        'title' => 'Observacoes',
+
+        'actions' => [
+            'index' => 'Observacoes',
+            'create' => 'New Observaco',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'descricao' => 'Descricao',
         ],
     ],
 
