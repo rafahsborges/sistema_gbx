@@ -16,7 +16,7 @@ class CreateAdminUsersTable extends Migration
     {
         DB::transaction(static function () {
             Schema::create('admin_users', static function (Blueprint $table) {
-                $table->increments('id');
+                $table->bigIncrements('id');
                 $table->string('nome')->nullable();
                 $table->string('razao_social')->nullable();
                 $table->string('cpf', 11)->nullable();
@@ -33,19 +33,21 @@ class CreateAdminUsersTable extends Migration
                 $table->string('cidade')->nullable();
                 $table->string('uf', 2)->nullable();
                 $table->string('cep', 9)->nullable();
-                $table->date('vencimento');
-                $table->decimal('valor', 9);
-                $table->string('password');
-                $table->rememberToken();
+                $table->date('vencimento')->nullable();
+                $table->decimal('valor', 9)->nullable();
+                $table->date('ini_contrato')->nullable();
+                $table->date('fim_contrato')->nullable();
+                $table->string('fistel', 11)->nullable();
                 $table->boolean('is_admin')->default(false);
                 $table->boolean('activated')->default(false);
                 $table->boolean('forbidden')->default(false);
-                $table->string('language', 2)->default('en');
-
+                $table->string('language', 2)->default('pt');
+                $table->boolean('enabled')->default(true);
+                $table->string('password');
+                $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();
-
-                $table->unique(['email', 'deleted_at']);
+                $table->unique(['cpf', 'cnpj', 'email', 'deleted_at']);
             });
 
             $connection = config('database.default');

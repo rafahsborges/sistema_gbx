@@ -99,14 +99,55 @@ class FillDefaultAdminUserAndPermissions extends Migration
         //Add new users
         $this->users = [
             [
-                'first_name' => 'Administrator',
-                'last_name' => 'Administrator',
-                'email' => 'administrator@brackets.sk',
+                'nome' => 'Rafael Souza Borges',
+                'email' => 'rafaelsouzaborges@outlook.com',
                 'password' => Hash::make($this->password),
                 'remember_token' => null,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+                'is_admin' => true,
                 'activated' => true,
+                'language' => 'pt',
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'nome' => 'Rafael Souza Borges',
+                'email' => 'rafahsborges@outlook.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => false,
+                'activated' => true,
+                'language' => 'pt',
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'nome' => 'Glaucius Botosso',
+                'email' => 'glaucius@teste.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => true,
+                'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
