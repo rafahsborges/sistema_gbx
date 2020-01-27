@@ -44,12 +44,32 @@
                             <thead>
                                 <tr>
                                     <th is='sortable' :column="'id'">{{ trans('admin.admin-user.columns.id') }}</th>
-                                    <th is='sortable' :column="'first_name'">{{ trans('admin.admin-user.columns.first_name') }}</th>
-                                    <th is='sortable' :column="'last_name'">{{ trans('admin.admin-user.columns.last_name') }}</th>
+                                    <th is='sortable' :column="'nome'">{{ trans('admin.admin-user.columns.nome') }}</th>
+                                    <th is='sortable' :column="'razao_social'">{{ trans('admin.admin-user.columns.razao_social') }}</th>
+                                    <th is='sortable' :column="'cpf'">{{ trans('admin.admin-user.columns.cpf') }}</th>
+                                    <th is='sortable' :column="'cnpj'">{{ trans('admin.admin-user.columns.cnpj') }}</th>
                                     <th is='sortable' :column="'email'">{{ trans('admin.admin-user.columns.email') }}</th>
+                                    <th is='sortable' :column="'email2'">{{ trans('admin.admin-user.columns.email2') }}</th>
+                                    <th is='sortable' :column="'email3'">{{ trans('admin.admin-user.columns.email3') }}</th>
+                                    <th is='sortable' :column="'telefone'">{{ trans('admin.admin-user.columns.telefone') }}</th>
+                                    <th is='sortable' :column="'celular'">{{ trans('admin.admin-user.columns.celular') }}</th>
+                                    <th is='sortable' :column="'logradouro'">{{ trans('admin.admin-user.columns.logradouro') }}</th>
+                                    <th is='sortable' :column="'numero'">{{ trans('admin.admin-user.columns.numero') }}</th>
+                                    <th is='sortable' :column="'complemento'">{{ trans('admin.admin-user.columns.complemento') }}</th>
+                                    <th is='sortable' :column="'bairro'">{{ trans('admin.admin-user.columns.bairro') }}</th>
+                                    <th is='sortable' :column="'cidade'">{{ trans('admin.admin-user.columns.cidade') }}</th>
+                                    <th is='sortable' :column="'uf'">{{ trans('admin.admin-user.columns.uf') }}</th>
+                                    <th is='sortable' :column="'cep'">{{ trans('admin.admin-user.columns.cep') }}</th>
+                                    <th is='sortable' :column="'vencimento'">{{ trans('admin.admin-user.columns.vencimento') }}</th>
+                                    <th is='sortable' :column="'valor'">{{ trans('admin.admin-user.columns.valor') }}</th>
+                                    <th is='sortable' :column="'ini_contrato'">{{ trans('admin.admin-user.columns.ini_contrato') }}</th>
+                                    <th is='sortable' :column="'fim_contrato'">{{ trans('admin.admin-user.columns.fim_contrato') }}</th>
+                                    <th is='sortable' :column="'fistel'">{{ trans('admin.admin-user.columns.fistel') }}</th>
+                                    <th is='sortable' :column="'is_admin'">{{ trans('admin.admin-user.columns.is_admin') }}</th>
                                     <th is='sortable' :column="'activated'" v-if="activation">{{ trans('admin.admin-user.columns.activated') }}</th>
                                     <th is='sortable' :column="'forbidden'">{{ trans('admin.admin-user.columns.forbidden') }}</th>
                                     <th is='sortable' :column="'language'">{{ trans('admin.admin-user.columns.language') }}</th>
+                                    <th is='sortable' :column="'enabled'">{{ trans('admin.admin-user.columns.enabled') }}</th>
                                     
                                     <th></th>
                                 </tr>
@@ -57,9 +77,28 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td >@{{ item.id }}</td>
-                                    <td >@{{ item.first_name }}</td>
-                                    <td >@{{ item.last_name }}</td>
+                                    <td >@{{ item.nome }}</td>
+                                    <td >@{{ item.razao_social }}</td>
+                                    <td >@{{ item.cpf }}</td>
+                                    <td >@{{ item.cnpj }}</td>
                                     <td >@{{ item.email }}</td>
+                                    <td >@{{ item.email2 }}</td>
+                                    <td >@{{ item.email3 }}</td>
+                                    <td >@{{ item.telefone }}</td>
+                                    <td >@{{ item.celular }}</td>
+                                    <td >@{{ item.logradouro }}</td>
+                                    <td >@{{ item.numero }}</td>
+                                    <td >@{{ item.complemento }}</td>
+                                    <td >@{{ item.bairro }}</td>
+                                    <td >@{{ item.cidade }}</td>
+                                    <td >@{{ item.uf }}</td>
+                                    <td >@{{ item.cep }}</td>
+                                    <td >@{{ item.vencimento | date }}</td>
+                                    <td >@{{ item.valor }}</td>
+                                    <td >@{{ item.ini_contrato | date }}</td>
+                                    <td >@{{ item.fim_contrato | date }}</td>
+                                    <td >@{{ item.fistel }}</td>
+                                    <td >@{{ item.is_admin }}</td>
                                     <td v-if="activation">
                                         <label class="switch switch-3d switch-success">
                                             <input type="checkbox" class="switch-input" v-model="collection[index].activated" @change="toggleSwitch(item.resource_url, 'activated', collection[index])">
@@ -73,6 +112,12 @@
                                         </label>
                                     </td>
                                     <td >@{{ item.language }}</td>
+                                    <td >
+                                        <label class="switch switch-3d switch-success">
+                                            <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </td>
                                     
                                     <td>
                                         <div class="row no-gutters">

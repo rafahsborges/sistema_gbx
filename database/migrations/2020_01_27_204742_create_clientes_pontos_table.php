@@ -15,7 +15,18 @@ class CreateClientesPontosTable extends Migration
     {
         Schema::create('clientes_pontos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_ponto');
+            $table->foreign('id_ponto')
+                ->references('id')->on('pontos')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')
+                ->references('id')->on('admin_users')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +37,10 @@ class CreateClientesPontosTable extends Migration
      */
     public function down()
     {
+        Schema::table('clientes_pontos', function (Blueprint $table) {
+            $table->dropForeign('clientes_pontos_id_ponto_foreign');
+            $table->dropForeign('clientes_pontos_id_cliente_foreign');
+        });
         Schema::dropIfExists('clientes_pontos');
     }
 }

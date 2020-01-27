@@ -72,19 +72,59 @@ class ProfileController extends Controller
 
         // Validate the request
         $this->validate($request, [
-            'first_name' => ['nullable', 'string'],
-            'last_name' => ['nullable', 'string'],
+            'nome' => ['nullable', 'string'],
+            'razao_social' => ['nullable', 'string'],
+            'cpf' => ['nullable', Rule::unique('admin_users', 'cpf')->ignore($this->adminUser->getKey(), $this->adminUser->getKeyName()), 'string'],
+            'cnpj' => ['nullable', Rule::unique('admin_users', 'cnpj')->ignore($this->adminUser->getKey(), $this->adminUser->getKeyName()), 'string'],
             'email' => ['sometimes', 'email', Rule::unique('admin_users', 'email')->ignore($this->adminUser->getKey(), $this->adminUser->getKeyName()), 'string'],
+            'email2' => ['nullable', 'string'],
+            'email3' => ['nullable', 'string'],
+            'telefone' => ['nullable', 'string'],
+            'celular' => ['nullable', 'string'],
+            'logradouro' => ['nullable', 'string'],
+            'numero' => ['nullable', 'string'],
+            'complemento' => ['nullable', 'string'],
+            'bairro' => ['nullable', 'string'],
+            'cidade' => ['nullable', 'string'],
+            'uf' => ['nullable', 'string'],
+            'cep' => ['nullable', 'string'],
+            'vencimento' => ['nullable', 'date'],
+            'valor' => ['nullable', 'numeric'],
+            'ini_contrato' => ['nullable', 'date'],
+            'fim_contrato' => ['nullable', 'date'],
+            'fistel' => ['nullable', 'string'],
+            'is_admin' => ['sometimes', 'boolean'],
             'language' => ['sometimes', 'string'],
+            'enabled' => ['sometimes', 'boolean'],
             
         ]);
 
         // Sanitize input
         $sanitized = $request->only([
-            'first_name',
-            'last_name',
+            'nome',
+            'razao_social',
+            'cpf',
+            'cnpj',
             'email',
+            'email2',
+            'email3',
+            'telefone',
+            'celular',
+            'logradouro',
+            'numero',
+            'complemento',
+            'bairro',
+            'cidade',
+            'uf',
+            'cep',
+            'vencimento',
+            'valor',
+            'ini_contrato',
+            'fim_contrato',
+            'fistel',
+            'is_admin',
             'language',
+            'enabled',
             
         ]);
 

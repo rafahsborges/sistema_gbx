@@ -38,6 +38,10 @@ class CreateClientesServicosTable extends Migration
      */
     public function down()
     {
+        Schema::table('clientes_servicos', function (Blueprint $table) {
+            $table->dropForeign('clientes_servicos_id_servico_foreign');
+            $table->dropForeign('clientes_servicos_id_cliente_foreign');
+        });
         Schema::dropIfExists('clientes_servicos');
     }
 }

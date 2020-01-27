@@ -15,7 +15,21 @@ class CreatePontosTable extends Migration
     {
         Schema::create('pontos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('logradouro')->nullable();
+            $table->string('numero', 15)->nullable();
+            $table->string('complemento')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf', 2)->nullable();
+            $table->string('cep', 9)->nullable();
+            $table->string('estacao')->nullable();
+            $table->string('entidade')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('altura')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
