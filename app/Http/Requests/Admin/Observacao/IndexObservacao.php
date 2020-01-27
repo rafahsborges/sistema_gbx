@@ -14,7 +14,8 @@ class IndexObservacao extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.observacao.index');
+        //return Gate::allows('admin.observacao.index');
+        return auth()->check();
     }
 
     /**

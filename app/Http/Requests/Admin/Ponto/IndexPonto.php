@@ -14,7 +14,8 @@ class IndexPonto extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.ponto.index');
+        //return Gate::allows('admin.ponto.index');
+        return auth()->check();
     }
 
     /**

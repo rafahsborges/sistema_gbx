@@ -14,7 +14,8 @@ class IndexServico extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.servico.index');
+        //return Gate::allows('admin.servico.index');
+        return auth()->check();
     }
 
     /**

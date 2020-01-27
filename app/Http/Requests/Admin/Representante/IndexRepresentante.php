@@ -14,7 +14,8 @@ class IndexRepresentante extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.representante.index');
+        //return Gate::allows('admin.representante.index');
+        return auth()->check();
     }
 
     /**

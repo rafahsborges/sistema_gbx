@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Observacao extends Model
 {
     use SoftDeletes;
+
+    protected $table = 'observacoes';
+
     protected $fillable = [
         'descricao',
-
     ];
-
 
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
-
     ];
 
     protected $appends = ['resource_url'];
