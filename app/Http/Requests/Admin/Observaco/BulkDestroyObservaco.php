@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Observaco;
+namespace App\Http\Requests\Admin\Observacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class BulkDestroyObservaco extends FormRequest
+class BulkDestroyObservacao extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class BulkDestroyObservaco extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.observaco.bulk-delete');
+        return Gate::allows('admin.observacao.bulk-delete');
     }
 
     /**

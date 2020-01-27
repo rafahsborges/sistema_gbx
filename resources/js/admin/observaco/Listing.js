@@ -1,5 +1,5 @@
 import AppListing from '../app-components/Listing/AppListing';
 
-Vue.component('observaco-listing', {
+Vue.component('observacao-listing', {
     mixins: [AppListing]
 });

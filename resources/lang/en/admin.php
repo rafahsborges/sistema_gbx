@@ -114,12 +114,12 @@ return [
         ],
     ],
 
-    'observaco' => [
+    'observacao' => [
         'title' => 'Observacoes',
 
         'actions' => [
             'index' => 'Observacoes',
-            'create' => 'New Observaco',
+            'create' => 'New Observacao',
             'edit' => 'Edit :name',
         ],
 

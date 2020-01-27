@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Observaco;
+namespace App\Http\Requests\Admin\Observacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class StoreObservaco extends FormRequest
+class StoreObservacao extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class StoreObservaco extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.observaco.create');
+        return Gate::allows('admin.observacao.create');
     }
 
     /**
@@ -27,7 +27,7 @@ class StoreObservaco extends FormRequest
     {
         return [
             'descricao' => ['required', 'string'],
-            
+
         ];
     }
 

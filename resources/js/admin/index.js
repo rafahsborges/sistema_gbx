@@ -4,4 +4,4 @@ import './profile-edit-password';
 import './representante';
 import './servico';
 import './ponto';
-import './observaco';
+import './observacao';

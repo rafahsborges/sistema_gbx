@@ -93,7 +93,7 @@ $factory->define(App\Models\Ponto::class, static function (Faker\Generator $fake
 });
 
 /** @var  Factory $factory */
-$factory->define(App\Models\Observaco::class, static function (Faker\Generator $faker) {
+$factory->define(App\Models\Observacao::class, static function (Faker\Generator $faker) {
     return [
         'descricao' => $faker->text(),
         'created_at' => $faker->dateTime,

@@ -88,14 +88,14 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
-        Route::prefix('observacos')->name('observacos/')->group(static function () {
+        Route::prefix('observacoes')->name('observacoes/')->group(static function () {
             Route::get('/', 'ObservacoesController@index')->name('index');
             Route::get('/create', 'ObservacoesController@create')->name('create');
             Route::post('/', 'ObservacoesController@store')->name('store');
-            Route::get('/{observaco}/edit', 'ObservacoesController@edit')->name('edit');
+            Route::get('/{observacao}/edit', 'ObservacoesController@edit')->name('edit');
             Route::post('/bulk-destroy', 'ObservacoesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{observaco}', 'ObservacoesController@update')->name('update');
-            Route::delete('/{observaco}', 'ObservacoesController@destroy')->name('destroy');
+            Route::post('/{observacao}', 'ObservacoesController@update')->name('update');
+            Route::delete('/{observacao}', 'ObservacoesController@destroy')->name('destroy');
         });
     });
 });

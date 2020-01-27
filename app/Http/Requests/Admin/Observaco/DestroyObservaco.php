@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Observaco;
+namespace App\Http\Requests\Admin\Observacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class DestroyObservaco extends FormRequest
+class DestroyObservacao extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class DestroyObservaco extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.observaco.delete', $this->observaco);
+        return Gate::allows('admin.observacao.delete', $this->observacao);
     }
 
     /**

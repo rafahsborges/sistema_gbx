@@ -5,28 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Observaco extends Model
+class Observacao extends Model
 {
     use SoftDeletes;
     protected $fillable = [
         'descricao',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/observacos/'.$this->getKey());
+        return url('/admin/observacoes/'.$this->getKey());
     }
 }
