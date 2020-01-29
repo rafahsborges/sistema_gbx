@@ -28,7 +28,7 @@ class StoreApontamento extends FormRequest
         return [
             'descricao' => ['required', 'string'],
             'id_cliente' => ['required', 'string'],
-            
+
         ];
     }
 
