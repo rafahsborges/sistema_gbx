@@ -21,7 +21,7 @@ use Spatie\MediaLibrary\Models\Media;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
- * @property mixed name
+ * @property mixed nome
  */
 class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
 {
@@ -76,7 +76,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
         'deleted_at',
     ];
 
-    protected $appends = ['full_name', 'resource_url'];
+    protected $appends = ['nome', 'resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
@@ -91,13 +91,13 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     }
 
     /**
-     * Full name for admin user
+     * Nome for admin user
      *
      * @return string
      */
-    public function getFullNameAttribute(): string
+    public function getNomeAttribute(): string
     {
-        return $this->name;
+        return $this->nome;
     }
 
     /**
