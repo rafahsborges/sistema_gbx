@@ -116,12 +116,12 @@ return [
         ],
     ],
 
-    'observacao' => [
-        'title' => 'Observacoes',
+    'apontamento' => [
+        'title' => 'Apontamentos',
 
         'actions' => [
-            'index' => 'Observacoes',
-            'create' => 'New Observacao',
+            'index' => 'Apontamentos',
+            'create' => 'New Apontamento',
             'edit' => 'Edit :name',
         ],
 
@@ -129,6 +129,7 @@ return [
             'id' => 'ID',
             'descricao' => 'Descricao',
             'id_cliente' => 'Id cliente',
+
         ],
     ],
 

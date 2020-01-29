@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Observacao;
+namespace App\Http\Requests\Admin\Apontamento;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class BulkDestroyObservacao extends FormRequest
+class DestroyApontamento extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class BulkDestroyObservacao extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.observacao.bulk-delete');
+        return Gate::allows('admin.apontamento.delete', $this->apontamento);
     }
 
     /**
@@ -24,8 +24,6 @@ class BulkDestroyObservacao extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'ids.*' => 'integer'
-        ];
+        return [];
     }
 }

@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Observacao extends Model
+class Apontamento extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'observacoes';
 
     protected $fillable = [
         'descricao',
@@ -28,6 +26,6 @@ class Observacao extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/observacoes/'.$this->getKey());
+        return url('/admin/apontamentos/'.$this->getKey());
     }
 }

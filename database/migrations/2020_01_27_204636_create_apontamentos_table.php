@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateObservacoesTable extends Migration
+class CreateApontamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateObservacoesTable extends Migration
      */
     public function up()
     {
-        Schema::create('observacoes', function (Blueprint $table) {
+        Schema::create('apontamentos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('descricao');
             $table->unsignedBigInteger('id_cliente');
@@ -33,9 +33,9 @@ class CreateObservacoesTable extends Migration
      */
     public function down()
     {
-        Schema::table('observacoes', function (Blueprint $table) {
-            $table->dropForeign('observacoes_id_cliente_foreign');
+        Schema::table('apontamentos', function (Blueprint $table) {
+            $table->dropForeign('apontamentos_id_cliente_foreign');
         });
-        Schema::dropIfExists('observacoes');
+        Schema::dropIfExists('apontamentos');
     }
 }

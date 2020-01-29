@@ -5,7 +5,7 @@ use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class FillPermissionsForObservacao extends Migration
+class FillPermissionsForApontamento extends Migration
 {
     /**
      * @var Repository|mixed
@@ -21,20 +21,20 @@ class FillPermissionsForObservacao extends Migration
     protected $roles;
 
     /**
-     * FillPermissionsForObservacao constructor.
+     * FillPermissionsForApontamento constructor.
      */
     public function __construct()
     {
         $this->guardName = config('admin-auth.defaults.guard');
 
         $permissions = collect([
-            'admin.observacao',
-            'admin.observacao.index',
-            'admin.observacao.create',
-            'admin.observacao.show',
-            'admin.observacao.edit',
-            'admin.observacao.delete',
-            'admin.observacao.bulk-delete',
+            'admin.apontamento',
+            'admin.apontamento.index',
+            'admin.apontamento.create',
+            'admin.apontamento.show',
+            'admin.apontamento.edit',
+            'admin.apontamento.delete',
+            'admin.apontamento.bulk-delete',
         ]);
 
         //Add New permissions

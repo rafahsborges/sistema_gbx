@@ -88,14 +88,14 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
-        Route::prefix('observacoes')->name('observacoes/')->group(static function () {
-            Route::get('/', 'ObservacoesController@index')->name('index');
-            Route::get('/create', 'ObservacoesController@create')->name('create');
-            Route::post('/', 'ObservacoesController@store')->name('store');
-            Route::get('/{observacao}/edit', 'ObservacoesController@edit')->name('edit');
-            Route::post('/bulk-destroy', 'ObservacoesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{observacao}', 'ObservacoesController@update')->name('update');
-            Route::delete('/{observacao}', 'ObservacoesController@destroy')->name('destroy');
+        Route::prefix('apontamentos')->name('apontamentos/')->group(static function () {
+            Route::get('/', 'ApontamentosController@index')->name('index');
+            Route::get('/create', 'ApontamentosController@create')->name('create');
+            Route::post('/', 'ApontamentosController@store')->name('store');
+            Route::get('/{apontamento}/edit', 'ApontamentosController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ApontamentosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{apontamento}', 'ApontamentosController@update')->name('update');
+            Route::delete('/{apontamento}', 'ApontamentosController@destroy')->name('destroy');
         });
     });
 });

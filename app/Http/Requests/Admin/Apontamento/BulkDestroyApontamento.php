@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Observacao;
+namespace App\Http\Requests\Admin\Apontamento;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexObservacao extends FormRequest
+class BulkDestroyApontamento extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,8 +14,7 @@ class IndexObservacao extends FormRequest
      */
     public function authorize(): bool
     {
-        //return Gate::allows('admin.observacao.index');
-        return auth()->check();
+        return Gate::allows('admin.apontamento.bulk-delete');
     }
 
     /**
@@ -26,12 +25,7 @@ class IndexObservacao extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,id_cliente|nullable',
-            'orderDirection' => 'in:asc,desc|nullable',
-            'search' => 'string|nullable',
-            'page' => 'integer|nullable',
-            'per_page' => 'integer|nullable',
-
+            'ids.*' => 'integer'
         ];
     }
 }

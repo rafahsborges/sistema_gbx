@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Observacao\BulkDestroyObservacao;
-use App\Http\Requests\Admin\Observacao\DestroyObservacao;
-use App\Http\Requests\Admin\Observacao\IndexObservacao;
-use App\Http\Requests\Admin\Observacao\StoreObservacao;
-use App\Http\Requests\Admin\Observacao\UpdateObservacao;
-use App\Models\Observacao;
+use App\Http\Requests\Admin\Apontamento\BulkDestroyApontamento;
+use App\Http\Requests\Admin\Apontamento\DestroyApontamento;
+use App\Http\Requests\Admin\Apontamento\IndexApontamento;
+use App\Http\Requests\Admin\Apontamento\StoreApontamento;
+use App\Http\Requests\Admin\Apontamento\UpdateApontamento;
+use App\Models\Apontamento;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -21,19 +21,19 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class ObservacoesController extends Controller
+class ApontamentosController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexObservacao $request
+     * @param IndexApontamento $request
      * @return array|Factory|View
      */
-    public function index(IndexObservacao $request)
+    public function index(IndexApontamento $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Observacao::class)->processRequestAndGet(
+        $data = AdminListing::create(Apontamento::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
@@ -53,7 +53,7 @@ class ObservacoesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.observacao.index', ['data' => $data]);
+        return view('admin.apontamento.index', ['data' => $data]);
     }
 
     /**
@@ -64,42 +64,42 @@ class ObservacoesController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.observacao.create');
+        $this->authorize('admin.apontamento.create');
 
-        return view('admin.observacao.create');
+        return view('admin.apontamento.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreObservacao $request
+     * @param StoreApontamento $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreObservacao $request)
+    public function store(StoreApontamento $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Observacao
-        $observaco = Observacao::create($sanitized);
+        // Store the Apontamento
+        $apontamento = Apontamento::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/observacoes'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/apontamentos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/observacoes');
+        return redirect('admin/apontamentos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Observacao $observaco
+     * @param Apontamento $apontamento
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Observacao $observaco)
+    public function show(Apontamento $apontamento)
     {
-        $this->authorize('admin.observacao.show', $observaco);
+        $this->authorize('admin.apontamento.show', $apontamento);
 
         // TODO your code goes here
     }
@@ -107,56 +107,56 @@ class ObservacoesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Observacao $observaco
+     * @param Apontamento $apontamento
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Observacao $observaco)
+    public function edit(Apontamento $apontamento)
     {
-        $this->authorize('admin.observacao.edit', $observaco);
+        $this->authorize('admin.apontamento.edit', $apontamento);
 
 
-        return view('admin.observacao.edit', [
-            'observacao' => $observaco,
+        return view('admin.apontamento.edit', [
+            'apontamento' => $apontamento,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateObservacao $request
-     * @param Observacao $observaco
+     * @param UpdateApontamento $request
+     * @param Apontamento $apontamento
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateObservacao $request, Observacao $observaco)
+    public function update(UpdateApontamento $request, Apontamento $apontamento)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Observacao
-        $observaco->update($sanitized);
+        // Update changed values Apontamento
+        $apontamento->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/observacoes'),
+                'redirect' => url('admin/apontamentos'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/observacoes');
+        return redirect('admin/apontamentos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyObservacao $request
-     * @param Observacao $observaco
+     * @param DestroyApontamento $request
+     * @param Apontamento $apontamento
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyObservacao $request, Observacao $observaco)
+    public function destroy(DestroyApontamento $request, Apontamento $apontamento)
     {
-        $observaco->delete();
+        $apontamento->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -168,17 +168,17 @@ class ObservacoesController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyObservacao $request
+     * @param BulkDestroyApontamento $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyObservacao $request) : Response
+    public function bulkDestroy(BulkDestroyApontamento $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('observacoes')->whereIn('id', $bulkChunk)
+                    DB::table('apontamentos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ]);
