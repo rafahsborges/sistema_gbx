@@ -6,7 +6,7 @@ Vue.component('observacao-form', {
         return {
             form: {
                 descricao:  '' ,
-
+                id_cliente:  '' ,
             }
         }
     }
