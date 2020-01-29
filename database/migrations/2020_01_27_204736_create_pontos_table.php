@@ -28,6 +28,11 @@ class CreatePontosTable extends Migration
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->string('altura')->nullable();
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')
+                ->references('id')->on('admin_users')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -40,6 +45,9 @@ class CreatePontosTable extends Migration
      */
     public function down()
     {
+        Schema::table('pontos', function (Blueprint $table) {
+            $table->dropForeign('pontos_id_cliente_foreign');
+        });
         Schema::dropIfExists('pontos');
     }
 }

@@ -38,7 +38,7 @@ class RepresentantesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'email', 'telefone', 'celular', 'cargo'],
+            ['id', 'nome', 'email', 'telefone', 'celular', 'cargo', 'id_cliente'],
 
             // set columns to searchIn
             ['id', 'nome', 'email', 'telefone', 'celular', 'cargo']

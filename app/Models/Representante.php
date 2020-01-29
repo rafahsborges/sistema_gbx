@@ -14,6 +14,7 @@ class Representante extends Model
         'telefone',
         'celular',
         'cargo',
+        'id_cliente',
     
     ];
     

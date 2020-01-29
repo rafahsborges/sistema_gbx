@@ -65,6 +65,7 @@ return [
             'telefone' => 'Telefone',
             'celular' => 'Celular',
             'cargo' => 'Cargo',
+            'id_cliente' => 'Id cliente',
         ],
     ],
 
@@ -111,6 +112,7 @@ return [
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
             'altura' => 'Altura',
+            'id_cliente' => 'Id cliente',
         ],
     ],
 
@@ -126,6 +128,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'descricao' => 'Descricao',
+            'id_cliente' => 'Id cliente',
         ],
     ],
 

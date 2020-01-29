@@ -31,6 +31,7 @@ class UpdateRepresentante extends FormRequest
             'telefone' => ['nullable', 'string'],
             'celular' => ['nullable', 'string'],
             'cargo' => ['sometimes', 'string'],
+            'id_cliente' => ['sometimes', 'string'],
             
         ];
     }

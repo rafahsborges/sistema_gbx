@@ -38,7 +38,7 @@ class ObservacoesController extends Controller
             $request,
 
             // set columns to query
-            ['id'],
+            ['id', 'id_cliente'],
 
             // set columns to searchIn
             ['id', 'descricao']

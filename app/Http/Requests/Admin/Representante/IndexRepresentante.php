@@ -26,7 +26,7 @@ class IndexRepresentante extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,email,telefone,celular,cargo|nullable',
+            'orderBy' => 'in:id,nome,email,telefone,celular,cargo,id_cliente|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

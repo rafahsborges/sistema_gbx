@@ -18,6 +18,7 @@ Vue.component('ponto-form', {
                 latitude:  '' ,
                 longitude:  '' ,
                 altura:  '' ,
+                id_cliente:  '' ,
                 
             }
         }

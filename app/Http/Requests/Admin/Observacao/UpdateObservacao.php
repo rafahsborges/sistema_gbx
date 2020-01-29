@@ -27,7 +27,7 @@ class UpdateObservacao extends FormRequest
     {
         return [
             'descricao' => ['sometimes', 'string'],
-
+            'id_cliente' => ['sometimes', 'string'],
         ];
     }
 

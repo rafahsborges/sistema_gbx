@@ -39,6 +39,7 @@ class StorePonto extends FormRequest
             'latitude' => ['nullable', 'string'],
             'longitude' => ['nullable', 'string'],
             'altura' => ['nullable', 'string'],
+            'id_cliente' => ['required', 'string'],
             
         ];
     }

@@ -26,7 +26,7 @@ class IndexObservacao extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id|nullable',
+            'orderBy' => 'in:id,id_cliente|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

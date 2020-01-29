@@ -38,7 +38,7 @@ class PontosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura'],
+            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura', 'id_cliente'],
 
             // set columns to searchIn
             ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura']

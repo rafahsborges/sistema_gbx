@@ -20,6 +20,11 @@ class CreateRepresentantesTable extends Migration
             $table->string('telefone', 10)->nullable();
             $table->string('celular', 11)->nullable();
             $table->string('cargo');
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')
+                ->references('id')->on('admin_users')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
             $table->softDeletes();
             $table->unique(['email', 'deleted_at']);
@@ -33,6 +38,9 @@ class CreateRepresentantesTable extends Migration
      */
     public function down()
     {
+        Schema::table('representantes', function (Blueprint $table) {
+            $table->dropForeign('representantes_id_cliente_foreign');
+        });
         Schema::dropIfExists('representantes');
     }
 }

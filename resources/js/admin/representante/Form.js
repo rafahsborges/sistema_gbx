@@ -10,6 +10,7 @@ Vue.component('representante-form', {
                 telefone:  '' ,
                 celular:  '' ,
                 cargo:  '' ,
+                id_cliente:  '' ,
                 
             }
         }

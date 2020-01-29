@@ -31,6 +31,7 @@ class StoreRepresentante extends FormRequest
             'telefone' => ['nullable', 'string'],
             'celular' => ['nullable', 'string'],
             'cargo' => ['required', 'string'],
+            'id_cliente' => ['required', 'string'],
             
         ];
     }

@@ -50,6 +50,7 @@ $factory->define(App\Models\Representante::class, static function (Faker\Generat
         'telefone' => $faker->sentence,
         'celular' => $faker->sentence,
         'cargo' => $faker->sentence,
+        'id_cliente' => $faker->sentence,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
@@ -86,6 +87,7 @@ $factory->define(App\Models\Ponto::class, static function (Faker\Generator $fake
         'latitude' => $faker->sentence,
         'longitude' => $faker->sentence,
         'altura' => $faker->sentence,
+        'id_cliente' => $faker->sentence,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
@@ -96,8 +98,10 @@ $factory->define(App\Models\Ponto::class, static function (Faker\Generator $fake
 $factory->define(App\Models\Observacao::class, static function (Faker\Generator $faker) {
     return [
         'descricao' => $faker->text(),
+        'id_cliente' => $faker->sentence,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
     ];
 });
+

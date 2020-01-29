@@ -22,6 +22,7 @@ class Ponto extends Model
         'latitude',
         'longitude',
         'altura',
+        'id_cliente',
     
     ];
     

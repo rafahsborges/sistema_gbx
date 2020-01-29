@@ -27,7 +27,7 @@ class StoreObservacao extends FormRequest
     {
         return [
             'descricao' => ['required', 'string'],
-
+            'id_cliente' => ['required', 'string'],
         ];
     }
 

@@ -13,6 +13,7 @@ class Observacao extends Model
 
     protected $fillable = [
         'descricao',
+        'id_cliente',
     ];
 
     protected $dates = [
