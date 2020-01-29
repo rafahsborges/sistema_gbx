@@ -11,6 +11,7 @@ use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
 use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 use Brackets\Media\HasMedia\ProcessMediaTrait;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -34,13 +35,34 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     use ProcessMediaTrait;
 
     protected $fillable = [
+        'tipo',
+        'nome',
+        'razao_social',
+        'cpf',
+        'cnpj',
         'email',
-        'password',
-        'name',
+        'email2',
+        'email3',
+        'telefone',
+        'celular',
+        'logradouro',
+        'numero',
+        'complemento',
+        'bairro',
+        'cidade',
+        'uf',
+        'cep',
+        'vencimento',
+        'valor',
+        'ini_contrato',
+        'fim_contrato',
+        'fistel',
+        'is_admin',
         'activated',
         'forbidden',
         'language',
-        'is_admin',
+        'enabled',
+        'password',
     ];
 
     protected $hidden = [
@@ -154,4 +176,28 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     }
 
     /* ************************ RELATIONS ************************ */
+
+    /**
+     * @return HasMany
+     */
+    public function apontamentos()
+    {
+        return $this->hasMany('App\Models\Apontamento', 'id_cliente');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function pontos()
+    {
+        return $this->hasMany('App\Models\Ponto', 'id_cliente');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function representantes()
+    {
+        return $this->hasMany('App\Models\Representante', 'id_cliente');
+    }
 }
