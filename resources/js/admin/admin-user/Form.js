@@ -62,7 +62,7 @@ Vue.component('admin-user-form', {
                 {nome: 'São Paulo', id: 'SP'},
                 {nome: 'Sergipe', id: 'SE'},
                 {nome: 'Tocantins', id: 'TO'},
-            ]
+            ],
         }
     }
 });

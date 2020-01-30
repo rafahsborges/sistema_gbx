@@ -25,8 +25,8 @@ class CreateAdminUsersTable extends Migration
                 $table->string('email');
                 $table->string('email2')->nullable();
                 $table->string('email3')->nullable();
-                $table->string('telefone', 10)->nullable();
-                $table->string('celular', 11)->nullable();
+                $table->string('telefone', 14)->nullable();
+                $table->string('celular', 15)->nullable();
                 $table->string('logradouro')->nullable();
                 $table->string('numero', 15)->nullable();
                 $table->string('complemento')->nullable();

@@ -32,7 +32,7 @@ class UpdatePonto extends FormRequest
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
             'cidade' => ['nullable', 'string'],
-            'uf' => ['nullable', 'string'],
+            'uf' => ['nullable'],
             'cep' => ['nullable', 'string'],
             'estacao' => ['nullable', 'string'],
             'entidade' => ['nullable', 'string'],
@@ -60,6 +60,14 @@ class UpdatePonto extends FormRequest
     public function getClienteId(){
         if ($this->has('cliente')){
             return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getUfId()
+    {
+        if ($this->has('uf')) {
+            return $this->get('uf')['id'];
         }
         return null;
     }

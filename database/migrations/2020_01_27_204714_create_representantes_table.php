@@ -17,8 +17,8 @@ class CreateRepresentantesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('email');
-            $table->string('telefone', 10)->nullable();
-            $table->string('celular', 11)->nullable();
+            $table->string('telefone', 14)->nullable();
+            $table->string('celular', 15)->nullable();
             $table->string('cargo');
             $table->unsignedBigInteger('id_cliente');
             $table->foreign('id_cliente')

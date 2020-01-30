@@ -75,7 +75,7 @@ class ApontamentosController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.apontamento.create');
+        //$this->authorize('admin.apontamento.create');
 
         return view('admin.apontamento.create', [
             'clientes' => AdminUser::all(),
@@ -127,8 +127,7 @@ class ApontamentosController extends Controller
      */
     public function edit(Apontamento $apontamento)
     {
-        $this->authorize('admin.apontamento.edit', $apontamento);
-
+        //$this->authorize('admin.apontamento.edit', $apontamento);
 
         return view('admin.apontamento.edit', [
             'apontamento' => $apontamento,

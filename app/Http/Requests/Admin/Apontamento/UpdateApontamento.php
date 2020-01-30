@@ -15,7 +15,8 @@ class UpdateApontamento extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.apontamento.edit', $this->apontamento);
+        //return Gate::allows('admin.apontamento.edit', $this->apontamento);
+        return auth()->check();
     }
 
     /**

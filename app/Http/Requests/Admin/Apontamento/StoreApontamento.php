@@ -15,7 +15,8 @@ class StoreApontamento extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.apontamento.create');
+        //return Gate::allows('admin.apontamento.create');
+        return auth()->check();
     }
 
     /**

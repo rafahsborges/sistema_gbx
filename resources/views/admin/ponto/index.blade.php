@@ -123,7 +123,7 @@
                                         <td>@{{ item.latitude }}</td>
                                         <td>@{{ item.longitude }}</td>
                                         <td>@{{ item.altura }}</td>
-                                        <td>@{{ item.id_cliente }}</td>
+                                        <td>@{{ item.cliente.nome }}</td>
 
                                         <td>
                                             <div class="row no-gutters">
