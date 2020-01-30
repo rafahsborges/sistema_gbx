@@ -20,9 +20,6 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\Permission\Traits\HasRoles;
 
-/**
- * @property mixed nome
- */
 class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
 {
     use Notifiable;
@@ -76,7 +73,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
         'deleted_at',
     ];
 
-    protected $appends = ['nome', 'resource_url'];
+    protected $appends = ['email', 'resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
@@ -88,16 +85,6 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     public function getResourceUrlAttribute()
     {
         return url('/admin/admin-users/' . $this->getKey());
-    }
-
-    /**
-     * Nome for admin user
-     *
-     * @return string
-     */
-    public function getNomeAttribute(): string
-    {
-        return $this->nome;
     }
 
     /**

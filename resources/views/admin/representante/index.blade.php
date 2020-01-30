@@ -50,7 +50,7 @@
                                 <div class="row" v-if="showAdvancedFilter">
                                     <div class="col col-lg-12 col-xl-12 form-group">
                                         <multiselect v-model="clientesMultiselect"
-                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->title]; })->toJson() }}"
+                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
                                                      label="label"
                                                      track-by="key"
                                                      placeholder="{{ __('Type to search a cliente/s') }}"
