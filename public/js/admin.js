@@ -112484,11 +112484,12 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('apontamento-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes'],
   data: function data() {
     return {
       form: {
         descricao: '',
-        id_cliente: ''
+        cliente: ''
       }
     };
   }
@@ -112508,7 +112509,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('apontamento-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      clientesMultiselect: {},
+      filters: {
+        clientes: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    }
+  }
 });
 
 /***/ }),
@@ -112692,6 +112713,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('ponto-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes'],
   data: function data() {
     return {
       form: {
@@ -112708,7 +112730,7 @@ Vue.component('ponto-form', {
         latitude: '',
         longitude: '',
         altura: '',
-        id_cliente: ''
+        cliente: ''
       }
     };
   }
@@ -112728,7 +112750,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('ponto-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      clientesMultiselect: {},
+      filters: {
+        clientes: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    }
+  }
 });
 
 /***/ }),
@@ -112885,6 +112927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('representante-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes'],
   data: function data() {
     return {
       form: {
@@ -112893,7 +112936,7 @@ Vue.component('representante-form', {
         telefone: '',
         celular: '',
         cargo: '',
-        id_cliente: ''
+        cliente: ''
       }
     };
   }
@@ -112913,7 +112956,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('representante-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      clientesMultiselect: {},
+      filters: {
+        clientes: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    }
+  }
 });
 
 /***/ }),
