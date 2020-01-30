@@ -2,6 +2,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('ponto-form', {
     mixins: [AppForm],
+    props: ['clientes'],
     data: function() {
         return {
             form: {
@@ -18,8 +19,7 @@ Vue.component('ponto-form', {
                 latitude:  '' ,
                 longitude:  '' ,
                 altura:  '' ,
-                id_cliente:  '' ,
-                
+                cliente:  '' ,
             }
         }
     }

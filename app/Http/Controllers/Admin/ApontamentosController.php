@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Apontamento\DestroyApontamento;
 use App\Http\Requests\Admin\Apontamento\IndexApontamento;
 use App\Http\Requests\Admin\Apontamento\StoreApontamento;
 use App\Http\Requests\Admin\Apontamento\UpdateApontamento;
+use App\Models\AdminUser;
 use App\Models\Apontamento;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -41,7 +42,14 @@ class ApontamentosController extends Controller
             ['id', 'id_cliente'],
 
             // set columns to searchIn
-            ['id', 'descricao']
+            ['id', 'descricao'],
+
+            function ($query) use ($request) {
+                $query->with(['cliente']);
+                if($request->has('clientes')){
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +61,10 @@ class ApontamentosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.apontamento.index', ['data' => $data]);
+        return view('admin.apontamento.index', [
+            'data' => $data,
+            'clientes' => AdminUser::all(),
+            ]);
     }
 
     /**
@@ -66,7 +77,9 @@ class ApontamentosController extends Controller
     {
         $this->authorize('admin.apontamento.create');
 
-        return view('admin.apontamento.create');
+        return view('admin.apontamento.create', [
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -79,6 +92,7 @@ class ApontamentosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Store the Apontamento
         $apontamento = Apontamento::create($sanitized);
@@ -118,6 +132,7 @@ class ApontamentosController extends Controller
 
         return view('admin.apontamento.edit', [
             'apontamento' => $apontamento,
+            'clientes' => AdminUser::all(),
         ]);
     }
 
@@ -132,6 +147,7 @@ class ApontamentosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Update changed values Apontamento
         $apontamento->update($sanitized);

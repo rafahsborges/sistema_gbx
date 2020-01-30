@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Representante\DestroyRepresentante;
 use App\Http\Requests\Admin\Representante\IndexRepresentante;
 use App\Http\Requests\Admin\Representante\StoreRepresentante;
 use App\Http\Requests\Admin\Representante\UpdateRepresentante;
+use App\Models\AdminUser;
 use App\Models\Representante;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -41,7 +42,14 @@ class RepresentantesController extends Controller
             ['id', 'nome', 'email', 'telefone', 'celular', 'cargo', 'id_cliente'],
 
             // set columns to searchIn
-            ['id', 'nome', 'email', 'telefone', 'celular', 'cargo']
+            ['id', 'nome', 'email', 'telefone', 'celular', 'cargo'],
+
+            function ($query) use ($request) {
+                $query->with(['cliente']);
+                if($request->has('clientes')){
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +61,10 @@ class RepresentantesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.representante.index', ['data' => $data]);
+        return view('admin.representante.index', [
+            'data' => $data,
+            'clientes' => AdminUser::all(),
+            ]);
     }
 
     /**
@@ -66,7 +77,9 @@ class RepresentantesController extends Controller
     {
         $this->authorize('admin.representante.create');
 
-        return view('admin.representante.create');
+        return view('admin.representante.create', [
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -79,6 +92,7 @@ class RepresentantesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Store the Representante
         $representante = Representante::create($sanitized);
@@ -118,6 +132,7 @@ class RepresentantesController extends Controller
 
         return view('admin.representante.edit', [
             'representante' => $representante,
+            'clientes' => AdminUser::all(),
         ]);
     }
 
@@ -132,6 +147,7 @@ class RepresentantesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Update changed values Representante
         $representante->update($sanitized);

@@ -27,8 +27,7 @@ class StoreApontamento extends FormRequest
     {
         return [
             'descricao' => ['required', 'string'],
-            'id_cliente' => ['required', 'string'],
-
+            'cliente' => ['required'],
         ];
     }
 
@@ -44,5 +43,12 @@ class StoreApontamento extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

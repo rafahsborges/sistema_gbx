@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Ponto extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
         'nome',
         'logradouro',
@@ -23,17 +24,15 @@ class Ponto extends Model
         'longitude',
         'altura',
         'id_cliente',
-    
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
-    
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
@@ -41,5 +40,9 @@ class Ponto extends Model
     public function getResourceUrlAttribute()
     {
         return url('/admin/pontos/'.$this->getKey());
+    }
+
+    public function cliente() {
+        return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
     }
 }

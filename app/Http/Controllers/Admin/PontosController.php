@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Ponto\DestroyPonto;
 use App\Http\Requests\Admin\Ponto\IndexPonto;
 use App\Http\Requests\Admin\Ponto\StorePonto;
 use App\Http\Requests\Admin\Ponto\UpdatePonto;
+use App\Models\AdminUser;
 use App\Models\Ponto;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -41,7 +42,14 @@ class PontosController extends Controller
             ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura', 'id_cliente'],
 
             // set columns to searchIn
-            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura']
+            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura'],
+
+            function ($query) use ($request) {
+                $query->with(['cliente']);
+                if($request->has('clientes')){
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +61,10 @@ class PontosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.ponto.index', ['data' => $data]);
+        return view('admin.ponto.index', [
+            'data' => $data,
+            'clientes' => AdminUser::all(),
+            ]);
     }
 
     /**
@@ -66,7 +77,9 @@ class PontosController extends Controller
     {
         $this->authorize('admin.ponto.create');
 
-        return view('admin.ponto.create');
+        return view('admin.ponto.create', [
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -79,6 +92,7 @@ class PontosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Store the Ponto
         $ponto = Ponto::create($sanitized);
@@ -118,6 +132,7 @@ class PontosController extends Controller
 
         return view('admin.ponto.edit', [
             'ponto' => $ponto,
+            'clientes' => AdminUser::all(),
         ]);
     }
 
@@ -132,6 +147,7 @@ class PontosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Update changed values Ponto
         $ponto->update($sanitized);

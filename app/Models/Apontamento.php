@@ -28,4 +28,8 @@ class Apontamento extends Model
     {
         return url('/admin/apontamentos/'.$this->getKey());
     }
+
+    public function cliente() {
+        return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
+    }
 }

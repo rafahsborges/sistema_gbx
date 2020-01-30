@@ -31,8 +31,7 @@ class UpdateRepresentante extends FormRequest
             'telefone' => ['nullable', 'string'],
             'celular' => ['nullable', 'string'],
             'cargo' => ['sometimes', 'string'],
-            'id_cliente' => ['sometimes', 'string'],
-            
+            'cliente' => ['required'],
         ];
     }
 
@@ -45,9 +44,15 @@ class UpdateRepresentante extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

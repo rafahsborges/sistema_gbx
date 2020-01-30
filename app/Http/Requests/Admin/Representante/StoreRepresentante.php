@@ -31,8 +31,7 @@ class StoreRepresentante extends FormRequest
             'telefone' => ['nullable', 'string'],
             'celular' => ['nullable', 'string'],
             'cargo' => ['required', 'string'],
-            'id_cliente' => ['required', 'string'],
-            
+            'cliente' => ['required'],
         ];
     }
 
@@ -48,5 +47,12 @@ class StoreRepresentante extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

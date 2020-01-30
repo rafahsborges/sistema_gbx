@@ -39,8 +39,7 @@ class UpdatePonto extends FormRequest
             'latitude' => ['nullable', 'string'],
             'longitude' => ['nullable', 'string'],
             'altura' => ['nullable', 'string'],
-            'id_cliente' => ['sometimes', 'string'],
-            
+            'cliente' => ['required'],
         ];
     }
 
@@ -53,9 +52,15 @@ class UpdatePonto extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

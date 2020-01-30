@@ -39,8 +39,7 @@ class StorePonto extends FormRequest
             'latitude' => ['nullable', 'string'],
             'longitude' => ['nullable', 'string'],
             'altura' => ['nullable', 'string'],
-            'id_cliente' => ['required', 'string'],
-            
+            'cliente' => ['required'],
         ];
     }
 
@@ -56,5 +55,12 @@ class StorePonto extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

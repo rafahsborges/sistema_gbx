@@ -2,6 +2,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('representante-form', {
     mixins: [AppForm],
+    props: ['clientes'],
     data: function() {
         return {
             form: {
@@ -10,8 +11,7 @@ Vue.component('representante-form', {
                 telefone:  '' ,
                 celular:  '' ,
                 cargo:  '' ,
-                id_cliente:  '' ,
-                
+                cliente:  '' ,
             }
         }
     }
