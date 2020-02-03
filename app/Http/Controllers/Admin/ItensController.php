@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Item\StoreItem;
 use App\Http\Requests\Admin\Item\UpdateItem;
 use App\Models\Item;
 use Brackets\AdminListing\Facades\AdminListing;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -177,8 +178,10 @@ class ItensController extends Controller
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Item::whereIn('id', $bulkChunk)->delete();
-
+                    DB::table('itens')->whereIn('id', $bulkChunk)
+                        ->update([
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                        ]);
                     // TODO your code goes here
                 });
         });
