@@ -14,7 +14,8 @@ class IndexStatus extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.status.index');
+        //return Gate::allows('admin.status.index');
+        return auth()->check();
     }
 
     /**

@@ -27,6 +27,7 @@ class CreateItensTable extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

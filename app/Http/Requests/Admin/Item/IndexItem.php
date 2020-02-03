@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Iten;
+namespace App\Http\Requests\Admin\Item;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexIten extends FormRequest
+class IndexItem extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,8 @@ class IndexIten extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.item.index');
+        //return Gate::allows('admin.item.index');
+        return auth()->check();
     }
 
     /**

@@ -84,10 +84,10 @@ class StatusController extends Controller
         $status = Status::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/statuses'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/status'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/statuses');
+        return redirect('admin/status');
     }
 
     /**
@@ -138,12 +138,12 @@ class StatusController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/statuses'),
+                'redirect' => url('admin/status'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/statuses');
+        return redirect('admin/status');
     }
 
     /**
@@ -178,7 +178,7 @@ class StatusController extends Controller
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('statuses')->whereIn('id', $bulkChunk)
+                    DB::table('status')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ]);

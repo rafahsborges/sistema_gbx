@@ -119,7 +119,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('statuses')->name('statuses/')->group(static function() {
+        Route::prefix('status')->name('status/')->group(static function() {
             Route::get('/',                                             'StatusController@index')->name('index');
             Route::get('/create',                                       'StatusController@create')->name('create');
             Route::post('/',                                            'StatusController@store')->name('store');

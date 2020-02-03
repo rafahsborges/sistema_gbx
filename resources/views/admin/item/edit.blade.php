@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.item.actions.edit', ['name' => $iten->id]))
+@section('title', trans('admin.item.actions.edit', ['name' => $item->id]))
 
 @section('body')
 
@@ -8,8 +8,8 @@
         <div class="card">
 
             <item-form
-                :action="'{{ $iten->resource_url }}'"
-                :data="{{ $iten->toJson() }}"
+                :action="'{{ $item->resource_url }}'"
+                :data="{{ $item->toJson() }}"
                 v-cloak
                 inline-template>
 
@@ -17,7 +17,7 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.item.actions.edit', ['name' => $iten->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.item.actions.edit', ['name' => $item->id]) }}
                     </div>
 
                     <div class="card-body">

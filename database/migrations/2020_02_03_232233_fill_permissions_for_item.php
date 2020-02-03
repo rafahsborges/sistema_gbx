@@ -5,7 +5,7 @@ use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class FillPermissionsForIten extends Migration
+class FillPermissionsForItem extends Migration
 {
     /**
      * @var Repository|mixed
@@ -21,7 +21,7 @@ class FillPermissionsForIten extends Migration
     protected $roles;
 
     /**
-     * FillPermissionsForIten constructor.
+     * FillPermissionsForItem constructor.
      */
     public function __construct()
     {

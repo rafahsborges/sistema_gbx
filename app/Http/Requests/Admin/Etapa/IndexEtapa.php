@@ -14,7 +14,8 @@ class IndexEtapa extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.etapa.index');
+        //return Gate::allows('admin.etapa.index');
+        return auth()->check();
     }
 
     /**

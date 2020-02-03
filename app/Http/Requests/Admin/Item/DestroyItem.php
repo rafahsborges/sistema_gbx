@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Iten;
+namespace App\Http\Requests\Admin\Item;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class DestroyIten extends FormRequest
+class DestroyItem extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

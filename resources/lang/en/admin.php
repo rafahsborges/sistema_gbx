@@ -189,7 +189,7 @@ return [
 
         'actions' => [
             'index' => 'Itens',
-            'create' => 'New Iten',
+            'create' => 'New Item',
             'edit' => 'Edit :name',
         ],
 

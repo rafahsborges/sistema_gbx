@@ -8,25 +8,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Status extends Model
 {
     use SoftDeletes;
+
+    protected $table = 'status';
+
     protected $fillable = [
         'nome',
-    
     ];
-    
-    
+
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
-    
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/statuses/'.$this->getKey());
+        return url('/admin/status/'.$this->getKey());
     }
 }

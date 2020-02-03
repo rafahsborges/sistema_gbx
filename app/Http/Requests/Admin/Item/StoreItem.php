@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Iten;
+namespace App\Http\Requests\Admin\Item;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateIten extends FormRequest
+class StoreItem extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class UpdateIten extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.item.edit', $this->item);
+        return Gate::allows('admin.item.create');
     }
 
     /**
@@ -26,22 +26,21 @@ class UpdateIten extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => ['sometimes', 'string'],
-            'id_etapa' => ['sometimes', 'string'],
-            'id_status' => ['sometimes', 'string'],
+            'nome' => ['required', 'string'],
+            'id_etapa' => ['required', 'string'],
+            'id_status' => ['required', 'string'],
 
         ];
     }
 
     /**
-     * Modify input data
-     *
-     * @return array
-     */
+    * Modify input data
+    *
+    * @return array
+    */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 

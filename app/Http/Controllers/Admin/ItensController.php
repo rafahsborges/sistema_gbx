@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Iten\BulkDestroyIten;
-use App\Http\Requests\Admin\Iten\DestroyIten;
-use App\Http\Requests\Admin\Iten\IndexIten;
-use App\Http\Requests\Admin\Iten\StoreIten;
-use App\Http\Requests\Admin\Iten\UpdateIten;
-use App\Models\Iten;
+use App\Http\Requests\Admin\Item\BulkDestroyItem;
+use App\Http\Requests\Admin\Item\DestroyItem;
+use App\Http\Requests\Admin\Item\IndexItem;
+use App\Http\Requests\Admin\Item\StoreItem;
+use App\Http\Requests\Admin\Item\UpdateItem;
+use App\Models\Item;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -26,13 +26,13 @@ class ItensController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param IndexIten $request
+     * @param IndexItem $request
      * @return array|Factory|View
      */
-    public function index(IndexIten $request)
+    public function index(IndexItem $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Iten::class)->processRequestAndGet(
+        $data = AdminListing::create(Item::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
@@ -71,16 +71,16 @@ class ItensController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreIten $request
+     * @param StoreItem $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreIten $request)
+    public function store(StoreItem $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Iten
-        $iten = Iten::create($sanitized);
+        // Store the Item
+        $item = Item::create($sanitized);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/itens'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -92,13 +92,13 @@ class ItensController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Iten $iten
+     * @param Item $item
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Iten $iten)
+    public function show(Item $item)
     {
-        $this->authorize('admin.item.show', $iten);
+        $this->authorize('admin.item.show', $item);
 
         // TODO your code goes here
     }
@@ -106,34 +106,34 @@ class ItensController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Iten $iten
+     * @param Item $item
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Iten $iten)
+    public function edit(Item $item)
     {
-        $this->authorize('admin.item.edit', $iten);
+        $this->authorize('admin.item.edit', $item);
 
 
         return view('admin.item.edit', [
-            'item' => $iten,
+            'item' => $item,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateIten $request
-     * @param Iten $iten
+     * @param UpdateItem $request
+     * @param Item $item
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateIten $request, Iten $iten)
+    public function update(UpdateItem $request, Item $item)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Iten
-        $iten->update($sanitized);
+        // Update changed values Item
+        $item->update($sanitized);
 
         if ($request->ajax()) {
             return [
@@ -148,14 +148,14 @@ class ItensController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyIten $request
-     * @param Iten $iten
+     * @param DestroyItem $request
+     * @param Item $item
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyIten $request, Iten $iten)
+    public function destroy(DestroyItem $request, Item $item)
     {
-        $iten->delete();
+        $item->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -167,17 +167,17 @@ class ItensController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyIten $request
+     * @param BulkDestroyItem $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyIten $request) : Response
+    public function bulkDestroy(BulkDestroyItem $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Iten::whereIn('id', $bulkChunk)->delete();
+                    Item::whereIn('id', $bulkChunk)->delete();
 
                     // TODO your code goes here
                 });

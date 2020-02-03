@@ -112834,7 +112834,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cidade__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cidade */ "./resources/js/admin/cidade/index.js");
 /* harmony import */ var _status__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./status */ "./resources/js/admin/status/index.js");
 /* harmony import */ var _etapa__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./etapa */ "./resources/js/admin/etapa/index.js");
-/* harmony import */ var _iten__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./iten */ "./resources/js/admin/iten/index.js");
+/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./item */ "./resources/js/admin/item/index.js");
 /* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
 
 
@@ -112851,9 +112851,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/admin/iten/Form.js":
+/***/ "./resources/js/admin/item/Form.js":
 /*!*****************************************!*\
-  !*** ./resources/js/admin/iten/Form.js ***!
+  !*** ./resources/js/admin/item/Form.js ***!
   \*****************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -112862,7 +112862,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('iten-form', {
+Vue.component('item-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
@@ -112877,9 +112877,9 @@ Vue.component('iten-form', {
 
 /***/ }),
 
-/***/ "./resources/js/admin/iten/Listing.js":
+/***/ "./resources/js/admin/item/Listing.js":
 /*!********************************************!*\
-  !*** ./resources/js/admin/iten/Listing.js ***!
+  !*** ./resources/js/admin/item/Listing.js ***!
   \********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -112888,23 +112888,23 @@ Vue.component('iten-form', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
-Vue.component('iten-listing', {
+Vue.component('item-listing', {
   mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
 
-/***/ "./resources/js/admin/iten/index.js":
+/***/ "./resources/js/admin/item/index.js":
 /*!******************************************!*\
-  !*** ./resources/js/admin/iten/index.js ***!
+  !*** ./resources/js/admin/item/index.js ***!
   \******************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/iten/Listing.js");
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/iten/Form.js");
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/item/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/item/Form.js");
 
 
 
