@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminUser;
+use App\Models\Cidade;
+use App\Models\Estado;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -53,8 +56,14 @@ class ProfileController extends Controller
     {
         $this->setUser($request);
 
+        $adminUser = AdminUser::with('estado')
+            ->with('cidade')
+            ->find($this->adminUser->id);
+
         return view('admin.profile.edit-profile', [
-            'adminUser' => $this->adminUser,
+            'adminUser' => $adminUser,
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
         ]);
     }
 
@@ -62,8 +71,8 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @throws ValidationException
      * @return array|RedirectResponse|Redirector
+     * @throws ValidationException
      */
     public function updateProfile(Request $request)
     {
@@ -86,8 +95,6 @@ class ProfileController extends Controller
             'numero' => ['nullable', 'string'],
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
-            'id_cidade' => ['nullable', 'string'],
-            'id_estado' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'vencimento' => ['nullable', 'date'],
             'valor' => ['nullable', 'numeric'],
@@ -97,7 +104,8 @@ class ProfileController extends Controller
             'is_admin' => ['sometimes', 'boolean'],
             'language' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-
+            'estado' => ['nullable'],
+            'cidade' => ['nullable'],
         ]);
 
         // Sanitize input
@@ -116,19 +124,19 @@ class ProfileController extends Controller
             'numero',
             'complemento',
             'bairro',
-            'id_cidade',
-            'id_estado',
             'cep',
             'vencimento',
             'valor',
             'ini_contrato',
             'fim_contrato',
             'fistel',
-            'is_admin',
             'language',
-            'enabled',
-
+            'estado',
+            'cidade',
         ]);
+
+        $sanitized['id_estado'] = $sanitized['estado'];
+        $sanitized['id_cidade'] = $sanitized['cidade'];
 
         // Update changed values AdminUser
         $this->adminUser->update($sanitized);
@@ -160,8 +168,8 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @throws ValidationException
      * @return array|RedirectResponse|Redirector
+     * @throws ValidationException
      */
     public function updatePassword(Request $request)
     {
@@ -171,13 +179,11 @@ class ProfileController extends Controller
         // Validate the request
         $this->validate($request, [
             'password' => ['sometimes', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
-
         ]);
 
         // Sanitize input
         $sanitized = $request->only([
             'password',
-
         ]);
 
         //Modify input, set hashed password

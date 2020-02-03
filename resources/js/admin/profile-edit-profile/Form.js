@@ -49,6 +49,15 @@ Vue.component('profile-edit-profile-form', {
             } else if (data.redirect) {
                 window.location.replace(data.redirect);
             }
+        },
+        getAddressInfo(e){
+            this.$viaCep.buscarCep(e.target.value).then((obj) => {
+                this.form.logradouro = obj.logradouro;
+                this.form.complemento = obj.complemento;
+                this.form.bairro = obj.bairro;
+                //this.form.cidade = obj.localidade;
+                //this.form.estado = obj.uf;
+            });
         }
     }
 });

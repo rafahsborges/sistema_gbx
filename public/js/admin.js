@@ -100134,6 +100134,35 @@ if (GlobalVue) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-viacep/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/vue-viacep/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const ViaCep = {
+    install: function (Vue) {
+        Vue.prototype.$viaCep = {
+            buscarCep: function (cep) {
+                return fetch(`https://viacep.com.br/ws/${cep}/json/`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then((response) => response.json())
+            }
+        }
+    }
+}
+
+module.exports = ViaCep;
+
+/***/ }),
+
 /***/ "./node_modules/vue/dist/vue.common.dev.js":
 /*!*************************************************!*\
   !*** ./node_modules/vue/dist/vue.common.dev.js ***!
@@ -112243,6 +112272,18 @@ Vue.component('admin-user-form', {
         password: ''
       }
     };
+  },
+  methods: {
+    getAddressInfo: function getAddressInfo(e) {
+      var _this = this;
+
+      this.$viaCep.buscarCep(e.target.value).then(function (obj) {
+        _this.form.logradouro = obj.logradouro;
+        _this.form.complemento = obj.complemento;
+        _this.form.bairro = obj.bairro; //this.form.cidade = obj.localidade;
+        //this.form.estado = obj.uf;
+      });
+    }
   }
 });
 
@@ -112356,6 +112397,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./index */ "./resources/js/admin/index.js");
 /* harmony import */ var craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! craftable/dist/ui */ "./node_modules/craftable/dist/ui/index.js");
 /* harmony import */ var craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var vue_viacep__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-viacep */ "./node_modules/vue-viacep/index.js");
+/* harmony import */ var vue_viacep__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(vue_viacep__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -112384,6 +112428,7 @@ vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_js_modal__WEBPACK_IMPORTED_M
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default.a);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_notification__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_cookie__WEBPACK_IMPORTED_MODULE_8___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_viacep__WEBPACK_IMPORTED_MODULE_15___default.a);
 new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
   mixins: [craftable__WEBPACK_IMPORTED_MODULE_9__["Admin"]]
 });
@@ -112775,6 +112820,18 @@ Vue.component('ponto-form', {
         cliente: ''
       }
     };
+  },
+  methods: {
+    getAddressInfo: function getAddressInfo(e) {
+      var _this = this;
+
+      this.$viaCep.buscarCep(e.target.value).then(function (obj) {
+        _this.form.logradouro = obj.logradouro;
+        _this.form.complemento = obj.complemento;
+        _this.form.bairro = obj.bairro; //this.form.cidade = obj.localidade;
+        //this.form.estado = obj.uf;
+      });
+    }
   }
 });
 
@@ -112937,6 +112994,16 @@ Vue.component('profile-edit-profile-form', {
       } else if (data.redirect) {
         window.location.replace(data.redirect);
       }
+    },
+    getAddressInfo: function getAddressInfo(e) {
+      var _this = this;
+
+      this.$viaCep.buscarCep(e.target.value).then(function (obj) {
+        _this.form.logradouro = obj.logradouro;
+        _this.form.complemento = obj.complemento;
+        _this.form.bairro = obj.bairro; //this.form.cidade = obj.localidade;
+        //this.form.estado = obj.uf;
+      });
     }
   }
 });

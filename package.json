@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "v-money": "^0.8.1",
-        "vue-the-mask": "^0.11.1"
+        "vue-the-mask": "^0.11.1",
+        "vue-viacep": "^1.0.3"
     }
 }

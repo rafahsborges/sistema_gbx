@@ -17,6 +17,8 @@ import './index';
 
 import 'craftable/dist/ui';
 
+import ViaCep from 'vue-viacep'
+
 Vue.component('multiselect', Multiselect);
 Vue.use(VeeValidate, {strict: true});
 Vue.component('datetime', flatPickr);
@@ -24,6 +26,7 @@ Vue.use(VModal, { dialog: true, dynamic: true, injectModalsContainer: true });
 Vue.use(VueQuillEditor);
 Vue.use(Notifications);
 Vue.use(VueCookie);
+Vue.use(ViaCep);
 
 new Vue({
     mixins: [Admin],

@@ -31,6 +31,19 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('cep'), 'has-success': fields.cep && fields.cep.valid }">
+    <label for="cep" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.cep') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.cep" v-validate="''" @input="validate($event)" class="form-control"
+               v-mask="'#####-###'" @blur="getAddressInfo"
+               :class="{'form-control-danger': errors.has('cep'), 'form-control-success': fields.cep && fields.cep.valid}"
+               id="cep" name="cep" placeholder="{{ trans('admin.ponto.columns.cep') }}">
+        <div v-if="errors.has('cep')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cep') }}</div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('logradouro'), 'has-success': fields.logradouro && fields.logradouro.valid }">
     <label for="logradouro" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.logradouro') }}</label>
@@ -117,19 +130,6 @@
             placeholder="{{ trans('admin.ponto.columns.id_estado') }}">
         </multiselect>
         <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_estado') }}</div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('cep'), 'has-success': fields.cep && fields.cep.valid }">
-    <label for="cep" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.cep') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.cep" v-validate="''" @input="validate($event)" class="form-control"
-               v-mask="'#####-###'"
-               :class="{'form-control-danger': errors.has('cep'), 'form-control-success': fields.cep && fields.cep.valid}"
-               id="cep" name="cep" placeholder="{{ trans('admin.ponto.columns.cep') }}">
-        <div v-if="errors.has('cep')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cep') }}</div>
     </div>
 </div>
 
