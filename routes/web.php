@@ -153,10 +153,10 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/',                                             'ItensController@index')->name('index');
             Route::get('/create',                                       'ItensController@create')->name('create');
             Route::post('/',                                            'ItensController@store')->name('store');
-            Route::get('/{iten}/edit',                                  'ItensController@edit')->name('edit');
+            Route::get('/{item}/edit',                                  'ItensController@edit')->name('edit');
             Route::post('/bulk-destroy',                                'ItensController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{iten}',                                      'ItensController@update')->name('update');
-            Route::delete('/{iten}',                                    'ItensController@destroy')->name('destroy');
+            Route::post('/{item}',                                      'ItensController@update')->name('update');
+            Route::delete('/{item}',                                    'ItensController@destroy')->name('destroy');
         });
     });
 });

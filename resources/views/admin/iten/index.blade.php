@@ -1,10 +1,10 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.iten.actions.index'))
+@section('title', trans('admin.item.actions.index'))
 
 @section('body')
 
-    <iten-listing
+    <item-listing
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/itens') }}'"
         inline-template>
@@ -13,8 +13,8 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.iten.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/itens/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.iten.actions.create') }}</a>
+                        <i class="fa fa-align-justify"></i> {{ trans('admin.item.actions.index') }}
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/itens/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.item.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
-                                            
+
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="100">100</option>
@@ -49,10 +49,10 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.iten.columns.id') }}</th>
-                                        <th is='sortable' :column="'nome'">{{ trans('admin.iten.columns.nome') }}</th>
-                                        <th is='sortable' :column="'id_etapa'">{{ trans('admin.iten.columns.id_etapa') }}</th>
-                                        <th is='sortable' :column="'id_status'">{{ trans('admin.iten.columns.id_status') }}</th>
+                                        <th is='sortable' :column="'id'">{{ trans('admin.item.columns.id') }}</th>
+                                        <th is='sortable' :column="'nome'">{{ trans('admin.item.columns.nome') }}</th>
+                                        <th is='sortable' :column="'id_etapa'">{{ trans('admin.item.columns.id_etapa') }}</th>
+                                        <th is='sortable' :column="'id_status'">{{ trans('admin.item.columns.id_status') }}</th>
 
                                         <th></th>
                                     </tr>
@@ -80,7 +80,7 @@
                                         <td>@{{ item.nome }}</td>
                                         <td>@{{ item.id_etapa }}</td>
                                         <td>@{{ item.id_status }}</td>
-                                        
+
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">
@@ -108,13 +108,13 @@
                                 <i class="icon-magnifier"></i>
                                 <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
                                 <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/itens/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.iten.actions.create') }}</a>
+                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/itens/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.item.actions.create') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </iten-listing>
+    </item-listing>
 
 @endsection

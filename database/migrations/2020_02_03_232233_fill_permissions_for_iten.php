@@ -28,13 +28,13 @@ class FillPermissionsForIten extends Migration
         $this->guardName = config('admin-auth.defaults.guard');
 
         $permissions = collect([
-            'admin.iten',
-            'admin.iten.index',
-            'admin.iten.create',
-            'admin.iten.show',
-            'admin.iten.edit',
-            'admin.iten.delete',
-            'admin.iten.bulk-delete',
+            'admin.item',
+            'admin.item.index',
+            'admin.item.create',
+            'admin.item.show',
+            'admin.item.edit',
+            'admin.item.delete',
+            'admin.item.bulk-delete',
         ]);
 
         //Add New permissions

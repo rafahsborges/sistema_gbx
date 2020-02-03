@@ -163,7 +163,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-            
+
         ],
     ],
 
@@ -180,11 +180,11 @@ return [
             'id' => 'ID',
             'nome' => 'Nome',
             'id_status' => 'Id status',
-            
+
         ],
     ],
 
-    'iten' => [
+    'item' => [
         'title' => 'Itens',
 
         'actions' => [
@@ -198,7 +198,7 @@ return [
             'nome' => 'Nome',
             'id_etapa' => 'Id etapa',
             'id_status' => 'Id status',
-            
+
         ],
     ],
 
@@ -219,7 +219,7 @@ return [
             'descricao' => 'Descricao',
             'id_etapa' => 'Id etapa',
             'id_status' => 'Id status',
-            
+
         ],
     ],
 

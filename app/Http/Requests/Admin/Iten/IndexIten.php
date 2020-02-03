@@ -14,7 +14,7 @@ class IndexIten extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.iten.index');
+        return Gate::allows('admin.item.index');
     }
 
     /**

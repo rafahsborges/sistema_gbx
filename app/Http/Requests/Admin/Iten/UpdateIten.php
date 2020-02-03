@@ -15,7 +15,7 @@ class UpdateIten extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.iten.edit', $this->iten);
+        return Gate::allows('admin.item.edit', $this->item);
     }
 
     /**
@@ -29,7 +29,7 @@ class UpdateIten extends FormRequest
             'nome' => ['sometimes', 'string'],
             'id_etapa' => ['sometimes', 'string'],
             'id_status' => ['sometimes', 'string'],
-            
+
         ];
     }
 

@@ -52,7 +52,7 @@ class ItensController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.iten.index', ['data' => $data]);
+        return view('admin.item.index', ['data' => $data]);
     }
 
     /**
@@ -63,9 +63,9 @@ class ItensController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.iten.create');
+        $this->authorize('admin.item.create');
 
-        return view('admin.iten.create');
+        return view('admin.item.create');
     }
 
     /**
@@ -98,7 +98,7 @@ class ItensController extends Controller
      */
     public function show(Iten $iten)
     {
-        $this->authorize('admin.iten.show', $iten);
+        $this->authorize('admin.item.show', $iten);
 
         // TODO your code goes here
     }
@@ -112,11 +112,11 @@ class ItensController extends Controller
      */
     public function edit(Iten $iten)
     {
-        $this->authorize('admin.iten.edit', $iten);
+        $this->authorize('admin.item.edit', $iten);
 
 
-        return view('admin.iten.edit', [
-            'iten' => $iten,
+        return view('admin.item.edit', [
+            'item' => $iten,
         ]);
     }
 

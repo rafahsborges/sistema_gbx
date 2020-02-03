@@ -14,7 +14,7 @@ class DestroyIten extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.iten.delete', $this->iten);
+        return Gate::allows('admin.item.delete', $this->item);
     }
 
     /**

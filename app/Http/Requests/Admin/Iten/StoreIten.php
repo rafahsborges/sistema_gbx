@@ -15,7 +15,7 @@ class StoreIten extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.iten.create');
+        return Gate::allows('admin.item.create');
     }
 
     /**
@@ -29,7 +29,7 @@ class StoreIten extends FormRequest
             'nome' => ['required', 'string'],
             'id_etapa' => ['required', 'string'],
             'id_status' => ['required', 'string'],
-            
+
         ];
     }
 

@@ -8,5 +8,5 @@ import './estado';
 import './cidade';
 import './status';
 import './etapa';
-import './iten';
+import './item';
 import './servico';

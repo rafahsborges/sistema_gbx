@@ -1,6 +1,6 @@
 import AppForm from '../app-components/Form/AppForm';
 
-Vue.component('iten-form', {
+Vue.component('item-form', {
     mixins: [AppForm],
     data: function() {
         return {
@@ -8,7 +8,7 @@ Vue.component('iten-form', {
                 nome:  '' ,
                 id_etapa:  '' ,
                 id_status:  '' ,
-                
+
             }
         }
     }

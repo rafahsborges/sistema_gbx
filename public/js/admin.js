@@ -112757,6 +112757,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/etapa/Form.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/etapa/Form.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('etapa-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        id_status: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/etapa/Listing.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/etapa/Listing.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('etapa-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/etapa/index.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/etapa/index.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/etapa/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/etapa/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/index.js":
 /*!*************************************!*\
   !*** ./resources/js/admin/index.js ***!
@@ -112770,11 +112828,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_edit_profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile-edit-profile */ "./resources/js/admin/profile-edit-profile/index.js");
 /* harmony import */ var _profile_edit_password__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile-edit-password */ "./resources/js/admin/profile-edit-password/index.js");
 /* harmony import */ var _representante__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./representante */ "./resources/js/admin/representante/index.js");
-/* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
-/* harmony import */ var _ponto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ponto */ "./resources/js/admin/ponto/index.js");
-/* harmony import */ var _apontamento__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./apontamento */ "./resources/js/admin/apontamento/index.js");
-/* harmony import */ var _estado__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./estado */ "./resources/js/admin/estado/index.js");
-/* harmony import */ var _cidade__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cidade */ "./resources/js/admin/cidade/index.js");
+/* harmony import */ var _ponto__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ponto */ "./resources/js/admin/ponto/index.js");
+/* harmony import */ var _apontamento__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./apontamento */ "./resources/js/admin/apontamento/index.js");
+/* harmony import */ var _estado__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./estado */ "./resources/js/admin/estado/index.js");
+/* harmony import */ var _cidade__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cidade */ "./resources/js/admin/cidade/index.js");
+/* harmony import */ var _status__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./status */ "./resources/js/admin/status/index.js");
+/* harmony import */ var _etapa__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./etapa */ "./resources/js/admin/etapa/index.js");
+/* harmony import */ var _iten__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./iten */ "./resources/js/admin/iten/index.js");
+/* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
 
 
 
@@ -112782,6 +112843,68 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/iten/Form.js":
+/*!*****************************************!*\
+  !*** ./resources/js/admin/iten/Form.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('iten-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        id_etapa: '',
+        id_status: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/iten/Listing.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/iten/Listing.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('iten-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/iten/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/iten/index.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/iten/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/iten/Form.js");
 
 
 
@@ -113127,7 +113250,8 @@ Vue.component('servico-form', {
         valor: '',
         orgao: '',
         descricao: '',
-        status: ''
+        id_etapa: '',
+        id_status: ''
       }
     };
   }
@@ -113163,6 +113287,63 @@ Vue.component('servico-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/servico/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/servico/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/status/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/status/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('status-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/status/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/status/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('status-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/status/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/status/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/status/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/status/Form.js");
 
 
 
