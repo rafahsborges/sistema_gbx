@@ -53,12 +53,13 @@
                                         <th is='sortable' :column="'nome'">{{ trans('admin.servico.columns.nome') }}</th>
                                         <th is='sortable' :column="'valor'">{{ trans('admin.servico.columns.valor') }}</th>
                                         <th is='sortable' :column="'orgao'">{{ trans('admin.servico.columns.orgao') }}</th>
-                                        <th is='sortable' :column="'status'">{{ trans('admin.servico.columns.status') }}</th>
+                                        <th is='sortable' :column="'id_etapa'">{{ trans('admin.servico.columns.id_etapa') }}</th>
+                                        <th is='sortable' :column="'id_status'">{{ trans('admin.servico.columns.id_status') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="7">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="8">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/servicos')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -81,7 +82,8 @@
                                         <td>@{{ item.nome }}</td>
                                         <td>@{{ item.valor }}</td>
                                         <td>@{{ item.orgao }}</td>
-                                        <td>@{{ item.status }}</td>
+                                        <td>@{{ item.id_etapa }}</td>
+                                        <td>@{{ item.id_status }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">

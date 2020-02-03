@@ -20,13 +20,13 @@ class CreatePontosTable extends Migration
             $table->string('numero', 15)->nullable();
             $table->string('complemento')->nullable();
             $table->string('bairro')->nullable();
-            $table->unsignedBigInteger('id_cidade')->index('fk_pontos_cidades')->nullable();
-            $table->foreign('id_cidade', 'fk_pontos_cidades')
+            $table->unsignedBigInteger('id_cidade')->nullable();
+            $table->foreign('id_cidade')
                 ->references('id')->on('cidades')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->unsignedBigInteger('id_estado')->index('fk_pontos_estados')->nullable();
-            $table->foreign('id_estado', 'fk_pontos_estados')
+            $table->unsignedBigInteger('id_estado')->nullable();
+            $table->foreign('id_estado')
                 ->references('id')->on('estados')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
@@ -55,8 +55,8 @@ class CreatePontosTable extends Migration
     {
         Schema::table('pontos', function (Blueprint $table) {
             $table->dropForeign('pontos_id_cliente_foreign');
-            $table->dropForeign('fk_pontos_cidades');
-            $table->dropForeign('fk_pontos_estados');
+            $table->dropForeign('pontos_id_estado_foreign');
+            $table->dropForeign('pontos_id_cidade_foreign');
         });
         Schema::dropIfExists('pontos');
     }

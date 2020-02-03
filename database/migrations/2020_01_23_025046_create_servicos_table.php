@@ -19,7 +19,16 @@ class CreateServicosTable extends Migration
             $table->decimal('valor', 9)->nullable();
             $table->string('orgao')->nullable();
             $table->text('descricao');
-            $table->string('status', 1)->nullable();
+            $table->unsignedBigInteger('id_etapa')->nullable();
+            $table->foreign('id_etapa')
+                ->references('id')->on('etapas')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
+            $table->unsignedBigInteger('id_status');
+            $table->foreign('id_status')
+                ->references('id')->on('status')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +41,10 @@ class CreateServicosTable extends Migration
      */
     public function down()
     {
+        Schema::table('servicos', function (Blueprint $table) {
+            $table->dropForeign('servicos_id_etapa_foreign');
+            $table->dropForeign('servicos_id_status_foreign');
+        });
         Schema::dropIfExists('servicos');
     }
 }

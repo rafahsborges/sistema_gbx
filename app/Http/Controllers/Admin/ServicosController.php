@@ -38,10 +38,10 @@ class ServicosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'valor', 'orgao', 'status'],
+            ['id', 'nome', 'valor', 'orgao', 'id_etapa', 'id_status'],
 
             // set columns to searchIn
-            ['id', 'nome', 'orgao', 'descricao', 'status']
+            ['id', 'nome', 'orgao', 'descricao']
         );
 
         if ($request->ajax()) {

@@ -9,8 +9,8 @@ Vue.component('servico-form', {
                 valor:  '' ,
                 orgao:  '' ,
                 descricao:  '' ,
-                status:  '' ,
-                
+                id_etapa:  '' ,
+                id_status:  '' ,                
             }
         }
     }

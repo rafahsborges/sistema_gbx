@@ -31,13 +31,13 @@ class CreateAdminUsersTable extends Migration
                 $table->string('numero', 15)->nullable();
                 $table->string('complemento')->nullable();
                 $table->string('bairro')->nullable();
-                $table->unsignedBigInteger('id_cidade')->index('fk_admin_users_cidades')->nullable();
-                $table->foreign('id_cidade', 'fk_admin_users_cidades')
+                $table->unsignedBigInteger('id_cidade')->nullable();
+                $table->foreign('id_cidade')
                     ->references('id')->on('cidades')
                     ->onUpdate('restrict')
                     ->onDelete('restrict');
-                $table->unsignedBigInteger('id_estado')->index('fk_admin_users_estados')->nullable();
-                $table->foreign('id_estado', 'fk_admin_users_estados')
+                $table->unsignedBigInteger('id_estado')->nullable();
+                $table->foreign('id_estado')
                     ->references('id')->on('estados')
                     ->onUpdate('restrict')
                     ->onDelete('restrict');
@@ -77,8 +77,8 @@ class CreateAdminUsersTable extends Migration
     public function down(): void
     {
         Schema::table('admin_userss', function (Blueprint $table) {
-            $table->dropForeign('fk_admin_users_cidades');
-            $table->dropForeign('fk_admin_users_estados');
+            $table->dropForeign('admin_users_id_estado_foreign');
+            $table->dropForeign('admin_users_id_cidade_foreign');
         });
         Schema::dropIfExists('admin_users');
     }

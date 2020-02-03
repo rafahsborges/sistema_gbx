@@ -69,25 +69,6 @@ return [
         ],
     ],
 
-    'servico' => [
-        'title' => 'Servicos',
-
-        'actions' => [
-            'index' => 'Servicos',
-            'create' => 'New Servico',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'nome' => 'Nome',
-            'valor' => 'Valor',
-            'orgao' => 'Orgao',
-            'descricao' => 'Descricao',
-            'status' => 'Status',
-        ],
-    ],
-
     'ponto' => [
         'title' => 'Pontos',
 
@@ -167,6 +148,78 @@ return [
             'id_estado' => 'Id estado',
             'enabled' => 'Enabled',
 
+        ],
+    ],
+
+    'status' => [
+        'title' => 'Status',
+
+        'actions' => [
+            'index' => 'Status',
+            'create' => 'New Status',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            
+        ],
+    ],
+
+    'etapa' => [
+        'title' => 'Etapas',
+
+        'actions' => [
+            'index' => 'Etapas',
+            'create' => 'New Etapa',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'id_status' => 'Id status',
+            
+        ],
+    ],
+
+    'iten' => [
+        'title' => 'Itens',
+
+        'actions' => [
+            'index' => 'Itens',
+            'create' => 'New Iten',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'id_etapa' => 'Id etapa',
+            'id_status' => 'Id status',
+            
+        ],
+    ],
+
+    'servico' => [
+        'title' => 'Servicos',
+
+        'actions' => [
+            'index' => 'Servicos',
+            'create' => 'New Servico',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'valor' => 'Valor',
+            'orgao' => 'Orgao',
+            'descricao' => 'Descricao',
+            'id_etapa' => 'Id etapa',
+            'id_status' => 'Id status',
+            
         ],
     ],
 

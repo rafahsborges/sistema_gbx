@@ -26,7 +26,7 @@ class IndexServico extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,valor,orgao,status|nullable',
+            'orderBy' => 'in:id,nome,valor,orgao,id_etapa,id_status|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',
