@@ -5,3 +5,5 @@ import './representante';
 import './servico';
 import './ponto';
 import './apontamento';
+import './estado';
+import './cidade';

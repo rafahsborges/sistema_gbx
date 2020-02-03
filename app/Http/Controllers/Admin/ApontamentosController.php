@@ -129,6 +129,9 @@ class ApontamentosController extends Controller
     {
         //$this->authorize('admin.apontamento.edit', $apontamento);
 
+        $apontamento = Apontamento::with('cliente')
+            ->find($apontamento->id);
+
         return view('admin.apontamento.edit', [
             'apontamento' => $apontamento,
             'clientes' => AdminUser::all(),

@@ -11,6 +11,7 @@ use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
 use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 use Brackets\Media\HasMedia\ProcessMediaTrait;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -46,8 +47,8 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
         'numero',
         'complemento',
         'bairro',
-        'cidade',
-        'uf',
+        'id_cidade',
+        'id_estado',
         'cep',
         'vencimento',
         'valor',
@@ -163,6 +164,22 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     }
 
     /* ************************ RELATIONS ************************ */
+
+    /**
+     * @return BelongsTo
+     */
+    public function estado()
+    {
+        return $this->belongsTo('App\Models\Estado', 'id_estado');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function cidade()
+    {
+        return $this->belongsTo('App\Models\Cidade', 'id_cidade');
+    }
 
     /**
      * @return HasMany

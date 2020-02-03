@@ -86,8 +86,8 @@ class ProfileController extends Controller
             'numero' => ['nullable', 'string'],
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
-            'cidade' => ['nullable', 'string'],
-            'uf' => ['nullable', 'string'],
+            'id_cidade' => ['nullable', 'string'],
+            'id_estado' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'vencimento' => ['nullable', 'date'],
             'valor' => ['nullable', 'numeric'],
@@ -97,7 +97,7 @@ class ProfileController extends Controller
             'is_admin' => ['sometimes', 'boolean'],
             'language' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+
         ]);
 
         // Sanitize input
@@ -116,8 +116,8 @@ class ProfileController extends Controller
             'numero',
             'complemento',
             'bairro',
-            'cidade',
-            'uf',
+            'id_cidade',
+            'id_estado',
             'cep',
             'vencimento',
             'valor',
@@ -127,7 +127,7 @@ class ProfileController extends Controller
             'is_admin',
             'language',
             'enabled',
-            
+
         ]);
 
         // Update changed values AdminUser
@@ -171,13 +171,13 @@ class ProfileController extends Controller
         // Validate the request
         $this->validate($request, [
             'password' => ['sometimes', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
-            
+
         ]);
 
         // Sanitize input
         $sanitized = $request->only([
             'password',
-            
+
         ]);
 
         //Modify input, set hashed password

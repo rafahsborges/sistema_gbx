@@ -31,8 +31,16 @@ class CreateAdminUsersTable extends Migration
                 $table->string('numero', 15)->nullable();
                 $table->string('complemento')->nullable();
                 $table->string('bairro')->nullable();
-                $table->string('cidade')->nullable();
-                $table->string('uf', 2)->nullable();
+                $table->unsignedBigInteger('id_cidade')->index('fk_admin_users_cidades')->nullable();
+                $table->foreign('id_cidade', 'fk_admin_users_cidades')
+                    ->references('id')->on('cidades')
+                    ->onUpdate('restrict')
+                    ->onDelete('restrict');
+                $table->unsignedBigInteger('id_estado')->index('fk_admin_users_estados')->nullable();
+                $table->foreign('id_estado', 'fk_admin_users_estados')
+                    ->references('id')->on('estados')
+                    ->onUpdate('restrict')
+                    ->onDelete('restrict');
                 $table->string('cep', 9)->nullable();
                 $table->date('vencimento')->nullable();
                 $table->decimal('valor', 9)->nullable();
@@ -68,6 +76,10 @@ class CreateAdminUsersTable extends Migration
      */
     public function down(): void
     {
+        Schema::table('admin_userss', function (Blueprint $table) {
+            $table->dropForeign('fk_admin_users_cidades');
+            $table->dropForeign('fk_admin_users_estados');
+        });
         Schema::dropIfExists('admin_users');
     }
 }

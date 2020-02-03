@@ -42,8 +42,8 @@ class UpdateAdminUser extends FormRequest
             'numero' => ['nullable', 'string'],
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
-            'cidade' => ['nullable', 'string'],
-            'uf' => ['nullable', 'string'],
+            'id_cidade' => ['nullable', 'string'],
+            'id_estado' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'vencimento' => ['nullable', 'date'],
             'valor' => ['nullable', 'numeric'],
@@ -55,9 +55,9 @@ class UpdateAdminUser extends FormRequest
             'language' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
             'password' => ['sometimes', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
-                
+
             'roles' => ['sometimes', 'array'],
-                
+
         ];
 
         if (Config::get('admin-auth.activation_enabled')) {

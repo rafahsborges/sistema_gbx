@@ -85,33 +85,38 @@
 </div>
 
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('cidade'), 'has-success': fields.cidade && fields.cidade.valid }">
-    <label for="cidade" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.cidade') }}</label>
+     :class="{'has-danger': errors.has('id_cidade'), 'has-success': fields.id_cidade && fields.id_cidade.valid }">
+    <label for="id_cidade" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.id_cidade') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.cidade" v-validate="''" @input="validate($event)" class="form-control"
-               :class="{'form-control-danger': errors.has('cidade'), 'form-control-success': fields.cidade && fields.cidade.valid}"
-               id="cidade" name="cidade" placeholder="{{ trans('admin.ponto.columns.cidade') }}">
-        <div v-if="errors.has('cidade')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cidade') }}
-        </div>
+        <multiselect
+            v-model="form.id_cidade"
+            :options="cidades"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.ponto.columns.id_cidade') }}"
+            placeholder="{{ trans('admin.ponto.columns.id_cidade') }}">
+        </multiselect>
+        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_cidade') }}</div>
     </div>
 </div>
 
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('uf'), 'has-success': fields.uf && fields.uf.valid }">
-    <label for="uf" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.uf') }}</label>
+     :class="{'has-danger': errors.has('id_estado'), 'has-success': fields.id_estado && fields.id_estado.valid }">
+    <label for="id_estado" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.ponto.columns.id_estado') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
-            v-model="form.uf"
-            :options="ufList"
+            v-model="form.id_estado"
+            :options="estados"
             :multiple="false"
             track-by="id"
             label="nome"
-            tag-placeholder="{{ trans('admin.ponto.columns.uf') }}"
-            placeholder="{{ trans('admin.ponto.columns.uf') }}">
+            tag-placeholder="{{ trans('admin.ponto.columns.id_estado') }}"
+            placeholder="{{ trans('admin.ponto.columns.id_estado') }}">
         </multiselect>
-        <div v-if="errors.has('uf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('uf') }}</div>
+        <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_estado') }}</div>
     </div>
 </div>
 

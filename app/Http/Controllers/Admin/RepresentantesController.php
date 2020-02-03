@@ -129,6 +129,8 @@ class RepresentantesController extends Controller
     {
         $this->authorize('admin.representante.edit', $representante);
 
+        $representante = Representante::with('cliente')
+            ->find($representante->id);
 
         return view('admin.representante.edit', [
             'representante' => $representante,

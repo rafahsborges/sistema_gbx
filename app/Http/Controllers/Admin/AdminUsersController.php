@@ -7,7 +7,9 @@ use App\Http\Requests\Admin\AdminUser\DestroyAdminUser;
 use App\Http\Requests\Admin\AdminUser\IndexAdminUser;
 use App\Http\Requests\Admin\AdminUser\StoreAdminUser;
 use App\Http\Requests\Admin\AdminUser\UpdateAdminUser;
-use Brackets\AdminAuth\Models\AdminUser;
+use App\Models\Cidade;
+use App\Models\Estado;
+use App\Models\AdminUser;
 use Spatie\Permission\Models\Role;
 use Brackets\AdminAuth\Activation\Facades\Activation;
 use Brackets\AdminAuth\Services\ActivationService;
@@ -57,10 +59,10 @@ class AdminUsersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'tipo', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'vencimento', 'valor', 'ini_contrato', 'fim_contrato', 'fistel', 'is_admin', 'activated', 'forbidden', 'language', 'enabled'],
+            ['id', 'tipo', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'vencimento', 'valor', 'ini_contrato', 'fim_contrato', 'fistel', 'is_admin', 'activated', 'forbidden', 'language', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'fistel', 'language']
+            ['id', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'fistel', 'language']
         );
 
         if ($request->ajax()) {
@@ -83,6 +85,8 @@ class AdminUsersController extends Controller
         return view('admin.admin-user.create', [
             'activation' => Config::get('admin-auth.activation_enabled'),
             'roles' => Role::where('guard_name', $this->guard)->get(),
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
         ]);
     }
 
@@ -135,12 +139,18 @@ class AdminUsersController extends Controller
     {
         $this->authorize('admin.admin-user.edit', $adminUser);
 
+        $adminUser = AdminUser::with('estado')
+            ->with('cidade')
+            ->find($adminUser->id);
+
         $adminUser->load('roles');
 
         return view('admin.admin-user.edit', [
             'adminUser' => $adminUser,
             'activation' => Config::get('admin-auth.activation_enabled'),
             'roles' => Role::where('guard_name', $this->guard)->get(),
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
         ]);
     }
 

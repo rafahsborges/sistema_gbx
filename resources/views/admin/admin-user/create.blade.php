@@ -11,7 +11,8 @@
             <admin-user-form
                 :action="'{{ url('admin/admin-users') }}'"
                 :activation="!!'{{ $activation }}'"
-
+                :estados="{{$estados->toJson()}}"
+                :cidades="{{$cidades->toJson()}}"
                 inline-template>
 
                 <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action">

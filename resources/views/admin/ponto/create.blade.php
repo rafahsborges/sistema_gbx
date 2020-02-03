@@ -11,6 +11,8 @@
         <ponto-form
             :action="'{{ url('admin/pontos') }}'"
             :clientes="{{$clientes->toJson()}}"
+            :estados="{{$estados->toJson()}}"
+            :cidades="{{$cidades->toJson()}}"
             v-cloak
             inline-template>
 

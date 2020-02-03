@@ -26,7 +26,7 @@ class IndexPonto extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,logradouro,numero,complemento,bairro,cidade,uf,cep,estacao,entidade,latitude,longitude,altura,id_cliente|nullable',
+            'orderBy' => 'in:id,nome,logradouro,numero,complemento,bairro,id_cidade,id_estado,cep,estacao,entidade,latitude,longitude,altura,id_cliente|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

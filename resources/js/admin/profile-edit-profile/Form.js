@@ -19,8 +19,8 @@ Vue.component('profile-edit-profile-form', {
                 numero:  '' ,
                 complemento:  '' ,
                 bairro:  '' ,
-                cidade:  '' ,
-                uf:  '' ,
+                id_cidade  '' ,
+                id_estado  '' ,
                 cep:  '' ,
                 vencimento:  '' ,
                 valor:  '' ,
@@ -33,7 +33,7 @@ Vue.component('profile-edit-profile-form', {
                 language:  '' ,
                 enabled:  false ,
                 password:  '' ,
-                
+
             },
             mediaCollections: ['avatar']
         }

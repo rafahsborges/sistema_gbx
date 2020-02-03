@@ -18,7 +18,6 @@ class Representante extends Model
         'id_cliente',
     ];
 
-
     protected $dates = [
         'created_at',
         'updated_at',

@@ -11,6 +11,8 @@
                 :action="'{{ $ponto->resource_url }}'"
                 :data="{{ $ponto->toJson() }}"
                 :clientes="{{$clientes->toJson()}}"
+                :estados="{{$estados->toJson()}}"
+                :cidades="{{$cidades->toJson()}}"
                 v-cloak
                 inline-template>
 

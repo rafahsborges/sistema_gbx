@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\Ponto\IndexPonto;
 use App\Http\Requests\Admin\Ponto\StorePonto;
 use App\Http\Requests\Admin\Ponto\UpdatePonto;
 use App\Models\AdminUser;
+use App\Models\Cidade;
+use App\Models\Estado;
 use App\Models\Ponto;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -39,10 +41,10 @@ class PontosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura', 'id_cliente'],
+            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura', 'id_cliente'],
 
             // set columns to searchIn
-            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura'],
+            ['id', 'nome', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'estacao', 'entidade', 'latitude', 'longitude', 'altura'],
 
             function ($query) use ($request) {
                 $query->with(['cliente']);
@@ -79,6 +81,8 @@ class PontosController extends Controller
 
         return view('admin.ponto.create', [
             'clientes' => AdminUser::all(),
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
         ]);
     }
 
@@ -93,7 +97,7 @@ class PontosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['uf'] = $request->getUfId();
+        $sanitized['id_estado'] = $request->getUfId();
 
         // Store the Ponto
         $ponto = Ponto::create($sanitized);
@@ -130,10 +134,16 @@ class PontosController extends Controller
     {
         $this->authorize('admin.ponto.edit', $ponto);
 
+        $ponto = Ponto::with('cliente')
+            ->with('estado')
+            ->with('cidade')
+            ->find($ponto->id);
 
         return view('admin.ponto.edit', [
             'ponto' => $ponto,
             'clientes' => AdminUser::all(),
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
         ]);
     }
 
@@ -149,7 +159,7 @@ class PontosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['uf'] = $request->getUfId();
+        $sanitized['id_estado'] = $request->getUfId();
 
         // Update changed values Ponto
         $ponto->update($sanitized);

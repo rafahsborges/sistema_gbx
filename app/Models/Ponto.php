@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ponto extends Model
@@ -15,8 +16,8 @@ class Ponto extends Model
         'numero',
         'complemento',
         'bairro',
-        'cidade',
-        'uf',
+        'id_cidade',
+        'id_estado',
         'cep',
         'estacao',
         'entidade',
@@ -42,7 +43,26 @@ class Ponto extends Model
         return url('/admin/pontos/'.$this->getKey());
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function cliente() {
         return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function estado()
+    {
+        return $this->belongsTo('App\Models\Estado', 'id_estado');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function cidade()
+    {
+        return $this->belongsTo('App\Models\Cidade', 'id_cidade');
     }
 }

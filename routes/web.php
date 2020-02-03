@@ -99,3 +99,34 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('estados')->name('estados/')->group(static function() {
+            Route::get('/',                                             'EstadosController@index')->name('index');
+            Route::get('/create',                                       'EstadosController@create')->name('create');
+            Route::post('/',                                            'EstadosController@store')->name('store');
+            Route::get('/{estado}/edit',                                'EstadosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'EstadosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{estado}',                                    'EstadosController@update')->name('update');
+            Route::delete('/{estado}',                                  'EstadosController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('cidades')->name('cidades/')->group(static function() {
+            Route::get('/',                                             'CidadesController@index')->name('index');
+            Route::get('/create',                                       'CidadesController@create')->name('create');
+            Route::post('/',                                            'CidadesController@store')->name('store');
+            Route::get('/{cidade}/edit',                                'CidadesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CidadesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{cidade}',                                    'CidadesController@update')->name('update');
+            Route::delete('/{cidade}',                                  'CidadesController@destroy')->name('destroy');
+        });
+    });
+});

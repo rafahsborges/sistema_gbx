@@ -133,5 +133,42 @@ return [
         ],
     ],
 
+    'estado' => [
+        'title' => 'Estados',
+
+        'actions' => [
+            'index' => 'Estados',
+            'create' => 'New Estado',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'abreviacao' => 'Abreviacao',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'cidade' => [
+        'title' => 'Cidades',
+
+        'actions' => [
+            'index' => 'Cidades',
+            'create' => 'New Cidade',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'ibge_code' => 'Ibge code',
+            'id_estado' => 'Id estado',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -112674,6 +112674,125 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/cidade/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/cidade/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('cidade-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        ibge_code: '',
+        id_estado: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/cidade/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/cidade/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('cidade-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/cidade/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/cidade/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/cidade/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/cidade/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/estado/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/estado/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('estado-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        abreviacao: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/estado/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/estado/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('estado-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/estado/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/estado/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/estado/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/estado/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/index.js":
 /*!*************************************!*\
   !*** ./resources/js/admin/index.js ***!
@@ -112690,6 +112809,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
 /* harmony import */ var _ponto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ponto */ "./resources/js/admin/ponto/index.js");
 /* harmony import */ var _apontamento__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./apontamento */ "./resources/js/admin/apontamento/index.js");
+/* harmony import */ var _estado__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./estado */ "./resources/js/admin/estado/index.js");
+/* harmony import */ var _cidade__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cidade */ "./resources/js/admin/cidade/index.js");
+
+
 
 
 
