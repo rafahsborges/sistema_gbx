@@ -48,17 +48,17 @@
                                 </div>
 
                                 <div class="form-group row align-items-center"
-                                     :class="{'has-danger': errors.has('uf'), 'has-success': fields.uf && fields.uf.valid }">
-                                    <label for="uf" class="col-form-label text-md-right"
-                                           :class="isFormLocalized ? 'col-md-4' : 'col-md-3'">{{ trans('admin.admin-user.columns.uf') }}</label>
+                                     :class="{'has-danger': errors.has('id_estado'), 'has-success': fields.id_estado && fields.id_estado.valid }">
+                                    <label for="id_estado" class="col-form-label text-md-right"
+                                           :class="isFormLocalized ? 'col-md-4' : 'col-md-3'">{{ trans('admin.admin-user.columns.id_estado') }}</label>
                                     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-7'">
-                                        <input type="text" v-model="form.uf" v-validate="''" @input="validate($event)"
+                                        <input type="text" v-model="form.id_estado" v-validate="''" @input="validate($event)"
                                                class="form-control"
-                                               :class="{'form-control-danger': errors.has('uf'), 'form-control-success': fields.uf && fields.uf.valid}"
-                                               id="uf" name="uf"
-                                               placeholder="{{ trans('admin.admin-user.columns.uf') }}">
-                                        <div v-if="errors.has('uf')" class="form-control-feedback form-text" v-cloak>@{{
-                                            errors.first('uf') }}
+                                               :class="{'form-control-danger': errors.has('id_estado'), 'form-control-success': fields.id_estado && fields.id_estado.valid}"
+                                               id="id_estado" name="id_estado"
+                                               placeholder="{{ trans('admin.admin-user.columns.id_estado') }}">
+                                        <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{
+                                            errors.first('id_estado') }}
                                         </div>
                                     </div>
                                 </div>
@@ -209,17 +209,17 @@
                                 </div>
 
                                 <div class="form-group row align-items-center"
-                                     :class="{'has-danger': errors.has('cidade'), 'has-success': fields.cidade && fields.cidade.valid }">
-                                    <label for="cidade" class="col-form-label text-md-right"
-                                           :class="isFormLocalized ? 'col-md-4' : 'col-md-3'">{{ trans('admin.admin-user.columns.cidade') }}</label>
+                                     :class="{'has-danger': errors.has('id_cidade'), 'has-success': fields.id_cidade && fields.id_cidade.valid }">
+                                    <label for="id_cidade" class="col-form-label text-md-right"
+                                           :class="isFormLocalized ? 'col-md-4' : 'col-md-3'">{{ trans('admin.admin-user.columns.id_cidade') }}</label>
                                     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-7'">
-                                        <input type="text" v-model="form.cidade" v-validate="''"
+                                        <input type="text" v-model="form.id_cidade" v-validate="''"
                                                @input="validate($event)" class="form-control"
-                                               :class="{'form-control-danger': errors.has('cidade'), 'form-control-success': fields.cidade && fields.cidade.valid}"
-                                               id="cidade" name="cidade"
-                                               placeholder="{{ trans('admin.admin-user.columns.cidade') }}">
-                                        <div v-if="errors.has('cidade')" class="form-control-feedback form-text"
-                                             v-cloak>@{{ errors.first('cidade') }}
+                                               :class="{'form-control-danger': errors.has('id_cidade'), 'form-control-success': fields.id_cidade && fields.id_cidade.valid}"
+                                               id="id_cidade" name="id_cidade"
+                                               placeholder="{{ trans('admin.admin-user.columns.id_cidade') }}">
+                                        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text"
+                                             v-cloak>@{{ errors.first('id_cidade') }}
                                         </div>
                                     </div>
                                 </div>

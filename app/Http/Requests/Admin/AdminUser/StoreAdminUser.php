@@ -42,8 +42,6 @@ class StoreAdminUser extends FormRequest
             'numero' => ['nullable', 'string'],
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
-            'id_cidade' => ['nullable', 'string'],
-            'id_estado' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'vencimento' => ['nullable', 'date'],
             'valor' => ['nullable', 'numeric'],
@@ -55,9 +53,9 @@ class StoreAdminUser extends FormRequest
             'language' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
             'password' => ['required', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
-
             'roles' => ['array'],
-
+            'estado' => ['nullable'],
+            'cidade' => ['nullable'],
         ];
 
         if (Config::get('admin-auth.activation_enabled')) {
@@ -82,5 +80,21 @@ class StoreAdminUser extends FormRequest
             $data['password'] = Hash::make($data['password']);
         }
         return $data;
+    }
+
+    public function getEstadoId()
+    {
+        if ($this->has('estado')) {
+            return $this->get('estado')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
+        }
+        return null;
     }
 }

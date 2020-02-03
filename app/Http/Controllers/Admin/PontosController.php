@@ -97,7 +97,8 @@ class PontosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['id_estado'] = $request->getUfId();
+        $sanitized['id_estado'] = $request->getEstadoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Store the Ponto
         $ponto = Ponto::create($sanitized);
@@ -159,7 +160,8 @@ class PontosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['id_estado'] = $request->getUfId();
+        $sanitized['id_estado'] = $request->getEstadoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Update changed values Ponto
         $ponto->update($sanitized);

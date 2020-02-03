@@ -36,8 +36,8 @@ class CreatePontosTable extends Migration
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->string('altura')->nullable();
-            $table->unsignedBigInteger('id_pontos');
-            $table->foreign('id_pontos')
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')
                 ->references('id')->on('admin_users')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');

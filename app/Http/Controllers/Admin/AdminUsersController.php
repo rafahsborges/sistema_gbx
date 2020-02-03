@@ -100,6 +100,8 @@ class AdminUsersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getModifiedData();
+        $sanitized['id_estado'] = $request->getEstadoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Store the AdminUser
         $adminUser = AdminUser::create($sanitized);
@@ -165,6 +167,8 @@ class AdminUsersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getModifiedData();
+        $sanitized['id_estado'] = $request->getEstadoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Update changed values AdminUser
         $adminUser->update($sanitized);

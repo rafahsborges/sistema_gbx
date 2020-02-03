@@ -31,8 +31,6 @@ class StorePonto extends FormRequest
             'numero' => ['nullable', 'string'],
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
-            'id_cidade' => ['nullable', 'string'],
-            'id_estado' => ['nullable'],
             'cep' => ['nullable', 'string'],
             'estacao' => ['nullable', 'string'],
             'entidade' => ['nullable', 'string'],
@@ -40,6 +38,8 @@ class StorePonto extends FormRequest
             'longitude' => ['nullable', 'string'],
             'altura' => ['nullable', 'string'],
             'cliente' => ['required'],
+            'estado' => ['nullable'],
+            'cidade' => ['nullable'],
         ];
     }
 
@@ -64,10 +64,18 @@ class StorePonto extends FormRequest
         return null;
     }
 
-    public function getUfId()
+    public function getEstadoId()
     {
-        if ($this->has('uf')) {
-            return $this->get('uf')['id'];
+        if ($this->has('estado')) {
+            return $this->get('estado')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
         }
         return null;
     }

@@ -2,6 +2,10 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('profile-edit-profile-form', {
     mixins: [AppForm],
+    props: [
+        'estados',
+        'cidades',
+    ],
     data: function() {
         return {
             form: {
@@ -19,8 +23,8 @@ Vue.component('profile-edit-profile-form', {
                 numero:  '' ,
                 complemento:  '' ,
                 bairro:  '' ,
-                id_cidade  '' ,
-                id_estado  '' ,
+                cidade:  '' ,
+                estado:  '' ,
                 cep:  '' ,
                 vencimento:  '' ,
                 valor:  '' ,

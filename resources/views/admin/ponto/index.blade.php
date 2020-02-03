@@ -77,8 +77,8 @@
                                         <th is='sortable' :column="'numero'">{{ trans('admin.ponto.columns.numero') }}</th>
                                         <th is='sortable' :column="'complemento'">{{ trans('admin.ponto.columns.complemento') }}</th>
                                         <th is='sortable' :column="'bairro'">{{ trans('admin.ponto.columns.bairro') }}</th>
-                                        <th is='sortable' :column="'cidade'">{{ trans('admin.ponto.columns.cidade') }}</th>
-                                        <th is='sortable' :column="'uf'">{{ trans('admin.ponto.columns.uf') }}</th>
+                                        <th is='sortable' :column="'id_cidade'">{{ trans('admin.ponto.columns.id_cidade') }}</th>
+                                        <th is='sortable' :column="'id_estado'">{{ trans('admin.ponto.columns.id_estado') }}</th>
                                         <th is='sortable' :column="'cep'">{{ trans('admin.ponto.columns.cep') }}</th>
                                         <th is='sortable' :column="'estacao'">{{ trans('admin.ponto.columns.estacao') }}</th>
                                         <th is='sortable' :column="'entidade'">{{ trans('admin.ponto.columns.entidade') }}</th>
@@ -115,8 +115,8 @@
                                         <td>@{{ item.numero }}</td>
                                         <td>@{{ item.complemento }}</td>
                                         <td>@{{ item.bairro }}</td>
-                                        <td>@{{ item.cidade }}</td>
-                                        <td>@{{ item.uf }}</td>
+                                        <td>@{{ item.id_cidade }}</td>
+                                        <td>@{{ item.id_estado }}</td>
                                         <td>@{{ item.cep }}</td>
                                         <td>@{{ item.estacao }}</td>
                                         <td>@{{ item.entidade }}</td>

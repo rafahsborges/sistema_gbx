@@ -201,7 +201,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.id_cidade') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
-            v-model="form.id_cidade"
+            v-model="form.cidade"
             :options="cidades"
             :multiple="false"
             track-by="id"
@@ -219,7 +219,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.id_estado') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
-            v-model="form.id_estado"
+            v-model="form.estado"
             :options="estados"
             :multiple="false"
             track-by="id"

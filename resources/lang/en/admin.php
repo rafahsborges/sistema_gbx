@@ -28,8 +28,8 @@ return [
             'numero' => 'Numero',
             'complemento' => 'Complemento',
             'bairro' => 'Bairro',
-            'cidade' => 'Cidade',
-            'uf' => 'Uf',
+            'id_cidade' => 'Cidade',
+            'id_estado' => 'Uf',
             'cep' => 'Cep',
             'vencimento' => 'Vencimento',
             'valor' => 'Valor',
@@ -104,8 +104,8 @@ return [
             'numero' => 'Numero',
             'complemento' => 'Complemento',
             'bairro' => 'Bairro',
-            'cidade' => 'Cidade',
-            'uf' => 'Uf',
+            'id_cidade' => 'Cidade',
+            'id_estado' => 'Uf',
             'cep' => 'Cep',
             'estacao' => 'Estacao',
             'entidade' => 'Entidade',
@@ -147,7 +147,7 @@ return [
             'nome' => 'Nome',
             'abreviacao' => 'Abreviacao',
             'enabled' => 'Enabled',
-            
+
         ],
     ],
 
@@ -166,7 +166,7 @@ return [
             'ibge_code' => 'Ibge code',
             'id_estado' => 'Id estado',
             'enabled' => 'Enabled',
-            
+
         ],
     ],
 
