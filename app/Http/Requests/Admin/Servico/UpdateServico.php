@@ -28,7 +28,7 @@ class UpdateServico extends FormRequest
     {
         return [
             'nome' => ['sometimes', 'string'],
-            'valor' => ['nullable', 'numeric'],
+            'valor' => ['nullable'],
             'orgao' => ['nullable', 'string'],
             'descricao' => ['sometimes', 'string'],
             'etapa' => ['required'],
@@ -62,5 +62,10 @@ class UpdateServico extends FormRequest
             return $this->get('etapa')['id'];
         }
         return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }

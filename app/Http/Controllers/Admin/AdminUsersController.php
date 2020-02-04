@@ -102,6 +102,7 @@ class AdminUsersController extends Controller
         $sanitized = $request->getModifiedData();
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         // Store the AdminUser
         $adminUser = AdminUser::create($sanitized);
@@ -169,6 +170,7 @@ class AdminUsersController extends Controller
         $sanitized = $request->getModifiedData();
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         // Update changed values AdminUser
         $adminUser->update($sanitized);

@@ -1,4 +1,5 @@
 import AppForm from '../app-components/Form/AppForm';
+import {VMoney} from 'v-money';
 
 Vue.component('admin-user-form', {
     mixins: [AppForm],
@@ -38,8 +39,30 @@ Vue.component('admin-user-form', {
                 enabled:  false ,
                 password:  '' ,
             },
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
+            percent: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
         }
     },
+
+    directives: {
+        money: VMoney,
+        percent: VMoney,
+    },
+
     methods: {
         getAddressInfo(e){
             this.$viaCep.buscarCep(e.target.value).then((obj) => {

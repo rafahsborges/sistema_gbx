@@ -28,7 +28,7 @@ class StoreServico extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
-            'valor' => ['nullable', 'numeric'],
+            'valor' => ['nullable'],
             'orgao' => ['nullable', 'string'],
             'descricao' => ['required', 'string'],
             'etapa' => ['required'],
@@ -62,5 +62,10 @@ class StoreServico extends FormRequest
             return $this->get('etapa')['id'];
         }
         return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }

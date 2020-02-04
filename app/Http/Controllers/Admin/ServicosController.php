@@ -101,6 +101,7 @@ class ServicosController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
         $sanitized['id_etapa'] = $request->getEtapaId();
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         // Store the Servico
         $servico = Servico::create($sanitized);
@@ -161,6 +162,7 @@ class ServicosController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
         $sanitized['id_etapa'] = $request->getEtapaId();
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         // Update changed values Servico
         $servico->update($sanitized);

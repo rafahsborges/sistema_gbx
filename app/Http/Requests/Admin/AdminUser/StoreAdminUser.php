@@ -44,7 +44,7 @@ class StoreAdminUser extends FormRequest
             'bairro' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'vencimento' => ['nullable', 'date'],
-            'valor' => ['nullable', 'numeric'],
+            'valor' => ['nullable'],
             'ini_contrato' => ['nullable', 'date'],
             'fim_contrato' => ['nullable', 'date'],
             'fistel' => ['nullable', 'string'],
@@ -96,5 +96,10 @@ class StoreAdminUser extends FormRequest
             return $this->get('cidade')['id'];
         }
         return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }
