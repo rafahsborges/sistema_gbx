@@ -8,7 +8,9 @@ use App\Http\Requests\Admin\Servico\DestroyServico;
 use App\Http\Requests\Admin\Servico\IndexServico;
 use App\Http\Requests\Admin\Servico\StoreServico;
 use App\Http\Requests\Admin\Servico\UpdateServico;
+use App\Models\Etapa;
 use App\Models\Servico;
+use App\Models\Status;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -41,7 +43,18 @@ class ServicosController extends Controller
             ['id', 'nome', 'valor', 'orgao', 'id_etapa', 'id_status'],
 
             // set columns to searchIn
-            ['id', 'nome', 'orgao', 'descricao']
+            ['id', 'nome', 'orgao', 'descricao'],
+
+            function ($query) use ($request) {
+                $query->with(['status']);
+                $query->with(['etapas']);
+                if ($request->has('statuses')) {
+                    $query->whereIn('id_status', $request->get('statuses'));
+                }
+                if ($request->has('etapas')) {
+                    $query->whereIn('id_etapa', $request->get('etapas'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +66,11 @@ class ServicosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.servico.index', ['data' => $data]);
+        return view('admin.servico.index', [
+            'data' => $data,
+            'statuses' => Status::all(),
+            'etapas' => Etapa::all(),
+        ]);
     }
 
     /**
@@ -66,7 +83,10 @@ class ServicosController extends Controller
     {
         $this->authorize('admin.servico.create');
 
-        return view('admin.servico.create');
+        return view('admin.servico.create', [
+            'statuses' => Status::all(),
+            'etapas' => Etapa::all(),
+        ]);
     }
 
     /**
@@ -79,6 +99,8 @@ class ServicosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_status'] = $request->getStatusId();
+        $sanitized['id_etapa'] = $request->getEtapaId();
 
         // Store the Servico
         $servico = Servico::create($sanitized);
@@ -115,9 +137,10 @@ class ServicosController extends Controller
     {
         $this->authorize('admin.servico.edit', $servico);
 
-
         return view('admin.servico.edit', [
             'servico' => $servico,
+            'statuses' => Status::all(),
+            'etapas' => Etapa::all(),
         ]);
     }
 
@@ -132,6 +155,8 @@ class ServicosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_status'] = $request->getStatusId();
+        $sanitized['id_etapa'] = $request->getEtapaId();
 
         // Update changed values Servico
         $servico->update($sanitized);

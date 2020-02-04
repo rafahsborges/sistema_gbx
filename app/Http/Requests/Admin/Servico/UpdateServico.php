@@ -30,9 +30,8 @@ class UpdateServico extends FormRequest
             'valor' => ['nullable', 'numeric'],
             'orgao' => ['nullable', 'string'],
             'descricao' => ['sometimes', 'string'],
-            'id_etapa' => ['nullable', 'string'],
-            'id_status' => ['sometimes', 'string'],
-            
+            'etapa' => ['required'],
+            'status' => ['required'],
         ];
     }
 
@@ -45,9 +44,22 @@ class UpdateServico extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getStatusId(){
+        if ($this->has('status')){
+            return $this->get('status')['id'];
+        }
+        return null;
+    }
+
+    public function getEtapaId(){
+        if ($this->has('etapa')){
+            return $this->get('etapa')['id'];
+        }
+        return null;
     }
 }

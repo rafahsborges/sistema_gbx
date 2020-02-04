@@ -8,7 +8,9 @@ use App\Http\Requests\Admin\Item\DestroyItem;
 use App\Http\Requests\Admin\Item\IndexItem;
 use App\Http\Requests\Admin\Item\StoreItem;
 use App\Http\Requests\Admin\Item\UpdateItem;
+use App\Models\Etapa;
 use App\Models\Item;
+use App\Models\Status;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -41,7 +43,18 @@ class ItensController extends Controller
             ['id', 'nome', 'id_etapa', 'id_status'],
 
             // set columns to searchIn
-            ['id', 'nome']
+            ['id', 'nome'],
+
+            function ($query) use ($request) {
+                $query->with(['status']);
+                $query->with(['etapas']);
+                if ($request->has('statuses')) {
+                    $query->whereIn('id_status', $request->get('statuses'));
+                }
+                if ($request->has('etapas')) {
+                    $query->whereIn('id_etapa', $request->get('etapas'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +66,11 @@ class ItensController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.item.index', ['data' => $data]);
+        return view('admin.item.index', [
+            'data' => $data,
+            'statuses' => Status::all(),
+            'etapas' => Etapa::all(),
+        ]);
     }
 
     /**
@@ -66,7 +83,10 @@ class ItensController extends Controller
     {
         $this->authorize('admin.item.create');
 
-        return view('admin.item.create');
+        return view('admin.item.create', [
+            'statuses' => Status::all(),
+            'etapas' => Etapa::all(),
+        ]);
     }
 
     /**
@@ -79,6 +99,8 @@ class ItensController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_status'] = $request->getStatusId();
+        $sanitized['id_etapa'] = $request->getEtapaId();
 
         // Store the Item
         $item = Item::create($sanitized);
@@ -115,9 +137,10 @@ class ItensController extends Controller
     {
         $this->authorize('admin.item.edit', $item);
 
-
         return view('admin.item.edit', [
             'item' => $item,
+            'statuses' => Status::all(),
+            'etapas' => Etapa::all(),
         ]);
     }
 
@@ -132,6 +155,8 @@ class ItensController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_status'] = $request->getStatusId();
+        $sanitized['id_etapa'] = $request->getEtapaId();
 
         // Update changed values Item
         $item->update($sanitized);

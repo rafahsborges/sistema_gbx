@@ -27,9 +27,8 @@ class StoreItem extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
-            'id_etapa' => ['required', 'string'],
-            'id_status' => ['required', 'string'],
-
+            'etapa' => ['required'],
+            'status' => ['required'],
         ];
     }
 
@@ -45,5 +44,19 @@ class StoreItem extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getStatusId(){
+        if ($this->has('status')){
+            return $this->get('status')['id'];
+        }
+        return null;
+    }
+
+    public function getEtapaId(){
+        if ($this->has('etapa')){
+            return $this->get('etapa')['id'];
+        }
+        return null;
     }
 }
