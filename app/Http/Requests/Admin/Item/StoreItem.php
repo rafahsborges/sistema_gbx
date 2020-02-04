@@ -15,7 +15,8 @@ class StoreItem extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.item.create');
+        //return Gate::allows('admin.item.create');
+        return auth()->check();
     }
 
     /**

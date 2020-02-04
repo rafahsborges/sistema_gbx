@@ -15,7 +15,8 @@ class UpdateItem extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.item.edit', $this->item);
+        //return Gate::allows('admin.item.edit', $this->item);
+        return auth()->check();
     }
 
     /**
@@ -40,7 +41,6 @@ class UpdateItem extends FormRequest
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 

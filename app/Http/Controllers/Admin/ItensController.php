@@ -47,7 +47,7 @@ class ItensController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['status']);
-                $query->with(['etapas']);
+                $query->with(['etapa']);
                 if ($request->has('statuses')) {
                     $query->whereIn('id_status', $request->get('statuses'));
                 }
@@ -81,7 +81,7 @@ class ItensController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.item.create');
+        //$this->authorize('admin.item.create');
 
         return view('admin.item.create', [
             'statuses' => Status::all(),
@@ -135,7 +135,11 @@ class ItensController extends Controller
      */
     public function edit(Item $item)
     {
-        $this->authorize('admin.item.edit', $item);
+        //$this->authorize('admin.item.edit', $item);
+
+        $item = Item::with('status')
+            ->with('etapa')
+            ->find($item->id);
 
         return view('admin.item.edit', [
             'item' => $item,

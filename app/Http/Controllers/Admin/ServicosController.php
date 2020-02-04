@@ -47,7 +47,7 @@ class ServicosController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['status']);
-                $query->with(['etapas']);
+                $query->with(['etapa']);
                 if ($request->has('statuses')) {
                     $query->whereIn('id_status', $request->get('statuses'));
                 }
@@ -81,7 +81,7 @@ class ServicosController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.servico.create');
+        //$this->authorize('admin.servico.create');
 
         return view('admin.servico.create', [
             'statuses' => Status::all(),
@@ -135,7 +135,11 @@ class ServicosController extends Controller
      */
     public function edit(Servico $servico)
     {
-        $this->authorize('admin.servico.edit', $servico);
+        //$this->authorize('admin.servico.edit', $servico);
+
+        $servico = Servico::with('status')
+            ->with('etapa')
+            ->find($servico->id);
 
         return view('admin.servico.edit', [
             'servico' => $servico,

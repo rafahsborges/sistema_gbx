@@ -129,6 +129,9 @@ class EtapasController extends Controller
     {
         //$this->authorize('admin.etapa.edit', $etapa);
 
+        $etapa = Etapa::with('status')
+            ->find($etapa->id);
+
         return view('admin.etapa.edit', [
             'etapa' => $etapa,
             'statuses' => Status::all(),

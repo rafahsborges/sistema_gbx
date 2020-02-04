@@ -15,7 +15,8 @@ class StoreServico extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.servico.create');
+        //return Gate::allows('admin.servico.create');
+        return auth()->check();
     }
 
     /**

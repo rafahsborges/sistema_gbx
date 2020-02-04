@@ -15,7 +15,8 @@ class UpdateServico extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.servico.edit', $this->servico);
+        //return Gate::allows('admin.servico.edit', $this->servico);
+        return auth()->check();
     }
 
     /**
