@@ -10,6 +10,8 @@
             <item-form
                 :action="'{{ $item->resource_url }}'"
                 :data="{{ $item->toJson() }}"
+                :statuses="{{$statuses->toJson()}}"
+                :etapas="{{$etapas->toJson()}}"
                 v-cloak
                 inline-template>
 

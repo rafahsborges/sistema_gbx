@@ -2,6 +2,10 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('servico-form', {
     mixins: [AppForm],
+    props: [
+        'statuses',
+        'etapas'
+    ],
     data: function() {
         return {
             form: {
@@ -9,8 +13,8 @@ Vue.component('servico-form', {
                 valor:  '' ,
                 orgao:  '' ,
                 descricao:  '' ,
-                id_etapa:  '' ,
-                id_status:  '' ,                
+                etapa:  '' ,
+                status:  '' ,
             }
         }
     }

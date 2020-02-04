@@ -34,7 +34,7 @@ class ServicosController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Servico::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -59,8 +59,8 @@ class ServicosController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -94,8 +94,8 @@ class ServicosController extends Controller
      * Display the specified resource.
      *
      * @param Servico $servico
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Servico $servico)
     {
@@ -108,8 +108,8 @@ class ServicosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Servico $servico
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Servico $servico)
     {
@@ -151,8 +151,8 @@ class ServicosController extends Controller
      *
      * @param DestroyServico $request
      * @param Servico $servico
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyServico $request, Servico $servico)
     {
@@ -169,10 +169,10 @@ class ServicosController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyServico $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyServico $request) : Response
+    public function bulkDestroy(BulkDestroyServico $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -181,7 +181,7 @@ class ServicosController extends Controller
                     DB::table('servicos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

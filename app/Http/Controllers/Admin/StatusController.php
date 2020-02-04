@@ -64,7 +64,7 @@ class StatusController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.status.create');
+        //$this->authorize('admin.status.create');
 
         return view('admin.status.create');
     }
@@ -113,8 +113,7 @@ class StatusController extends Controller
      */
     public function edit(Status $status)
     {
-        $this->authorize('admin.status.edit', $status);
-
+        //$this->authorize('admin.status.edit', $status);
 
         return view('admin.status.edit', [
             'status' => $status,

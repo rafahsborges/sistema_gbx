@@ -15,7 +15,8 @@ class UpdateEtapa extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.etapa.edit', $this->etapa);
+        //return Gate::allows('admin.etapa.edit', $this->etapa);
+        return auth()->check();
     }
 
     /**
@@ -27,8 +28,7 @@ class UpdateEtapa extends FormRequest
     {
         return [
             'nome' => ['sometimes', 'string'],
-            'id_status' => ['sometimes', 'string'],
-            
+            'status' => ['required'],
         ];
     }
 
@@ -41,9 +41,15 @@ class UpdateEtapa extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getStatusId(){
+        if ($this->has('status')){
+            return $this->get('status')['id'];
+        }
+        return null;
     }
 }

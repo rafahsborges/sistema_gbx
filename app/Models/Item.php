@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Item extends Model
@@ -30,5 +31,19 @@ class Item extends Model
     public function getResourceUrlAttribute()
     {
         return url('/admin/itens/'.$this->getKey());
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function status() {
+        return $this->belongsTo('App\Models\Status', 'id_status');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function etapa() {
+        return $this->belongsTo('App\Models\Etapa', 'id_etapa');
     }
 }

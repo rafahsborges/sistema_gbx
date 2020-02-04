@@ -15,7 +15,8 @@ class StoreEtapa extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.etapa.create');
+        //return Gate::allows('admin.etapa.create');
+        return auth()->check();
     }
 
     /**
@@ -27,8 +28,7 @@ class StoreEtapa extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
-            'id_status' => ['required', 'string'],
-            
+            'status' => ['required'],
         ];
     }
 
@@ -44,5 +44,12 @@ class StoreEtapa extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getStatusId(){
+        if ($this->has('status')){
+            return $this->get('status')['id'];
+        }
+        return null;
     }
 }

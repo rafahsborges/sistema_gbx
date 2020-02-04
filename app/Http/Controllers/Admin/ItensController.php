@@ -34,7 +34,7 @@ class ItensController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Item::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -59,8 +59,8 @@ class ItensController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -94,8 +94,8 @@ class ItensController extends Controller
      * Display the specified resource.
      *
      * @param Item $item
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Item $item)
     {
@@ -108,8 +108,8 @@ class ItensController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Item $item
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Item $item)
     {
@@ -151,8 +151,8 @@ class ItensController extends Controller
      *
      * @param DestroyItem $request
      * @param Item $item
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyItem $request, Item $item)
     {
@@ -169,10 +169,10 @@ class ItensController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyItem $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyItem $request) : Response
+    public function bulkDestroy(BulkDestroyItem $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

@@ -10,6 +10,8 @@
 
         <item-form
             :action="'{{ url('admin/itens') }}'"
+            :statuses="{{$statuses->toJson()}}"
+            :etapas="{{$etapas->toJson()}}"
             v-cloak
             inline-template>
 

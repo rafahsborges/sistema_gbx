@@ -112770,11 +112770,12 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('etapa-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['statuses'],
   data: function data() {
     return {
       form: {
         nome: '',
-        id_status: ''
+        status: ''
       }
     };
   }
@@ -112794,7 +112795,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('etapa-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      statusesMultiselect: {},
+      filters: {
+        statuses: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.statusesMultiselect = [];
+    },
+    statusesMultiselect: function statusesMultiselect(newVal, oldVal) {
+      this.filters.statuses = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('statuses', this.filters.statuses);
+    }
+  }
 });
 
 /***/ }),
@@ -112864,12 +112885,13 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('item-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['statuses', 'etapas'],
   data: function data() {
     return {
       form: {
         nome: '',
-        id_etapa: '',
-        id_status: ''
+        etapa: '',
+        status: ''
       }
     };
   }
@@ -112889,7 +112911,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('item-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      statusesMultiselect: {},
+      etapasMultiselect: {},
+      filters: {
+        statuses: [],
+        etapas: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.statusesMultiselect = [];
+      this.etapasMultiselect = [];
+    },
+    statusesMultiselect: function statusesMultiselect(newVal, oldVal) {
+      this.filters.statuses = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('statuses', this.filters.statuses);
+    },
+    etapasMultiselect: function etapasMultiselect(newVal, oldVal) {
+      this.filters.etapas = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('etapas', this.filters.etapas);
+    }
+  }
 });
 
 /***/ }),
@@ -113243,6 +113294,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('servico-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['statuses', 'etapas'],
   data: function data() {
     return {
       form: {
@@ -113250,8 +113302,8 @@ Vue.component('servico-form', {
         valor: '',
         orgao: '',
         descricao: '',
-        id_etapa: '',
-        id_status: ''
+        etapa: '',
+        status: ''
       }
     };
   }
@@ -113271,7 +113323,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('servico-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      statusesMultiselect: {},
+      etapasMultiselect: {},
+      filters: {
+        statuses: [],
+        etapas: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.statusesMultiselect = [];
+      this.etapasMultiselect = [];
+    },
+    statusesMultiselect: function statusesMultiselect(newVal, oldVal) {
+      this.filters.statuses = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('statuses', this.filters.statuses);
+    },
+    etapasMultiselect: function etapasMultiselect(newVal, oldVal) {
+      this.filters.etapas = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('etapas', this.filters.etapas);
+    }
+  }
 });
 
 /***/ }),

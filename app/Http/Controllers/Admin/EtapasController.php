@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Etapa\IndexEtapa;
 use App\Http\Requests\Admin\Etapa\StoreEtapa;
 use App\Http\Requests\Admin\Etapa\UpdateEtapa;
 use App\Models\Etapa;
+use App\Models\Status;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -34,14 +35,21 @@ class EtapasController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Etapa::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
             ['id', 'nome', 'id_status'],
 
             // set columns to searchIn
-            ['id', 'nome']
+            ['id', 'nome'],
+
+            function ($query) use ($request) {
+                $query->with(['status']);
+                if ($request->has('statuses')) {
+                    $query->whereIn('id_status', $request->get('statuses'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,20 +61,25 @@ class EtapasController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.etapa.index', ['data' => $data]);
+        return view('admin.etapa.index', [
+            'data' => $data,
+            'statuses' => Status::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
-        $this->authorize('admin.etapa.create');
+        //$this->authorize('admin.etapa.create');
 
-        return view('admin.etapa.create');
+        return view('admin.etapa.create', [
+            'statuses' => Status::all(),
+        ]);
     }
 
     /**
@@ -79,6 +92,7 @@ class EtapasController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_status'] = $request->getStatusId();
 
         // Store the Etapa
         $etapa = Etapa::create($sanitized);
@@ -94,8 +108,8 @@ class EtapasController extends Controller
      * Display the specified resource.
      *
      * @param Etapa $etapa
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Etapa $etapa)
     {
@@ -108,16 +122,16 @@ class EtapasController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Etapa $etapa
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Etapa $etapa)
     {
-        $this->authorize('admin.etapa.edit', $etapa);
-
+        //$this->authorize('admin.etapa.edit', $etapa);
 
         return view('admin.etapa.edit', [
             'etapa' => $etapa,
+            'statuses' => Status::all(),
         ]);
     }
 
@@ -132,6 +146,7 @@ class EtapasController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_status'] = $request->getStatusId();
 
         // Update changed values Etapa
         $etapa->update($sanitized);
@@ -151,8 +166,8 @@ class EtapasController extends Controller
      *
      * @param DestroyEtapa $request
      * @param Etapa $etapa
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyEtapa $request, Etapa $etapa)
     {
@@ -169,10 +184,10 @@ class EtapasController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyEtapa $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyEtapa $request) : Response
+    public function bulkDestroy(BulkDestroyEtapa $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -181,7 +196,7 @@ class EtapasController extends Controller
                     DB::table('etapas')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

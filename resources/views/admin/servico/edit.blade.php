@@ -10,9 +10,11 @@
             <servico-form
                 :action="'{{ $servico->resource_url }}'"
                 :data="{{ $servico->toJson() }}"
+                :statuses="{{$statuses->toJson()}}"
+                :etapas="{{$etapas->toJson()}}"
                 v-cloak
                 inline-template>
-            
+
                 <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
 
 
@@ -23,21 +25,21 @@
                     <div class="card-body">
                         @include('admin.servico.components.form-elements')
                     </div>
-                    
-                    
+
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary" :disabled="submiting">
                             <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-download'"></i>
                             {{ trans('brackets/admin-ui::admin.btn.save') }}
                         </button>
                     </div>
-                    
+
                 </form>
 
         </servico-form>
 
         </div>
-    
+
 </div>
 
 @endsection
