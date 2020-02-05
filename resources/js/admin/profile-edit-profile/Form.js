@@ -1,4 +1,5 @@
 import AppForm from '../app-components/Form/AppForm';
+import {VMoney} from 'v-money';
 
 Vue.component('profile-edit-profile-form', {
     mixins: [AppForm],
@@ -39,9 +40,31 @@ Vue.component('profile-edit-profile-form', {
                 password:  '' ,
 
             },
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
+            percent: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
             mediaCollections: ['avatar']
         }
     },
+
+    directives: {
+        money: VMoney,
+        percent: VMoney,
+    },
+    
     methods: {
         onSuccess(data) {
             if(data.notify) {
