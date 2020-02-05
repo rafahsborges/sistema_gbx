@@ -15,4 +15,3 @@ yarn-error.log
 db/
 public/media/
 
-!public/media/1
