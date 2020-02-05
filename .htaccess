@@ -14,7 +14,7 @@ RewriteRule ^ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(login|uploads|assets|css|js|images|ca|favicons|fonts|)/(.*)$ public/$1/$2 [L,NC]
+RewriteRule ^(login|uploads|media|assets|css|js|images|ca|favicons|fonts|)/(.*)$ public/$1/$2 [L,NC]
 
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
