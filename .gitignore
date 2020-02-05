@@ -17,5 +17,4 @@ public/media/
 
 !vendor/brackets/admin-ui/resources/views/admin/partials/main-styles.blade.php
 !vendor/brackets/admin-ui/resources/views/admin/partials/main-bottom-scripts.blade.php
-/node_modules/
-/vendor/
+
