@@ -1,4 +1,4 @@
 Options +SymLinksIfOwnerMatch
 RewriteEngine On
 RewriteRule ^ index.php [L]
-RewriteRule ^css/(.*)$ /public/css/$1 [NC,L]
+RewriteRule ^(assets|css|js|images|ca|favicons|fonts|)/(.*)$ public/$1/$2 [L,NC]
