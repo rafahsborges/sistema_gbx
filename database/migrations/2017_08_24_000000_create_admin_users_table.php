@@ -20,8 +20,8 @@ class CreateAdminUsersTable extends Migration
                 $table->boolean('tipo')->default(false);
                 $table->string('nome')->nullable();
                 $table->string('razao_social')->nullable();
-                $table->string('cpf', 11)->nullable();
-                $table->string('cnpj', 14)->nullable();
+                $table->string('cpf', 14)->nullable();
+                $table->string('cnpj', 18)->nullable();
                 $table->string('email');
                 $table->string('email2')->nullable();
                 $table->string('email3')->nullable();

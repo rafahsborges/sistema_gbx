@@ -77,7 +77,7 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $this->setUser($request);
-        $adminUser = $this->adminUser;
+        $adminUser = AdminUser::find($this->adminUser->id);
 
         // Validate the request
         $this->validate($request, [
@@ -97,7 +97,7 @@ class ProfileController extends Controller
             'bairro' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'vencimento' => ['nullable', 'date'],
-            'valor' => ['nullable', 'numeric'],
+            'valor' => ['nullable'],
             'ini_contrato' => ['nullable', 'date'],
             'fim_contrato' => ['nullable', 'date'],
             'fistel' => ['nullable', 'string'],
@@ -135,11 +135,15 @@ class ProfileController extends Controller
             'cidade',
         ]);
 
-        $sanitized['id_estado'] = $sanitized['estado'];
-        $sanitized['id_cidade'] = $sanitized['cidade'];
+        $sanitized['id_estado'] = $sanitized['estado']['id'];
+        $sanitized['id_cidade'] = $sanitized['cidade']['id'];
+        $sanitized['valor'] = str_replace(',', '.', str_replace('.', '', $sanitized['valor']));
+
+        unset($sanitized['estado']);
+        unset($sanitized['cidade']);
 
         // Update changed values AdminUser
-        $this->adminUser->update($sanitized);
+        $adminUser->update($sanitized);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/profile'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
