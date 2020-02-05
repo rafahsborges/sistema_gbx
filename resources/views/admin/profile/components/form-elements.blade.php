@@ -275,7 +275,7 @@
     <label for="valor" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.valor') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.valor" v-money="money" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.valor" v-money="money" v-validate="''" @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('valor'), 'form-control-success': fields.valor && fields.valor.valid}"
                id="valor" name="valor" placeholder="{{ trans('admin.admin-user.columns.valor') }}">
         <div v-if="errors.has('valor')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valor') }}

@@ -64,7 +64,7 @@ Vue.component('profile-edit-profile-form', {
         money: VMoney,
         percent: VMoney,
     },
-    
+
     methods: {
         onSuccess(data) {
             if(data.notify) {
