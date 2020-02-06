@@ -41,4 +41,13 @@ Vue.component('servico-form', {
         percent: VMoney,
     },
 
+    methods: {
+        show () {
+            this.$modal.show('etapas');
+        },
+        hide () {
+            this.$modal.hide('etapas');
+        }
+    }
+
 });

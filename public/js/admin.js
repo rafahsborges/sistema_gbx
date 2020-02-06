@@ -113398,6 +113398,14 @@ Vue.component('servico-form', {
   directives: {
     money: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
     percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
+  },
+  methods: {
+    show: function show() {
+      this.$modal.show('etapas');
+    },
+    hide: function hide() {
+      this.$modal.hide('etapas');
+    }
   }
 });
 

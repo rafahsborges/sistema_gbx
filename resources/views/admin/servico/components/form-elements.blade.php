@@ -92,4 +92,6 @@
     </div>
 </div>
 
-
+<modal name="etapas">
+    hello, world!
+</modal>
