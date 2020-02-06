@@ -2,11 +2,11 @@
 
 return [
     'admin-user' => [
-        'title' => 'Users',
+        'title' => 'Clientes',
 
         'actions' => [
-            'index' => 'Users',
-            'create' => 'New User',
+            'index' => 'Clientes',
+            'create' => 'New Cliente',
             'edit' => 'Edit :name',
             'edit_profile' => 'Edit Profile',
             'edit_password' => 'Edit Password',

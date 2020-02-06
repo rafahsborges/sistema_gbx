@@ -12,7 +12,7 @@
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i
-                            class="nav-icon icon-user"></i> {{ __('Manage access') }}</a></li>
+                            class="nav-icon icon-user"></i> {{ trans('admin.admin-user.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/servicos') }}"><i
                             class="nav-icon icon-star"></i> {{ trans('admin.servico.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/status') }}"><i
