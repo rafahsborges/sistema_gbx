@@ -113371,7 +113371,11 @@ Vue.component('servico-form', {
         orgao: '',
         descricao: '',
         etapa: '',
-        status: ''
+        status: '',
+        etapas: {
+          nome: '',
+          status: ''
+        }
       },
       money: {
         decimal: ',',
@@ -113392,7 +113396,8 @@ Vue.component('servico-form', {
         masked: false
         /* doesn't work with directive */
 
-      }
+      },
+      etapasArray: []
     };
   },
   directives: {
@@ -113400,11 +113405,15 @@ Vue.component('servico-form', {
     percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
   },
   methods: {
-    show: function show() {
-      this.$modal.show('etapas');
+    addRow: function addRow() {
+      var elem = document.createElement('div');
+      this.etapasArray.push({
+        nome: '',
+        status: ''
+      });
     },
-    hide: function hide() {
-      this.$modal.hide('etapas');
+    removeElement: function removeElement(index) {
+      this.etapasArray.splice(index, 1);
     }
   }
 });

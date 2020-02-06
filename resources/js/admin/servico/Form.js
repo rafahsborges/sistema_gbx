@@ -16,6 +16,10 @@ Vue.component('servico-form', {
                 descricao:  '' ,
                 etapa:  '' ,
                 status:  '' ,
+                etapas: {
+                    nome:  '' ,
+                    status:  '' ,
+                }
             },
             money: {
                 decimal: ',',
@@ -33,6 +37,7 @@ Vue.component('servico-form', {
                 precision: 2,
                 masked: false /* doesn't work with directive */
             },
+            etapasArray: [],
         }
     },
 
@@ -42,12 +47,16 @@ Vue.component('servico-form', {
     },
 
     methods: {
-        show () {
-            this.$modal.show('etapas');
+        addRow: function() {
+            var elem = document.createElement('div');
+            this.etapasArray.push({
+                nome:  '' ,
+                status:  '' ,
+            });
         },
-        hide () {
-            this.$modal.hide('etapas');
-        }
+        removeElement: function(index) {
+            this.etapasArray.splice(index, 1);
+        },
     }
 
 });
