@@ -15,12 +15,12 @@
                             class="nav-icon icon-user"></i> {{ trans('admin.admin-user.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/servicos') }}"><i
                             class="nav-icon icon-star"></i> {{ trans('admin.servico.title') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('admin/status') }}"><i
-                            class="nav-icon icon-star"></i> {{ trans('admin.status.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/etapas') }}"><i
                             class="nav-icon icon-flag"></i> {{ trans('admin.etapa.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/itens') }}"><i
                             class="nav-icon icon-energy"></i> {{ trans('admin.item.title') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('admin/status') }}"><i
+                            class="nav-icon icon-star"></i> {{ trans('admin.status.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/estados') }}"><i
                             class="nav-icon icon-diamond"></i> {{ trans('admin.estado.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/cidades') }}"><i

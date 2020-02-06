@@ -31,7 +31,7 @@ class UpdateServico extends FormRequest
             'valor' => ['nullable'],
             'orgao' => ['nullable', 'string'],
             'descricao' => ['sometimes', 'string'],
-            'etapa' => ['required'],
+            'etapa' => ['nullable'],
             'status' => ['required'],
         ];
     }

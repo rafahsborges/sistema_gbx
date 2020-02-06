@@ -138,7 +138,7 @@
                                     <td>@{{ item.nome }}</td>
                                     <td>@{{ item.valor }}</td>
                                     <td>@{{ item.orgao }}</td>
-                                    <td>@{{ item.etapa.nome }}</td>
+                                    <td>@{{ item.etapa !== null ? item.etapa.nome : '' }}</td>
                                     <td>@{{ item.status.nome }}</td>
 
                                     <td>
