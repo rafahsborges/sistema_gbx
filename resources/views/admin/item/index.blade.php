@@ -134,7 +134,7 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.nome }}</td>
-                                    <td>@{{ item.etapa.nome }}</td>
+                                    <td>@{{ item.etapa !== null ? item.etapa.nome : '' }}</td>
                                     <td>@{{ item.status.nome }}</td>
 
                                     <td>

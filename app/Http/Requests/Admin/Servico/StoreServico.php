@@ -33,6 +33,7 @@ class StoreServico extends FormRequest
             'descricao' => ['required', 'string'],
             'etapa' => ['nullable'],
             'status' => ['required'],
+            'etapas' => ['nullable'],
         ];
     }
 

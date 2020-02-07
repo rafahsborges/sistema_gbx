@@ -72,54 +72,131 @@
     </div>
 </div>
 
-<hr>
+<div class="card">
 
-<div class="row">
-    <button class="button btn-primary" @click="addRow">Add row</button>
-</div>
-<div v-for="(row, index) in etapasArray">
-    <div class="row">
-        <div class="col-xs-2">
-            <label>&nbsp;</label>
-            <a v-on:click="removeElement(index);" style="cursor: pointer">Remove</a>
-        </div>
+    <div class="card-header">
+        <i class="fa fa-align-justify"></i> {{ trans('admin.etapa.actions.index') }}
+        <button type="button" class="btn btn-primary btn-sm pull-right m-b-0" @click="addRowEtapa"><i
+                class="fa fa-plus"></i>&nbsp; {{ trans('admin.etapa.actions.create') }}</button>
     </div>
-    <div class="form-group row align-items-center"
-         :class="{'has-danger': errors.has('id_status'), 'has-success': fields.id_status && fields.id_status.valid }">
-        <label for="id_status" class="col-form-label text-md-right"
-               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.etapa.columns.id_status') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-            <multiselect
-                v-model="row.status"
-                :options="statuses"
-                :multiple="false"
-                track-by="id"
-                label="nome"
-                tag-placeholder="{{ trans('admin.etapa.columns.id_status') }}"
-                placeholder="{{ trans('admin.etapa.columns.id_status') }}">
-            </multiselect>
-            <div v-if="errors.has('id_status')" class="form-control-feedback form-text" v-cloak>@{{
-                errors.first('id_status') }}
+
+    <div class="card-body">
+
+        <div v-for="(row, index) in form.etapas">
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-danger btn-sm pull-right m-b-0"
+                            v-on:click="removeElementEtapa(index)"><i
+                            class="fa fa-plus"></i> {{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="form-group row align-items-center"
-         :class="{'has-danger': errors.has('nome'), 'has-success': fields.nome && fields.nome.valid }">
-        <label for="nome" class="col-form-label text-md-right"
-               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.etapa.columns.nome') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-            <input type="text" v-model="row.nome" v-validate="'required'" @input="validate($event)"
-                   class="form-control"
-                   :class="{'form-control-danger': errors.has('nome'), 'form-control-success': fields.nome && fields.nome.valid}"
-                   id="nome" placeholder="{{ trans('admin.etapa.columns.nome') }}">
-            <div v-if="errors.has('nome')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('nome') }}
+            <div class="form-group row align-items-center"
+                 :class="{'has-danger': errors.has('id_status'), 'has-success': fields.id_status && fields.id_status.valid }">
+                <label for="id_status" class="col-form-label text-md-right"
+                       :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.etapa.columns.id_status') }}</label>
+                <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                    <multiselect
+                        v-model="row.status"
+                        :options="statuses"
+                        :multiple="false"
+                        track-by="id"
+                        label="nome"
+                        tag-placeholder="{{ trans('admin.etapa.columns.id_status') }}"
+                        placeholder="{{ trans('admin.etapa.columns.id_status') }}">
+                    </multiselect>
+                    <div v-if="errors.has('id_status')" class="form-control-feedback form-text" v-cloak>@{{
+                        errors.first('id_status') }}
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<hr>
+            <div class="form-group row align-items-center"
+                 :class="{'has-danger': errors.has('nome'), 'has-success': fields.nome && fields.nome.valid }">
+                <label for="nome" class="col-form-label text-md-right"
+                       :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.etapa.columns.nome') }}</label>
+                <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                    <input type="text" v-model="row.nome" v-validate="'required'" @input="validate($event)"
+                           class="form-control"
+                           :class="{'form-control-danger': errors.has('nome'), 'form-control-success': fields.nome && fields.nome.valid}"
+                           id="nome" placeholder="{{ trans('admin.etapa.columns.nome') }}">
+                    <div v-if="errors.has('nome')" class="form-control-feedback form-text" v-cloak>@{{
+                        errors.first('nome') }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> {{ trans('admin.item.actions.index') }}
+                    <button type="button" class="btn btn-primary btn-sm pull-right m-b-0" @click="addRowItem(index)"><i
+                            class="fa fa-plus"></i>&nbsp; {{ trans('admin.item.actions.create') }}</button>
+                </div>
+
+                <div class="card-body">
+
+                    <div v-for="(rowIt, indexIt) in form.etapas[index].itens">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-danger btn-sm pull-right m-b-0"
+                                        v-on:click="removeElementItem(indexIt)"><i
+                                        class="fa fa-plus"></i> {{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group row align-items-center"
+                             :class="{'has-danger': errors.has('id_status'), 'has-success': fields.id_status && fields.id_status.valid }">
+                            <label for="id_status" class="col-form-label text-md-right"
+                                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.item.columns.id_status') }}</label>
+                            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                                <multiselect
+                                    v-model="rowIt.status"
+                                    :options="statuses"
+                                    :multiple="false"
+                                    track-by="id"
+                                    label="nome"
+                                    tag-placeholder="{{ trans('admin.item.columns.id_status') }}"
+                                    placeholder="{{ trans('admin.item.columns.id_status') }}">
+                                </multiselect>
+                                <div v-if="errors.has('id_status')" class="form-control-feedback form-text" v-cloak>@{{
+                                    errors.first('id_status') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row align-items-center"
+                             :class="{'has-danger': errors.has('nome'), 'has-success': fields.nome && fields.nome.valid }">
+                            <label for="nome" class="col-form-label text-md-right"
+                                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.item.columns.nome') }}</label>
+                            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                                <input type="text" v-model="rowIt.nome" v-validate="'required'" @input="validate($event)"
+                                       class="form-control"
+                                       :class="{'form-control-danger': errors.has('nome'), 'form-control-success': fields.nome && fields.nome.valid}"
+                                       id="nome" placeholder="{{ trans('admin.item.columns.nome') }}">
+                                <div v-if="errors.has('nome')" class="form-control-feedback form-text" v-cloak>@{{
+                                    errors.first('nome') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+</div>
 
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('id_status'), 'has-success': fields.id_status && fields.id_status.valid }">
