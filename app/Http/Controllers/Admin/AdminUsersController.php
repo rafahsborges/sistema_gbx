@@ -186,9 +186,11 @@ class AdminUsersController extends Controller
     {
         $this->authorize('admin.admin-user.edit', $adminUser);
 
+        $id = $adminUser->id;
+
         $adminUser = AdminUser::with('estado')
             ->with('cidade')
-            ->find($adminUser->id);
+            ->find($id);
 
         $adminUser->load('roles');
 
@@ -216,8 +218,48 @@ class AdminUsersController extends Controller
         $sanitized['id_cidade'] = $request->getCidadeId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
+        $representantes = [];
+        $apontamentos = [];
+        $pontos = [];
+
+        $apontamentosList = isset($sanitized['apontamentos']) ? $sanitized['apontamentos'] : null;
+        $pontosList = isset($sanitized['pontos']) ? $sanitized['pontos'] : null;
+        $representantesList = isset($sanitized['representantes']) ? $sanitized['representantes'] : null;
+
         // Update changed values AdminUser
         $adminUser->update($sanitized);
+
+        if ($apontamentosList) {
+            foreach ($apontamentosList as $apontamento) {
+                $apontamento['id_cliente'] = $adminUser->id;
+                $apontamento['created_at'] = Carbon::now();
+                $apontamento['updated_at'] = Carbon::now();
+                // Update changed values Apontamento
+                $apontamentos[] = Apontamento::create($apontamento);
+            }
+        }
+
+        if ($pontosList) {
+            foreach ($pontosList as $ponto) {
+                $ponto['id_cliente'] = $adminUser->id;
+                $ponto['id_estado'] = $ponto['estado']['id'];
+                $ponto['id_cidade'] = $ponto['cidade']['id'];
+                $ponto['created_at'] = Carbon::now();
+                $ponto['updated_at'] = Carbon::now();
+                // Update changed values Ponto
+                $pontos[] = Ponto::create($ponto);
+            }
+        }
+
+        if ($representantesList) {
+            foreach ($representantesList as $representante) {
+                $representante['id_cliente'] = $adminUser->id;
+                $representante['created_at'] = Carbon::now();
+                $representante['updated_at'] = Carbon::now();
+                // Update changed values Representante
+                $representantes[] = Representante::create($representante);
+            }
+        }
 
         // But we do have a roles, so we need to attach the roles to the adminUser
         if ($request->input('roles')) {

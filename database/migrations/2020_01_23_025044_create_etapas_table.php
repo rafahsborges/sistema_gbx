@@ -16,6 +16,7 @@ class CreateEtapasTable extends Migration
         Schema::create('etapas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
+            $table->bigInteger('id_servico')->nullable();
             $table->unsignedBigInteger('id_status');
             $table->foreign('id_status')
                 ->references('id')->on('status')
