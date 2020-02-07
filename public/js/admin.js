@@ -112283,7 +112283,10 @@ Vue.component('admin-user-form', {
         forbidden: false,
         language: '',
         enabled: false,
-        password: ''
+        password: '',
+        representantes: [],
+        apontamentos: [],
+        pontos: []
       },
       money: {
         decimal: ',',
@@ -112321,6 +112324,59 @@ Vue.component('admin-user-form', {
         _this.form.bairro = obj.bairro; //this.form.cidade = obj.localidade;
         //this.form.estado = obj.uf;
       });
+    },
+    getAddressInfoPonto: function getAddressInfoPonto(e, index) {
+      var _this2 = this;
+
+      this.$viaCep.buscarCep(e.target.value).then(function (obj) {
+        _this2.form.pontos[index].logradouro = obj.logradouro;
+        _this2.form.pontos[index].complemento = obj.complemento;
+        _this2.form.pontos[index].bairro = obj.bairro; //this.form.pontos[index].cidade = obj.localidade;
+        //this.form.pontos[index].estado = obj.uf;
+      });
+    },
+    addRowRepresentante: function addRowRepresentante() {
+      var elem = document.createElement('div');
+      this.form.representantes.push({
+        nome: '',
+        email: '',
+        telefone: '',
+        celular: '',
+        cargo: ''
+      });
+    },
+    removeElementRepresentante: function removeElementRepresentante(index) {
+      this.form.representantes.splice(index, 1);
+    },
+    addRowApontamento: function addRowApontamento() {
+      var elem = document.createElement('div');
+      this.form.apontamentos.push({
+        descricao: ''
+      });
+    },
+    removeElementApontamento: function removeElementApontamento(index) {
+      this.form.apontamentos.splice(index, 1);
+    },
+    addRowPonto: function addRowPonto() {
+      var elem = document.createElement('div');
+      this.form.pontos.push({
+        nome: '',
+        logradouro: '',
+        numero: '',
+        complemento: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
+        cep: '',
+        estacao: '',
+        entidade: '',
+        latitude: '',
+        longitude: '',
+        altura: ''
+      });
+    },
+    removeElementPonto: function removeElementPonto(index) {
+      this.form.pontos.splice(index, 1);
     }
   }
 });

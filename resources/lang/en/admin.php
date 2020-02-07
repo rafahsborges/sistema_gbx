@@ -98,11 +98,11 @@ return [
     ],
 
     'apontamento' => [
-        'title' => 'Apontamentos',
+        'title' => 'Observações',
 
         'actions' => [
-            'index' => 'Apontamentos',
-            'create' => 'New Apontamento',
+            'index' => 'Observações',
+            'create' => 'New Observação',
             'edit' => 'Edit :name',
         ],
 

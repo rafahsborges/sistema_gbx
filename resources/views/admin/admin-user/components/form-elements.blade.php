@@ -457,3 +457,9 @@
         </div>
     </div>
 </div>
+
+@include('admin.admin-user.components.form-apontamento')
+
+@include('admin.admin-user.components.form-representante')
+
+@include('admin.admin-user.components.form-ponto')
