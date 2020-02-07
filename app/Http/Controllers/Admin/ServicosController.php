@@ -197,11 +197,11 @@ class ServicosController extends Controller
         $etapas = [];
         $itens = [];
 
-        $etapasList = $sanitized['etapas'];
+        $etapasList = isset($sanitized['etapas']) ? $sanitized['etapas'] : null;
 
         if ($etapasList) {
             foreach ($etapasList as $etapa) {
-                $itensList = $etapa['itens'];
+                $itensList = isset($etapa['itens']) ? $etapa['itens'] : null;
                 $etapa['id_status'] = $etapa['status']['id'];
                 $etapa['created_at'] = Carbon::now();
                 $etapa['updated_at'] = Carbon::now();
