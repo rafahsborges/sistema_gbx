@@ -166,9 +166,11 @@ class ServicosController extends Controller
     {
         //$this->authorize('admin.servico.edit', $servico);
 
+        $id = $servico->id;
+
         $servico = Servico::with('status')
             ->with('etapa')
-            ->find($servico->id);
+            ->find($id);
 
         return view('admin.servico.edit', [
             'servico' => $servico,
@@ -191,6 +193,33 @@ class ServicosController extends Controller
         $sanitized['id_status'] = $request->getStatusId();
         $sanitized['id_etapa'] = $request->getEtapaId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+
+        $etapas = [];
+        $itens = [];
+
+        $etapasList = $sanitized['etapas'];
+
+        if ($etapasList) {
+            foreach ($etapasList as $etapa) {
+                $itensList = $etapa['itens'];
+                $etapa['id_status'] = $etapa['status']['id'];
+                $etapa['created_at'] = Carbon::now();
+                $etapa['updated_at'] = Carbon::now();
+                // Store Etapa
+                $etapa = (new Etapa)->create($etapa);
+                if ($itensList) {
+                    foreach ($itensList as $item) {
+                        $item['id_status'] = $item['status']['id'];
+                        $item['id_etapa'] = $etapa->id;
+                        $item['created_at'] = Carbon::now();
+                        $item['updated_at'] = Carbon::now();
+                        // Store Etapa
+                        $itens[] = (new Item)->create($item);
+                    }
+                }
+                $etapas[] = $etapa;
+            }
+        }
 
         // Update changed values Servico
         $servico->update($sanitized);
