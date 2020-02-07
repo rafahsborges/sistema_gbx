@@ -76,8 +76,8 @@ Vue.component('admin-user-form', {
                 //this.form.estado = obj.uf;
             });
         },
-        getAddressInfoPonto(e, index) {
-            this.$viaCep.buscarCep(e.target.value).then((obj) => {
+        getAddressInfoPonto(index) {
+            this.$viaCep.buscarCep(this.form.pontos[index].cep).then((obj) => {
                 this.form.pontos[index].logradouro = obj.logradouro;
                 this.form.pontos[index].complemento = obj.complemento;
                 this.form.pontos[index].bairro = obj.bairro;

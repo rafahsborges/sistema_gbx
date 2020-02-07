@@ -112325,10 +112325,10 @@ Vue.component('admin-user-form', {
         //this.form.estado = obj.uf;
       });
     },
-    getAddressInfoPonto: function getAddressInfoPonto(e, index) {
+    getAddressInfoPonto: function getAddressInfoPonto(index) {
       var _this2 = this;
 
-      this.$viaCep.buscarCep(e.target.value).then(function (obj) {
+      this.$viaCep.buscarCep(this.form.pontos[index].cep).then(function (obj) {
         _this2.form.pontos[index].logradouro = obj.logradouro;
         _this2.form.pontos[index].complemento = obj.complemento;
         _this2.form.pontos[index].bairro = obj.bairro; //this.form.pontos[index].cidade = obj.localidade;

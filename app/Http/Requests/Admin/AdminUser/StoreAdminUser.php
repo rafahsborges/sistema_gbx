@@ -56,6 +56,9 @@ class StoreAdminUser extends FormRequest
             'roles' => ['array'],
             'estado' => ['nullable'],
             'cidade' => ['nullable'],
+            'representantes' => ['nullable'],
+            'apontamentos' => ['nullable'],
+            'pontos' => ['nullable'],
         ];
 
         if (Config::get('admin-auth.activation_enabled')) {

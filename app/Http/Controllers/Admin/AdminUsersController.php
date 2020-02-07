@@ -7,9 +7,13 @@ use App\Http\Requests\Admin\AdminUser\DestroyAdminUser;
 use App\Http\Requests\Admin\AdminUser\IndexAdminUser;
 use App\Http\Requests\Admin\AdminUser\StoreAdminUser;
 use App\Http\Requests\Admin\AdminUser\UpdateAdminUser;
+use App\Models\Apontamento;
 use App\Models\Cidade;
 use App\Models\Estado;
 use App\Models\AdminUser;
+use App\Models\Ponto;
+use App\Models\Representante;
+use Carbon\Carbon;
 use Spatie\Permission\Models\Role;
 use Brackets\AdminAuth\Activation\Facades\Activation;
 use Brackets\AdminAuth\Services\ActivationService;
@@ -55,7 +59,7 @@ class AdminUsersController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(AdminUser::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -75,8 +79,8 @@ class AdminUsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -104,8 +108,48 @@ class AdminUsersController extends Controller
         $sanitized['id_cidade'] = $request->getCidadeId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
+        $representantes = [];
+        $apontamentos = [];
+        $pontos = [];
+
+        $apontamentosList = isset($sanitized['apontamentos']) ? $sanitized['apontamentos'] : null;
+        $pontosList = isset($sanitized['pontos']) ? $sanitized['pontos'] : null;
+        $representantesList = isset($sanitized['representantes']) ? $sanitized['representantes'] : null;
+
         // Store the AdminUser
         $adminUser = AdminUser::create($sanitized);
+
+        if ($apontamentosList) {
+            foreach ($apontamentosList as $apontamento) {
+                $apontamento['id_cliente'] = $adminUser->id;
+                $apontamento['created_at'] = Carbon::now();
+                $apontamento['updated_at'] = Carbon::now();
+                // Store the Apontamento
+                $apontamentos[] = Apontamento::create($apontamento);
+            }
+        }
+
+        if ($pontosList) {
+            foreach ($pontosList as $ponto) {
+                $ponto['id_cliente'] = $adminUser->id;
+                $ponto['id_estado'] = $ponto['estado']['id'];
+                $ponto['id_cidade'] = $ponto['cidade']['id'];
+                $ponto['created_at'] = Carbon::now();
+                $ponto['updated_at'] = Carbon::now();
+                // Store the Ponto
+                $pontos[] = Ponto::create($ponto);
+            }
+        }
+
+        if ($representantesList) {
+            foreach ($representantesList as $representante) {
+                $representante['id_cliente'] = $adminUser->id;
+                $representante['created_at'] = Carbon::now();
+                $representante['updated_at'] = Carbon::now();
+                // Store the Representante
+                $representantes[] = Representante::create($representante);
+            }
+        }
 
         // But we do have a roles, so we need to attach the roles to the adminUser
         $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
@@ -121,8 +165,8 @@ class AdminUsersController extends Controller
      * Display the specified resource.
      *
      * @param AdminUser $adminUser
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(AdminUser $adminUser)
     {
@@ -135,8 +179,8 @@ class AdminUsersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param AdminUser $adminUser
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(AdminUser $adminUser)
     {
@@ -192,8 +236,8 @@ class AdminUsersController extends Controller
      *
      * @param DestroyAdminUser $request
      * @param AdminUser $adminUser
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyAdminUser $request, AdminUser $adminUser)
     {
