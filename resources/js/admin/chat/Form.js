@@ -2,13 +2,23 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('chat-form', {
     mixins: [AppForm],
-    props: ['messages'],
+    props: ['cliente'],
     data: function () {
         return {
             form: {
-                descricao: '',
-                cliente: '',
+                newMessage: '',
             }
+        }
+    },
+
+    methods: {
+        sendMessage() {
+            this.$emit('messagesent', {
+                cliente: this.cliente,
+                message: this.form.newMessage
+            });
+
+            this.form.newMessage = '';
         }
     }
 
