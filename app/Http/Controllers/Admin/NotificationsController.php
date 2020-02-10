@@ -47,9 +47,11 @@ class NotificationsController extends Controller
             ['id', 'assunto', 'conteudo', 'id_cliente'],
 
             function ($query) use ($request) {
-                //$query->with(['cliente']);
-                if ($request->has('clientes')) {
-                    $query->whereIn('id_cliente', $request->get('clientes'));
+                if ($request->has('agendados')) {
+                    $query->whereIn('agendar', $request->get('agendados'));
+                }
+                if ($request->has('enviados')) {
+                    $query->whereIn('enviado', $request->get('enviados'));
                 }
             }
         );

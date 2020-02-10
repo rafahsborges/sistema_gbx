@@ -55,11 +55,21 @@
                                 </div>
                                 <div class="row" v-if="showAdvancedFilter">
                                     <div class="col col-lg-6 col-xl-6 form-group">
-                                        <multiselect v-model="clientesMultiselect"
-                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
-                                                     label="label"
-                                                     track-by="key"
-                                                     placeholder="{{ __('Type to search a cliente/s') }}"
+                                        <multiselect v-model="agendadosMultiselect"
+                                                     :options="optionsList"
+                                                     label="nome"
+                                                     track-by="id"
+                                                     placeholder="{{ __('Type to search a agendado/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="enviadosMultiselect"
+                                                     :options="optionsList"
+                                                     label="nome"
+                                                     track-by="id"
+                                                     placeholder="{{ __('Type to search a enviado/s') }}"
                                                      :limit="2"
                                                      :multiple="true">
                                         </multiselect>

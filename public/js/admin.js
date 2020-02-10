@@ -113114,21 +113114,55 @@ Vue.component('notification-listing', {
   data: function data() {
     return {
       showAdvancedFilter: false,
-      clientesMultiselect: {},
+      agendadosMultiselect: {},
+      enviadosMultiselect: {},
+      dtAgendamentosMultiselect: {},
+      dtEnviosMultiselect: {},
       filters: {
-        clientes: []
-      }
+        agendados: [],
+        enviados: [],
+        dtAgendamentos: [],
+        dtEnvios: []
+      },
+      optionsList: [{
+        nome: 'Não',
+        id: '0'
+      }, {
+        nome: 'Sim',
+        id: '1'
+      }]
     };
   },
   watch: {
     showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
-      this.clientesMultiselect = [];
+      this.agendadosMultiselect = [];
+      this.enviadosMultiselect = [];
+      this.dtAgendamentosMultiselect = [];
+      this.dtEnviosMultiselect = [];
     },
-    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
-      this.filters.clientes = newVal.map(function (object) {
+    agendadosMultiselect: function agendadosMultiselect(newVal, oldVal) {
+      this.filters.agendados = newVal.map(function (object) {
+        return object['id'];
+      });
+      this.filter('agendados', this.filters.agendados);
+    },
+    enviadosMultiselect: function enviadosMultiselect(newVal, oldVal) {
+      this.filters.enviados = newVal.map(function (object) {
+        return object['id'];
+      });
+      this.filter('enviados', this.filters.enviados);
+    },
+    dtAgendamentosMultiselect: function dtAgendamentosMultiselect(newVal, oldVal) {
+      this.filters.dtAgendamentos = newVal.map(function (object) {
         return object['key'];
       });
-      this.filter('clientes', this.filters.clientes);
+      this.filter('dtAgendamentos', this.filters.dtAgendamentos);
+    },
+    dtEnviosMultiselect: function dtEnviosMultiselect(newVal, oldVal) {
+      this.filters.dtEnvios = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('dtEnvios', this.filters.dtEnvios);
     }
   }
 });

@@ -5,21 +5,39 @@ Vue.component('notification-listing', {
     data() {
         return {
             showAdvancedFilter: false,
-            clientesMultiselect: {},
+            agendadosMultiselect: {},
+            enviadosMultiselect: {},
 
             filters: {
-                clientes: [],
+                agendados: [],
+                enviados: [],
             },
+
+            optionsList: [
+                {nome: 'Não', id: '0'},
+                {nome: 'Sim', id: '1'},
+            ],
         }
     },
 
     watch: {
         showAdvancedFilter: function (newVal, oldVal) {
-            this.clientesMultiselect = [];
+            this.agendadosMultiselect = [];
+            this.enviadosMultiselect = [];
+            this.dtAgendamentosMultiselect = [];
+            this.dtEnviosMultiselect = [];
         },
-        clientesMultiselect: function(newVal, oldVal) {
-            this.filters.clientes = newVal.map(function(object) { return object['key']; });
-            this.filter('clientes', this.filters.clientes);
-        }
+        agendadosMultiselect: function (newVal, oldVal) {
+            this.filters.agendados = newVal.map(function (object) {
+                return object['id'];
+            });
+            this.filter('agendados', this.filters.agendados);
+        },
+        enviadosMultiselect: function (newVal, oldVal) {
+            this.filters.enviados = newVal.map(function (object) {
+                return object['id'];
+            });
+            this.filter('enviados', this.filters.enviados);
+        },
     }
 });
