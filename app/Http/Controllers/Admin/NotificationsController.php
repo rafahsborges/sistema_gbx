@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Notification\DestroyNotification;
 use App\Http\Requests\Admin\Notification\IndexNotification;
 use App\Http\Requests\Admin\Notification\StoreNotification;
 use App\Http\Requests\Admin\Notification\UpdateNotification;
+use App\Models\AdminUser;
 use App\Models\Notification;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -66,7 +67,9 @@ class NotificationsController extends Controller
     {
         $this->authorize('admin.notification.create');
 
-        return view('admin.notification.create');
+        return view('admin.notification.create', [
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -118,6 +121,7 @@ class NotificationsController extends Controller
 
         return view('admin.notification.edit', [
             'notification' => $notification,
+            'clientes' => AdminUser::all(),
         ]);
     }
 

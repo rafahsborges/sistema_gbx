@@ -19,7 +19,15 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('id_cliente'), 'has-success': fields.id_cliente && fields.id_cliente.valid }">
     <label for="id_cliente" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.id_cliente') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_cliente" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('id_cliente'), 'form-control-success': fields.id_cliente && fields.id_cliente.valid}" id="id_cliente" name="id_cliente" placeholder="{{ trans('admin.notification.columns.id_cliente') }}">
+            <multiselect
+                v-model="form.cliente"
+                :options="clientes"
+                :multiple="true"
+                track-by="id"
+                label="nome"
+                tag-placeholder="{{ trans('admin.notification.columns.id_cliente') }}"
+                placeholder="{{ trans('admin.notification.columns.id_cliente') }}">
+            </multiselect>
         <div v-if="errors.has('id_cliente')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_cliente') }}</div>
     </div>
 </div>
@@ -35,7 +43,7 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('agendamento'), 'has-success': fields.agendamento && fields.agendamento.valid }">
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('agendamento'), 'has-success': fields.agendamento && fields.agendamento.valid }" v-if="form.agendar === true">
     <label for="agendamento" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.agendamento') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-sm-8'">
         <div class="input-group input-group--custom">

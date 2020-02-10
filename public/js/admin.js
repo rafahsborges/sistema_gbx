@@ -113080,12 +113080,13 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('notification-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes'],
   data: function data() {
     return {
       form: {
         assunto: '',
         conteudo: '',
-        id_cliente: '',
+        cliente: '',
         agendar: false,
         agendamento: ''
       }
