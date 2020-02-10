@@ -100,7 +100,7 @@
 
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('envio'), 'has-success': fields.envio && fields.envio.valid }"
-     v-if="Object.keys(data).length !== 0">
+     v-if="Object.keys(data).length !== 0 && form.enviado === true">
     <label for="envio" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.envio') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">

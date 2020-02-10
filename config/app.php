@@ -179,6 +179,8 @@ return [
 
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
+
     ],
 
     /*

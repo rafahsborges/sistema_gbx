@@ -29,7 +29,7 @@ class NewArrivals extends Mailable
     {
         return $this->markdown('emails.notification')
             ->subject($this->notification->assunto)
-            ->from('rafaelsouzaborges@outlook.com', 'Rafael Souza Borges')
+            ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
             ->with([
                 'cliente' => $this->cliente,
                 'notification' => $this->notification,

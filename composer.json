@@ -17,7 +17,9 @@
         "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "2.0.13",
         "rap2hpoutre/laravel-log-viewer": "^1.3",
-        "spatie/laravel-activitylog": "^3.9"
+        "snowfire/beautymail": "dev-master",
+        "spatie/laravel-activitylog": "^3.9",
+        "symfony/css-selector": "^4.0"
     },
     "require-dev": {
         "brackets/admin-generator": "^5.0",

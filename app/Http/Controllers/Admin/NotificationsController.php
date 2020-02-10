@@ -146,7 +146,6 @@ class NotificationsController extends Controller
     {
         $this->authorize('admin.notification.edit', $notification);
 
-
         return view('admin.notification.edit', [
             'notification' => $notification,
             'clientes' => AdminUser::all(),
@@ -165,8 +164,34 @@ class NotificationsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
 
+        if ($sanitized['agendar']) {
+            $sanitized['agendamento'] = Carbon::create($sanitized['agendamento']);
+        } else {
+            $sanitized['agendamento'] = Carbon::now();
+        }
+
+        $emails = [];
+        $clientes = [];
+
+        foreach ($sanitized['cliente'] as $cliente) {
+            $emails[] = $cliente['email'];
+            $clientes[] = $cliente['id'];
+        }
+
+        $sanitized['id_cliente'] = json_encode($clientes);
+
         // Update changed values Notification
         $notification->update($sanitized);
+
+        if ($sanitized['agendamento']->isPast()) {
+            $notification->enviado = true;
+            $notification->envio = Carbon::now();
+            $notification->save();
+
+            foreach ($sanitized['cliente'] as $cliente) {
+                dispatch(new SendMailJob($cliente['email'], new NewArrivals($cliente, $notification)));
+            }
+        }
 
         if ($request->ajax()) {
             return [
