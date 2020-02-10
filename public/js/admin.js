@@ -112252,7 +112252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('admin-user-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ['estados', 'cidades'],
+  props: ['estados', 'cidades', 'servicos'],
   data: function data() {
     return {
       form: {
@@ -112284,6 +112284,8 @@ Vue.component('admin-user-form', {
         language: '',
         enabled: false,
         password: '',
+        servico: '',
+        desconto: '',
         representantes: [],
         apontamentos: [],
         pontos: []

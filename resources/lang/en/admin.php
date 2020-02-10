@@ -43,6 +43,8 @@ return [
             'enabled' => 'Enabled',
             'password' => 'Password',
             'password_repeat' => 'Password Confirmation',
+            'id_servico' => 'ID Servico',
+            'desconto' => 'Desconto',
 
             //Belongs to many relations
             'roles' => 'Roles',

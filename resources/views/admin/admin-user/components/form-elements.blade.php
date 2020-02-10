@@ -463,3 +463,37 @@
 @include('admin.admin-user.components.form-representante')
 
 @include('admin.admin-user.components.form-ponto')
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_servico'), 'has-success': fields.id_servico && fields.id_servico.valid }">
+    <label for="id_servico" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.id_servico') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.servico"
+            :options="servicos"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.admin-user.columns.id_servico') }}"
+            placeholder="{{ trans('admin.admin-user.columns.id_servico') }}">
+        </multiselect>
+        <div v-if="errors.has('id_servico')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_servico') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('desconto'), 'has-success': fields.desconto && fields.desconto.valid }">
+    <label for="desconto" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.desconto') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.desconto" v-money="money" v-validate="''" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('desconto'), 'form-control-success': fields.desconto && fields.desconto.valid}"
+               id="desconto" name="desconto" placeholder="{{ trans('admin.admin-user.columns.desconto') }}">
+        <div v-if="errors.has('desconto')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('desconto') }}
+        </div>
+    </div>
+</div>

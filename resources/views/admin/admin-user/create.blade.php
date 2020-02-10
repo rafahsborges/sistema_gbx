@@ -13,6 +13,7 @@
                 :activation="!!'{{ $activation }}'"
                 :estados="{{$estados->toJson()}}"
                 :cidades="{{$cidades->toJson()}}"
+                :servicos="{{$servicos->toJson()}}"
                 inline-template>
 
                 <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action">

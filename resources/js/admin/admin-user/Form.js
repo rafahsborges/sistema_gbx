@@ -6,6 +6,7 @@ Vue.component('admin-user-form', {
     props: [
         'estados',
         'cidades',
+        'servicos',
     ],
     data: function () {
         return {
@@ -38,6 +39,8 @@ Vue.component('admin-user-form', {
                 language: '',
                 enabled: false,
                 password: '',
+                servico: '',
+                desconto: '',
                 representantes: [],
                 apontamentos: [],
                 pontos: [],

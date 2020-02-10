@@ -13,6 +13,7 @@ use App\Models\Estado;
 use App\Models\AdminUser;
 use App\Models\Ponto;
 use App\Models\Representante;
+use App\Models\Servico;
 use Carbon\Carbon;
 use Spatie\Permission\Models\Role;
 use Brackets\AdminAuth\Activation\Facades\Activation;
@@ -63,17 +64,21 @@ class AdminUsersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'tipo', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'vencimento', 'valor', 'ini_contrato', 'fim_contrato', 'fistel', 'is_admin', 'activated', 'forbidden', 'language', 'enabled'],
+            ['id', 'tipo', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'vencimento', 'valor', 'ini_contrato', 'fim_contrato', 'fistel', 'is_admin', 'activated', 'forbidden', 'language', 'enabled', 'id_servico', 'desconto'],
 
             // set columns to searchIn
-            ['id', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'fistel', 'language']
+            ['id', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_estado', 'cep', 'fistel', 'language', 'id_servico', 'desconto']
         );
 
         if ($request->ajax()) {
             return ['data' => $data, 'activation' => Config::get('admin-auth.activation_enabled')];
         }
 
-        return view('admin.admin-user.index', ['data' => $data, 'activation' => Config::get('admin-auth.activation_enabled')]);
+        return view('admin.admin-user.index', [
+            'data' => $data,
+            'activation' => Config::get('admin-auth.activation_enabled'),
+            'servicos' => Servico::all(),
+            ]);
     }
 
     /**
@@ -91,6 +96,7 @@ class AdminUsersController extends Controller
             'roles' => Role::where('guard_name', $this->guard)->get(),
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -107,6 +113,8 @@ class AdminUsersController extends Controller
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['id_servico'] = $request->getServicoId();
+        $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         $representantes = [];
         $apontamentos = [];
@@ -200,6 +208,7 @@ class AdminUsersController extends Controller
             'roles' => Role::where('guard_name', $this->guard)->get(),
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -217,6 +226,8 @@ class AdminUsersController extends Controller
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['id_servico'] = $request->getServicoId();
+        $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         $representantes = [];
         $apontamentos = [];

@@ -59,6 +59,8 @@ class UpdateAdminUser extends FormRequest
             'representantes' => ['nullable'],
             'apontamentos' => ['nullable'],
             'pontos' => ['nullable'],
+            'desconto' => ['nullable'],
+            'id_servico' => ['nullable'],
         ];
 
         if (Config::get('admin-auth.activation_enabled')) {
@@ -100,6 +102,14 @@ class UpdateAdminUser extends FormRequest
     {
         if ($this->has('cidade')) {
             return $this->get('cidade')['id'];
+        }
+        return null;
+    }
+
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
+            return $this->get('servico')['id'];
         }
         return null;
     }
