@@ -113083,6 +113083,7 @@ Vue.component('notification-form', {
   data: function data() {
     return {
       form: {
+        assunto: '',
         conteudo: '',
         id_cliente: '',
         agendar: false,

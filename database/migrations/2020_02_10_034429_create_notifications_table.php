@@ -15,6 +15,7 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('assunto');
             $table->text('conteudo');
             $table->bigInteger('id_cliente')->nullable();
             $table->boolean('agendar')->default(false);

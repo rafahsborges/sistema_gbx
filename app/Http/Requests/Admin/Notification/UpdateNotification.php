@@ -27,10 +27,12 @@ class UpdateNotification extends FormRequest
     public function rules(): array
     {
         return [
+            'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
             'id_cliente' => ['nullable', 'string'],
             'agendar' => ['sometimes', 'boolean'],
             'agendamento' => ['nullable', 'date'],
+            
         ];
     }
 
@@ -42,6 +44,7 @@ class UpdateNotification extends FormRequest
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
+
 
         //Add your code for manipulation with request data here
 

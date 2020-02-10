@@ -38,10 +38,10 @@ class NotificationsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'id_cliente', 'agendar', 'agendamento'],
+            ['id', 'assunto', 'id_cliente', 'agendar', 'agendamento'],
 
             // set columns to searchIn
-            ['id', 'conteudo']
+            ['id', 'assunto', 'conteudo']
         );
 
         if ($request->ajax()) {

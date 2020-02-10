@@ -27,10 +27,12 @@ class StoreNotification extends FormRequest
     public function rules(): array
     {
         return [
+            'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
             'id_cliente' => ['nullable', 'string'],
             'agendar' => ['required', 'boolean'],
             'agendamento' => ['nullable', 'date'],
+            
         ];
     }
 

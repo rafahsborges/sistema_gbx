@@ -235,10 +235,31 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            'assunto' => 'Assunto',
             'conteudo' => 'Conteudo',
             'id_cliente' => 'Id cliente',
             'agendar' => 'Agendar',
             'agendamento' => 'Agendamento',
+        ],
+    ],
+
+    'notification' => [
+        'title' => 'Notifications',
+
+        'actions' => [
+            'index' => 'Notifications',
+            'create' => 'New Notification',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'assunto' => 'Assunto',
+            'conteudo' => 'Conteudo',
+            'id_cliente' => 'Id cliente',
+            'agendar' => 'Agendar',
+            'agendamento' => 'Agendamento',
+            
         ],
     ],
 

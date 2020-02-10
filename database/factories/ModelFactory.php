@@ -168,6 +168,7 @@ $factory->define(App\Models\Servico::class, static function (Faker\Generator $fa
 /** @var  Factory $factory */
 $factory->define(App\Models\Notification::class, static function (Faker\Generator $faker) {
     return [
+        'assunto' => $faker->sentence,
         'conteudo' => $faker->text(),
         'id_cliente' => $faker->sentence,
         'agendar' => $faker->boolean(),
@@ -177,3 +178,4 @@ $factory->define(App\Models\Notification::class, static function (Faker\Generato
         'deleted_at' => null,
     ];
 });
+

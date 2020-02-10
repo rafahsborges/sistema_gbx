@@ -26,11 +26,12 @@ class IndexNotification extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,id_cliente,agendar,agendamento|nullable',
+            'orderBy' => 'in:id,assunto,id_cliente,agendar,agendamento|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',
             'per_page' => 'integer|nullable',
+
         ];
     }
 }

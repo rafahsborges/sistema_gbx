@@ -9,10 +9,12 @@ class Notification extends Model
 {
     use SoftDeletes;
     protected $fillable = [
+        'assunto',
         'conteudo',
         'id_cliente',
         'agendar',
         'agendamento',
+    
     ];
     
     
@@ -21,6 +23,7 @@ class Notification extends Model
         'created_at',
         'updated_at',
         'deleted_at',
+    
     ];
     
     protected $appends = ['resource_url'];
