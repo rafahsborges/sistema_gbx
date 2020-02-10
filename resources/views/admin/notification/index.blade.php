@@ -34,6 +34,16 @@
                                             </span>
                                         </div>
                                     </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input"
+                                                       v-model="showAdvancedFilter">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="authors-filter">&nbsp;{{ __('Filtros Avançados') }}</span>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
 
@@ -41,6 +51,18 @@
                                             <option value="25">25</option>
                                             <option value="100">100</option>
                                         </select>
+                                    </div>
+                                    <div class="row" v-if="showAdvancedFilter">
+                                        <div class="col col-lg-12 col-xl-12 form-group">
+                                            <multiselect v-model="clientesMultiselect"
+                                                         :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
+                                                         label="label"
+                                                         track-by="key"
+                                                         placeholder="{{ __('Type to search a cliente/s') }}"
+                                                         :limit="2"
+                                                         :multiple="true">
+                                            </multiselect>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -61,8 +83,6 @@
                                     <th is='sortable' :column="'id'">{{ trans('admin.notification.columns.id') }}</th>
                                     <th is='sortable'
                                         :column="'assunto'">{{ trans('admin.notification.columns.assunto') }}</th>
-                                    <th is='sortable'
-                                        :column="'id_cliente'">{{ trans('admin.notification.columns.id_cliente') }}</th>
                                     <th is='sortable'
                                         :column="'agendar'">{{ trans('admin.notification.columns.agendar') }}</th>
                                     <th is='sortable'
@@ -109,7 +129,6 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.assunto }}</td>
-                                    <td>@{{ item.id_cliente }}</td>
                                     <td>@{{ item.agendar }}</td>
                                     <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:ss') }}</td>
                                     <td>@{{ item.enviado }}</td>

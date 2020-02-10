@@ -113110,7 +113110,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('notification-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      clientesMultiselect: {},
+      filters: {
+        clientes: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    }
+  }
 });
 
 /***/ }),
