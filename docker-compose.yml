@@ -33,9 +33,23 @@ services:
       - 86:86
     volumes:
       - ./:/var/www/sistemagbx
+      - ./docker-config/mailhog.ini:/usr/local/etc/php/conf.d/mailhog.ini
+    depends_on:
+      - mailhog
     networks:
       sistemagbx-net:
         ipv4_address: 172.46.0.102
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    volumes:
+      - ./maildir:/maildir
+    networks:
+      sistemagbx-net:
+        ipv4_address: 172.46.0.103
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 
 networks:
   sistemagbx-net:
