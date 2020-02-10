@@ -29,11 +29,10 @@ class StoreNotification extends FormRequest
         return [
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
-            'id_cliente' => ['required', 'string'],
+            'cliente' => ['required'],
             'agendar' => ['required', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['required', 'boolean'],
-            
         ];
     }
 
@@ -49,5 +48,12 @@ class StoreNotification extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<div class="form-check row" :class="{'has-danger': errors.has('enviado'), 'has-success': fields.enviado && fields.enviado.valid }">
+<div class="form-check row" :class="{'has-danger': errors.has('enviado'), 'has-success': fields.enviado && fields.enviado.valid }" v-if="Object.keys(data).length !== 0">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
         <input class="form-check-input" id="enviado" type="checkbox" v-model="form.enviado" v-validate="''" data-vv-name="enviado"  name="enviado_fake_element">
         <label class="form-check-label" for="enviado">
@@ -64,5 +64,3 @@
         <div v-if="errors.has('enviado')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('enviado') }}</div>
     </div>
 </div>
-
-

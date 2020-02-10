@@ -35,7 +35,7 @@ class NotificationsController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Notification::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -60,8 +60,8 @@ class NotificationsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -83,6 +83,24 @@ class NotificationsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
 
+        $emails = [];
+        $clientes = [];
+
+        var_dump('<pre>');
+        foreach ($sanitized['cliente'] as $cliente) {
+            $emails[] = $cliente['email'];
+            $clientes[] = $cliente['id'];
+        }
+
+        var_dump($emails);
+        var_dump(json_encode($clientes));
+
+        var_dump('</pre>');
+        //var_dump($sanitized);
+        die();
+
+        $sanitized['id_cliente'] = json_encode($clientes);
+
         // Store the Notification
         $notification = Notification::create($sanitized);
 
@@ -97,8 +115,8 @@ class NotificationsController extends Controller
      * Display the specified resource.
      *
      * @param Notification $notification
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Notification $notification)
     {
@@ -111,8 +129,8 @@ class NotificationsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Notification $notification
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Notification $notification)
     {
@@ -155,8 +173,8 @@ class NotificationsController extends Controller
      *
      * @param DestroyNotification $request
      * @param Notification $notification
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyNotification $request, Notification $notification)
     {
@@ -173,10 +191,10 @@ class NotificationsController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyNotification $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyNotification $request) : Response
+    public function bulkDestroy(BulkDestroyNotification $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -185,7 +203,7 @@ class NotificationsController extends Controller
                     DB::table('notifications')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

@@ -29,11 +29,10 @@ class UpdateNotification extends FormRequest
         return [
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
-            'id_cliente' => ['sometimes', 'string'],
+            'cliente' => ['required'],
             'agendar' => ['sometimes', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['sometimes', 'boolean'],
-            
         ];
     }
 
@@ -46,9 +45,15 @@ class UpdateNotification extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId(){
+        if ($this->has('cliente')){
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

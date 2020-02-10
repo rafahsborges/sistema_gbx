@@ -113088,7 +113088,8 @@ Vue.component('notification-form', {
         conteudo: '',
         cliente: '',
         agendar: false,
-        agendamento: ''
+        agendamento: '',
+        enviado: false
       }
     };
   }

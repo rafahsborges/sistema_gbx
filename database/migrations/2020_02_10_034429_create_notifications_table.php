@@ -17,7 +17,7 @@ class CreateNotificationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('assunto');
             $table->text('conteudo');
-            $table->bigInteger('id_cliente');
+            $table->string('id_cliente');
             $table->boolean('agendar')->default(false);
             $table->date('agendamento')->nullable();
             $table->boolean('enviado')->default(false);
