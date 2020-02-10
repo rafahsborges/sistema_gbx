@@ -9,12 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "barryvdh/laravel-dompdf": "^0.8.5",
         "brackets/craftable": "^5.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
         "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "2.0.13",
+        "rap2hpoutre/laravel-log-viewer": "^1.3",
         "spatie/laravel-activitylog": "^3.9"
     },
     "require-dev": {

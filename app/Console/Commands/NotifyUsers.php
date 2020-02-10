@@ -63,7 +63,8 @@ class NotifyUsers extends Command
                                 new NewArrivals($cliente, $notification))
                         );
                     }
-                    $notification->envio = true;
+                    $notification->enviado = true;
+                    $notification->envio = Carbon::now();
                     $notification->save();
                 }
             }
