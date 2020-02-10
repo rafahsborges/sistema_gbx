@@ -65,6 +65,8 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
         'language',
         'enabled',
         'password',
+        'id_servico',
+        'desconto'
     ];
 
     protected $hidden = [
@@ -183,6 +185,14 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     public function cidade()
     {
         return $this->belongsTo('App\Models\Cidade', 'id_cidade');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function servico()
+    {
+        return $this->belongsTo('App\Models\Servico', 'id_servico');
     }
 
     /**

@@ -113334,7 +113334,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('profile-edit-profile-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ['estados', 'cidades'],
+  props: ['estados', 'cidades', 'servicos'],
   data: function data() {
     return {
       form: {
@@ -113365,7 +113365,9 @@ Vue.component('profile-edit-profile-form', {
         forbidden: false,
         language: '',
         enabled: false,
-        password: ''
+        password: '',
+        servico: '',
+        desconto: ''
       },
       money: {
         decimal: ',',

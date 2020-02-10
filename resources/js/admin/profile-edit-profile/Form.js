@@ -6,6 +6,7 @@ Vue.component('profile-edit-profile-form', {
     props: [
         'estados',
         'cidades',
+        'servicos',
     ],
     data: function() {
         return {
@@ -38,6 +39,8 @@ Vue.component('profile-edit-profile-form', {
                 language:  '' ,
                 enabled:  false ,
                 password:  '' ,
+                servico: '',
+                desconto: '',
 
             },
             money: {

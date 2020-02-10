@@ -198,6 +198,7 @@ class AdminUsersController extends Controller
 
         $adminUser = AdminUser::with('estado')
             ->with('cidade')
+            ->with('servico')
             ->find($id);
 
         $adminUser->load('roles');

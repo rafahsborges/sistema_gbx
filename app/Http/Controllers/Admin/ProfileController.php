@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AdminUser;
 use App\Models\Cidade;
 use App\Models\Estado;
+use App\Models\Servico;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -58,12 +59,14 @@ class ProfileController extends Controller
 
         $adminUser = AdminUser::with('estado')
             ->with('cidade')
+            ->with('servico')
             ->find($this->adminUser->id);
 
         return view('admin.profile.edit-profile', [
             'adminUser' => $adminUser,
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -106,6 +109,8 @@ class ProfileController extends Controller
             'enabled' => ['sometimes', 'boolean'],
             'estado' => ['nullable'],
             'cidade' => ['nullable'],
+            'desconto' => ['nullable'],
+            'id_servico' => ['nullable'],
         ]);
 
         // Sanitize input
@@ -133,14 +138,19 @@ class ProfileController extends Controller
             'language',
             'estado',
             'cidade',
+            'desconto',
+            'id_servico',
         ]);
 
         $sanitized['id_estado'] = $sanitized['estado']['id'];
         $sanitized['id_cidade'] = $sanitized['cidade']['id'];
         $sanitized['valor'] = str_replace(',', '.', str_replace('.', '', $sanitized['valor']));
+        $sanitized['id_servico'] = $sanitized['servico']['id'];
+        $sanitized['desconto'] = str_replace(',', '.', str_replace('.', '', $sanitized['desconto']));
 
         unset($sanitized['estado']);
         unset($sanitized['cidade']);
+        unset($sanitized['servico']);
 
         // Update changed values AdminUser
         $adminUser->update($sanitized);
