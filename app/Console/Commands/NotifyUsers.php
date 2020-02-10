@@ -48,20 +48,20 @@ class NotifyUsers extends Command
         $now = date("Y-m-d H:i", strtotime(Carbon::now()->addHour()));
         logger($now);
 
-        $messages = Notification::get();
-        if ($messages !== null) {
-            //Get all messages that their dispatch date is due
-            $messages->where('date_string', $now)->each(function ($message) {
-                if ($message->delivered == 'NO') {
+        $notifications = Notification::get();
+        if ($notifications !== null) {
+            //Get all notifications that their dispatch date is due
+            $notifications->where('agendamento', $now)->each(function ($notification) {
+                if ($notification->envio === false) {
                     $users = User::all();
                     foreach ($users as $user) {
                         dispatch(new SendMailJob(
                                 $user->email,
-                                new NewArrivals($user, $message))
+                                new NewArrivals($user, $notification))
                         );
                     }
-                    $message->delivered = 'YES';
-                    $message->save();
+                    $notification->envio = true;
+                    $notification->save();
                 }
             });
         }

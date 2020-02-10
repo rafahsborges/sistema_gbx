@@ -11,13 +11,13 @@ class NewArrivals extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $new_arrival;
-    protected $user;
+    protected $notification;
+    protected $cliente;
 
-    public function __construct($user, $new_arrival)
+    public function __construct($cliente, $notification)
     {
-        $this->user = $user;
-        $this->new_arrival = $new_arrival;
+        $this->cliente = $cliente;
+        $this->notification = $notification;
     }
 
     /**
@@ -27,12 +27,12 @@ class NewArrivals extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.newarrivals')
-            ->subject($this->new_arrival->title)
-            ->from('wonderful@company.com', 'Wonderful Company')
+        return $this->markdown('emails.notification')
+            ->subject($this->notification->assunto)
+            ->from('rafaelsouzaborges@outlook.com', 'Rafael Souza Borges')
             ->with([
-                'user' => $this->user,
-                'new_arrival' => $this->new_arrival,
+                'cliente' => $this->cliente,
+                'notification' => $this->notification,
             ]);
     }
 }
