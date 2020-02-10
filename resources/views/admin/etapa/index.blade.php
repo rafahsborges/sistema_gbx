@@ -64,6 +64,16 @@
                                                      :multiple="true">
                                         </multiselect>
                                     </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="servicosMultiselect"
+                                                     :options="{{ $servicos->map(function($servico) { return ['key' => $servico->id, 'label' =>  $servico->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Type to search a servico/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
                                 </div>
                             </form>
 

@@ -112895,20 +112895,29 @@ Vue.component('etapa-listing', {
     return {
       showAdvancedFilter: false,
       statusesMultiselect: {},
+      servicosMultiselect: {},
       filters: {
-        statuses: []
+        statuses: [],
+        servicos: []
       }
     };
   },
   watch: {
     showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
       this.statusesMultiselect = [];
+      this.servicosMultiselect = [];
     },
     statusesMultiselect: function statusesMultiselect(newVal, oldVal) {
       this.filters.statuses = newVal.map(function (object) {
         return object['key'];
       });
       this.filter('statuses', this.filters.statuses);
+    },
+    servicosMultiselect: function servicosMultiselect(newVal, oldVal) {
+      this.filters.servicos = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('servicos', this.filters.servicos);
     }
   }
 });

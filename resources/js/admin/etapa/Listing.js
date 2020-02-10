@@ -6,9 +6,11 @@ Vue.component('etapa-listing', {
         return {
             showAdvancedFilter: false,
             statusesMultiselect: {},
+            servicosMultiselect: {},
 
             filters: {
                 statuses: [],
+                servicos: [],
             },
         }
     },
@@ -16,10 +18,15 @@ Vue.component('etapa-listing', {
     watch: {
         showAdvancedFilter: function (newVal, oldVal) {
             this.statusesMultiselect = [];
+            this.servicosMultiselect = [];
         },
         statusesMultiselect: function(newVal, oldVal) {
             this.filters.statuses = newVal.map(function(object) { return object['key']; });
             this.filter('statuses', this.filters.statuses);
+        },
+        servicosMultiselect: function(newVal, oldVal) {
+            this.filters.servicos = newVal.map(function(object) { return object['key']; });
+            this.filter('servicos', this.filters.servicos);
         }
     }
 });

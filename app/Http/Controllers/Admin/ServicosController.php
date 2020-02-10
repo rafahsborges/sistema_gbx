@@ -109,10 +109,14 @@ class ServicosController extends Controller
 
         $etapasList = $sanitized['etapas'];
 
+        // Store the Servico
+        $servico = (new Servico)->create($sanitized);
+
         if ($etapasList) {
             foreach ($etapasList as $etapa) {
                 $itensList = $etapa['itens'];
                 $etapa['id_status'] = $etapa['status']['id'];
+                $etapa['id_servico'] = $servico->id;
                 $etapa['created_at'] = Carbon::now();
                 $etapa['updated_at'] = Carbon::now();
                 // Store Etapa
@@ -130,9 +134,6 @@ class ServicosController extends Controller
                 $etapas[] = $etapa;
             }
         }
-
-        // Store the Servico
-        $servico = (new Servico)->create($sanitized);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/servicos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -199,10 +200,14 @@ class ServicosController extends Controller
 
         $etapasList = isset($sanitized['etapas']) ? $sanitized['etapas'] : null;
 
+        // Update changed values Servico
+        $servico->update($sanitized);
+
         if ($etapasList) {
             foreach ($etapasList as $etapa) {
                 $itensList = isset($etapa['itens']) ? $etapa['itens'] : null;
                 $etapa['id_status'] = $etapa['status']['id'];
+                $etapa['id_servico'] = $servico->id;
                 $etapa['created_at'] = Carbon::now();
                 $etapa['updated_at'] = Carbon::now();
                 // Store Etapa
@@ -220,9 +225,6 @@ class ServicosController extends Controller
                 $etapas[] = $etapa;
             }
         }
-
-        // Update changed values Servico
-        $servico->update($sanitized);
 
         if ($request->ajax()) {
             return [
