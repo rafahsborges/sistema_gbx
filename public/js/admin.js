@@ -113116,13 +113116,9 @@ Vue.component('notification-listing', {
       showAdvancedFilter: false,
       agendadosMultiselect: {},
       enviadosMultiselect: {},
-      dtAgendamentosMultiselect: {},
-      dtEnviosMultiselect: {},
       filters: {
         agendados: [],
-        enviados: [],
-        dtAgendamentos: [],
-        dtEnvios: []
+        enviados: []
       },
       optionsList: [{
         nome: 'Não',
@@ -113151,18 +113147,6 @@ Vue.component('notification-listing', {
         return object['id'];
       });
       this.filter('enviados', this.filters.enviados);
-    },
-    dtAgendamentosMultiselect: function dtAgendamentosMultiselect(newVal, oldVal) {
-      this.filters.dtAgendamentos = newVal.map(function (object) {
-        return object['key'];
-      });
-      this.filter('dtAgendamentos', this.filters.dtAgendamentos);
-    },
-    dtEnviosMultiselect: function dtEnviosMultiselect(newVal, oldVal) {
-      this.filters.dtEnvios = newVal.map(function (object) {
-        return object['key'];
-      });
-      this.filter('dtEnvios', this.filters.dtEnvios);
     }
   }
 });
