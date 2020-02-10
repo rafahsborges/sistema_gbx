@@ -17,6 +17,5 @@ Vue.component('notification-form', {
                 envio:  '' ,
             }
         }
-    }
-
+    },
 });

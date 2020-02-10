@@ -8,6 +8,8 @@ use App\Http\Requests\Admin\Notification\DestroyNotification;
 use App\Http\Requests\Admin\Notification\IndexNotification;
 use App\Http\Requests\Admin\Notification\StoreNotification;
 use App\Http\Requests\Admin\Notification\UpdateNotification;
+use App\Jobs\SendMailJob;
+use App\Mail\NewArrivals;
 use App\Models\AdminUser;
 use App\Models\Notification;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -35,7 +37,7 @@ class NotificationsController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Notification::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -80,11 +82,13 @@ class NotificationsController extends Controller
      */
     public function store(StoreNotification $request)
     {
-        var_dump('<pre>');
+        //var_dump('<pre>');
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        if ($sanitized['agendamento'] === null) {
+        if ($sanitized['agendar']) {
+            $sanitized['agendamento'] = Carbon::create($sanitized['agendamento']);
+        } else {
             $sanitized['agendamento'] = Carbon::now();
         }
 
@@ -96,22 +100,27 @@ class NotificationsController extends Controller
             $clientes[] = $cliente['id'];
         }
 
-        var_dump($emails);
-        var_dump(json_encode($clientes));
-
-        var_dump('</pre>');
-        //var_dump($sanitized);
-        die();
-
         $sanitized['id_cliente'] = json_encode($clientes);
 
         // Store the Notification
         $notification = Notification::create($sanitized);
 
+        if ($sanitized['agendamento']->isPast()) {
+            $notification->enviado = true;
+            $notification->envio = Carbon::now();
+            $notification->save();
+
+            foreach ($sanitized['cliente'] as $cliente) {
+                dispatch(new SendMailJob($cliente['email'], new NewArrivals($cliente, $notification)));
+            }
+        }
+
         if ($request->ajax()) {
             return ['redirect' => url('admin/notifications'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
+        //var_dump('</pre>');
+        //die();
         return redirect('admin/notifications');
     }
 
