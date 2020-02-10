@@ -241,6 +241,7 @@ return [
             'agendar' => 'Agendar',
             'agendamento' => 'Agendamento',
             'enviado' => 'Enviado',
+            'envio' => 'Envio',
         ],
     ],
 

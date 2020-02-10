@@ -45,10 +45,10 @@
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('agendamento'), 'has-success': fields.agendamento && fields.agendamento.valid }" v-if="form.agendar === true">
     <label for="agendamento" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.agendamento') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-sm-8'">
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <div class="input-group input-group--custom">
             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-            <datetime v-model="form.agendamento" :config="datePickerConfig" v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr" :class="{'form-control-danger': errors.has('agendamento'), 'form-control-success': fields.agendamento && fields.agendamento.valid}" id="agendamento" name="agendamento" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+            <datetime v-model="form.agendamento" :config="datetimePickerConfig" v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr" :class="{'form-control-danger': errors.has('agendamento'), 'form-control-success': fields.agendamento && fields.agendamento.valid}" id="agendamento" name="agendamento" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_date_and_time') }}"></datetime>
         </div>
         <div v-if="errors.has('agendamento')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('agendamento') }}</div>
     </div>
@@ -62,5 +62,16 @@
         </label>
         <input type="hidden" name="enviado" :value="form.enviado">
         <div v-if="errors.has('enviado')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('enviado') }}</div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('envio'), 'has-success': fields.envio && fields.envio.valid }">
+    <label for="envio" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.envio') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <div class="input-group input-group--custom">
+            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <datetime v-model="form.envio" :config="datetimePickerConfig" v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr" :class="{'form-control-danger': errors.has('envio'), 'form-control-success': fields.envio && fields.envio.valid}" id="envio" name="envio" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_date_and_time') }}"></datetime>
+        </div>
+        <div v-if="errors.has('envio')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('envio') }}</div>
     </div>
 </div>

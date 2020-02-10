@@ -35,14 +35,14 @@ class NotificationsController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Notification::class)->processRequestAndGet(
-        // pass the request with params
+            // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'assunto', 'id_cliente', 'agendar', 'agendamento', 'enviado'],
+            ['id', 'assunto', 'id_cliente', 'agendar', 'agendamento', 'enviado', 'envio'],
 
             // set columns to searchIn
-            ['id', 'assunto', 'conteudo']
+            ['id', 'assunto', 'conteudo', 'id_cliente']
         );
 
         if ($request->ajax()) {
@@ -80,13 +80,17 @@ class NotificationsController extends Controller
      */
     public function store(StoreNotification $request)
     {
+        var_dump('<pre>');
         // Sanitize input
         $sanitized = $request->getSanitized();
+
+        if ($sanitized['agendamento'] === null) {
+            $sanitized['agendamento'] = Carbon::now();
+        }
 
         $emails = [];
         $clientes = [];
 
-        var_dump('<pre>');
         foreach ($sanitized['cliente'] as $cliente) {
             $emails[] = $cliente['email'];
             $clientes[] = $cliente['id'];

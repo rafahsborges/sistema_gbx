@@ -33,6 +33,7 @@ class StoreNotification extends FormRequest
             'agendar' => ['required', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['required', 'boolean'],
+            'envio' => ['nullable', 'date'],
         ];
     }
 

@@ -14,6 +14,7 @@ Vue.component('notification-form', {
                 agendar:  false ,
                 agendamento:  '' ,
                 enviado:  false ,
+                envio:  '' ,
             }
         }
     }

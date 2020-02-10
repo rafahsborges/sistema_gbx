@@ -26,7 +26,7 @@ class IndexNotification extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,assunto,id_cliente,agendar,agendamento,enviado|nullable',
+            'orderBy' => 'in:id,assunto,id_cliente,agendar,agendamento,enviado,envio|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

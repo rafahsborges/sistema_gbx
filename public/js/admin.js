@@ -113089,7 +113089,8 @@ Vue.component('notification-form', {
         cliente: '',
         agendar: false,
         agendamento: '',
-        enviado: false
+        enviado: false,
+        envio: ''
       }
     };
   }

@@ -19,8 +19,9 @@ class CreateNotificationsTable extends Migration
             $table->text('conteudo');
             $table->string('id_cliente');
             $table->boolean('agendar')->default(false);
-            $table->date('agendamento')->nullable();
+            $table->timestamp('agendamento')->nullable();
             $table->boolean('enviado')->default(false);
+            $table->timestamp('envio')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

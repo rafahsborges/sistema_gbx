@@ -33,6 +33,7 @@ class UpdateNotification extends FormRequest
             'agendar' => ['sometimes', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['sometimes', 'boolean'],
+            'envio' => ['nullable', 'date'],
         ];
     }
 

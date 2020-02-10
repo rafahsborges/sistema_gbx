@@ -15,12 +15,14 @@ class Notification extends Model
         'agendar',
         'agendamento',
         'enviado',
+        'envio',
     
     ];
     
     
     protected $dates = [
         'agendamento',
+        'envio',
         'created_at',
         'updated_at',
         'deleted_at',
