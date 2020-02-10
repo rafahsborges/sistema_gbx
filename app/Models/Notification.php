@@ -14,6 +14,7 @@ class Notification extends Model
         'id_cliente',
         'agendar',
         'agendamento',
+        'enviado',
     
     ];
     

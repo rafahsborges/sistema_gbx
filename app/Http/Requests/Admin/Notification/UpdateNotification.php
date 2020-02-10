@@ -29,9 +29,10 @@ class UpdateNotification extends FormRequest
         return [
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
-            'id_cliente' => ['nullable', 'string'],
+            'id_cliente' => ['sometimes', 'string'],
             'agendar' => ['sometimes', 'boolean'],
             'agendamento' => ['nullable', 'date'],
+            'enviado' => ['sometimes', 'boolean'],
             
         ];
     }

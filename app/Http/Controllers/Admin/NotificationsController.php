@@ -39,7 +39,7 @@ class NotificationsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'assunto', 'id_cliente', 'agendar', 'agendamento'],
+            ['id', 'assunto', 'id_cliente', 'agendar', 'agendamento', 'enviado'],
 
             // set columns to searchIn
             ['id', 'assunto', 'conteudo']

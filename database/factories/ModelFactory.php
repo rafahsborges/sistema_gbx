@@ -173,6 +173,7 @@ $factory->define(App\Models\Notification::class, static function (Faker\Generato
         'id_cliente' => $faker->sentence,
         'agendar' => $faker->boolean(),
         'agendamento' => $faker->date(),
+        'enviado' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,

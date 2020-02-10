@@ -29,9 +29,10 @@ class StoreNotification extends FormRequest
         return [
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
-            'id_cliente' => ['nullable', 'string'],
+            'id_cliente' => ['required', 'string'],
             'agendar' => ['required', 'boolean'],
             'agendamento' => ['nullable', 'date'],
+            'enviado' => ['required', 'boolean'],
             
         ];
     }
