@@ -186,6 +186,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/', 'NotificationsController@index')->name('index');
             Route::get('/create', 'NotificationsController@create')->name('create');
             Route::post('/', 'NotificationsController@store')->name('store');
+            Route::get('/{notification}', 'NotificationsController@show')->name('show');
             Route::get('/{notification}/edit', 'NotificationsController@edit')->name('edit');
             Route::post('/bulk-destroy', 'NotificationsController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{notification}', 'NotificationsController@update')->name('update');

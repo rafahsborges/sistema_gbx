@@ -230,6 +230,7 @@ return [
         'actions' => [
             'index' => 'Notificações',
             'create' => 'New Notificação',
+            'show' => 'Show Notificação',
             'edit' => 'Edit :name',
         ],
 

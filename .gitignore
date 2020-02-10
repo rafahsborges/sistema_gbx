@@ -15,3 +15,5 @@ yarn-error.log
 db/
 public/media/
 
+
+public/uploads/

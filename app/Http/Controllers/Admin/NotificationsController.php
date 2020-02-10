@@ -132,7 +132,10 @@ class NotificationsController extends Controller
     {
         $this->authorize('admin.notification.show', $notification);
 
-        // TODO your code goes here
+        return view('admin.notification.show', [
+            'notification' => $notification,
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -145,6 +148,11 @@ class NotificationsController extends Controller
     public function edit(Notification $notification)
     {
         $this->authorize('admin.notification.edit', $notification);
+
+        $notification = Notification::find($notification->id);
+
+        $notification->cliente = AdminUser::whereIn('id', json_decode($notification->id_cliente))
+            ->get();
 
         return view('admin.notification.edit', [
             'notification' => $notification,
