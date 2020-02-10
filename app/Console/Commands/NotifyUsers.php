@@ -45,25 +45,28 @@ class NotifyUsers extends Command
     public function handle()
     {
         //One hour is added to compensate for PHP being one hour faster
-        $now = date("Y-m-d H:i", strtotime(Carbon::now()->addHour()));
-        logger($now);
+        $now = Carbon::now();
 
-        $notifications = Notification::get();
+        $notifications = Notification::where('agendamento', '>=', $now)->get();
+
         if ($notifications !== null) {
             //Get all notifications that their dispatch date is due
-            $notifications->where('agendamento', $now)->each(function ($notification) {
-                if ($notification->envio === false) {
-                    $users = User::all();
-                    foreach ($users as $user) {
+            foreach ($notifications as $notification) {
+                if ($notification->envio === null) {
+                    $clientes = [];
+                    foreach (json_decode($notification->id_cliente) as $cliente) {
+                        $clientes[] = AdminUser::find($cliente);
+                    }
+                    foreach ($clientes as $cliente) {
                         dispatch(new SendMailJob(
-                                $user->email,
-                                new NewArrivals($user, $notification))
+                                $cliente->email,
+                                new NewArrivals($cliente, $notification))
                         );
                     }
                     $notification->envio = true;
                     $notification->save();
                 }
-            });
+            }
         }
     }
 }

@@ -82,7 +82,6 @@ class NotificationsController extends Controller
      */
     public function store(StoreNotification $request)
     {
-        //var_dump('<pre>');
         // Sanitize input
         $sanitized = $request->getSanitized();
 
@@ -119,8 +118,6 @@ class NotificationsController extends Controller
             return ['redirect' => url('admin/notifications'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        //var_dump('</pre>');
-        //die();
         return redirect('admin/notifications');
     }
 
