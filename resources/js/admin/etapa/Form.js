@@ -3,7 +3,8 @@ import AppForm from '../app-components/Form/AppForm';
 Vue.component('etapa-form', {
     mixins: [AppForm],
     props: [
-        'statuses'
+        'statuses',
+        'servicos',
     ],
     data: function() {
         return {

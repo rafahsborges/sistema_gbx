@@ -112864,7 +112864,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('etapa-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ['statuses'],
+  props: ['statuses', 'servicos'],
   data: function data() {
     return {
       form: {

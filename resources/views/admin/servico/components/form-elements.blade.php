@@ -72,7 +72,7 @@
     </div>
 </div>
 
-<div class="card">
+<div class="card" v-if="Object.keys(data).length === 0">
 
     <div class="card-header">
         <i class="fa fa-align-justify"></i> {{ trans('admin.etapa.actions.index') }}
@@ -143,7 +143,8 @@
                             <div class="col-12">
                                 <button type="button" class="btn btn-danger btn-sm pull-right m-b-0"
                                         v-on:click="removeElementItem(indexIt)"><i
-                                        class="fa fa-plus"></i> {{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
+                                        class="fa fa-plus"></i> {{ trans('brackets/admin-ui::admin.btn.delete') }}
+                                </button>
                             </div>
                         </div>
 
@@ -172,7 +173,8 @@
                             <label for="nome" class="col-form-label text-md-right"
                                    :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.item.columns.nome') }}</label>
                             <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                                <input type="text" v-model="rowIt.nome" v-validate="'required'" @input="validate($event)"
+                                <input type="text" v-model="rowIt.nome" v-validate="'required'"
+                                       @input="validate($event)"
                                        class="form-control"
                                        :class="{'form-control-danger': errors.has('nome'), 'form-control-success': fields.nome && fields.nome.valid}"
                                        id="nome" placeholder="{{ trans('admin.item.columns.nome') }}">

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -47,5 +48,12 @@ class Etapa extends Model
      */
     public function servico() {
         return $this->belongsTo('App\Models\Servico', 'id_servico');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function itens() {
+        return $this->hasMany('App\Models\Item', 'id_etapa', 'id');
     }
 }

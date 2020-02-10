@@ -135,6 +135,11 @@ class ServicosController extends Controller
             }
         }
 
+        if ($sanitized['etapa'] === null && $etapasList) {
+            // Update changed values Servico
+            $servico->update(['id_etapa' => $etapas[0]['id']]);
+        }
+
         if ($request->ajax()) {
             return ['redirect' => url('admin/servicos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
@@ -171,6 +176,7 @@ class ServicosController extends Controller
 
         $servico = Servico::with('status')
             ->with('etapa')
+            ->with('etapa.itens')
             ->find($id);
 
         return view('admin.servico.edit', [
@@ -224,6 +230,11 @@ class ServicosController extends Controller
                 }
                 $etapas[] = $etapa;
             }
+        }
+
+        if ($sanitized['etapa'] === null && $etapasList) {
+            // Update changed values Servico
+            $servico->update(['id_etapa' => $etapas[0]['id']]);
         }
 
         if ($request->ajax()) {
