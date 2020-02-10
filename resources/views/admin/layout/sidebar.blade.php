@@ -8,7 +8,8 @@
                         class="nav-icon icon-compass"></i> {{ trans('admin.ponto.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/apontamentos') }}"><i
                         class="nav-icon icon-diamond"></i> {{ trans('admin.apontamento.title') }}</a></li>
-            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/notifications') }}"><i class="nav-icon icon-diamond"></i> {{ trans('admin.notification.title') }}</a></li>
+           {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i

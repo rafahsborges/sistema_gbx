@@ -175,3 +175,19 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('notifications')->name('notifications/')->group(static function() {
+            Route::get('/',                                             'NotificationsController@index')->name('index');
+            Route::get('/create',                                       'NotificationsController@create')->name('create');
+            Route::post('/',                                            'NotificationsController@store')->name('store');
+            Route::get('/{notification}/edit',                          'NotificationsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'NotificationsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{notification}',                              'NotificationsController@update')->name('update');
+            Route::delete('/{notification}',                            'NotificationsController@destroy')->name('destroy');
+        });
+    });
+});

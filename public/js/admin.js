@@ -112961,6 +112961,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _etapa__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./etapa */ "./resources/js/admin/etapa/index.js");
 /* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./item */ "./resources/js/admin/item/index.js");
 /* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
+/* harmony import */ var _notification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notification */ "./resources/js/admin/notification/index.js");
+
 
 
 
@@ -113060,6 +113062,66 @@ Vue.component('item-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/item/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/item/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/notification/Form.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/notification/Form.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('notification-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        conteudo: '',
+        id_cliente: '',
+        agendar: false,
+        agendamento: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/notification/Listing.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/notification/Listing.js ***!
+  \****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('notification-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/notification/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/notification/index.js ***!
+  \**************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/notification/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/notification/Form.js");
 
 
 
@@ -113438,6 +113500,7 @@ Vue.component('servico-form', {
         descricao: '',
         etapa: '',
         status: '',
+        observacao: '',
         etapas: []
       },
       money: {

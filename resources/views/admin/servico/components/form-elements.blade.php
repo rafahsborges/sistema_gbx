@@ -220,3 +220,17 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center" v-if="form.status.id === 3 || form.status.id === 4"
+     :class="{'has-danger': errors.has('observacao'), 'has-success': fields.observacao && fields.observacao.valid }">
+    <label for="observacao" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.observacao') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <div>
+            <wysiwyg v-model="form.observacao" v-validate="''" id="observacao" name="observacao"
+                     :config="mediaWysiwygConfig"></wysiwyg>
+        </div>
+        <div v-if="errors.has('observacao')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('observacao') }}
+        </div>
+    </div>
+</div>

@@ -53,6 +53,8 @@ class CreateAdminUsersTable extends Migration
                 $table->string('language', 2)->default('pt');
                 $table->boolean('enabled')->default(true);
                 $table->string('password');
+                $table->bigInteger('id_servico')->nullable();
+                $table->decimal('desconto', 9)->nullable();
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();

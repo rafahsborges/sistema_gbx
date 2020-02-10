@@ -10,3 +10,4 @@ import './status';
 import './etapa';
 import './item';
 import './servico';
+import './notification';

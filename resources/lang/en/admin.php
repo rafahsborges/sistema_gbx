@@ -220,7 +220,25 @@ return [
             'descricao' => 'Descricao',
             'id_etapa' => 'Id etapa',
             'id_status' => 'Id status',
+            'observacao' => 'Observacao',
+        ],
+    ],
 
+    'notification' => [
+        'title' => 'Notificações',
+
+        'actions' => [
+            'index' => 'Notificações',
+            'create' => 'New Notificação',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'conteudo' => 'Conteudo',
+            'id_cliente' => 'Id cliente',
+            'agendar' => 'Agendar',
+            'agendamento' => 'Agendamento',
         ],
     ],
 

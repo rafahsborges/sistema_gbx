@@ -90,6 +90,7 @@ $factory->define(App\Models\Apontamento::class, static function (Faker\Generator
         'deleted_at' => null,
     ];
 });
+
 /** @var  Factory $factory */
 $factory->define(App\Models\Estado::class, static function (Faker\Generator $faker) {
     return [
@@ -101,6 +102,7 @@ $factory->define(App\Models\Estado::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
+
 /** @var  Factory $factory */
 $factory->define(App\Models\Cidade::class, static function (Faker\Generator $faker) {
     return [
@@ -113,6 +115,7 @@ $factory->define(App\Models\Cidade::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
+
 /** @var  Factory $factory */
 $factory->define(App\Models\Status::class, static function (Faker\Generator $faker) {
     return [
@@ -122,6 +125,7 @@ $factory->define(App\Models\Status::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
+
 /** @var  Factory $factory */
 $factory->define(App\Models\Etapa::class, static function (Faker\Generator $faker) {
     return [
@@ -133,6 +137,7 @@ $factory->define(App\Models\Etapa::class, static function (Faker\Generator $fake
         'deleted_at' => null,
     ];
 });
+
 /** @var  Factory $factory */
 $factory->define(App\Models\Item::class, static function (Faker\Generator $faker) {
     return [
@@ -143,6 +148,7 @@ $factory->define(App\Models\Item::class, static function (Faker\Generator $faker
         'updated_at' => $faker->dateTime,
     ];
 });
+
 /** @var  Factory $factory */
 $factory->define(App\Models\Servico::class, static function (Faker\Generator $faker) {
     return [
@@ -152,6 +158,20 @@ $factory->define(App\Models\Servico::class, static function (Faker\Generator $fa
         'descricao' => $faker->text(),
         'id_etapa' => $faker->sentence,
         'id_status' => $faker->sentence,
+        'observacao' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Notification::class, static function (Faker\Generator $faker) {
+    return [
+        'conteudo' => $faker->text(),
+        'id_cliente' => $faker->sentence,
+        'agendar' => $faker->boolean(),
+        'agendamento' => $faker->date(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,

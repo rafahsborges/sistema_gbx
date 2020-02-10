@@ -16,6 +16,7 @@ Vue.component('servico-form', {
                 descricao:  '' ,
                 etapa:  '' ,
                 status:  '' ,
+                observacao:  '' ,
                 etapas: [],
             },
             money: {

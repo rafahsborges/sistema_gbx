@@ -44,7 +44,7 @@ class ServicosController extends Controller
             ['id', 'nome', 'valor', 'orgao', 'id_etapa', 'id_status'],
 
             // set columns to searchIn
-            ['id', 'nome', 'orgao', 'descricao'],
+            ['id', 'nome', 'orgao', 'descricao', 'observacao'],
 
             function ($query) use ($request) {
                 $query->with(['status']);

@@ -21,6 +21,7 @@ class Servico extends Model
         'descricao',
         'id_etapa',
         'id_status',
+        'observacao',
     ];
 
     protected $dates = [
