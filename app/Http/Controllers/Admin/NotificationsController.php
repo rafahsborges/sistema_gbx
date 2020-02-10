@@ -44,7 +44,14 @@ class NotificationsController extends Controller
             ['id', 'assunto', 'id_cliente', 'agendar', 'agendamento', 'enviado', 'envio'],
 
             // set columns to searchIn
-            ['id', 'assunto', 'conteudo', 'id_cliente']
+            ['id', 'assunto', 'conteudo', 'id_cliente'],
+
+            function ($query) use ($request) {
+                //$query->with(['cliente']);
+                if ($request->has('clientes')) {
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -56,7 +63,10 @@ class NotificationsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.notification.index', ['data' => $data]);
+        return view('admin.notification.index', [
+            'data' => $data,
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -132,6 +142,11 @@ class NotificationsController extends Controller
     {
         $this->authorize('admin.notification.show', $notification);
 
+        $notification = Notification::find($notification->id);
+
+        $notification->cliente = AdminUser::whereIn('id', json_decode($notification->id_cliente))
+            ->get();
+
         return view('admin.notification.show', [
             'notification' => $notification,
             'clientes' => AdminUser::all(),
@@ -176,6 +191,10 @@ class NotificationsController extends Controller
             $sanitized['agendamento'] = Carbon::create($sanitized['agendamento']);
         } else {
             $sanitized['agendamento'] = Carbon::now();
+        }
+
+        if (!$sanitized['enviado']) {
+            $sanitized['envio'] = null;
         }
 
         $emails = [];

@@ -64,7 +64,7 @@
 
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('agendamento'), 'has-success': fields.agendamento && fields.agendamento.valid }"
-     v-if="form.agendar === true">
+     v-if="form.agendar === true || form.agendar === 1">
     <label for="agendamento" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.agendamento') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
@@ -100,7 +100,7 @@
 
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('envio'), 'has-success': fields.envio && fields.envio.valid }"
-     v-if="Object.keys(data).length !== 0 && form.enviado === true">
+     v-if="Object.keys(data).length !== 0 && form.enviado === true || form.enviado === 1">
     <label for="envio" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.notification.columns.envio') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">

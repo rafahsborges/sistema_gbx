@@ -111,9 +111,9 @@
                                     <td>@{{ item.assunto }}</td>
                                     <td>@{{ item.id_cliente }}</td>
                                     <td>@{{ item.agendar }}</td>
-                                    <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:s') }}</td>
+                                    <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:ss') }}</td>
                                     <td>@{{ item.enviado }}</td>
-                                    <td>@{{ item.envio | datetime('DD/MM/YYYY H:m:s') }}</td>
+                                    <td>@{{ item.envio | datetime('DD/MM/YYYY H:m:ss') }}</td>
 
                                     <td>
                                         <div class="row no-gutters">
