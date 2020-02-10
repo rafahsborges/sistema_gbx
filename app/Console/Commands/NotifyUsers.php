@@ -47,7 +47,7 @@ class NotifyUsers extends Command
         //One hour is added to compensate for PHP being one hour faster
         $now = Carbon::now();
 
-        $notifications = Notification::where('agendamento', '>=', $now)->get();
+        $notifications = Notification::where('agendamento', '<=', $now)->get();
 
         if ($notifications !== null) {
             //Get all notifications that their dispatch date is due
