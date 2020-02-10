@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Etapa\IndexEtapa;
 use App\Http\Requests\Admin\Etapa\StoreEtapa;
 use App\Http\Requests\Admin\Etapa\UpdateEtapa;
 use App\Models\Etapa;
+use App\Models\Servico;
 use App\Models\Status;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -39,15 +40,19 @@ class EtapasController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'id_status'],
+            ['id', 'nome', 'id_servico', 'id_status'],
 
             // set columns to searchIn
-            ['id', 'nome'],
+            ['id', 'nome', 'id_servico'],
 
             function ($query) use ($request) {
                 $query->with(['status']);
+                $query->with(['servico']);
                 if ($request->has('statuses')) {
                     $query->whereIn('id_status', $request->get('statuses'));
+                }
+                if ($request->has('servicos')) {
+                    $query->whereIn('id_servico', $request->get('servicos'));
                 }
             }
         );
@@ -64,6 +69,7 @@ class EtapasController extends Controller
         return view('admin.etapa.index', [
             'data' => $data,
             'statuses' => Status::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -79,6 +85,7 @@ class EtapasController extends Controller
 
         return view('admin.etapa.create', [
             'statuses' => Status::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -93,6 +100,7 @@ class EtapasController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
+        $sanitized['id_servico'] = $request->getServicoId();
 
         // Store the Etapa
         $etapa = Etapa::create($sanitized);
@@ -135,6 +143,7 @@ class EtapasController extends Controller
         return view('admin.etapa.edit', [
             'etapa' => $etapa,
             'statuses' => Status::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -150,6 +159,7 @@ class EtapasController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
+        $sanitized['id_servico'] = $request->getServicoId();
 
         // Update changed values Etapa
         $etapa->update($sanitized);

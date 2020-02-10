@@ -90,7 +90,7 @@ $factory->define(App\Models\Apontamento::class, static function (Faker\Generator
         'deleted_at' => null,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Estado::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -101,7 +101,7 @@ $factory->define(App\Models\Estado::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Cidade::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -113,7 +113,7 @@ $factory->define(App\Models\Cidade::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Status::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -122,17 +122,18 @@ $factory->define(App\Models\Status::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Etapa::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
+        'id_servico' => $faker->sentence,
         'id_status' => $faker->sentence,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Item::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -142,7 +143,7 @@ $factory->define(App\Models\Item::class, static function (Faker\Generator $faker
         'updated_at' => $faker->dateTime,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Servico::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,

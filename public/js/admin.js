@@ -112869,6 +112869,7 @@ Vue.component('etapa-form', {
     return {
       form: {
         nome: '',
+        servico: '',
         status: ''
       }
     };

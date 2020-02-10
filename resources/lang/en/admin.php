@@ -179,6 +179,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
+            'id_servico' => 'Id servico',
             'id_status' => 'Id status',
 
         ],

@@ -28,6 +28,7 @@ class StoreEtapa extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
+            'servico' => ['nullable'],
             'status' => ['required'],
         ];
     }
@@ -49,6 +50,13 @@ class StoreEtapa extends FormRequest
     public function getStatusId(){
         if ($this->has('status')){
             return $this->get('status')['id'];
+        }
+        return null;
+    }
+
+    public function getServicoId(){
+        if ($this->has('servico')){
+            return $this->get('servico')['id'];
         }
         return null;
     }

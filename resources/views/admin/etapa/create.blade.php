@@ -11,6 +11,7 @@
             <etapa-form
                 :action="'{{ url('admin/etapas') }}'"
                 :statuses="{{$statuses->toJson()}}"
+                :servicos="{{$servicos->toJson()}}"
                 v-cloak
                 inline-template>
 

@@ -83,12 +83,14 @@
                                     <th is='sortable' :column="'id'">{{ trans('admin.etapa.columns.id') }}</th>
                                     <th is='sortable' :column="'nome'">{{ trans('admin.etapa.columns.nome') }}</th>
                                     <th is='sortable'
+                                        :column="'id_servico'">{{ trans('admin.etapa.columns.id_servico') }}</th>
+                                    <th is='sortable'
                                         :column="'id_status'">{{ trans('admin.etapa.columns.id_status') }}</th>
 
                                     <th></th>
                                 </tr>
                                 <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                    <td class="bg-bulk-info d-table-cell text-center" colspan="5">
+                                    <td class="bg-bulk-info d-table-cell text-center" colspan="6">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a
                                                     href="#" class="text-primary"
                                                     @click="onBulkItemsClickedAll('/admin/etapas')"
@@ -122,6 +124,7 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.nome }}</td>
+                                    <td>@{{ item.servico.nome }}</td>
                                     <td>@{{ item.status.nome }}</td>
 
                                     <td>

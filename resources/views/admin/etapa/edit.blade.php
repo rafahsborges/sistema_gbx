@@ -11,6 +11,7 @@
                 :action="'{{ $etapa->resource_url }}'"
                 :data="{{ $etapa->toJson() }}"
                 :statuses="{{$statuses->toJson()}}"
+                :servicos="{{$servicos->toJson()}}"
                 v-cloak
                 inline-template>
 

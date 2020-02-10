@@ -16,6 +16,7 @@ class Etapa extends Model
 
     protected $fillable = [
         'nome',
+        'id_servico',
         'id_status',
     ];
 
@@ -39,5 +40,12 @@ class Etapa extends Model
      */
     public function status() {
         return $this->belongsTo('App\Models\Status', 'id_status');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function servico() {
+        return $this->belongsTo('App\Models\Servico', 'id_servico');
     }
 }

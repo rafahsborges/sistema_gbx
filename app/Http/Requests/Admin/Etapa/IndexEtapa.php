@@ -26,7 +26,7 @@ class IndexEtapa extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,id_status|nullable',
+            'orderBy' => 'in:id,nome,id_servico,id_status|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',
