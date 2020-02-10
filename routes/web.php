@@ -194,3 +194,14 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('messages')->name('messages/')->group(static function () {
+            Route::get('/', 'ChatsController@index');
+            Route::get('messages', 'ChatsController@fetchMessages');
+            Route::post('/', 'ChatsController@sendMessage');
+        });
+    });
+});

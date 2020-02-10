@@ -20,6 +20,8 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "laravel-echo": "^1.6.1",
+        "pusher-js": "^5.0.3",
         "v-money": "^0.8.1",
         "vue-the-mask": "^0.11.1",
         "vue-viacep": "^1.0.3"

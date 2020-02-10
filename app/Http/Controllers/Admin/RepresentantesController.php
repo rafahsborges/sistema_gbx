@@ -35,7 +35,7 @@ class RepresentantesController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Representante::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -46,8 +46,11 @@ class RepresentantesController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['cliente']);
-                if($request->has('clientes')){
+                if ($request->has('clientes')) {
                     $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+                if (auth()->user()->is_admin !== 1) {
+                    $query->where('id_cliente', auth()->user()->id);
                 }
             }
         );
@@ -64,14 +67,14 @@ class RepresentantesController extends Controller
         return view('admin.representante.index', [
             'data' => $data,
             'clientes' => AdminUser::all(),
-            ]);
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -108,8 +111,8 @@ class RepresentantesController extends Controller
      * Display the specified resource.
      *
      * @param Representante $representante
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Representante $representante)
     {
@@ -122,8 +125,8 @@ class RepresentantesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Representante $representante
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Representante $representante)
     {
@@ -169,8 +172,8 @@ class RepresentantesController extends Controller
      *
      * @param DestroyRepresentante $request
      * @param Representante $representante
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyRepresentante $request, Representante $representante)
     {
@@ -187,10 +190,10 @@ class RepresentantesController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyRepresentante $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyRepresentante $request) : Response
+    public function bulkDestroy(BulkDestroyRepresentante $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -199,7 +202,7 @@ class RepresentantesController extends Controller
                     DB::table('representantes')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

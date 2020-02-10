@@ -248,5 +248,9 @@ return [
         ],
     ],
 
+    'anatel' => [
+        'title' => 'SEI Anatel',
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

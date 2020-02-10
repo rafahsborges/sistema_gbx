@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "2.0.13",
+        "pusher/pusher-php-server": "^4.1",
         "rap2hpoutre/laravel-log-viewer": "^1.3",
         "snowfire/beautymail": "dev-master",
         "spatie/laravel-activitylog": "^3.9",

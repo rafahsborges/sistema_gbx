@@ -51,6 +51,9 @@ class PontosController extends Controller
                 if($request->has('clientes')){
                     $query->whereIn('id_cliente', $request->get('clientes'));
                 }
+                if (auth()->user()->is_admin !== 1) {
+                    $query->where('id_cliente', auth()->user()->id);
+                }
             }
         );
 
