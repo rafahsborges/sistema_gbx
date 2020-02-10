@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" v-if="Object.keys(data).length === 0">
 
     <div class="card-header">
         <i class="fa fa-align-justify"></i> {{ trans('admin.representante.actions.index') }}
