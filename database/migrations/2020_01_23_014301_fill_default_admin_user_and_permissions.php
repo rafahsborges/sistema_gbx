@@ -140,7 +140,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
             ],
             [
                 'nome' => 'Glaucius Botosso',
-                'email' => 'glaucius@teste.com',
+                'email' => 'glauciusb@gmail.com',
                 'password' => Hash::make($this->password),
                 'remember_token' => null,
                 'created_at' => Carbon::now(),
