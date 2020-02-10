@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="row" v-if="showAdvancedFilter">
-                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
                                         <multiselect v-model="clientesMultiselect"
                                                      :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
                                                      label="label"

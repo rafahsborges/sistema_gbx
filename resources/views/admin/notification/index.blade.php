@@ -52,17 +52,17 @@
                                             <option value="100">100</option>
                                         </select>
                                     </div>
-                                    <div class="row" v-if="showAdvancedFilter">
-                                        <div class="col col-lg-12 col-xl-12 form-group">
-                                            <multiselect v-model="clientesMultiselect"
-                                                         :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
-                                                         label="label"
-                                                         track-by="key"
-                                                         placeholder="{{ __('Type to search a cliente/s') }}"
-                                                         :limit="2"
-                                                         :multiple="true">
-                                            </multiselect>
-                                        </div>
+                                </div>
+                                <div class="row" v-if="showAdvancedFilter">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="clientesMultiselect"
+                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Type to search a cliente/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
                                     </div>
                                 </div>
                             </form>
@@ -129,9 +129,9 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.assunto }}</td>
-                                    <td>@{{ item.agendar }}</td>
+                                    <td>@{{ item.agendar === 1 ? 'Sim' : 'Não'}}</td>
                                     <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:ss') }}</td>
-                                    <td>@{{ item.enviado }}</td>
+                                    <td>@{{ item.enviado === 1 ? 'Sim' : 'Não' }}</td>
                                     <td>@{{ item.envio | datetime('DD/MM/YYYY H:m:ss') }}</td>
 
                                     <td>
