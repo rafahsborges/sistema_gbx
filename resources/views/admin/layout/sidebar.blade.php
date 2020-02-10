@@ -28,7 +28,7 @@
             </div>
             <li class="nav-item"><a class="nav-link" href="http://sei.anatel.gov.br" target="_blank"><i
                         class="nav-icon icon-energy"></i> {{ trans('admin.anatel.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/chats') }}"><i
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/messages') }}"><i
                         class="nav-icon icon-energy"></i> {{ trans('admin.chat.title') }}</a></li>
             {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)

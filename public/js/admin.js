@@ -112762,6 +112762,12 @@ Vue.component('chat-form', {
         message: this.form.newMessage
       });
       this.form.newMessage = '';
+    },
+    addMessage: function addMessage(message) {
+      this.messages.push(message);
+      axios.post('/messages', message).then(function (response) {
+        console.log(response.data);
+      });
     }
   }
 });
@@ -112782,24 +112788,28 @@ __webpack_require__.r(__webpack_exports__);
 Vue.component('chat-listing', {
   mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: ['messages'],
-  data: {
-    messages: []
+  data: function data() {
+    return {
+      messages: []
+    };
   },
   created: function created() {
+    var _this = this;
+
     this.fetchMessages();
+    Echo["private"]('chat').listen('MessageSent', function (e) {
+      _this.messages.push({
+        message: e.message.message,
+        cliente: e.cliente
+      });
+    });
   },
   methods: {
     fetchMessages: function fetchMessages() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/messages').then(function (response) {
-        _this.messages = response.data;
-      });
-    },
-    addMessage: function addMessage(message) {
-      this.messages.push(message);
-      axios.post('/messages', message).then(function (response) {
-        console.log(response.data);
+        _this2.messages = response.data;
       });
     }
   }

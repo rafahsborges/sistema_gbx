@@ -3,7 +3,7 @@ import AppForm from '../app-components/Form/AppForm';
 Vue.component('chat-form', {
     mixins: [AppForm],
     props: ['cliente'],
-    data: function () {
+    data: function() {
         return {
             form: {
                 newMessage: '',
@@ -19,7 +19,15 @@ Vue.component('chat-form', {
             });
 
             this.form.newMessage = '';
+        },
+
+        addMessage(message) {
+            this.messages.push(message);
+
+            axios.post('/messages', message).then(response => {
+                console.log(response.data);
+            });
         }
-    }
+    },
 
 });

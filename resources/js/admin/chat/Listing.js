@@ -2,14 +2,24 @@ import AppListing from '../app-components/Listing/AppListing';
 
 Vue.component('chat-listing', {
     mixins: [AppListing],
-    props: ['messages'],
-
-    data: {
-        messages: []
+    props: [
+        'messages'
+    ],
+    data() {
+        return {
+            messages: [],
+        }
     },
 
     created() {
         this.fetchMessages();
+        Echo.private('chat')
+            .listen('MessageSent', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    cliente: e.cliente
+                });
+            });
     },
 
     methods: {
@@ -18,13 +28,5 @@ Vue.component('chat-listing', {
                 this.messages = response.data;
             });
         },
-
-        addMessage(message) {
-            this.messages.push(message);
-
-            axios.post('/messages', message).then(response => {
-                console.log(response.data);
-            });
-        }
     },
 });

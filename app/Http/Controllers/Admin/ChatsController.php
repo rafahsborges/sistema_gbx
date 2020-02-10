@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\MessageSent;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class ChatsController extends Controller
      */
     public function index()
     {
-        return view('chat');
+        return view('admin.chat.index');
     }
 
     /**
@@ -40,15 +41,17 @@ class ChatsController extends Controller
      * Persist message to database
      *
      * @param Request $request
-     * @return Response
+     * @return array
      */
     public function sendMessage(Request $request)
     {
-        $user = Auth::user();
+        $cliente = Auth::user();
 
-        $message = $user->messages()->create([
+        $message = $cliente->messages()->create([
             'message' => $request->input('message')
         ]);
+
+        broadcast(new MessageSent($cliente, $message))->toOthers();
 
         return ['status' => 'Message Sent!'];
     }
