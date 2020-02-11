@@ -11,4 +11,3 @@ import './etapa';
 import './item';
 import './servico';
 import './notification';
-import './chat';
