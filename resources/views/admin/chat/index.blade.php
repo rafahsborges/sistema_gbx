@@ -11,8 +11,10 @@
                     <div class="panel-heading">Chats</div>
 
                     <div class="panel-body">
-                        {{--<chat-listing
-                            :messages="messages">
+                        <chat-listing
+                            :messages="messages"
+                            :url="'{{ url('admin/messages') }}'"
+                            inline-template>
                             <template>
                                 <ul class="chat">
                                     <li class="left clearfix" v-for="message in messages">
@@ -29,16 +31,19 @@
                                     </li>
                                 </ul>
                             </template>
-                        </chat-listing>--}}
+                        </chat-listing>
                     </div>
                     <div class="panel-footer">
-                        <chat-form
+                        {{--<chat-form
                             v-on:messagesent="addMessage"
-                            :cliente="{{ Auth::user() }}">
+                            :user="{{ Auth::user() }}"
+                            v-cloak
+                            inline-template>
+
                             <template>
                                 <div class="input-group">
                                     <input id="btn-input" type="text" name="message" class="form-control input-sm"
-                                           placeholder="Type your message here..." v-model="form.newMessage"
+                                           placeholder="Type your message here..." v-model="newMessage"
                                            @keyup.enter="sendMessage">
 
                                     <span class="input-group-btn">
@@ -48,7 +53,8 @@
                                     </span>
                                 </div>
                             </template>
-                        </chat-form>
+
+                        </chat-form>--}}
                     </div>
                 </div>
             </div>

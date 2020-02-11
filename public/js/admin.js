@@ -112790,7 +112790,7 @@ Vue.component('chat-listing', {
   props: ['messages'],
   data: function data() {
     return {
-      messages: []
+      messagesList: []
     };
   },
   created: function created() {
@@ -112798,7 +112798,7 @@ Vue.component('chat-listing', {
 
     this.fetchMessages();
     Echo["private"]('chat').listen('MessageSent', function (e) {
-      _this.messages.push({
+      _this.messagesList.push({
         message: e.message.message,
         cliente: e.cliente
       });
@@ -112809,7 +112809,7 @@ Vue.component('chat-listing', {
       var _this2 = this;
 
       axios.get('/messages').then(function (response) {
-        _this2.messages = response.data;
+        _this2.messagesList = response.data;
       });
     }
   }

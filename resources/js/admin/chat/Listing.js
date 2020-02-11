@@ -7,7 +7,7 @@ Vue.component('chat-listing', {
     ],
     data() {
         return {
-            messages: [],
+            messagesList: [],
         }
     },
 
@@ -15,7 +15,7 @@ Vue.component('chat-listing', {
         this.fetchMessages();
         Echo.private('chat')
             .listen('MessageSent', (e) => {
-                this.messages.push({
+                this.messagesList.push({
                     message: e.message.message,
                     cliente: e.cliente
                 });
@@ -25,7 +25,7 @@ Vue.component('chat-listing', {
     methods: {
         fetchMessages() {
             axios.get('/messages').then(response => {
-                this.messages = response.data;
+                this.messagesList = response.data;
             });
         },
     },
