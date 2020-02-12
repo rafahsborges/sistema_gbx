@@ -28,20 +28,19 @@ class StoreMalaDireta extends FormRequest
         return [
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
-            'id_cliente' => ['required', 'string'],
+            'cliente' => ['required'],
             'agendar' => ['required', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['required', 'boolean'],
             'envio' => ['nullable', 'date'],
-            
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -49,5 +48,13 @@ class StoreMalaDireta extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

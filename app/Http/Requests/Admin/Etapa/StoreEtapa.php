@@ -34,10 +34,10 @@ class StoreEtapa extends FormRequest
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -47,15 +47,17 @@ class StoreEtapa extends FormRequest
         return $sanitized;
     }
 
-    public function getStatusId(){
-        if ($this->has('status')){
+    public function getStatusId()
+    {
+        if ($this->has('status')) {
             return $this->get('status')['id'];
         }
         return null;
     }
 
-    public function getServicoId(){
-        if ($this->has('servico')){
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
             return $this->get('servico')['id'];
         }
         return null;

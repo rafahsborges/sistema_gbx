@@ -45,7 +45,7 @@ class UpdateOrcamento extends FormRequest
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['sometimes', 'boolean'],
             'envio' => ['nullable', 'date'],
-            
+
         ];
     }
 

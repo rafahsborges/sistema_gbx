@@ -33,10 +33,10 @@ class StoreApontamento extends FormRequest
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -46,8 +46,9 @@ class StoreApontamento extends FormRequest
         return $sanitized;
     }
 
-    public function getClienteId(){
-        if ($this->has('cliente')){
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
         }
         return null;

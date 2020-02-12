@@ -30,7 +30,7 @@ class UpdateCidade extends FormRequest
             'ibge_code' => ['nullable', 'string'],
             'id_estado' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 

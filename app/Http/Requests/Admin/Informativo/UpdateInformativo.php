@@ -29,7 +29,7 @@ class UpdateInformativo extends FormRequest
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
             'id_servico' => ['sometimes', 'string'],
-            
+
         ];
     }
 

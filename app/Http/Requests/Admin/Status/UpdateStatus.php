@@ -27,7 +27,7 @@ class UpdateStatus extends FormRequest
     {
         return [
             'nome' => ['sometimes', 'string'],
-            
+
         ];
     }
 

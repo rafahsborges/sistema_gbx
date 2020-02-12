@@ -28,12 +28,11 @@ class UpdateMalaDireta extends FormRequest
         return [
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
-            'id_cliente' => ['sometimes', 'string'],
+            'cliente' => ['required'],
             'agendar' => ['sometimes', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['sometimes', 'boolean'],
             'envio' => ['nullable', 'date'],
-            
         ];
     }
 
@@ -50,5 +49,13 @@ class UpdateMalaDireta extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

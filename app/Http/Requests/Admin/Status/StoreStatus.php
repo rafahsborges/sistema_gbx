@@ -27,15 +27,15 @@ class StoreStatus extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

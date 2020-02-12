@@ -29,7 +29,7 @@ class UpdateEstado extends FormRequest
             'nome' => ['sometimes', 'string'],
             'abreviacao' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 

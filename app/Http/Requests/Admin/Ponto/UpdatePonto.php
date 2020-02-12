@@ -57,8 +57,9 @@ class UpdatePonto extends FormRequest
         return $sanitized;
     }
 
-    public function getClienteId(){
-        if ($this->has('cliente')){
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
         }
         return null;

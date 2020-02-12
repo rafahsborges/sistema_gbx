@@ -39,10 +39,10 @@ class StoreServico extends FormRequest
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -52,15 +52,17 @@ class StoreServico extends FormRequest
         return $sanitized;
     }
 
-    public function getStatusId(){
-        if ($this->has('status')){
+    public function getStatusId()
+    {
+        if ($this->has('status')) {
             return $this->get('status')['id'];
         }
         return null;
     }
 
-    public function getEtapaId(){
-        if ($this->has('etapa')){
+    public function getEtapaId()
+    {
+        if ($this->has('etapa')) {
             return $this->get('etapa')['id'];
         }
         return null;

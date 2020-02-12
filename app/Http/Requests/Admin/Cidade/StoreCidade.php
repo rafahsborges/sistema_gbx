@@ -30,15 +30,15 @@ class StoreCidade extends FormRequest
             'ibge_code' => ['nullable', 'string'],
             'id_estado' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

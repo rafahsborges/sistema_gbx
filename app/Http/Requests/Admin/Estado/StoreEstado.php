@@ -29,15 +29,15 @@ class StoreEstado extends FormRequest
             'nome' => ['required', 'string'],
             'abreviacao' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

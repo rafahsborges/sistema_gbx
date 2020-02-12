@@ -137,7 +137,7 @@ class NotificationsController extends Controller
      * Display the specified resource.
      *
      * @param Notification $notification
-     * @return void
+     * @return Factory|View
      * @throws AuthorizationException
      */
     public function show(Notification $notification)

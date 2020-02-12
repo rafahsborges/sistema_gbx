@@ -29,15 +29,15 @@ class StoreInformativo extends FormRequest
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
             'id_servico' => ['required', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
