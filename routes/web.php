@@ -213,6 +213,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/', 'InformativosController@index')->name('index');
             Route::get('/create', 'InformativosController@create')->name('create');
             Route::post('/', 'InformativosController@store')->name('store');
+            Route::get('/{informativo}', 'InformativosController@show')->name('show');
             Route::get('/{informativo}/edit', 'InformativosController@edit')->name('edit');
             Route::post('/bulk-destroy', 'InformativosController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{informativo}', 'InformativosController@update')->name('update');

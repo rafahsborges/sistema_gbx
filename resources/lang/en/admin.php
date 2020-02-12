@@ -253,6 +253,7 @@ return [
             'index' => 'Informativos',
             'create' => 'New Informativo',
             'edit' => 'Edit :name',
+            'show' => 'Show :name',
         ],
 
         'columns' => [

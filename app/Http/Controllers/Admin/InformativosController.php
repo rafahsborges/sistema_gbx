@@ -115,7 +115,15 @@ class InformativosController extends Controller
     {
         $this->authorize('admin.informativo.show', $informativo);
 
-        // TODO your code goes here
+        $id = $informativo->id;
+
+        $informativo = Informativo::with('servico')
+            ->find($id);
+
+        return view('admin.informativo.show', [
+            'informativo' => $informativo,
+            'servicos' => Servico::all(),
+        ]);
     }
 
     /**
