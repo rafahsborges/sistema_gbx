@@ -112964,6 +112964,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./item */ "./resources/js/admin/item/index.js");
 /* harmony import */ var _servico__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./servico */ "./resources/js/admin/servico/index.js");
 /* harmony import */ var _notification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notification */ "./resources/js/admin/notification/index.js");
+/* harmony import */ var _informativo__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./informativo */ "./resources/js/admin/informativo/index.js");
+/* harmony import */ var _orcamento__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./orcamento */ "./resources/js/admin/orcamento/index.js");
+/* harmony import */ var _mala_direta__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mala-direta */ "./resources/js/admin/mala-direta/index.js");
 
 
 
@@ -112975,6 +112978,68 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/informativo/Form.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/informativo/Form.js ***!
+  \************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('informativo-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        assunto: '',
+        conteudo: '',
+        id_servico: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/informativo/Listing.js":
+/*!***************************************************!*\
+  !*** ./resources/js/admin/informativo/Listing.js ***!
+  \***************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('informativo-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/informativo/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/informativo/index.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/informativo/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/informativo/Form.js");
 
 
 
@@ -113064,6 +113129,69 @@ Vue.component('item-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/item/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/item/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/mala-direta/Form.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/mala-direta/Form.js ***!
+  \************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('mala-direta-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        assunto: '',
+        conteudo: '',
+        id_cliente: '',
+        agendar: false,
+        agendamento: '',
+        enviado: false,
+        envio: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/mala-direta/Listing.js":
+/*!***************************************************!*\
+  !*** ./resources/js/admin/mala-direta/Listing.js ***!
+  \***************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('mala-direta-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/mala-direta/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/mala-direta/index.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/mala-direta/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/mala-direta/Form.js");
 
 
 
@@ -113166,6 +113294,80 @@ Vue.component('notification-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/notification/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/notification/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/orcamento/Form.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/orcamento/Form.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('orcamento-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        tipo: false,
+        nome: '',
+        razao_social: '',
+        cpf: '',
+        cnpj: '',
+        email: '',
+        email2: '',
+        email3: '',
+        telefone: '',
+        celular: '',
+        id_cidade: '',
+        id_estado: '',
+        assunto: '',
+        conteudo: '',
+        agendar: false,
+        agendamento: '',
+        enviado: false,
+        envio: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/orcamento/Listing.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/orcamento/Listing.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('orcamento-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/orcamento/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/orcamento/index.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/orcamento/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/orcamento/Form.js");
 
 
 
