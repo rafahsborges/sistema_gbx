@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Brackets\Media\HasMedia\AutoProcessMediaTrait;
 use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
+use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 use Brackets\Media\HasMedia\ProcessMediaTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\Models\Media;
 
 class Orcamento extends Model implements HasMedia
 {
@@ -16,6 +19,7 @@ class Orcamento extends Model implements HasMedia
     use ProcessMediaTrait;
     use AutoProcessMediaTrait;
     use HasMediaCollectionsTrait;
+    use HasMediaThumbsTrait;
 
     protected $fillable = [
         'tipo',
@@ -65,6 +69,29 @@ class Orcamento extends Model implements HasMedia
 
         $this->addMediaCollection('pdf')
             ->accepts('application/pdf');
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->autoRegisterThumb200();
+    }
+
+    /* ************************ RELATIONS ************************ */
+
+    /**
+     * @return BelongsTo
+     */
+    public function estado()
+    {
+        return $this->belongsTo('App\Models\Estado', 'id_estado');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function cidade()
+    {
+        return $this->belongsTo('App\Models\Cidade', 'id_cidade');
     }
 
 }

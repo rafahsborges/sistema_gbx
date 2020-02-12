@@ -216,29 +216,6 @@
     </div>
 </div>
 
-@if ($mode === 'create')
-    @include('brackets/admin-ui::admin.includes.media-uploader', [
-        'mediaCollection' => app(App\Models\Orcamento::class)->getMediaCollection('gallery'),
-        'label' => 'Gallery of photos'
-    ])
-    @include('brackets/admin-ui::admin.includes.media-uploader', [
-        'mediaCollection' => app(App\Models\Orcamento::class)->getMediaCollection('pdf'),
-        'label' => 'PDF appendix'
-    ])
-@else
-    @include('brackets/admin-ui::admin.includes.media-uploader', [
-       'mediaCollection' => $orcamento->getMediaCollection('gallery'),
-       'media' => $orcamento->getThumbs200ForCollection('gallery'),
-       'label' => 'Gallery of photos'
-   ])
-    @include('brackets/admin-ui::admin.includes.media-uploader', [
-        'mediaCollection' => $orcamento->getMediaCollection('pdf'),
-        'media' => $orcamento->getThumbs200ForCollection('pdf'),
-        'label' => 'PDF appendix'
-    ])
-
-@endif
-
 <div class="form-check row"
      :class="{'has-danger': errors.has('enviar'), 'has-success': fields.enviar && fields.enviar.valid }">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
@@ -322,3 +299,25 @@
         </div>
     </div>
 </div>
+
+@if ($mode === 'create')
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+        'mediaCollection' => app(App\Models\Orcamento::class)->getMediaCollection('gallery'),
+        'label' => 'Gallery of photos'
+    ])
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+        'mediaCollection' => app(App\Models\Orcamento::class)->getMediaCollection('pdf'),
+        'label' => 'PDF appendix'
+    ])
+@else
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+       'mediaCollection' => $orcamento->getMediaCollection('gallery'),
+       'media' => $orcamento->getThumbs200ForCollection('gallery'),
+       'label' => 'Gallery of photos'
+   ])
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+        'mediaCollection' => $orcamento->getMediaCollection('pdf'),
+        'media' => $orcamento->getThumbs200ForCollection('pdf'),
+        'label' => 'PDF appendix'
+    ])
+@endif
