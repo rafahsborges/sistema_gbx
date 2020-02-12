@@ -4,13 +4,13 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Models\Notification;
+use App\Models\MalaDireta;
 use Carbon\Carbon;
 use App\Jobs\SendMailJob;
 use App\Models\AdminUser;
-use App\Mail\NewArrivals;
+use App\Mail\NewMalaDiretas;
 
-class NotifyUsers extends Command
+class SendMalaDiretas extends Command
 {
     /**
      * The name and signature of the console command.
@@ -47,25 +47,25 @@ class NotifyUsers extends Command
         //One hour is added to compensate for PHP being one hour faster
         $now = Carbon::now();
 
-        $notifications = Notification::where('agendamento', '<=', $now)->get();
+        $malaDiretas = MalaDireta::where('agendamento', '<=', $now)->get();
 
-        if ($notifications !== null) {
-            //Get all notifications that their dispatch date is due
-            foreach ($notifications as $notification) {
-                if ($notification->envio === null) {
+        if ($malaDiretas !== null) {
+            //Get all malaDiretas that their dispatch date is due
+            foreach ($malaDiretas as $malaDireta) {
+                if ($malaDireta->envio === null) {
                     $clientes = [];
-                    foreach (json_decode($notification->id_cliente) as $cliente) {
+                    foreach (json_decode($malaDireta->id_cliente) as $cliente) {
                         $clientes[] = AdminUser::find($cliente);
                     }
                     foreach ($clientes as $cliente) {
                         dispatch(new SendMailJob(
                                 $cliente->email,
-                                new NewArrivals($cliente, $notification))
+                                new NewMalaDiretas($cliente, $malaDireta))
                         );
                     }
-                    $notification->enviado = true;
-                    $notification->envio = Carbon::now();
-                    $notification->save();
+                    $malaDireta->enviado = true;
+                    $malaDireta->envio = Carbon::now();
+                    $malaDireta->save();
                 }
             }
         }

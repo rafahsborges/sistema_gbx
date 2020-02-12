@@ -9,7 +9,7 @@ use App\Http\Requests\Admin\MalaDireta\IndexMalaDireta;
 use App\Http\Requests\Admin\MalaDireta\StoreMalaDireta;
 use App\Http\Requests\Admin\MalaDireta\UpdateMalaDireta;
 use App\Jobs\SendMailJob;
-use App\Mail\NewArrivals;
+use App\Mail\NewMalaDiretas;
 use App\Models\AdminUser;
 use App\Models\MalaDireta;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -122,7 +122,7 @@ class MalaDiretasController extends Controller
             $malaDiretum->save();
 
             foreach ($sanitized['cliente'] as $cliente) {
-                dispatch(new SendMailJob($cliente['email'], new NewArrivals($cliente, $malaDiretum)));
+                dispatch(new SendMailJob($cliente['email'], new NewMalaDiretas($cliente, $malaDiretum)));
             }
         }
 
@@ -218,7 +218,7 @@ class MalaDiretasController extends Controller
             $malaDiretum->save();
 
             foreach ($sanitized['cliente'] as $cliente) {
-                dispatch(new SendMailJob($cliente['email'], new NewArrivals($cliente, $malaDiretum)));
+                dispatch(new SendMailJob($cliente['email'], new NewMalaDiretas($cliente, $malaDiretum)));
             }
         }
 

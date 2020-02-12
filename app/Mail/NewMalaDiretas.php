@@ -7,17 +7,17 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NewArrivals extends Mailable
+class NewMalaDiretas extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $notification;
+    protected $malaDireta;
     protected $cliente;
 
-    public function __construct($cliente, $notification)
+    public function __construct($cliente, $malaDireta)
     {
         $this->cliente = $cliente;
-        $this->notification = $notification;
+        $this->malaDireta = $malaDireta;
     }
 
     /**
@@ -27,12 +27,12 @@ class NewArrivals extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.notification')
-            ->subject($this->notification->assunto)
+        return $this->markdown('emails.malaDireta')
+            ->subject($this->malaDireta->assunto)
             ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
             ->with([
                 'cliente' => $this->cliente,
-                'notification' => $this->notification,
+                'malaDireta' => $this->malaDireta,
             ]);
     }
 }

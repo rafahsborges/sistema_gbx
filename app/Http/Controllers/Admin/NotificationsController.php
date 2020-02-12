@@ -9,7 +9,7 @@ use App\Http\Requests\Admin\Notification\IndexNotification;
 use App\Http\Requests\Admin\Notification\StoreNotification;
 use App\Http\Requests\Admin\Notification\UpdateNotification;
 use App\Jobs\SendMailJob;
-use App\Mail\NewArrivals;
+use App\Mail\NewNotifications;
 use App\Models\AdminUser;
 use App\Models\Notification;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -122,7 +122,7 @@ class NotificationsController extends Controller
             $notification->save();
 
             foreach ($sanitized['cliente'] as $cliente) {
-                dispatch(new SendMailJob($cliente['email'], new NewArrivals($cliente, $notification)));
+                dispatch(new SendMailJob($cliente['email'], new NewNotifications($cliente, $notification)));
             }
         }
 
@@ -218,7 +218,7 @@ class NotificationsController extends Controller
             $notification->save();
 
             foreach ($sanitized['cliente'] as $cliente) {
-                dispatch(new SendMailJob($cliente['email'], new NewArrivals($cliente, $notification)));
+                dispatch(new SendMailJob($cliente['email'], new NewNotifications($cliente, $notification)));
             }
         }
 
