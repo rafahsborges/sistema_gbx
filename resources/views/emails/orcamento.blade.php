@@ -37,6 +37,7 @@ PDF
 
 @endif
 
+<br>
 Atenciosamente,<br>
 {{ config('app.name') }}
 
