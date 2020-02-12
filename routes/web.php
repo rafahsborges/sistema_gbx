@@ -218,6 +218,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/', 'OrcamentosController@index')->name('index');
             Route::get('/create', 'OrcamentosController@create')->name('create');
             Route::post('/', 'OrcamentosController@store')->name('store');
+            Route::get('/{orcamento}', 'OrcamentosController@show')->name('show');
             Route::get('/{orcamento}/edit', 'OrcamentosController@edit')->name('edit');
             Route::post('/bulk-destroy', 'OrcamentosController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{orcamento}', 'OrcamentosController@update')->name('update');

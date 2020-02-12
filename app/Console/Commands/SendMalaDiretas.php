@@ -17,14 +17,14 @@ class SendMalaDiretas extends Command
      *
      * @var string
      */
-    protected $signature = 'notify:users';
+    protected $signature = 'notify:malaDiretas';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Send an email to users';
+    protected $description = 'Send an email to malaDiretas';
 
 
     /**

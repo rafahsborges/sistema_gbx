@@ -38,7 +38,7 @@ class OrcamentosController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Orcamento::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -63,8 +63,8 @@ class OrcamentosController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -104,7 +104,7 @@ class OrcamentosController extends Controller
             $orcamento->envio = Carbon::now();
             $orcamento->save();
 
-            dispatch(new SendMailJob($sanitized['email'], new NewOrcamentos($sanitized['nome'], $orcamento)));
+            dispatch(new SendMailJob($sanitized['email'], new NewOrcamentos($orcamento)));
         }
 
         if ($request->ajax()) {
@@ -118,8 +118,8 @@ class OrcamentosController extends Controller
      * Display the specified resource.
      *
      * @param Orcamento $orcamento
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Orcamento $orcamento)
     {
@@ -132,8 +132,8 @@ class OrcamentosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Orcamento $orcamento
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Orcamento $orcamento)
     {
@@ -161,8 +161,22 @@ class OrcamentosController extends Controller
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
 
+        if (!$sanitized['enviar'] && $sanitized['agendar']) {
+            $sanitized['agendamento'] = Carbon::create($sanitized['agendamento']);
+        } else {
+            $sanitized['agendamento'] = Carbon::now();
+        }
+
         // Update changed values Orcamento
         $orcamento->update($sanitized);
+
+        if ($sanitized['enviar'] && $sanitized['agendamento']->isPast()) {
+            $orcamento->enviado = true;
+            $orcamento->envio = Carbon::now();
+            $orcamento->save();
+
+            dispatch(new SendMailJob($sanitized['email'], new NewOrcamentos($orcamento)));
+        }
 
         if ($request->ajax()) {
             return [
@@ -179,8 +193,8 @@ class OrcamentosController extends Controller
      *
      * @param DestroyOrcamento $request
      * @param Orcamento $orcamento
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyOrcamento $request, Orcamento $orcamento)
     {
@@ -197,10 +211,10 @@ class OrcamentosController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyOrcamento $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyOrcamento $request) : Response
+    public function bulkDestroy(BulkDestroyOrcamento $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -209,7 +223,7 @@ class OrcamentosController extends Controller
                     DB::table('orcamentos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

@@ -12,11 +12,9 @@ class NewOrcamentos extends Mailable
     use Queueable, SerializesModels;
 
     protected $orcamento;
-    protected $cliente;
 
-    public function __construct($cliente, $orcamento)
+    public function __construct($orcamento)
     {
-        $this->cliente = $cliente;
         $this->orcamento = $orcamento;
     }
 
@@ -31,7 +29,6 @@ class NewOrcamentos extends Mailable
             ->subject($this->orcamento->assunto)
             ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
             ->with([
-                'cliente' => $this->cliente,
                 'orcamento' => $this->orcamento,
             ]);
     }

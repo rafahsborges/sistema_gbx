@@ -1,8 +1,8 @@
 @component('mail::message')
 
-{!! $notification->conteudo !!}
+{!! $orcamento->conteudo !!}
 
-@component('mail::button', ['url' => $notification->resource_url])
+@component('mail::button', ['url' => $orcamento->resource_url])
 Acesse o Portal
 @endcomponent
 

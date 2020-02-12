@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\SendNotifications',
         'App\Console\Commands\SendMalaDiretas',
+        'App\Console\Commands\SendOrcamentos',
     ];
 
     /**
