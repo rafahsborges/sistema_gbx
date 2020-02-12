@@ -28,8 +28,7 @@ class UpdateInformativo extends FormRequest
         return [
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
-            'id_servico' => ['sometimes', 'string'],
-
+            'servico' => ['sometimes'],
         ];
     }
 
@@ -42,9 +41,16 @@ class UpdateInformativo extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
+            return $this->get('servico')['id'];
+        }
+        return null;
     }
 }

@@ -28,8 +28,7 @@ class StoreInformativo extends FormRequest
         return [
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
-            'id_servico' => ['required', 'string'],
-
+            'servico' => ['required'],
         ];
     }
 
@@ -45,5 +44,13 @@ class StoreInformativo extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
+            return $this->get('servico')['id'];
+        }
+        return null;
     }
 }

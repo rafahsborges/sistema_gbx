@@ -10,6 +10,7 @@
 
             <informativo-form
                 :action="'{{ url('admin/informativos') }}'"
+                :servicos="{{$servicos->toJson()}}"
                 v-cloak
                 inline-template>
 

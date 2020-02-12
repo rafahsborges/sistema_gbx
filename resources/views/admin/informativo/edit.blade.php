@@ -10,6 +10,7 @@
             <informativo-form
                 :action="'{{ $informativo->resource_url }}'"
                 :data="{{ $informativo->toJson() }}"
+                :servicos="{{$servicos->toJson()}}"
                 v-cloak
                 inline-template>
 

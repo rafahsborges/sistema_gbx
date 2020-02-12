@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Informativo\IndexInformativo;
 use App\Http\Requests\Admin\Informativo\StoreInformativo;
 use App\Http\Requests\Admin\Informativo\UpdateInformativo;
 use App\Models\Informativo;
+use App\Models\Servico;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -34,14 +35,21 @@ class InformativosController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Informativo::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
             ['id', 'assunto', 'id_servico'],
 
             // set columns to searchIn
-            ['id', 'assunto', 'conteudo', 'id_servico']
+            ['id', 'assunto', 'conteudo', 'id_servico'],
+
+            function ($query) use ($request) {
+                $query->with(['servico']);
+                if ($request->has('servicos')) {
+                    $query->whereIn('id_servico', $request->get('servicos'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,20 +61,25 @@ class InformativosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.informativo.index', ['data' => $data]);
+        return view('admin.informativo.index', [
+            'data' => $data,
+            'servicos' => Servico::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
         $this->authorize('admin.informativo.create');
 
-        return view('admin.informativo.create');
+        return view('admin.informativo.create', [
+            'servicos' => Servico::all(),
+        ]);
     }
 
     /**
@@ -79,6 +92,7 @@ class InformativosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_servico'] = $request->getServicoId();
 
         // Store the Informativo
         $informativo = Informativo::create($sanitized);
@@ -94,8 +108,8 @@ class InformativosController extends Controller
      * Display the specified resource.
      *
      * @param Informativo $informativo
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Informativo $informativo)
     {
@@ -108,16 +122,21 @@ class InformativosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Informativo $informativo
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Informativo $informativo)
     {
         $this->authorize('admin.informativo.edit', $informativo);
 
+        $id = $informativo->id;
+
+        $informativo = Informativo::with('servico')
+            ->find($id);
 
         return view('admin.informativo.edit', [
             'informativo' => $informativo,
+            'servicos' => Servico::all(),
         ]);
     }
 
@@ -132,6 +151,7 @@ class InformativosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_servico'] = $request->getServicoId();
 
         // Update changed values Informativo
         $informativo->update($sanitized);
@@ -151,8 +171,8 @@ class InformativosController extends Controller
      *
      * @param DestroyInformativo $request
      * @param Informativo $informativo
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyInformativo $request, Informativo $informativo)
     {
@@ -169,10 +189,10 @@ class InformativosController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyInformativo $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyInformativo $request) : Response
+    public function bulkDestroy(BulkDestroyInformativo $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -181,7 +201,7 @@ class InformativosController extends Controller
                     DB::table('informativos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

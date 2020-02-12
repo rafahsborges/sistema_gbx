@@ -112999,12 +112999,13 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('informativo-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['servicos'],
   data: function data() {
     return {
       form: {
         assunto: '',
         conteudo: '',
-        id_servico: ''
+        servico: ''
       }
     };
   }
@@ -113024,7 +113025,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('informativo-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      servicosMultiselect: {},
+      filters: {
+        servicos: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.servicosMultiselect = [];
+    },
+    servicosMultiselect: function servicosMultiselect(newVal, oldVal) {
+      this.filters.servicos = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('servicos', this.filters.servicos);
+    }
+  }
 });
 
 /***/ }),

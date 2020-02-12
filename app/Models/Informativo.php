@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Informativo extends Model
@@ -30,5 +31,15 @@ class Informativo extends Model
     public function getResourceUrlAttribute()
     {
         return url('/admin/informativos/' . $this->getKey());
+    }
+
+    /* ************************ RELATIONS ************************ */
+
+    /**
+     * @return BelongsTo
+     */
+    public function servico()
+    {
+        return $this->belongsTo('App\Models\Servico', 'id_servico');
     }
 }

@@ -32,14 +32,17 @@
     <label for="id_servico" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.informativo.columns.id_servico') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_servico" v-validate="'required'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('id_servico'), 'form-control-success': fields.id_servico && fields.id_servico.valid}"
-               id="id_servico" name="id_servico" placeholder="{{ trans('admin.informativo.columns.id_servico') }}">
+        <multiselect
+            v-model="form.servico"
+            :options="servicos"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.informativo.columns.id_servico') }}"
+            placeholder="{{ trans('admin.informativo.columns.id_servico') }}">
+        </multiselect>
         <div v-if="errors.has('id_servico')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('id_servico') }}
         </div>
     </div>
 </div>
-
-
