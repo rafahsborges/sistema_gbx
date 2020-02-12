@@ -49,6 +49,9 @@ class InformativosController extends Controller
                 if ($request->has('servicos')) {
                     $query->whereIn('id_servico', $request->get('servicos'));
                 }
+                if(auth()->user()->is_admin !== 1){
+                    $query->where('id_servico', auth()->user()->id_servico);
+                }
             }
         );
 
