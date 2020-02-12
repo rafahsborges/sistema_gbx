@@ -195,3 +195,49 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('informativos')->name('informativos/')->group(static function() {
+            Route::get('/',                                             'InformativosController@index')->name('index');
+            Route::get('/create',                                       'InformativosController@create')->name('create');
+            Route::post('/',                                            'InformativosController@store')->name('store');
+            Route::get('/{informativo}/edit',                           'InformativosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'InformativosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{informativo}',                               'InformativosController@update')->name('update');
+            Route::delete('/{informativo}',                             'InformativosController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('orcamentos')->name('orcamentos/')->group(static function() {
+            Route::get('/',                                             'OrcamentosController@index')->name('index');
+            Route::get('/create',                                       'OrcamentosController@create')->name('create');
+            Route::post('/',                                            'OrcamentosController@store')->name('store');
+            Route::get('/{orcamento}/edit',                             'OrcamentosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'OrcamentosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{orcamento}',                                 'OrcamentosController@update')->name('update');
+            Route::delete('/{orcamento}',                               'OrcamentosController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('mala-diretas')->name('mala-diretas/')->group(static function() {
+            Route::get('/',                                             'MalaDiretasController@index')->name('index');
+            Route::get('/create',                                       'MalaDiretasController@create')->name('create');
+            Route::post('/',                                            'MalaDiretasController@store')->name('store');
+            Route::get('/{malaDiretum}/edit',                           'MalaDiretasController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MalaDiretasController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{malaDiretum}',                               'MalaDiretasController@update')->name('update');
+            Route::delete('/{malaDiretum}',                             'MalaDiretasController@destroy')->name('destroy');
+        });
+    });
+});

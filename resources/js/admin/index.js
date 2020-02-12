@@ -11,3 +11,6 @@ import './etapa';
 import './item';
 import './servico';
 import './notification';
+import './informativo';
+import './orcamento';
+import './mala-direta';

@@ -181,3 +181,61 @@ $factory->define(App\Models\Notification::class, static function (Faker\Generato
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Informativo::class, static function (Faker\Generator $faker) {
+    return [
+        'assunto' => $faker->sentence,
+        'conteudo' => $faker->text(),
+        'id_servico' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Orcamento::class, static function (Faker\Generator $faker) {
+    return [
+        'tipo' => $faker->boolean(),
+        'nome' => $faker->sentence,
+        'razao_social' => $faker->sentence,
+        'cpf' => $faker->sentence,
+        'cnpj' => $faker->sentence,
+        'email' => $faker->email,
+        'email2' => $faker->sentence,
+        'email3' => $faker->sentence,
+        'telefone' => $faker->sentence,
+        'celular' => $faker->sentence,
+        'id_cidade' => $faker->sentence,
+        'id_estado' => $faker->sentence,
+        'assunto' => $faker->sentence,
+        'conteudo' => $faker->text(),
+        'agendar' => $faker->boolean(),
+        'agendamento' => $faker->dateTime,
+        'enviado' => $faker->boolean(),
+        'envio' => $faker->dateTime,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MalaDireta::class, static function (Faker\Generator $faker) {
+    return [
+        'assunto' => $faker->sentence,
+        'conteudo' => $faker->text(),
+        'id_cliente' => $faker->sentence,
+        'agendar' => $faker->boolean(),
+        'agendamento' => $faker->dateTime,
+        'enviado' => $faker->boolean(),
+        'envio' => $faker->dateTime,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+        
+        
+    ];
+});

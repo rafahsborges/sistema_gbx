@@ -252,5 +252,78 @@ return [
         'title' => 'SEI Anatel',
     ],
 
+    'informativo' => [
+        'title' => 'Informativos',
+
+        'actions' => [
+            'index' => 'Informativos',
+            'create' => 'New Informativo',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'assunto' => 'Assunto',
+            'conteudo' => 'Conteudo',
+            'id_servico' => 'Id servico',
+            
+        ],
+    ],
+
+    'orcamento' => [
+        'title' => 'Orcamentos',
+
+        'actions' => [
+            'index' => 'Orcamentos',
+            'create' => 'New Orcamento',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'tipo' => 'Tipo',
+            'nome' => 'Nome',
+            'razao_social' => 'Razao social',
+            'cpf' => 'Cpf',
+            'cnpj' => 'Cnpj',
+            'email' => 'Email',
+            'email2' => 'Email2',
+            'email3' => 'Email3',
+            'telefone' => 'Telefone',
+            'celular' => 'Celular',
+            'id_cidade' => 'Id cidade',
+            'id_estado' => 'Id estado',
+            'assunto' => 'Assunto',
+            'conteudo' => 'Conteudo',
+            'agendar' => 'Agendar',
+            'agendamento' => 'Agendamento',
+            'enviado' => 'Enviado',
+            'envio' => 'Envio',
+            
+        ],
+    ],
+
+    'mala-direta' => [
+        'title' => 'Mala Diretas',
+
+        'actions' => [
+            'index' => 'Mala Diretas',
+            'create' => 'New Mala Direta',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'assunto' => 'Assunto',
+            'conteudo' => 'Conteudo',
+            'id_cliente' => 'Id cliente',
+            'agendar' => 'Agendar',
+            'agendamento' => 'Agendamento',
+            'enviado' => 'Enviado',
+            'envio' => 'Envio',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

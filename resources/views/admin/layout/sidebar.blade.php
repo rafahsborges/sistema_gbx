@@ -30,7 +30,9 @@
                         class="nav-icon icon-energy"></i> {{ trans('admin.anatel.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/messages') }}"><i
                         class="nav-icon icon-energy"></i> {{ trans('admin.chat.title') }}</a></li>
-            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/orcamentos') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.orcamento.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/mala-diretas') }}"><i class="nav-icon icon-energy"></i> {{ trans('admin.mala-direta.title') }}</a></li>
+           {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i
                             class="nav-icon icon-user"></i> {{ trans('admin.admin-user.title') }}</a></li>
