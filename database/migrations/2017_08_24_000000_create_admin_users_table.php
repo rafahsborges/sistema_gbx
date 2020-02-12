@@ -78,7 +78,7 @@ class CreateAdminUsersTable extends Migration
      */
     public function down(): void
     {
-        Schema::table('admin_userss', function (Blueprint $table) {
+        Schema::table('admin_users', function (Blueprint $table) {
             $table->dropForeign('admin_users_id_estado_foreign');
             $table->dropForeign('admin_users_id_cidade_foreign');
         });
