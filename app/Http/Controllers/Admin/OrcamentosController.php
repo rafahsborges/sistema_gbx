@@ -8,6 +8,8 @@ use App\Http\Requests\Admin\Orcamento\DestroyOrcamento;
 use App\Http\Requests\Admin\Orcamento\IndexOrcamento;
 use App\Http\Requests\Admin\Orcamento\StoreOrcamento;
 use App\Http\Requests\Admin\Orcamento\UpdateOrcamento;
+use App\Jobs\SendMailJob;
+use App\Mail\NewOrcamentos;
 use App\Models\Cidade;
 use App\Models\Estado;
 use App\Models\Orcamento;
@@ -88,8 +90,22 @@ class OrcamentosController extends Controller
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
 
+        if (!$sanitized['enviar'] && $sanitized['agendar']) {
+            $sanitized['agendamento'] = Carbon::create($sanitized['agendamento']);
+        } else {
+            $sanitized['agendamento'] = Carbon::now();
+        }
+
         // Store the Orcamento
         $orcamento = Orcamento::create($sanitized);
+
+        if ($sanitized['enviar'] && $sanitized['agendamento']->isPast()) {
+            $orcamento->enviado = true;
+            $orcamento->envio = Carbon::now();
+            $orcamento->save();
+
+            dispatch(new SendMailJob($sanitized['email'], new NewOrcamentos($sanitized['nome'], $orcamento)));
+        }
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/orcamentos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -122,7 +138,6 @@ class OrcamentosController extends Controller
     public function edit(Orcamento $orcamento)
     {
         $this->authorize('admin.orcamento.edit', $orcamento);
-
 
         return view('admin.orcamento.edit', [
             'orcamento' => $orcamento,

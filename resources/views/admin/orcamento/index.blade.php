@@ -62,10 +62,6 @@
                                     <th is='sortable' :column="'tipo'">{{ trans('admin.orcamento.columns.tipo') }}</th>
                                     <th is='sortable' :column="'nome'">{{ trans('admin.orcamento.columns.nome') }}</th>
                                     <th is='sortable'
-                                        :column="'razao_social'">{{ trans('admin.orcamento.columns.razao_social') }}</th>
-                                    <th is='sortable' :column="'cpf'">{{ trans('admin.orcamento.columns.cpf') }}</th>
-                                    <th is='sortable' :column="'cnpj'">{{ trans('admin.orcamento.columns.cnpj') }}</th>
-                                    <th is='sortable'
                                         :column="'email'">{{ trans('admin.orcamento.columns.email') }}</th>
                                     <th is='sortable'
                                         :column="'agendar'">{{ trans('admin.orcamento.columns.agendar') }}</th>
@@ -114,9 +110,6 @@
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.tipo == 1 ? 'Pessoa Jurídica' : 'Pessoa Física' }}</td>
                                     <td>@{{ item.nome }}</td>
-                                    <td>@{{ item.razao_social }}</td>
-                                    <td>@{{ item.cpf }}</td>
-                                    <td>@{{ item.cnpj }}</td>
                                     <td>@{{ item.email }}</td>
                                     <td>@{{ item.agendar === 1 ? 'Sim' : 'Não'}}</td>
                                     <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:ss') }}</td>
