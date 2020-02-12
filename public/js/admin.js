@@ -113378,6 +113378,7 @@ Vue.component('orcamento-form', {
         enviado: false,
         envio: ''
       },
+      mediaCollections: ['gallery', 'pdf'],
       money: {
         decimal: ',',
         thousands: '.',

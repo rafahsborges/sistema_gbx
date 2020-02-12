@@ -71,6 +71,7 @@ class OrcamentosController extends Controller
         return view('admin.orcamento.create', [
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'mode' => 'create',
         ]);
     }
 
@@ -127,6 +128,7 @@ class OrcamentosController extends Controller
             'orcamento' => $orcamento,
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'mode' => 'edit',
         ]);
     }
 

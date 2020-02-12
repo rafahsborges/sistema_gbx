@@ -12,7 +12,7 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 class Orcamento extends Model implements HasMedia
 {
     use SoftDeletes;
-    
+
     use ProcessMediaTrait;
     use AutoProcessMediaTrait;
     use HasMediaCollectionsTrait;
@@ -66,4 +66,5 @@ class Orcamento extends Model implements HasMedia
         $this->addMediaCollection('pdf')
             ->accepts('application/pdf');
     }
+
 }
