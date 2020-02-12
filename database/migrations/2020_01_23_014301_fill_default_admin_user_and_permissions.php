@@ -99,7 +99,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
         //Add new users
         $this->users = [
             [
-                'nome' => 'Rafael Souza Borges',
+                'nome' => 'Administrador',
                 'email' => 'rafaelsouzaborges@outlook.com',
                 'password' => Hash::make($this->password),
                 'remember_token' => null,
@@ -119,8 +119,28 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 ],
             ],
             [
-                'nome' => 'Rafael Souza Borges',
+                'nome' => 'Usuário 1',
                 'email' => 'rafahsborges@outlook.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => false,
+                'activated' => true,
+                'language' => 'pt',
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'nome' => 'Usuário 2',
+                'email' => 'blesnchochannel@outlook.com',
                 'password' => Hash::make($this->password),
                 'remember_token' => null,
                 'created_at' => Carbon::now(),
