@@ -50,6 +50,17 @@
     </div>
 </div>
 
+<div class="form-check row" :class="{'has-danger': errors.has('enviar'), 'has-success': fields.enviar && fields.enviar.valid }">
+    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
+        <input class="form-check-input" id="enviar" type="checkbox" v-model="form.enviar" v-validate="''" data-vv-name="enviar"  name="enviar_fake_element">
+        <label class="form-check-label" for="enviar">
+            {{ trans('admin.orcamento.columns.enviar') }}
+        </label>
+        <input type="hidden" name="enviar" :value="form.enviar">
+        <div v-if="errors.has('enviar')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('enviar') }}</div>
+    </div>
+</div>
+
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('conteudo'), 'has-success': fields.conteudo && fields.conteudo.valid }">
     <label for="conteudo" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.orcamento.columns.conteudo') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">

@@ -40,6 +40,7 @@ class UpdateOrcamento extends FormRequest
             'id_estado' => ['nullable', 'string'],
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
+            'enviar' => ['sometimes', 'boolean'],
             'agendar' => ['sometimes', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['sometimes', 'boolean'],

@@ -195,6 +195,23 @@ $factory->define(App\Models\Informativo::class, static function (Faker\Generator
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MalaDireta::class, static function (Faker\Generator $faker) {
+    return [
+        'assunto' => $faker->sentence,
+        'conteudo' => $faker->text(),
+        'id_cliente' => $faker->sentence,
+        'agendar' => $faker->boolean(),
+        'agendamento' => $faker->dateTime,
+        'enviado' => $faker->boolean(),
+        'envio' => $faker->dateTime,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Orcamento::class, static function (Faker\Generator $faker) {
     return [
         'tipo' => $faker->boolean(),
@@ -211,23 +228,7 @@ $factory->define(App\Models\Orcamento::class, static function (Faker\Generator $
         'id_estado' => $faker->sentence,
         'assunto' => $faker->sentence,
         'conteudo' => $faker->text(),
-        'agendar' => $faker->boolean(),
-        'agendamento' => $faker->dateTime,
-        'enviado' => $faker->boolean(),
-        'envio' => $faker->dateTime,
-        'created_at' => $faker->dateTime,
-        'updated_at' => $faker->dateTime,
-        'deleted_at' => null,
-        
-        
-    ];
-});
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\MalaDireta::class, static function (Faker\Generator $faker) {
-    return [
-        'assunto' => $faker->sentence,
-        'conteudo' => $faker->text(),
-        'id_cliente' => $faker->sentence,
+        'enviar' => $faker->boolean(),
         'agendar' => $faker->boolean(),
         'agendamento' => $faker->dateTime,
         'enviado' => $faker->boolean(),

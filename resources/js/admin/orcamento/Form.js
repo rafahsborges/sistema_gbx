@@ -19,6 +19,7 @@ Vue.component('orcamento-form', {
                 id_estado:  '' ,
                 assunto:  '' ,
                 conteudo:  '' ,
+                enviar:  false ,
                 agendar:  false ,
                 agendamento:  '' ,
                 enviado:  false ,

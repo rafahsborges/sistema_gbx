@@ -23,6 +23,7 @@ class Orcamento extends Model
         'id_estado',
         'assunto',
         'conteudo',
+        'enviar',
         'agendar',
         'agendamento',
         'enviado',

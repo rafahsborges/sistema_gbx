@@ -40,6 +40,7 @@ class StoreOrcamento extends FormRequest
             'id_estado' => ['nullable', 'string'],
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
+            'enviar' => ['required', 'boolean'],
             'agendar' => ['required', 'boolean'],
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['required', 'boolean'],

@@ -270,6 +270,28 @@ return [
         ],
     ],
 
+    'mala-direta' => [
+        'title' => 'Mala Diretas',
+
+        'actions' => [
+            'index' => 'Mala Diretas',
+            'create' => 'New Mala Direta',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'assunto' => 'Assunto',
+            'conteudo' => 'Conteudo',
+            'id_cliente' => 'Id cliente',
+            'agendar' => 'Agendar',
+            'agendamento' => 'Agendamento',
+            'enviado' => 'Enviado',
+            'envio' => 'Envio',
+            
+        ],
+    ],
+
     'orcamento' => [
         'title' => 'Orcamentos',
 
@@ -295,28 +317,7 @@ return [
             'id_estado' => 'Id estado',
             'assunto' => 'Assunto',
             'conteudo' => 'Conteudo',
-            'agendar' => 'Agendar',
-            'agendamento' => 'Agendamento',
-            'enviado' => 'Enviado',
-            'envio' => 'Envio',
-            
-        ],
-    ],
-
-    'mala-direta' => [
-        'title' => 'Mala Diretas',
-
-        'actions' => [
-            'index' => 'Mala Diretas',
-            'create' => 'New Mala Direta',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'assunto' => 'Assunto',
-            'conteudo' => 'Conteudo',
-            'id_cliente' => 'Id cliente',
+            'enviar' => 'Enviar',
             'agendar' => 'Agendar',
             'agendamento' => 'Agendamento',
             'enviado' => 'Enviado',

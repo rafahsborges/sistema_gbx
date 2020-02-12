@@ -38,7 +38,7 @@ class OrcamentosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'tipo', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'id_cidade', 'id_estado', 'assunto', 'agendar', 'agendamento', 'enviado', 'envio'],
+            ['id', 'tipo', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'id_cidade', 'id_estado', 'assunto', 'enviar', 'agendar', 'agendamento', 'enviado', 'envio'],
 
             // set columns to searchIn
             ['id', 'nome', 'razao_social', 'cpf', 'cnpj', 'email', 'email2', 'email3', 'telefone', 'celular', 'assunto', 'conteudo']

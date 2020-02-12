@@ -63,6 +63,7 @@
                                         <th is='sortable' :column="'id_cidade'">{{ trans('admin.orcamento.columns.id_cidade') }}</th>
                                         <th is='sortable' :column="'id_estado'">{{ trans('admin.orcamento.columns.id_estado') }}</th>
                                         <th is='sortable' :column="'assunto'">{{ trans('admin.orcamento.columns.assunto') }}</th>
+                                        <th is='sortable' :column="'enviar'">{{ trans('admin.orcamento.columns.enviar') }}</th>
                                         <th is='sortable' :column="'agendar'">{{ trans('admin.orcamento.columns.agendar') }}</th>
                                         <th is='sortable' :column="'agendamento'">{{ trans('admin.orcamento.columns.agendamento') }}</th>
                                         <th is='sortable' :column="'enviado'">{{ trans('admin.orcamento.columns.enviado') }}</th>
@@ -71,7 +72,7 @@
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="20">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="21">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/orcamentos')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -104,6 +105,7 @@
                                         <td>@{{ item.id_cidade }}</td>
                                         <td>@{{ item.id_estado }}</td>
                                         <td>@{{ item.assunto }}</td>
+                                        <td>@{{ item.enviar }}</td>
                                         <td>@{{ item.agendar }}</td>
                                         <td>@{{ item.agendamento | datetime }}</td>
                                         <td>@{{ item.enviado }}</td>
