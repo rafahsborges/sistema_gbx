@@ -11,11 +11,21 @@
 |
 */
 
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/', function () {
     return redirect('/admin/login');
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    return "Cache is cleared";
+});
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
