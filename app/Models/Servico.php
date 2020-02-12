@@ -36,20 +36,22 @@ class Servico extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/servicos/'.$this->getKey());
+        return url('/admin/servicos/' . $this->getKey());
     }
 
     /**
      * @return BelongsTo
      */
-    public function status() {
+    public function status()
+    {
         return $this->belongsTo('App\Models\Status', 'id_status');
     }
 
     /**
      * @return BelongsTo
      */
-    public function etapa() {
+    public function etapa()
+    {
         return $this->belongsTo('App\Models\Etapa', 'id_etapa');
     }
 }

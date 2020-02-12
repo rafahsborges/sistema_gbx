@@ -1,7 +1,12 @@
 import AppForm from '../app-components/Form/AppForm';
+import {VMoney} from "v-money";
 
 Vue.component('orcamento-form', {
     mixins: [AppForm],
+    props: [
+        'estados',
+        'cidades',
+    ],
     data: function() {
         return {
             form: {
@@ -15,8 +20,8 @@ Vue.component('orcamento-form', {
                 email3:  '' ,
                 telefone:  '' ,
                 celular:  '' ,
-                id_cidade:  '' ,
-                id_estado:  '' ,
+                cidade:  '' ,
+                estado:  '' ,
                 assunto:  '' ,
                 conteudo:  '' ,
                 enviar:  false ,
@@ -24,9 +29,28 @@ Vue.component('orcamento-form', {
                 agendamento:  '' ,
                 enviado:  false ,
                 envio:  '' ,
-                
-            }
+            },
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
+            percent: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
         }
-    }
+    },
 
+    directives: {
+        money: VMoney,
+        percent: VMoney,
+    },
 });

@@ -36,8 +36,8 @@ class UpdateOrcamento extends FormRequest
             'email3' => ['nullable', 'string'],
             'telefone' => ['nullable', 'string'],
             'celular' => ['nullable', 'string'],
-            'id_cidade' => ['nullable', 'string'],
-            'id_estado' => ['nullable', 'string'],
+            'estado' => ['nullable'],
+            'cidade' => ['nullable'],
             'assunto' => ['sometimes', 'string'],
             'conteudo' => ['sometimes', 'string'],
             'enviar' => ['sometimes', 'boolean'],
@@ -45,7 +45,6 @@ class UpdateOrcamento extends FormRequest
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['sometimes', 'boolean'],
             'envio' => ['nullable', 'date'],
-
         ];
     }
 
@@ -58,9 +57,24 @@ class UpdateOrcamento extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getEstadoId()
+    {
+        if ($this->has('estado')) {
+            return $this->get('estado')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
+        }
+        return null;
     }
 }

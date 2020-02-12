@@ -30,10 +30,11 @@ class Apontamento extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/apontamentos/'.$this->getKey());
+        return url('/admin/apontamentos/' . $this->getKey());
     }
 
-    public function cliente() {
+    public function cliente()
+    {
         return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
     }
 }

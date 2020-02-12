@@ -37,6 +37,6 @@ class Notification extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/notifications/'.$this->getKey());
+        return url('/admin/notifications/' . $this->getKey());
     }
 }

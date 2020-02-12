@@ -10,6 +10,8 @@
 
             <orcamento-form
                 :action="'{{ url('admin/orcamentos') }}'"
+                :estados="{{$estados->toJson()}}"
+                :cidades="{{$cidades->toJson()}}"
                 v-cloak
                 inline-template>
 

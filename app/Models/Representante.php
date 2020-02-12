@@ -34,10 +34,11 @@ class Representante extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/representantes/'.$this->getKey());
+        return url('/admin/representantes/' . $this->getKey());
     }
 
-    public function cliente() {
+    public function cliente()
+    {
         return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
     }
 }

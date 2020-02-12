@@ -33,27 +33,30 @@ class Etapa extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/etapas/'.$this->getKey());
+        return url('/admin/etapas/' . $this->getKey());
     }
 
     /**
      * @return BelongsTo
      */
-    public function status() {
+    public function status()
+    {
         return $this->belongsTo('App\Models\Status', 'id_status');
     }
 
     /**
      * @return BelongsTo
      */
-    public function servico() {
+    public function servico()
+    {
         return $this->belongsTo('App\Models\Servico', 'id_servico');
     }
 
     /**
      * @return HasMany
      */
-    public function itens() {
+    public function itens()
+    {
         return $this->hasMany('App\Models\Item', 'id_etapa', 'id');
     }
 }

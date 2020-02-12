@@ -2,12 +2,21 @@
 
 namespace App\Models;
 
+use Brackets\Media\HasMedia\AutoProcessMediaTrait;
+use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
+use Brackets\Media\HasMedia\ProcessMediaTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class Orcamento extends Model
+class Orcamento extends Model implements HasMedia
 {
     use SoftDeletes;
+    
+    use ProcessMediaTrait;
+    use AutoProcessMediaTrait;
+    use HasMediaCollectionsTrait;
+
     protected $fillable = [
         'tipo',
         'nome',
@@ -28,25 +37,33 @@ class Orcamento extends Model
         'agendamento',
         'enviado',
         'envio',
-    
     ];
-    
-    
+
+
     protected $dates = [
         'agendamento',
         'envio',
         'created_at',
         'updated_at',
         'deleted_at',
-    
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/orcamentos/'.$this->getKey());
+        return url('/admin/orcamentos/' . $this->getKey());
+    }
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('gallery')
+            ->accepts('image/*')
+            ->maxNumberOfFiles(20);
+
+        $this->addMediaCollection('pdf')
+            ->accepts('application/pdf');
     }
 }

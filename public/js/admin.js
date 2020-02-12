@@ -113348,9 +113348,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-money */ "./node_modules/v-money/dist/v-money.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(v_money__WEBPACK_IMPORTED_MODULE_1__);
+
 
 Vue.component('orcamento-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['estados', 'cidades'],
   data: function data() {
     return {
       form: {
@@ -113364,8 +113368,8 @@ Vue.component('orcamento-form', {
         email3: '',
         telefone: '',
         celular: '',
-        id_cidade: '',
-        id_estado: '',
+        cidade: '',
+        estado: '',
         assunto: '',
         conteudo: '',
         enviar: false,
@@ -113373,8 +113377,32 @@ Vue.component('orcamento-form', {
         agendamento: '',
         enviado: false,
         envio: ''
+      },
+      money: {
+        decimal: ',',
+        thousands: '.',
+        prefix: '',
+        suffix: '',
+        precision: 2,
+        masked: false
+        /* doesn't work with directive */
+
+      },
+      percent: {
+        decimal: ',',
+        thousands: '.',
+        prefix: '',
+        suffix: '',
+        precision: 2,
+        masked: false
+        /* doesn't work with directive */
+
       }
     };
+  },
+  directives: {
+    money: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
+    percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
   }
 });
 

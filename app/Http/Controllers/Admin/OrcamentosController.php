@@ -8,6 +8,8 @@ use App\Http\Requests\Admin\Orcamento\DestroyOrcamento;
 use App\Http\Requests\Admin\Orcamento\IndexOrcamento;
 use App\Http\Requests\Admin\Orcamento\StoreOrcamento;
 use App\Http\Requests\Admin\Orcamento\UpdateOrcamento;
+use App\Models\Cidade;
+use App\Models\Estado;
 use App\Models\Orcamento;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -66,7 +68,10 @@ class OrcamentosController extends Controller
     {
         $this->authorize('admin.orcamento.create');
 
-        return view('admin.orcamento.create');
+        return view('admin.orcamento.create', [
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
+        ]);
     }
 
     /**
@@ -79,6 +84,8 @@ class OrcamentosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_estado'] = $request->getEstadoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Store the Orcamento
         $orcamento = Orcamento::create($sanitized);
@@ -118,6 +125,8 @@ class OrcamentosController extends Controller
 
         return view('admin.orcamento.edit', [
             'orcamento' => $orcamento,
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
         ]);
     }
 
@@ -132,6 +141,8 @@ class OrcamentosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_estado'] = $request->getEstadoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Update changed values Orcamento
         $orcamento->update($sanitized);

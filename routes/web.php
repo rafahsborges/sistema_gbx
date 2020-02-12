@@ -233,7 +233,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/', 'MalaDiretasController@index')->name('index');
             Route::get('/create', 'MalaDiretasController@create')->name('create');
             Route::post('/', 'MalaDiretasController@store')->name('store');
-            Route::get('/{malaDiretum}', 'MalaDiretasController@edit')->name('show');
+            Route::get('/{malaDiretum}', 'MalaDiretasController@show')->name('show');
             Route::get('/{malaDiretum}/edit', 'MalaDiretasController@edit')->name('edit');
             Route::post('/bulk-destroy', 'MalaDiretasController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{malaDiretum}', 'MalaDiretasController@update')->name('update');

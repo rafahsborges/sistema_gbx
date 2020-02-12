@@ -36,8 +36,8 @@ class StoreOrcamento extends FormRequest
             'email3' => ['nullable', 'string'],
             'telefone' => ['nullable', 'string'],
             'celular' => ['nullable', 'string'],
-            'id_cidade' => ['nullable', 'string'],
-            'id_estado' => ['nullable', 'string'],
+            'estado' => ['nullable'],
+            'cidade' => ['nullable'],
             'assunto' => ['required', 'string'],
             'conteudo' => ['required', 'string'],
             'enviar' => ['required', 'boolean'],
@@ -45,7 +45,6 @@ class StoreOrcamento extends FormRequest
             'agendamento' => ['nullable', 'date'],
             'enviado' => ['required', 'boolean'],
             'envio' => ['nullable', 'date'],
-
         ];
     }
 
@@ -61,5 +60,21 @@ class StoreOrcamento extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getEstadoId()
+    {
+        if ($this->has('estado')) {
+            return $this->get('estado')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
+        }
+        return null;
     }
 }

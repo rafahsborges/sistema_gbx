@@ -44,13 +44,14 @@ class Ponto extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/pontos/'.$this->getKey());
+        return url('/admin/pontos/' . $this->getKey());
     }
 
     /**
      * @return BelongsTo
      */
-    public function cliente() {
+    public function cliente()
+    {
         return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
     }
 

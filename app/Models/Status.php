@@ -31,6 +31,6 @@ class Status extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/status/'.$this->getKey());
+        return url('/admin/status/' . $this->getKey());
     }
 }
