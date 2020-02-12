@@ -113147,12 +113147,13 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('mala-direta-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes'],
   data: function data() {
     return {
       form: {
         assunto: '',
         conteudo: '',
-        id_cliente: '',
+        cliente: '',
         agendar: false,
         agendamento: '',
         enviado: false,
@@ -113176,7 +113177,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('mala-direta-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      agendadosMultiselect: {},
+      enviadosMultiselect: {},
+      filters: {
+        agendados: [],
+        enviados: []
+      },
+      optionsList: [{
+        nome: 'Não',
+        id: '0'
+      }, {
+        nome: 'Sim',
+        id: '1'
+      }]
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.agendadosMultiselect = [];
+      this.enviadosMultiselect = [];
+      this.dtAgendamentosMultiselect = [];
+      this.dtEnviosMultiselect = [];
+    },
+    agendadosMultiselect: function agendadosMultiselect(newVal, oldVal) {
+      this.filters.agendados = newVal.map(function (object) {
+        return object['id'];
+      });
+      this.filter('agendados', this.filters.agendados);
+    },
+    enviadosMultiselect: function enviadosMultiselect(newVal, oldVal) {
+      this.filters.enviados = newVal.map(function (object) {
+        return object['id'];
+      });
+      this.filter('enviados', this.filters.enviados);
+    }
+  }
 });
 
 /***/ }),

@@ -10,6 +10,7 @@
 
             <mala-direta-form
                 :action="'{{ url('admin/mala-diretas') }}'"
+                :clientes="{{ $clientes->toJson() }}"
                 v-cloak
                 inline-template>
 

@@ -34,6 +34,16 @@
                                             </span>
                                         </div>
                                     </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input"
+                                                       v-model="showAdvancedFilter">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="authors-filter">&nbsp;{{ __('Filtros Avançados') }}</span>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
 
@@ -41,6 +51,28 @@
                                             <option value="25">25</option>
                                             <option value="100">100</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="showAdvancedFilter">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="agendadosMultiselect"
+                                                     :options="optionsList"
+                                                     label="nome"
+                                                     track-by="id"
+                                                     placeholder="{{ __('Type to search a agendado/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="enviadosMultiselect"
+                                                     :options="optionsList"
+                                                     label="nome"
+                                                     track-by="id"
+                                                     placeholder="{{ __('Type to search a enviado/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
                                     </div>
                                 </div>
                             </form>
@@ -61,8 +93,6 @@
                                     <th is='sortable' :column="'id'">{{ trans('admin.mala-direta.columns.id') }}</th>
                                     <th is='sortable'
                                         :column="'assunto'">{{ trans('admin.mala-direta.columns.assunto') }}</th>
-                                    <th is='sortable'
-                                        :column="'id_cliente'">{{ trans('admin.mala-direta.columns.id_cliente') }}</th>
                                     <th is='sortable'
                                         :column="'agendar'">{{ trans('admin.mala-direta.columns.agendar') }}</th>
                                     <th is='sortable'
@@ -109,11 +139,10 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.assunto }}</td>
-                                    <td>@{{ item.id_cliente }}</td>
-                                    <td>@{{ item.agendar }}</td>
-                                    <td>@{{ item.agendamento | datetime }}</td>
-                                    <td>@{{ item.enviado }}</td>
-                                    <td>@{{ item.envio | datetime }}</td>
+                                    <td>@{{ item.agendar === 1 ? 'Sim' : 'Não'}}</td>
+                                    <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:ss') }}</td>
+                                    <td>@{{ item.enviado === 1 ? 'Sim' : 'Não' }}</td>
+                                    <td>@{{ item.envio | datetime('DD/MM/YYYY H:m:ss') }}</td>
 
                                     <td>
                                         <div class="row no-gutters">

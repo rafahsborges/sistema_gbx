@@ -32,10 +32,15 @@
     <label for="id_cliente" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.mala-direta.columns.id_cliente') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_cliente" v-validate="'required'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('id_cliente'), 'form-control-success': fields.id_cliente && fields.id_cliente.valid}"
-               id="id_cliente" name="id_cliente" placeholder="{{ trans('admin.mala-direta.columns.id_cliente') }}">
+        <multiselect
+            v-model="form.cliente"
+            :options="clientes"
+            :multiple="true"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.mala-direta.columns.id_cliente') }}"
+            placeholder="{{ trans('admin.mala-direta.columns.id_cliente') }}">
+        </multiselect>
         <div v-if="errors.has('id_cliente')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('id_cliente') }}
         </div>
@@ -58,7 +63,8 @@
 </div>
 
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('agendamento'), 'has-success': fields.agendamento && fields.agendamento.valid }">
+     :class="{'has-danger': errors.has('agendamento'), 'has-success': fields.agendamento && fields.agendamento.valid }"
+     v-if="form.agendar === true || form.agendar === 1">
     <label for="agendamento" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.mala-direta.columns.agendamento') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
@@ -77,7 +83,8 @@
 </div>
 
 <div class="form-check row"
-     :class="{'has-danger': errors.has('enviado'), 'has-success': fields.enviado && fields.enviado.valid }">
+     :class="{'has-danger': errors.has('enviado'), 'has-success': fields.enviado && fields.enviado.valid }"
+     v-if="Object.keys(data).length !== 0">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
         <input class="form-check-input" id="enviado" type="checkbox" v-model="form.enviado" v-validate="''"
                data-vv-name="enviado" name="enviado_fake_element">
@@ -92,7 +99,8 @@
 </div>
 
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('envio'), 'has-success': fields.envio && fields.envio.valid }">
+     :class="{'has-danger': errors.has('envio'), 'has-success': fields.envio && fields.envio.valid }"
+     v-if="Object.keys(data).length !== 0 && form.enviado === true || form.enviado === 1">
     <label for="envio" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.mala-direta.columns.envio') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
@@ -108,5 +116,3 @@
         </div>
     </div>
 </div>
-
-

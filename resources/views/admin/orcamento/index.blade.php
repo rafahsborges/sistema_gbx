@@ -68,22 +68,6 @@
                                     <th is='sortable'
                                         :column="'email'">{{ trans('admin.orcamento.columns.email') }}</th>
                                     <th is='sortable'
-                                        :column="'email2'">{{ trans('admin.orcamento.columns.email2') }}</th>
-                                    <th is='sortable'
-                                        :column="'email3'">{{ trans('admin.orcamento.columns.email3') }}</th>
-                                    <th is='sortable'
-                                        :column="'telefone'">{{ trans('admin.orcamento.columns.telefone') }}</th>
-                                    <th is='sortable'
-                                        :column="'celular'">{{ trans('admin.orcamento.columns.celular') }}</th>
-                                    <th is='sortable'
-                                        :column="'id_cidade'">{{ trans('admin.orcamento.columns.id_cidade') }}</th>
-                                    <th is='sortable'
-                                        :column="'id_estado'">{{ trans('admin.orcamento.columns.id_estado') }}</th>
-                                    <th is='sortable'
-                                        :column="'assunto'">{{ trans('admin.orcamento.columns.assunto') }}</th>
-                                    <th is='sortable'
-                                        :column="'enviar'">{{ trans('admin.orcamento.columns.enviar') }}</th>
-                                    <th is='sortable'
                                         :column="'agendar'">{{ trans('admin.orcamento.columns.agendar') }}</th>
                                     <th is='sortable'
                                         :column="'agendamento'">{{ trans('admin.orcamento.columns.agendamento') }}</th>
@@ -128,24 +112,16 @@
                                     </td>
 
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.tipo }}</td>
+                                    <td>@{{ item.tipo == 1 ? 'Pessoa Jurídica' : 'Pessoa Física' }}</td>
                                     <td>@{{ item.nome }}</td>
                                     <td>@{{ item.razao_social }}</td>
                                     <td>@{{ item.cpf }}</td>
                                     <td>@{{ item.cnpj }}</td>
                                     <td>@{{ item.email }}</td>
-                                    <td>@{{ item.email2 }}</td>
-                                    <td>@{{ item.email3 }}</td>
-                                    <td>@{{ item.telefone }}</td>
-                                    <td>@{{ item.celular }}</td>
-                                    <td>@{{ item.id_cidade }}</td>
-                                    <td>@{{ item.id_estado }}</td>
-                                    <td>@{{ item.assunto }}</td>
-                                    <td>@{{ item.enviar }}</td>
-                                    <td>@{{ item.agendar }}</td>
-                                    <td>@{{ item.agendamento | datetime }}</td>
-                                    <td>@{{ item.enviado }}</td>
-                                    <td>@{{ item.envio | datetime }}</td>
+                                    <td>@{{ item.agendar === 1 ? 'Sim' : 'Não'}}</td>
+                                    <td>@{{ item.agendamento | datetime('DD/MM/YYYY H:m:ss') }}</td>
+                                    <td>@{{ item.enviado === 1 ? 'Sim' : 'Não' }}</td>
+                                    <td>@{{ item.envio | datetime('DD/MM/YYYY H:m:ss') }}</td>
 
                                     <td>
                                         <div class="row no-gutters">
