@@ -29,7 +29,7 @@ class NewNotifications extends Mailable
     {
         return $this->markdown('emails.notification')
             ->subject($this->notification->assunto)
-            ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
+            ->from('contato@gerenciamento.gbxtelecom.com.br', 'GBX Telecom e Consultoria')
             ->with([
                 'cliente' => $this->cliente,
                 'notification' => $this->notification,

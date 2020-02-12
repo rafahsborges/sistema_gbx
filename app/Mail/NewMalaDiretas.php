@@ -29,7 +29,7 @@ class NewMalaDiretas extends Mailable
     {
         return $this->markdown('emails.mala-direta')
             ->subject($this->malaDireta->assunto)
-            ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
+            ->from('contato@gerenciamento.gbxtelecom.com.br', 'GBX Telecom e Consultoria')
             ->with([
                 'cliente' => $this->cliente,
                 'malaDireta' => $this->malaDireta,

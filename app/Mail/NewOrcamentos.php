@@ -27,7 +27,7 @@ class NewOrcamentos extends Mailable
     {
         return $this->markdown('emails.orcamento')
             ->subject($this->orcamento->assunto)
-            ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
+            ->from('contato@gerenciamento.gbxtelecom.com.br', 'GBX Telecom e Consultoria')
             ->with([
                 'orcamento' => $this->orcamento,
             ]);
