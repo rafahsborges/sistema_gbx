@@ -33,7 +33,7 @@ services:
       - 86:86
     volumes:
       - ./:/var/www/sistemagbx
-      #- ./docker-config/mailhog.ini:/usr/local/etc/php/conf.d/mailhog.ini
+      - ./docker-config/mailhog.ini:/usr/local/etc/php/conf.d/mailhog.ini
     depends_on:
       - mailhog
     networks:
