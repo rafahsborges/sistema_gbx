@@ -15,7 +15,8 @@
                 v-cloak
                 inline-template>
 
-                <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
+                <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action"
+                      novalidate>
 
 
                     <div class="card-header">
@@ -36,10 +37,10 @@
 
                 </form>
 
-        </item-form>
+            </item-form>
 
         </div>
 
-</div>
+    </div>
 
 @endsection

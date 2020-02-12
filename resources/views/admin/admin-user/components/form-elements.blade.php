@@ -179,7 +179,8 @@
     <label for="numero" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.numero') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.numero" :maxlength="15" v-validate="''" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.numero" :maxlength="15" v-validate="''" @input="validate($event)"
+               class="form-control"
                :class="{'form-control-danger': errors.has('numero'), 'form-control-success': fields.numero && fields.numero.valid}"
                id="numero" name="numero" placeholder="{{ trans('admin.admin-user.columns.numero') }}">
         <div v-if="errors.has('numero')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('numero') }}
@@ -321,7 +322,8 @@
     <label for="fistel" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.fistel') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.fistel" :maxlength="11" v-validate="''" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.fistel" :maxlength="11" v-validate="''" @input="validate($event)"
+               class="form-control"
                :class="{'form-control-danger': errors.has('fistel'), 'form-control-success': fields.fistel && fields.fistel.valid}"
                id="fistel" name="fistel" placeholder="{{ trans('admin.admin-user.columns.fistel') }}">
         <div v-if="errors.has('fistel')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('fistel') }}
@@ -493,7 +495,8 @@
                class="form-control"
                :class="{'form-control-danger': errors.has('desconto'), 'form-control-success': fields.desconto && fields.desconto.valid}"
                id="desconto" name="desconto" placeholder="{{ trans('admin.admin-user.columns.desconto') }}">
-        <div v-if="errors.has('desconto')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('desconto') }}
+        <div v-if="errors.has('desconto')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('desconto')
+            }}
         </div>
     </div>
 </div>

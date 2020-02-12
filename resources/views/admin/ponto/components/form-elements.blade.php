@@ -111,7 +111,9 @@
             tag-placeholder="{{ trans('admin.ponto.columns.id_cidade') }}"
             placeholder="{{ trans('admin.ponto.columns.id_cidade') }}">
         </multiselect>
-        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_cidade') }}</div>
+        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_cidade') }}
+        </div>
     </div>
 </div>
 
@@ -129,7 +131,9 @@
             tag-placeholder="{{ trans('admin.ponto.columns.id_estado') }}"
             placeholder="{{ trans('admin.ponto.columns.id_estado') }}">
         </multiselect>
-        <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_estado') }}</div>
+        <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_estado') }}
+        </div>
     </div>
 </div>
 
