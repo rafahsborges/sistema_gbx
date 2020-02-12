@@ -37,6 +37,7 @@ class CreateOrcamentosTable extends Migration
                 ->onDelete('restrict');
             $table->string('assunto');
             $table->text('conteudo');
+            $table->boolean('enviar')->default(false);
             $table->boolean('agendar')->default(false);
             $table->timestamp('agendamento')->nullable();
             $table->boolean('enviado')->default(false);
