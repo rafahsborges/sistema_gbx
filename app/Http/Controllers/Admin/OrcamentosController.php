@@ -118,14 +118,25 @@ class OrcamentosController extends Controller
      * Display the specified resource.
      *
      * @param Orcamento $orcamento
-     * @return void
+     * @return Factory|View
      * @throws AuthorizationException
      */
     public function show(Orcamento $orcamento)
     {
         $this->authorize('admin.orcamento.show', $orcamento);
 
-        // TODO your code goes here
+        $id = $orcamento->id;
+
+        $orcamento = Orcamento::with('estado')
+            ->with('cidade')
+            ->find($id);
+
+        return view('admin.orcamento.show', [
+            'orcamento' => $orcamento,
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
+            'mode' => 'edit',
+        ]);
     }
 
     /**
@@ -138,6 +149,12 @@ class OrcamentosController extends Controller
     public function edit(Orcamento $orcamento)
     {
         $this->authorize('admin.orcamento.edit', $orcamento);
+
+        $id = $orcamento->id;
+
+        $orcamento = Orcamento::with('estado')
+            ->with('cidade')
+            ->find($id);
 
         return view('admin.orcamento.edit', [
             'orcamento' => $orcamento,
