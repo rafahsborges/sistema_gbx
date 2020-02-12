@@ -112,7 +112,6 @@ return [
             'id' => 'ID',
             'descricao' => 'Descricao',
             'id_cliente' => 'Id cliente',
-
         ],
     ],
 
@@ -130,7 +129,6 @@ return [
             'nome' => 'Nome',
             'abreviacao' => 'Abreviacao',
             'enabled' => 'Enabled',
-
         ],
     ],
 
@@ -149,7 +147,6 @@ return [
             'ibge_code' => 'Ibge code',
             'id_estado' => 'Id estado',
             'enabled' => 'Enabled',
-
         ],
     ],
 
@@ -165,7 +162,6 @@ return [
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-
         ],
     ],
 
@@ -183,7 +179,6 @@ return [
             'nome' => 'Nome',
             'id_servico' => 'Id servico',
             'id_status' => 'Id status',
-
         ],
     ],
 
@@ -201,7 +196,6 @@ return [
             'nome' => 'Nome',
             'id_etapa' => 'Id etapa',
             'id_status' => 'Id status',
-
         ],
     ],
 
@@ -266,7 +260,6 @@ return [
             'assunto' => 'Assunto',
             'conteudo' => 'Conteudo',
             'id_servico' => 'Id servico',
-            
         ],
     ],
 
@@ -288,7 +281,6 @@ return [
             'agendamento' => 'Agendamento',
             'enviado' => 'Enviado',
             'envio' => 'Envio',
-            
         ],
     ],
 
@@ -322,7 +314,6 @@ return [
             'agendamento' => 'Agendamento',
             'enviado' => 'Enviado',
             'envio' => 'Envio',
-            
         ],
     ],
 

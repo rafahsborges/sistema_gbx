@@ -65,10 +65,11 @@ class Orcamento extends Model implements HasMedia
     {
         $this->addMediaCollection('gallery')
             ->accepts('image/*')
-            ->maxNumberOfFiles(20);
+            ->maxNumberOfFiles(5);
 
         $this->addMediaCollection('pdf')
-            ->accepts('application/pdf');
+            ->accepts('application/pdf')
+            ->maxNumberOfFiles(5);
     }
 
     public function registerMediaConversions(Media $media = null)
