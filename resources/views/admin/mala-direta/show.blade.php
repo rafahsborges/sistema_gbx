@@ -17,7 +17,6 @@
                 <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action"
                       novalidate>
 
-
                     <div class="card-header">
                         <i class="fa fa-pencil"></i> {{ trans('admin.mala-direta.actions.edit', ['name' => $malaDiretum->id]) }}
                     </div>
