@@ -27,7 +27,7 @@ class NewMalaDiretas extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.malaDireta')
+        return $this->markdown('emails.mala-direta')
             ->subject($this->malaDireta->assunto)
             ->from('gbxtelec@gmail.com', 'GBX Telecom e Consultoria')
             ->with([
