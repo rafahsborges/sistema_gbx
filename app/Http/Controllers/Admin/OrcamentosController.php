@@ -96,14 +96,15 @@ class OrcamentosController extends Controller
             $sanitized['agendamento'] = Carbon::now();
         }
 
+        if ($sanitized['enviar'] && $sanitized['agendamento']->isPast()) {
+            $sanitized['enviado'] = true;
+            $sanitized['envio'] = Carbon::now();
+        }
+
         // Store the Orcamento
         $orcamento = Orcamento::create($sanitized);
 
         if ($sanitized['enviar'] && $sanitized['agendamento']->isPast()) {
-            $orcamento->enviado = true;
-            $orcamento->envio = Carbon::now();
-            $orcamento->save();
-
             dispatch(new SendMailJob($sanitized['email'], new NewOrcamentos($orcamento)));
         }
 
@@ -184,14 +185,15 @@ class OrcamentosController extends Controller
             $sanitized['agendamento'] = Carbon::now();
         }
 
+        if ($sanitized['enviar'] && $sanitized['agendamento']->isPast()) {
+            $sanitized['enviado'] = true;
+            $sanitized['envio'] = Carbon::now();
+        }
+
         // Update changed values Orcamento
         $orcamento->update($sanitized);
 
         if ($sanitized['enviar'] && $sanitized['agendamento']->isPast()) {
-            $orcamento->enviado = true;
-            $orcamento->envio = Carbon::now();
-            $orcamento->save();
-
             dispatch(new SendMailJob($sanitized['email'], new NewOrcamentos($orcamento)));
         }
 
