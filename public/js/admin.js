@@ -112495,6 +112495,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var vue_viacep__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-viacep */ "./node_modules/vue-viacep/index.js");
 /* harmony import */ var vue_viacep__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(vue_viacep__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! v-money */ "./node_modules/v-money/dist/v-money.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(v_money__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_18__);
 
 
 
@@ -112507,6 +112513,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+ // Global
 
 
 
@@ -112525,6 +112535,10 @@ vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_quill_editor__WEBPACK_IMPORT
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_notification__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_cookie__WEBPACK_IMPORTED_MODULE_8___default.a);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_viacep__WEBPACK_IMPORTED_MODULE_15___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_the_mask__WEBPACK_IMPORTED_MODULE_16___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(v_money__WEBPACK_IMPORTED_MODULE_17___default.a, {
+  precision: 4
+});
 new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
   mixins: [craftable__WEBPACK_IMPORTED_MODULE_9__["Admin"]]
 });

@@ -240,3 +240,19 @@ $factory->define(App\Models\Orcamento::class, static function (Faker\Generator $
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Boleto::class, static function (Faker\Generator $faker) {
+    return [
+        'valor' => $faker->randomNumber(5),
+        'vencimento' => $faker->date(),
+        'valor_pago' => $faker->randomNumber(5),
+        'pagamento' => $faker->date(),
+        'id_cliente' => $faker->sentence,
+        'status' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+        
+        
+    ];
+});

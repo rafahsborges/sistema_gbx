@@ -318,5 +318,26 @@ return [
         ],
     ],
 
+    'boleto' => [
+        'title' => 'Boletos',
+
+        'actions' => [
+            'index' => 'Boletos',
+            'create' => 'New Boleto',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'valor' => 'Valor',
+            'vencimento' => 'Vencimento',
+            'valor_pago' => 'Valor pago',
+            'pagamento' => 'Pagamento',
+            'id_cliente' => 'Id cliente',
+            'status' => 'Status',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
