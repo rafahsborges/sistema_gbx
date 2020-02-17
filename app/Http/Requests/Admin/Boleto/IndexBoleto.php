@@ -14,7 +14,8 @@ class IndexBoleto extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.boleto.index');
+        //return Gate::allows('admin.boleto.index');
+        return auth()->check();
     }
 
     /**

@@ -2,18 +2,24 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('boleto-form', {
     mixins: [AppForm],
-    data: function() {
+    props: [
+        'clientes',
+    ],
+    data: function () {
         return {
             form: {
-                valor:  '' ,
-                vencimento:  '' ,
-                valor_pago:  '' ,
-                pagamento:  '' ,
-                id_cliente:  '' ,
-                status:  false ,
-                
-            }
+                valor: '',
+                vencimento: '',
+                valor_pago: '',
+                pagamento: '',
+                cliente: '',
+                status: false,
+            },
+            statuses: [
+                {nome: 'A pagar', id: '0'},
+                {nome: 'Pago', id: '1'},
+                {nome: 'Vencido', id: '2'},
+            ],
         }
-    }
-
+    },
 });

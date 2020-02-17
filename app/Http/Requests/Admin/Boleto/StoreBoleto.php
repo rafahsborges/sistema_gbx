@@ -15,7 +15,8 @@ class StoreBoleto extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.boleto.create');
+        //return Gate::allows('admin.boleto.create');
+        return auth()->check();
     }
 
     /**
@@ -30,9 +31,8 @@ class StoreBoleto extends FormRequest
             'vencimento' => ['required', 'date'],
             'valor_pago' => ['required', 'numeric'],
             'pagamento' => ['nullable', 'date'],
-            'id_cliente' => ['required', 'string'],
+            'cliente' => ['required'],
             'status' => ['required', 'boolean'],
-            
         ];
     }
 
@@ -48,5 +48,13 @@ class StoreBoleto extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
     }
 }

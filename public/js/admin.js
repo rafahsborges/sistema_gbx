@@ -112697,6 +112697,99 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/boleto/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/boleto/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('boleto-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes'],
+  data: function data() {
+    return {
+      form: {
+        valor: '',
+        vencimento: '',
+        valor_pago: '',
+        pagamento: '',
+        cliente: '',
+        status: false
+      },
+      statuses: [{
+        nome: 'A pagar',
+        id: '0'
+      }, {
+        nome: 'Pago',
+        id: '1'
+      }, {
+        nome: 'Vencido',
+        id: '2'
+      }]
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/boleto/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/boleto/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('boleto-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      clientesMultiselect: {},
+      filters: {
+        clientes: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/boleto/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/boleto/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/boleto/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/boleto/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/bootstrap.js":
 /*!*****************************************!*\
   !*** ./resources/js/admin/bootstrap.js ***!
@@ -112981,6 +113074,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _informativo__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./informativo */ "./resources/js/admin/informativo/index.js");
 /* harmony import */ var _orcamento__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./orcamento */ "./resources/js/admin/orcamento/index.js");
 /* harmony import */ var _mala_direta__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mala-direta */ "./resources/js/admin/mala-direta/index.js");
+/* harmony import */ var _boleto__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./boleto */ "./resources/js/admin/boleto/index.js");
+
 
 
 

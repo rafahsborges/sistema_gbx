@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-Route::get('/clear-cache', function() {
+Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
     Artisan::call('route:clear');
@@ -257,15 +257,15 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('boletos')->name('boletos/')->group(static function() {
-            Route::get('/',                                             'BoletosController@index')->name('index');
-            Route::get('/create',                                       'BoletosController@create')->name('create');
-            Route::post('/',                                            'BoletosController@store')->name('store');
-            Route::get('/{boleto}/edit',                                'BoletosController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'BoletosController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{boleto}',                                    'BoletosController@update')->name('update');
-            Route::delete('/{boleto}',                                  'BoletosController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('boletos')->name('boletos/')->group(static function () {
+            Route::get('/', 'BoletosController@index')->name('index');
+            Route::get('/create', 'BoletosController@create')->name('create');
+            Route::post('/', 'BoletosController@store')->name('store');
+            Route::get('/{boleto}/edit', 'BoletosController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'BoletosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{boleto}', 'BoletosController@update')->name('update');
+            Route::delete('/{boleto}', 'BoletosController@destroy')->name('destroy');
         });
     });
 });

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Boleto\DestroyBoleto;
 use App\Http\Requests\Admin\Boleto\IndexBoleto;
 use App\Http\Requests\Admin\Boleto\StoreBoleto;
 use App\Http\Requests\Admin\Boleto\UpdateBoleto;
+use App\Models\AdminUser;
 use App\Models\Boleto;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -34,14 +35,24 @@ class BoletosController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Boleto::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
             ['id', 'valor', 'vencimento', 'valor_pago', 'pagamento', 'id_cliente', 'status'],
 
             // set columns to searchIn
-            ['id']
+            ['id'],
+
+            function ($query) use ($request) {
+                $query->with(['cliente']);
+                if ($request->has('clientes')) {
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+                if (auth()->user()->is_admin !== 1) {
+                    $query->where('id_cliente', auth()->user()->id);
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,20 +64,25 @@ class BoletosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.boleto.index', ['data' => $data]);
+        return view('admin.boleto.index', [
+            'data' => $data,
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
-        $this->authorize('admin.boleto.create');
+        //$this->authorize('admin.boleto.create');
 
-        return view('admin.boleto.create');
+        return view('admin.boleto.create', [
+            'clientes' => AdminUser::all(),
+        ]);
     }
 
     /**
@@ -79,6 +95,7 @@ class BoletosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Store the Boleto
         $boleto = Boleto::create($sanitized);
@@ -94,8 +111,8 @@ class BoletosController extends Controller
      * Display the specified resource.
      *
      * @param Boleto $boleto
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Boleto $boleto)
     {
@@ -108,8 +125,8 @@ class BoletosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Boleto $boleto
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Boleto $boleto)
     {
@@ -118,6 +135,7 @@ class BoletosController extends Controller
 
         return view('admin.boleto.edit', [
             'boleto' => $boleto,
+            'clientes' => AdminUser::all(),
         ]);
     }
 
@@ -132,6 +150,7 @@ class BoletosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
 
         // Update changed values Boleto
         $boleto->update($sanitized);
@@ -151,8 +170,8 @@ class BoletosController extends Controller
      *
      * @param DestroyBoleto $request
      * @param Boleto $boleto
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyBoleto $request, Boleto $boleto)
     {
@@ -169,10 +188,10 @@ class BoletosController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyBoleto $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyBoleto $request) : Response
+    public function bulkDestroy(BulkDestroyBoleto $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -181,7 +200,7 @@ class BoletosController extends Controller
                     DB::table('boletos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });
