@@ -28,11 +28,11 @@ class UpdateSici extends FormRequest
         return [
             'ano' => ['sometimes', 'string'],
             'mes' => ['sometimes', 'string'],
-            'id_cliente' => ['sometimes', 'string'],
-            'id_servico' => ['sometimes', 'string'],
+            'cliente' => ['sometimes'],
+            'servico' => ['sometimes'],
             'fistel' => ['sometimes', 'string'],
-            'id_cidade' => ['sometimes', 'string'],
-            'id_estado' => ['sometimes', 'string'],
+            'cidade' => ['sometimes'],
+            'estado' => ['sometimes'],
             'iem1a' => ['nullable', 'numeric'],
             'iem1b' => ['nullable', 'numeric'],
             'iem1c' => ['nullable', 'numeric'],
@@ -189,7 +189,7 @@ class UpdateSici extends FormRequest
             'qaipl4smO18' => ['nullable', 'integer'],
             'qaipl4smO19' => ['nullable', 'integer'],
             'status' => ['sometimes', 'integer'],
-            
+
         ];
     }
 
@@ -202,9 +202,45 @@ class UpdateSici extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getEstadoId()
+    {
+        if ($this->has('estado')) {
+            return $this->get('estado')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
+        }
+        return null;
+    }
+
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
+            return $this->get('servico')['id'];
+        }
+        return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }

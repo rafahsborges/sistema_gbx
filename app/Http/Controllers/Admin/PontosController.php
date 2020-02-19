@@ -68,7 +68,7 @@ class PontosController extends Controller
 
         return view('admin.ponto.index', [
             'data' => $data,
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
             ]);
     }
 
@@ -83,7 +83,7 @@ class PontosController extends Controller
         $this->authorize('admin.ponto.create');
 
         return view('admin.ponto.create', [
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
         ]);
@@ -145,7 +145,7 @@ class PontosController extends Controller
 
         return view('admin.ponto.edit', [
             'ponto' => $ponto,
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
         ]);

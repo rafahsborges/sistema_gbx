@@ -28,11 +28,11 @@ class StoreSici extends FormRequest
         return [
             'ano' => ['required', 'string'],
             'mes' => ['required', 'string'],
-            'id_cliente' => ['required', 'string'],
-            'id_servico' => ['required', 'string'],
+            'cliente' => ['required'],
+            'servico' => ['required'],
             'fistel' => ['required', 'string'],
-            'id_cidade' => ['required', 'string'],
-            'id_estado' => ['required', 'string'],
+            'cidade' => ['required'],
+            'estado' => ['required'],
             'iem1a' => ['nullable', 'numeric'],
             'iem1b' => ['nullable', 'numeric'],
             'iem1c' => ['nullable', 'numeric'],
@@ -189,7 +189,7 @@ class StoreSici extends FormRequest
             'qaipl4smO18' => ['nullable', 'integer'],
             'qaipl4smO19' => ['nullable', 'integer'],
             'status' => ['required', 'integer'],
-            
+
         ];
     }
 
@@ -205,5 +205,42 @@ class StoreSici extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getEstadoId()
+    {
+        if ($this->has('estado')) {
+            return $this->get('estado')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
+        }
+        return null;
+    }
+
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
+            return $this->get('servico')['id'];
+        }
+        return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }

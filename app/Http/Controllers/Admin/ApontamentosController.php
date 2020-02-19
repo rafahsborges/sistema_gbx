@@ -66,7 +66,7 @@ class ApontamentosController extends Controller
 
         return view('admin.apontamento.index', [
             'data' => $data,
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
             ]);
     }
 
@@ -81,7 +81,7 @@ class ApontamentosController extends Controller
         //$this->authorize('admin.apontamento.create');
 
         return view('admin.apontamento.create', [
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
         ]);
     }
 
@@ -137,7 +137,7 @@ class ApontamentosController extends Controller
 
         return view('admin.apontamento.edit', [
             'apontamento' => $apontamento,
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
         ]);
     }
 

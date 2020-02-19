@@ -66,7 +66,7 @@ class RepresentantesController extends Controller
 
         return view('admin.representante.index', [
             'data' => $data,
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
         ]);
     }
 
@@ -81,7 +81,7 @@ class RepresentantesController extends Controller
         $this->authorize('admin.representante.create');
 
         return view('admin.representante.create', [
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
         ]);
     }
 
@@ -137,7 +137,7 @@ class RepresentantesController extends Controller
 
         return view('admin.representante.edit', [
             'representante' => $representante,
-            'clientes' => AdminUser::all(),
+            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
         ]);
     }
 
