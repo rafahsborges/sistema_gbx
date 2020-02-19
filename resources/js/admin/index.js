@@ -15,3 +15,4 @@ import './informativo';
 import './orcamento';
 import './mala-direta';
 import './boleto';
+import './sici';
