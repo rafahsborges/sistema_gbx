@@ -15,6 +15,7 @@ use App\Models\Ponto;
 use App\Models\Representante;
 use App\Models\Servico;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Brackets\AdminAuth\Activation\Facades\Activation;
 use Brackets\AdminAuth\Services\ActivationService;
@@ -162,6 +163,10 @@ class AdminUsersController extends Controller
         // But we do have a roles, so we need to attach the roles to the adminUser
         $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
 
+        $modelHasRoles = DB::table('model_has_roles')
+            ->where('model_id', $adminUser->id)
+            ->update(['model_type' => 'Brackets\AdminAuth\Models\AdminUser']);
+
         if ($request->ajax()) {
             return ['redirect' => url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
@@ -277,6 +282,10 @@ class AdminUsersController extends Controller
         if ($request->input('roles')) {
             $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
         }
+
+        $modelHasRoles = DB::table('model_has_roles')
+            ->where('model_id', $adminUser->id)
+            ->update(['model_type' => 'Brackets\AdminAuth\Models\AdminUser']);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
