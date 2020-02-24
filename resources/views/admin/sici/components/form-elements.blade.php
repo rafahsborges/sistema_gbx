@@ -36,9 +36,9 @@
 
 <div class="form-group row align-items-center">
     <label for="ano" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.referencia') }}</label>
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Referência</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        @{{ form.ano }}@{{ form.mes }}
+        @{{ form.ano.id }}@{{ form.mes.id }}
     </div>
 </div>
 

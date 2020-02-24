@@ -114085,11 +114085,11 @@ Vue.component('sici-form', {
       form: {
         ano: '',
         mes: '',
-        id_cliente: '',
-        id_servico: '',
+        cliente: '',
+        servico: '',
         fistel: '',
-        id_cidade: '',
-        id_estado: '',
+        cidade: '',
+        estado: '',
         iem1a: '',
         iem1b: '',
         iem1c: '',
@@ -114246,7 +114246,54 @@ Vue.component('sici-form', {
         qaipl4smO18: '',
         qaipl4smO19: '',
         status: ''
-      }
+      },
+      yearList: [{
+        nome: new Date().getFullYear() + 1,
+        id: new Date().getFullYear() + 1
+      }, {
+        nome: new Date().getFullYear(),
+        id: new Date().getFullYear()
+      }, {
+        nome: new Date().getFullYear() - 1,
+        id: new Date().getFullYear() - 1
+      }],
+      monthList: [{
+        nome: 'Janeiro',
+        id: '01'
+      }, {
+        nome: 'Fevereiro',
+        id: '02'
+      }, {
+        nome: 'Março',
+        id: '03'
+      }, {
+        nome: 'Abril',
+        id: '04'
+      }, {
+        nome: 'Maio',
+        id: '05'
+      }, {
+        nome: 'Junho',
+        id: '06'
+      }, {
+        nome: 'Julho',
+        id: '07'
+      }, {
+        nome: 'Agosto',
+        id: '08'
+      }, {
+        nome: 'Setembro',
+        id: '09'
+      }, {
+        nome: 'Outubro',
+        id: '10'
+      }, {
+        nome: 'Novembro',
+        id: '11'
+      }, {
+        nome: 'Dezembro',
+        id: '12'
+      }]
     };
   }
 });
