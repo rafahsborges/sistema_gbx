@@ -1172,6 +1172,112 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smHqaipl5sm'), 'has-success': fields.qaipl4smHqaipl5sm && fields.qaipl4smHqaipl5sm.valid }">
+    <label for="qaipl4smHqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smHqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smHqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smHqaipl5sm'), 'form-control-success': fields.qaipl4smHqaipl5sm && fields.qaipl4smHqaipl5sm.valid}"
+               id="qaipl4smHqaipl5sm" name="qaipl4smHqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smHqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smHqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smHqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smHtotal'), 'has-success': fields.qaipl4smHtotal && fields.qaipl4smHtotal.valid }">
+    <label for="qaipl4smHtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smHtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smHtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smHtotal'), 'form-control-success': fields.qaipl4smHtotal && fields.qaipl4smHtotal.valid}"
+               id="qaipl4smHtotal" name="qaipl4smHtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smHtotal') }}">
+        <div v-if="errors.has('qaipl4smHtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smHtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smH15'), 'has-success': fields.qaipl4smH15 && fields.qaipl4smH15.valid }">
+    <label for="qaipl4smH15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smH15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smH15'), 'form-control-success': fields.qaipl4smH15 && fields.qaipl4smH15.valid}"
+               id="qaipl4smH15" name="qaipl4smH15" placeholder="{{ trans('admin.sici.columns.qaipl4smH15') }}">
+        <div v-if="errors.has('qaipl4smH15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smH15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smH16'), 'has-success': fields.qaipl4smH16 && fields.qaipl4smH16.valid }">
+    <label for="qaipl4smH16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smH16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smH16'), 'form-control-success': fields.qaipl4smH16 && fields.qaipl4smH16.valid}"
+               id="qaipl4smH16" name="qaipl4smH16" placeholder="{{ trans('admin.sici.columns.qaipl4smH16') }}">
+        <div v-if="errors.has('qaipl4smH16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smH16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smH17'), 'has-success': fields.qaipl4smH17 && fields.qaipl4smH17.valid }">
+    <label for="qaipl4smH17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smH17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smH17'), 'form-control-success': fields.qaipl4smH17 && fields.qaipl4smH17.valid}"
+               id="qaipl4smH17" name="qaipl4smH17" placeholder="{{ trans('admin.sici.columns.qaipl4smH17') }}">
+        <div v-if="errors.has('qaipl4smH17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smH17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smH18'), 'has-success': fields.qaipl4smH18 && fields.qaipl4smH18.valid }">
+    <label for="qaipl4smH18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smH18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smH18'), 'form-control-success': fields.qaipl4smH18 && fields.qaipl4smH18.valid}"
+               id="qaipl4smH18" name="qaipl4smH18" placeholder="{{ trans('admin.sici.columns.qaipl4smH18') }}">
+        <div v-if="errors.has('qaipl4smH18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smH18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smH19'), 'has-success': fields.qaipl4smH19 && fields.qaipl4smH19.valid }">
+    <label for="qaipl4smH19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smH19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smH19'), 'form-control-success': fields.qaipl4smH19 && fields.qaipl4smH19.valid}"
+               id="qaipl4smH19" name="qaipl4smH19" placeholder="{{ trans('admin.sici.columns.qaipl4smH19') }}">
+        <div v-if="errors.has('qaipl4smH19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smH19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('qaipl4smIqaipl5sm'), 'has-success': fields.qaipl4smIqaipl5sm && fields.qaipl4smIqaipl5sm.valid }">
     <label for="qaipl4smIqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smIqaipl5sm') }}</label>
@@ -1273,6 +1379,642 @@
                id="qaipl4smI19" name="qaipl4smI19" placeholder="{{ trans('admin.sici.columns.qaipl4smI19') }}">
         <div v-if="errors.has('qaipl4smI19')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('qaipl4smI19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJqaipl5sm'), 'has-success': fields.qaipl4smJqaipl5sm && fields.qaipl4smJqaipl5sm.valid }">
+    <label for="qaipl4smJqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJqaipl5sm'), 'form-control-success': fields.qaipl4smJqaipl5sm && fields.qaipl4smJqaipl5sm.valid}"
+               id="qaipl4smJqaipl5sm" name="qaipl4smJqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smJqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smJqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJtotal'), 'has-success': fields.qaipl4smJtotal && fields.qaipl4smJtotal.valid }">
+    <label for="qaipl4smJtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJtotal'), 'form-control-success': fields.qaipl4smJtotal && fields.qaipl4smJtotal.valid}"
+               id="qaipl4smJtotal" name="qaipl4smJtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smJtotal') }}">
+        <div v-if="errors.has('qaipl4smJtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJ15'), 'has-success': fields.qaipl4smJ15 && fields.qaipl4smJ15.valid }">
+    <label for="qaipl4smJ15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJ15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJ15'), 'form-control-success': fields.qaipl4smJ15 && fields.qaipl4smJ15.valid}"
+               id="qaipl4smJ15" name="qaipl4smJ15" placeholder="{{ trans('admin.sici.columns.qaipl4smJ15') }}">
+        <div v-if="errors.has('qaipl4smJ15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJ15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJ16'), 'has-success': fields.qaipl4smJ16 && fields.qaipl4smJ16.valid }">
+    <label for="qaipl4smJ16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJ16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJ16'), 'form-control-success': fields.qaipl4smJ16 && fields.qaipl4smJ16.valid}"
+               id="qaipl4smJ16" name="qaipl4smJ16" placeholder="{{ trans('admin.sici.columns.qaipl4smJ16') }}">
+        <div v-if="errors.has('qaipl4smJ16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJ16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJ17'), 'has-success': fields.qaipl4smJ17 && fields.qaipl4smJ17.valid }">
+    <label for="qaipl4smJ17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJ17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJ17'), 'form-control-success': fields.qaipl4smJ17 && fields.qaipl4smJ17.valid}"
+               id="qaipl4smJ17" name="qaipl4smJ17" placeholder="{{ trans('admin.sici.columns.qaipl4smJ17') }}">
+        <div v-if="errors.has('qaipl4smJ17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJ17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJ18'), 'has-success': fields.qaipl4smJ18 && fields.qaipl4smJ18.valid }">
+    <label for="qaipl4smJ18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJ18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJ18'), 'form-control-success': fields.qaipl4smJ18 && fields.qaipl4smJ18.valid}"
+               id="qaipl4smJ18" name="qaipl4smJ18" placeholder="{{ trans('admin.sici.columns.qaipl4smJ18') }}">
+        <div v-if="errors.has('qaipl4smJ18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJ18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smJ19'), 'has-success': fields.qaipl4smJ19 && fields.qaipl4smJ19.valid }">
+    <label for="qaipl4smJ19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smJ19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smJ19'), 'form-control-success': fields.qaipl4smJ19 && fields.qaipl4smJ19.valid}"
+               id="qaipl4smJ19" name="qaipl4smJ19" placeholder="{{ trans('admin.sici.columns.qaipl4smJ19') }}">
+        <div v-if="errors.has('qaipl4smJ19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smJ19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smKqaipl5sm'), 'has-success': fields.qaipl4smKqaipl5sm && fields.qaipl4smKqaipl5sm.valid }">
+    <label for="qaipl4smKqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smKqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smKqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smKqaipl5sm'), 'form-control-success': fields.qaipl4smKqaipl5sm && fields.qaipl4smKqaipl5sm.valid}"
+               id="qaipl4smKqaipl5sm" name="qaipl4smKqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smKqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smKqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smKqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smKtotal'), 'has-success': fields.qaipl4smKtotal && fields.qaipl4smKtotal.valid }">
+    <label for="qaipl4smKtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smKtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smKtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smKtotal'), 'form-control-success': fields.qaipl4smKtotal && fields.qaipl4smKtotal.valid}"
+               id="qaipl4smKtotal" name="qaipl4smKtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smKtotal') }}">
+        <div v-if="errors.has('qaipl4smKtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smKtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smK15'), 'has-success': fields.qaipl4smK15 && fields.qaipl4smK15.valid }">
+    <label for="qaipl4smK15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smK15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smK15'), 'form-control-success': fields.qaipl4smK15 && fields.qaipl4smK15.valid}"
+               id="qaipl4smK15" name="qaipl4smK15" placeholder="{{ trans('admin.sici.columns.qaipl4smK15') }}">
+        <div v-if="errors.has('qaipl4smK15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smK15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smK16'), 'has-success': fields.qaipl4smK16 && fields.qaipl4smK16.valid }">
+    <label for="qaipl4smK16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smK16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smK16'), 'form-control-success': fields.qaipl4smK16 && fields.qaipl4smK16.valid}"
+               id="qaipl4smK16" name="qaipl4smK16" placeholder="{{ trans('admin.sici.columns.qaipl4smK16') }}">
+        <div v-if="errors.has('qaipl4smK16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smK16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smK17'), 'has-success': fields.qaipl4smK17 && fields.qaipl4smK17.valid }">
+    <label for="qaipl4smK17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smK17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smK17'), 'form-control-success': fields.qaipl4smK17 && fields.qaipl4smK17.valid}"
+               id="qaipl4smK17" name="qaipl4smK17" placeholder="{{ trans('admin.sici.columns.qaipl4smK17') }}">
+        <div v-if="errors.has('qaipl4smK17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smK17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smK18'), 'has-success': fields.qaipl4smK18 && fields.qaipl4smK18.valid }">
+    <label for="qaipl4smK18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smK18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smK18'), 'form-control-success': fields.qaipl4smK18 && fields.qaipl4smK18.valid}"
+               id="qaipl4smK18" name="qaipl4smK18" placeholder="{{ trans('admin.sici.columns.qaipl4smK18') }}">
+        <div v-if="errors.has('qaipl4smK18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smK18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smK19'), 'has-success': fields.qaipl4smK19 && fields.qaipl4smK19.valid }">
+    <label for="qaipl4smK19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smK19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smK19'), 'form-control-success': fields.qaipl4smK19 && fields.qaipl4smK19.valid}"
+               id="qaipl4smK19" name="qaipl4smK19" placeholder="{{ trans('admin.sici.columns.qaipl4smK19') }}">
+        <div v-if="errors.has('qaipl4smK19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smK19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smLqaipl5sm'), 'has-success': fields.qaipl4smLqaipl5sm && fields.qaipl4smLqaipl5sm.valid }">
+    <label for="qaipl4smLqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smLqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smLqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smLqaipl5sm'), 'form-control-success': fields.qaipl4smLqaipl5sm && fields.qaipl4smLqaipl5sm.valid}"
+               id="qaipl4smLqaipl5sm" name="qaipl4smLqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smLqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smLqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smLqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smLtotal'), 'has-success': fields.qaipl4smLtotal && fields.qaipl4smLtotal.valid }">
+    <label for="qaipl4smLtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smLtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smLtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smLtotal'), 'form-control-success': fields.qaipl4smLtotal && fields.qaipl4smLtotal.valid}"
+               id="qaipl4smLtotal" name="qaipl4smLtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smLtotal') }}">
+        <div v-if="errors.has('qaipl4smLtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smLtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smL15'), 'has-success': fields.qaipl4smL15 && fields.qaipl4smL15.valid }">
+    <label for="qaipl4smL15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smL15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smL15'), 'form-control-success': fields.qaipl4smL15 && fields.qaipl4smL15.valid}"
+               id="qaipl4smL15" name="qaipl4smL15" placeholder="{{ trans('admin.sici.columns.qaipl4smL15') }}">
+        <div v-if="errors.has('qaipl4smL15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smL15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smL16'), 'has-success': fields.qaipl4smL16 && fields.qaipl4smL16.valid }">
+    <label for="qaipl4smL16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smL16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smL16'), 'form-control-success': fields.qaipl4smL16 && fields.qaipl4smL16.valid}"
+               id="qaipl4smL16" name="qaipl4smL16" placeholder="{{ trans('admin.sici.columns.qaipl4smL16') }}">
+        <div v-if="errors.has('qaipl4smL16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smL16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smL17'), 'has-success': fields.qaipl4smL17 && fields.qaipl4smL17.valid }">
+    <label for="qaipl4smL17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smL17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smL17'), 'form-control-success': fields.qaipl4smL17 && fields.qaipl4smL17.valid}"
+               id="qaipl4smL17" name="qaipl4smL17" placeholder="{{ trans('admin.sici.columns.qaipl4smL17') }}">
+        <div v-if="errors.has('qaipl4smL17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smL17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smL18'), 'has-success': fields.qaipl4smL18 && fields.qaipl4smL18.valid }">
+    <label for="qaipl4smL18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smL18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smL18'), 'form-control-success': fields.qaipl4smL18 && fields.qaipl4smL18.valid}"
+               id="qaipl4smL18" name="qaipl4smL18" placeholder="{{ trans('admin.sici.columns.qaipl4smL18') }}">
+        <div v-if="errors.has('qaipl4smL18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smL18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smL19'), 'has-success': fields.qaipl4smL19 && fields.qaipl4smL19.valid }">
+    <label for="qaipl4smL19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smL19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smL19'), 'form-control-success': fields.qaipl4smL19 && fields.qaipl4smL19.valid}"
+               id="qaipl4smL19" name="qaipl4smL19" placeholder="{{ trans('admin.sici.columns.qaipl4smL19') }}">
+        <div v-if="errors.has('qaipl4smL19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smL19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smMqaipl5sm'), 'has-success': fields.qaipl4smMqaipl5sm && fields.qaipl4smMqaipl5sm.valid }">
+    <label for="qaipl4smMqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smMqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smMqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smMqaipl5sm'), 'form-control-success': fields.qaipl4smMqaipl5sm && fields.qaipl4smMqaipl5sm.valid}"
+               id="qaipl4smMqaipl5sm" name="qaipl4smMqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smMqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smMqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smMqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smMtotal'), 'has-success': fields.qaipl4smMtotal && fields.qaipl4smMtotal.valid }">
+    <label for="qaipl4smMtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smMtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smMtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smMtotal'), 'form-control-success': fields.qaipl4smMtotal && fields.qaipl4smMtotal.valid}"
+               id="qaipl4smMtotal" name="qaipl4smMtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smMtotal') }}">
+        <div v-if="errors.has('qaipl4smMtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smMtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smM15'), 'has-success': fields.qaipl4smM15 && fields.qaipl4smM15.valid }">
+    <label for="qaipl4smM15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smM15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smM15'), 'form-control-success': fields.qaipl4smM15 && fields.qaipl4smM15.valid}"
+               id="qaipl4smM15" name="qaipl4smM15" placeholder="{{ trans('admin.sici.columns.qaipl4smM15') }}">
+        <div v-if="errors.has('qaipl4smM15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smM15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smM16'), 'has-success': fields.qaipl4smM16 && fields.qaipl4smM16.valid }">
+    <label for="qaipl4smM16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smM16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smM16'), 'form-control-success': fields.qaipl4smM16 && fields.qaipl4smM16.valid}"
+               id="qaipl4smM16" name="qaipl4smM16" placeholder="{{ trans('admin.sici.columns.qaipl4smM16') }}">
+        <div v-if="errors.has('qaipl4smM16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smM16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smM17'), 'has-success': fields.qaipl4smM17 && fields.qaipl4smM17.valid }">
+    <label for="qaipl4smM17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smM17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smM17'), 'form-control-success': fields.qaipl4smM17 && fields.qaipl4smM17.valid}"
+               id="qaipl4smM17" name="qaipl4smM17" placeholder="{{ trans('admin.sici.columns.qaipl4smM17') }}">
+        <div v-if="errors.has('qaipl4smM17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smM17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smM18'), 'has-success': fields.qaipl4smM18 && fields.qaipl4smM18.valid }">
+    <label for="qaipl4smM18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smM18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smM18'), 'form-control-success': fields.qaipl4smM18 && fields.qaipl4smM18.valid}"
+               id="qaipl4smM18" name="qaipl4smM18" placeholder="{{ trans('admin.sici.columns.qaipl4smM18') }}">
+        <div v-if="errors.has('qaipl4smM18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smM18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smM19'), 'has-success': fields.qaipl4smM19 && fields.qaipl4smM19.valid }">
+    <label for="qaipl4smM19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smM19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smM19'), 'form-control-success': fields.qaipl4smM19 && fields.qaipl4smM19.valid}"
+               id="qaipl4smM19" name="qaipl4smM19" placeholder="{{ trans('admin.sici.columns.qaipl4smM19') }}">
+        <div v-if="errors.has('qaipl4smM19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smM19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smNqaipl5sm'), 'has-success': fields.qaipl4smNqaipl5sm && fields.qaipl4smNqaipl5sm.valid }">
+    <label for="qaipl4smNqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smNqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smNqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smNqaipl5sm'), 'form-control-success': fields.qaipl4smNqaipl5sm && fields.qaipl4smNqaipl5sm.valid}"
+               id="qaipl4smNqaipl5sm" name="qaipl4smNqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smNqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smNqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smNqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smNtotal'), 'has-success': fields.qaipl4smNtotal && fields.qaipl4smNtotal.valid }">
+    <label for="qaipl4smNtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smNtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smNtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smNtotal'), 'form-control-success': fields.qaipl4smNtotal && fields.qaipl4smNtotal.valid}"
+               id="qaipl4smNtotal" name="qaipl4smNtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smNtotal') }}">
+        <div v-if="errors.has('qaipl4smNtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smNtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smN15'), 'has-success': fields.qaipl4smN15 && fields.qaipl4smN15.valid }">
+    <label for="qaipl4smN15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smN15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smN15'), 'form-control-success': fields.qaipl4smN15 && fields.qaipl4smN15.valid}"
+               id="qaipl4smN15" name="qaipl4smN15" placeholder="{{ trans('admin.sici.columns.qaipl4smN15') }}">
+        <div v-if="errors.has('qaipl4smN15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smN15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smN16'), 'has-success': fields.qaipl4smN16 && fields.qaipl4smN16.valid }">
+    <label for="qaipl4smN16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smN16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smN16'), 'form-control-success': fields.qaipl4smN16 && fields.qaipl4smN16.valid}"
+               id="qaipl4smN16" name="qaipl4smN16" placeholder="{{ trans('admin.sici.columns.qaipl4smN16') }}">
+        <div v-if="errors.has('qaipl4smN16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smN16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smN17'), 'has-success': fields.qaipl4smN17 && fields.qaipl4smN17.valid }">
+    <label for="qaipl4smN17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smN17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smN17'), 'form-control-success': fields.qaipl4smN17 && fields.qaipl4smN17.valid}"
+               id="qaipl4smN17" name="qaipl4smN17" placeholder="{{ trans('admin.sici.columns.qaipl4smN17') }}">
+        <div v-if="errors.has('qaipl4smN17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smN17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smN18'), 'has-success': fields.qaipl4smN18 && fields.qaipl4smN18.valid }">
+    <label for="qaipl4smN18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smN18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smN18'), 'form-control-success': fields.qaipl4smN18 && fields.qaipl4smN18.valid}"
+               id="qaipl4smN18" name="qaipl4smN18" placeholder="{{ trans('admin.sici.columns.qaipl4smN18') }}">
+        <div v-if="errors.has('qaipl4smN18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smN18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smN19'), 'has-success': fields.qaipl4smN19 && fields.qaipl4smN19.valid }">
+    <label for="qaipl4smN19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smN19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smN19'), 'form-control-success': fields.qaipl4smN19 && fields.qaipl4smN19.valid}"
+               id="qaipl4smN19" name="qaipl4smN19" placeholder="{{ trans('admin.sici.columns.qaipl4smN19') }}">
+        <div v-if="errors.has('qaipl4smN19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smN19') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smOqaipl5sm'), 'has-success': fields.qaipl4smOqaipl5sm && fields.qaipl4smOqaipl5sm.valid }">
+    <label for="qaipl4smOqaipl5sm" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smOqaipl5sm') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smOqaipl5sm" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smOqaipl5sm'), 'form-control-success': fields.qaipl4smOqaipl5sm && fields.qaipl4smOqaipl5sm.valid}"
+               id="qaipl4smOqaipl5sm" name="qaipl4smOqaipl5sm"
+               placeholder="{{ trans('admin.sici.columns.qaipl4smOqaipl5sm') }}">
+        <div v-if="errors.has('qaipl4smOqaipl5sm')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smOqaipl5sm') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smOtotal'), 'has-success': fields.qaipl4smOtotal && fields.qaipl4smOtotal.valid }">
+    <label for="qaipl4smOtotal" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smOtotal') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smOtotal" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smOtotal'), 'form-control-success': fields.qaipl4smOtotal && fields.qaipl4smOtotal.valid}"
+               id="qaipl4smOtotal" name="qaipl4smOtotal" placeholder="{{ trans('admin.sici.columns.qaipl4smOtotal') }}">
+        <div v-if="errors.has('qaipl4smOtotal')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smOtotal') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smO15'), 'has-success': fields.qaipl4smO15 && fields.qaipl4smO15.valid }">
+    <label for="qaipl4smO15" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO15') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smO15" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smO15'), 'form-control-success': fields.qaipl4smO15 && fields.qaipl4smO15.valid}"
+               id="qaipl4smO15" name="qaipl4smO15" placeholder="{{ trans('admin.sici.columns.qaipl4smO15') }}">
+        <div v-if="errors.has('qaipl4smO15')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smO15') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smO16'), 'has-success': fields.qaipl4smO16 && fields.qaipl4smO16.valid }">
+    <label for="qaipl4smO16" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO16') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smO16" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smO16'), 'form-control-success': fields.qaipl4smO16 && fields.qaipl4smO16.valid}"
+               id="qaipl4smO16" name="qaipl4smO16" placeholder="{{ trans('admin.sici.columns.qaipl4smO16') }}">
+        <div v-if="errors.has('qaipl4smO16')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smO16') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smO17'), 'has-success': fields.qaipl4smO17 && fields.qaipl4smO17.valid }">
+    <label for="qaipl4smO17" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO17') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smO17" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smO17'), 'form-control-success': fields.qaipl4smO17 && fields.qaipl4smO17.valid}"
+               id="qaipl4smO17" name="qaipl4smO17" placeholder="{{ trans('admin.sici.columns.qaipl4smO17') }}">
+        <div v-if="errors.has('qaipl4smO17')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smO17') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smO18'), 'has-success': fields.qaipl4smO18 && fields.qaipl4smO18.valid }">
+    <label for="qaipl4smO18" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO18') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smO18" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smO18'), 'form-control-success': fields.qaipl4smO18 && fields.qaipl4smO18.valid}"
+               id="qaipl4smO18" name="qaipl4smO18" placeholder="{{ trans('admin.sici.columns.qaipl4smO18') }}">
+        <div v-if="errors.has('qaipl4smO18')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smO18') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qaipl4smO19'), 'has-success': fields.qaipl4smO19 && fields.qaipl4smO19.valid }">
+    <label for="qaipl4smO19" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO19') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qaipl4smO19" v-validate="'integer'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qaipl4smO19'), 'form-control-success': fields.qaipl4smO19 && fields.qaipl4smO19.valid}"
+               id="qaipl4smO19" name="qaipl4smO19" placeholder="{{ trans('admin.sici.columns.qaipl4smO19') }}">
+        <div v-if="errors.has('qaipl4smO19')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qaipl4smO19') }}
         </div>
     </div>
 </div>
