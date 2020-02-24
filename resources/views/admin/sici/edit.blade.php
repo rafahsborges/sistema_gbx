@@ -10,6 +10,10 @@
             <sici-form
                 :action="'{{ $sici->resource_url }}'"
                 :data="{{ $sici->toJson() }}"
+                :clientes="{{$clientes->toJson()}}"
+                :servicos="{{$servicos->toJson()}}"
+                :estados="{{$estados->toJson()}}"
+                :cidades="{{$cidades->toJson()}}"
                 v-cloak
                 inline-template>
 

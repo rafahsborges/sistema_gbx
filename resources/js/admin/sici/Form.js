@@ -2,6 +2,12 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('sici-form', {
     mixins: [AppForm],
+    props: [
+        'clientes',
+        'estados',
+        'cidades',
+        'servicos',
+    ],
     data: function() {
         return {
             form: {

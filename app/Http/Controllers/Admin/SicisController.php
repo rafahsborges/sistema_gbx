@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Sici\UpdateSici;
 use App\Models\AdminUser;
 use App\Models\Cidade;
 use App\Models\Estado;
+use App\Models\Servico;
 use App\Models\Sici;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -82,8 +83,17 @@ class SicisController extends Controller
     {
         $this->authorize('admin.sici.create');
 
+        if (auth()->user()->is_admin !== 1) {
+            $clientes = AdminUser::where('id', auth()->user()->id)->get();
+            $servicos = Servico::where('id', $clientes[0]->id_servico)->get();
+        } else {
+            $clientes = AdminUser::all();
+            $servicos = Servico::all();
+        }
+
         return view('admin.sici.create', [
-            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
+            'clientes' => $clientes,
+            'servicos' => $servicos,
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
         ]);

@@ -43,6 +43,99 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_cliente'), 'has-success': fields.id_cliente && fields.id_cliente.valid }">
+    <label for="id_cliente" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_cliente') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.cliente"
+            :options="clientes"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.sici.columns.id_cliente') }}"
+            placeholder="{{ trans('admin.sici.columns.id_cliente') }}">
+        </multiselect>
+        <div v-if="errors.has('id_cliente')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_cliente') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_servico'), 'has-success': fields.id_servico && fields.id_servico.valid }">
+    <label for="id_servico" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_servico') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.servico"
+            :options="servicos"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.sici.columns.id_servico') }}"
+            placeholder="{{ trans('admin.sici.columns.id_servico') }}">
+        </multiselect>
+        <div v-if="errors.has('id_servico')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_servico') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('fistel'), 'has-success': fields.fistel && fields.fistel.valid }">
+    <label for="fistel" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.fistel') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.fistel" v-validate="'required'" @input="validate($event)" class="form-control"
+               :class="{'form-control-danger': errors.has('fistel'), 'form-control-success': fields.fistel && fields.fistel.valid}"
+               id="fistel" name="fistel" placeholder="{{ trans('admin.sici.columns.fistel') }}">
+        <div v-if="errors.has('fistel')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('fistel') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_cidade'), 'has-success': fields.id_cidade && fields.id_cidade.valid }">
+    <label for="id_cidade" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_cidade') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.cidade"
+            :options="cidades"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.sici.columns.id_cidade') }}"
+            placeholder="{{ trans('admin.sici.columns.id_cidade') }}">
+        </multiselect>
+        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_cidade') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_estado'), 'has-success': fields.id_estado && fields.id_estado.valid }">
+    <label for="id_estado" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_estado') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.estado"
+            :options="estados"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.sici.columns.id_estado') }}"
+            placeholder="{{ trans('admin.sici.columns.id_estado') }}">
+        </multiselect>
+        <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_estado') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('qaipl4smH19'), 'has-success': fields.qaipl4smH19 && fields.qaipl4smH19.valid }">
     <label for="qaipl4smH19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH19') }}</label>
@@ -1540,79 +1633,6 @@
                :class="{'form-control-danger': errors.has('iem1c'), 'form-control-success': fields.iem1c && fields.iem1c.valid}"
                id="iem1c" name="iem1c" placeholder="{{ trans('admin.sici.columns.iem1c') }}">
         <div v-if="errors.has('iem1c')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('iem1c') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('id_cliente'), 'has-success': fields.id_cliente && fields.id_cliente.valid }">
-    <label for="id_cliente" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_cliente') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_cliente" v-validate="'required'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('id_cliente'), 'form-control-success': fields.id_cliente && fields.id_cliente.valid}"
-               id="id_cliente" name="id_cliente" placeholder="{{ trans('admin.sici.columns.id_cliente') }}">
-        <div v-if="errors.has('id_cliente')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('id_cliente') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('id_servico'), 'has-success': fields.id_servico && fields.id_servico.valid }">
-    <label for="id_servico" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_servico') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_servico" v-validate="'required'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('id_servico'), 'form-control-success': fields.id_servico && fields.id_servico.valid}"
-               id="id_servico" name="id_servico" placeholder="{{ trans('admin.sici.columns.id_servico') }}">
-        <div v-if="errors.has('id_servico')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('id_servico') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('fistel'), 'has-success': fields.fistel && fields.fistel.valid }">
-    <label for="fistel" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.fistel') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.fistel" v-validate="'required'" @input="validate($event)" class="form-control"
-               :class="{'form-control-danger': errors.has('fistel'), 'form-control-success': fields.fistel && fields.fistel.valid}"
-               id="fistel" name="fistel" placeholder="{{ trans('admin.sici.columns.fistel') }}">
-        <div v-if="errors.has('fistel')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('fistel') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('id_cidade'), 'has-success': fields.id_cidade && fields.id_cidade.valid }">
-    <label for="id_cidade" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_cidade') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_cidade" v-validate="'required'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('id_cidade'), 'form-control-success': fields.id_cidade && fields.id_cidade.valid}"
-               id="id_cidade" name="id_cidade" placeholder="{{ trans('admin.sici.columns.id_cidade') }}">
-        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('id_cidade') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('id_estado'), 'has-success': fields.id_estado && fields.id_estado.valid }">
-    <label for="id_estado" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_estado') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_estado" v-validate="'required'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('id_estado'), 'form-control-success': fields.id_estado && fields.id_estado.valid}"
-               id="id_estado" name="id_estado" placeholder="{{ trans('admin.sici.columns.id_estado') }}">
-        <div v-if="errors.has('id_estado')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('id_estado') }}
         </div>
     </div>
 </div>
