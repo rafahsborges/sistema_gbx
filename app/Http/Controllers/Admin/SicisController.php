@@ -158,9 +158,22 @@ class SicisController extends Controller
     {
         $this->authorize('admin.sici.edit', $sici);
 
+        if (auth()->user()->is_admin !== 1) {
+            $clientes = AdminUser::where('id', auth()->user()->id)->get();
+            $servicos = Servico::where('id', $clientes[0]->id_servico)->get();
+        } else {
+            $clientes = AdminUser::all();
+            $servicos = Servico::all();
+        }
+
+        $sici = Sici::with('cidade')
+            ->with('estado')
+            ->find($sici->id);
+
         return view('admin.sici.edit', [
             'sici' => $sici,
-            'clientes' => (auth()->user()->is_admin !== 1) ? AdminUser::where('id', auth()->user()->id)->get() : AdminUser::all(),
+            'clientes' => $clientes,
+            'servicos' => $servicos,
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
         ]);
