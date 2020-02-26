@@ -109,10 +109,19 @@ class SicisController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['id_servico'] = $request->getServicoId();
+        $sanitized['ano'] = $request->getAnoId();
+        $sanitized['mes'] = $request->getMesId();
+        if (auth()->user()->is_admin === 1) {
+            $sanitized['id_cliente'] = $request->getClienteId();
+            $sanitized['id_servico'] = $request->getServicoId();
+        } else {
+            $sanitized['id_cliente'] = auth()->user()->id;
+            $sanitized['id_servico'] = auth()->user()->id_servico;
+            $sanitized['fistel'] = auth()->user()->fistel;
+        }
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
+        $sanitized['status'] = 1;
 
         // Store the Sici
         $sici = Sici::create($sanitized);
@@ -168,10 +177,19 @@ class SicisController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['id_servico'] = $request->getServicoId();
+        $sanitized['ano'] = $request->getAnoId();
+        $sanitized['mes'] = $request->getMesId();
+        if (auth()->user()->is_admin === 1) {
+            $sanitized['id_cliente'] = $request->getClienteId();
+            $sanitized['id_servico'] = $request->getServicoId();
+        } else {
+            $sanitized['id_cliente'] = auth()->user()->id;
+            $sanitized['id_servico'] = auth()->user()->id_servico;
+            $sanitized['fistel'] = auth()->user()->fistel;
+        }
         $sanitized['id_estado'] = $request->getEstadoId();
         $sanitized['id_cidade'] = $request->getCidadeId();
+        $sanitized['status'] = 1;
 
         // Update changed values Sici
         $sici->update($sanitized);

@@ -110,7 +110,7 @@ class ProfileController extends Controller
             'estado' => ['nullable'],
             'cidade' => ['nullable'],
             'desconto' => ['nullable'],
-            'id_servico' => ['nullable'],
+            'servico' => ['nullable'],
         ]);
 
         // Sanitize input
@@ -139,7 +139,7 @@ class ProfileController extends Controller
             'estado',
             'cidade',
             'desconto',
-            'id_servico',
+            'servico',
         ]);
 
         $sanitized['id_estado'] = $sanitized['estado']['id'];

@@ -26,11 +26,11 @@ class StoreSici extends FormRequest
     public function rules(): array
     {
         return [
-            'ano' => ['required', 'string'],
-            'mes' => ['required', 'string'],
-            'cliente' => ['required'],
-            'servico' => ['required'],
-            'fistel' => ['required', 'string'],
+            'ano' => ['required'],
+            'mes' => ['required'],
+            'cliente' => ['nullable'],
+            'servico' => ['nullable'],
+            'fistel' => ['nullable'],
             'cidade' => ['required'],
             'estado' => ['required'],
             'iem1a' => ['nullable', 'numeric'],
@@ -188,8 +188,6 @@ class StoreSici extends FormRequest
             'qaipl4smO17' => ['nullable', 'integer'],
             'qaipl4smO18' => ['nullable', 'integer'],
             'qaipl4smO19' => ['nullable', 'integer'],
-            'status' => ['required', 'integer'],
-
         ];
     }
 
@@ -205,6 +203,22 @@ class StoreSici extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getAnoId()
+    {
+        if ($this->has('ano')) {
+            return $this->get('ano')['id'];
+        }
+        return null;
+    }
+
+    public function getMesId()
+    {
+        if ($this->has('mes')) {
+            return $this->get('mes')['id'];
+        }
+        return null;
     }
 
     public function getClienteId()

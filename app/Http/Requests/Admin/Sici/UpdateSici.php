@@ -26,11 +26,11 @@ class UpdateSici extends FormRequest
     public function rules(): array
     {
         return [
-            'ano' => ['sometimes', 'string'],
-            'mes' => ['sometimes', 'string'],
+            'ano' => ['sometimes'],
+            'mes' => ['sometimes'],
             'cliente' => ['sometimes'],
             'servico' => ['sometimes'],
-            'fistel' => ['sometimes', 'string'],
+            'fistel' => ['sometimes'],
             'cidade' => ['sometimes'],
             'estado' => ['sometimes'],
             'iem1a' => ['nullable', 'numeric'],
@@ -188,8 +188,6 @@ class UpdateSici extends FormRequest
             'qaipl4smO17' => ['nullable', 'integer'],
             'qaipl4smO18' => ['nullable', 'integer'],
             'qaipl4smO19' => ['nullable', 'integer'],
-            'status' => ['sometimes', 'integer'],
-
         ];
     }
 

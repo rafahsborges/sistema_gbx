@@ -173,7 +173,6 @@ Vue.component('sici-form', {
                 qaipl4smO17:  '' ,
                 qaipl4smO18:  '' ,
                 qaipl4smO19:  '' ,
-                status:  '' ,
             },
             yearList: [
                 {nome: new Date().getFullYear() + 1, id: new Date().getFullYear() + 1},

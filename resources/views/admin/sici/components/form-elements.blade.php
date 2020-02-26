@@ -42,6 +42,7 @@
     </div>
 </div>
 
+@if(auth()->user()->is_admin === 1)
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('id_cliente'), 'has-success': fields.id_cliente && fields.id_cliente.valid }">
     <label for="id_cliente" class="col-form-label text-md-right"
@@ -94,6 +95,34 @@
         </div>
     </div>
 </div>
+
+@else
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_cliente') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        {{auth()->user()->nome}}
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.id_servico') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        {{$servicos[0]->nome}}
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.fistel') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        {{auth()->user()->fistel}}
+    </div>
+</div>
+
+@endif
 
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('id_cidade'), 'has-success': fields.id_cidade && fields.id_cidade.valid }">
@@ -2378,20 +2407,6 @@
                :class="{'form-control-danger': errors.has('iem8e'), 'form-control-success': fields.iem8e && fields.iem8e.valid}"
                id="iem8e" name="iem8e" placeholder="{{ trans('admin.sici.columns.iem8e') }}">
         <div v-if="errors.has('iem8e')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('iem8e') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('status'), 'has-success': fields.status && fields.status.valid }">
-    <label for="status" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.status') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.status" v-validate="'required|integer'" @input="validate($event)"
-               class="form-control"
-               :class="{'form-control-danger': errors.has('status'), 'form-control-success': fields.status && fields.status.valid}"
-               id="status" name="status" placeholder="{{ trans('admin.sici.columns.status') }}">
-        <div v-if="errors.has('status')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('status') }}
         </div>
     </div>
 </div>
