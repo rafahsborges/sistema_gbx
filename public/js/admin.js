@@ -114077,6 +114077,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-money */ "./node_modules/v-money/dist/v-money.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(v_money__WEBPACK_IMPORTED_MODULE_1__);
+
 
 Vue.component('sici-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -114247,7 +114250,27 @@ Vue.component('sici-form', {
         qaipl4smO18: '',
         qaipl4smO19: ''
       },
-      yearList: [{
+      money: {
+        decimal: ',',
+        thousands: '.',
+        prefix: '',
+        suffix: '',
+        precision: 2,
+        masked: false
+        /* doesn't work with directive */
+
+      },
+      percent: {
+        decimal: ',',
+        thousands: '.',
+        prefix: '',
+        suffix: '',
+        precision: 2,
+        masked: false
+        /* doesn't work with directive */
+
+      },
+      years: [{
         nome: new Date().getFullYear() + 1,
         id: new Date().getFullYear() + 1
       }, {
@@ -114257,7 +114280,7 @@ Vue.component('sici-form', {
         nome: new Date().getFullYear() - 1,
         id: new Date().getFullYear() - 1
       }],
-      monthList: [{
+      months: [{
         nome: 'Janeiro',
         id: '01'
       }, {
@@ -114295,6 +114318,26 @@ Vue.component('sici-form', {
         id: '12'
       }]
     };
+  },
+  directives: {
+    money: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
+    percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
+  },
+  methods: {
+    onlyForCurrency: function onlyForCurrency($event) {
+      // console.log($event.keyCode); //keyCodes value
+      var keyCode = $event.keyCode ? $event.keyCode : $event.which; // only allow number and one dot
+
+      if ((keyCode < 48 || keyCode > 57) && (keyCode !== 46 || this.price.indexOf('.') != -1)) {
+        // 46 is dot
+        $event.preventDefault();
+      } // restrict to 2 decimal places
+
+
+      if (this.price != null && this.price.indexOf(".") > -1 && this.price.split('.')[1].length > 1) {
+        $event.preventDefault();
+      }
+    }
   }
 });
 

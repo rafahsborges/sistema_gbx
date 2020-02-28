@@ -105,12 +105,20 @@
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.ano }}</td>
                                     <td>@{{ item.mes }}</td>
-                                    <td>@{{ item.id_cliente }}</td>
-                                    <td>@{{ item.id_servico }}</td>
-                                    <td>@{{ item.status }}</td>
+                                    <td>@{{ item.cliente.nome }}</td>
+                                    <td>@{{ item.servico.nome }}</td>
+                                    <td>@{{ item.status === 1 ? 'Enviado' : 'Recebido' }}</td>
 
                                     <td>
                                         <div class="row no-gutters">
+                                            @if(auth()->user()->is_admin === 1)
+                                                <div class="col-auto">
+                                                    <a class="btn btn-sm btn-spinner btn-info"
+                                                       :href="item.resource_url + '/xml'"
+                                                       title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                       role="button"><i class="fa fa-file-excel-o"></i></a>
+                                                </div>
+                                            @endif
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-info"
                                                    :href="item.resource_url + '/edit'"

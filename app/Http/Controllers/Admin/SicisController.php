@@ -49,6 +49,7 @@ class SicisController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['cliente']);
+                $query->with(['servico']);
                 if ($request->has('clientes')) {
                     $query->whereIn('id_cliente', $request->get('clientes'));
                 }
@@ -168,7 +169,12 @@ class SicisController extends Controller
 
         $sici = Sici::with('cidade')
             ->with('estado')
+            ->with('cliente')
+            ->with('servico')
             ->find($sici->id);
+
+        $sici['ano'] = array('nome' => $sici->ano, 'id' => $sici->ano);
+        $sici['mes'] = array('nome' => $sici->mes, 'id' => $sici->mes);
 
         return view('admin.sici.edit', [
             'sici' => $sici,
