@@ -199,7 +199,7 @@
     <label for="iem9Fa" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Fa') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Fa" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Fa" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Fa'), 'form-control-success': fields.iem9Fa && fields.iem9Fa.valid}"
                id="iem9Fa" name="iem9Fa" placeholder="{{ trans('admin.sici.columns.iem9Fa') }}">
@@ -213,7 +213,7 @@
     <label for="iem9Fb" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Fb') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Fb" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Fb" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Fb'), 'form-control-success': fields.iem9Fb && fields.iem9Fb.valid}"
                id="iem9Fb" name="iem9Fb" placeholder="{{ trans('admin.sici.columns.iem9Fb') }}">
@@ -227,7 +227,7 @@
     <label for="iem9Fc" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Fc') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Fc" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Fc" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Fc'), 'form-control-success': fields.iem9Fc && fields.iem9Fc.valid}"
                id="iem9Fc" name="iem9Fc" placeholder="{{ trans('admin.sici.columns.iem9Fc') }}">
@@ -241,7 +241,7 @@
     <label for="iem9Fd" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Fd') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Fd" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Fd" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Fd'), 'form-control-success': fields.iem9Fd && fields.iem9Fd.valid}"
                id="iem9Fd" name="iem9Fd" placeholder="{{ trans('admin.sici.columns.iem9Fd') }}">
@@ -255,7 +255,7 @@
     <label for="iem9Fe" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Fe') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Fe" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Fe" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Fe'), 'form-control-success': fields.iem9Fe && fields.iem9Fe.valid}"
                id="iem9Fe" name="iem9Fe" placeholder="{{ trans('admin.sici.columns.iem9Fe') }}">
@@ -269,7 +269,7 @@
     <label for="iem9Ja" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Ja') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Ja" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Ja" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Ja'), 'form-control-success': fields.iem9Ja && fields.iem9Ja.valid}"
                id="iem9Ja" name="iem9Ja" placeholder="{{ trans('admin.sici.columns.iem9Ja') }}">
@@ -283,7 +283,7 @@
     <label for="iem9Jb" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Jb') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Jb" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Jb" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Jb'), 'form-control-success': fields.iem9Jb && fields.iem9Jb.valid}"
                id="iem9Jb" name="iem9Jb" placeholder="{{ trans('admin.sici.columns.iem9Jb') }}">
@@ -297,7 +297,7 @@
     <label for="iem9Jc" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Jc') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Jc" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Jc" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Jc'), 'form-control-success': fields.iem9Jc && fields.iem9Jc.valid}"
                id="iem9Jc" name="iem9Jc" placeholder="{{ trans('admin.sici.columns.iem9Jc') }}">
@@ -311,7 +311,7 @@
     <label for="iem9Jd" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Jd') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Jd" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Jd" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Jd'), 'form-control-success': fields.iem9Jd && fields.iem9Jd.valid}"
                id="iem9Jd" name="iem9Jd" placeholder="{{ trans('admin.sici.columns.iem9Jd') }}">
@@ -325,7 +325,7 @@
     <label for="iem9Je" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem9Je') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem9Je" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem9Je" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem9Je'), 'form-control-success': fields.iem9Je && fields.iem9Je.valid}"
                id="iem9Je" name="iem9Je" placeholder="{{ trans('admin.sici.columns.iem9Je') }}">
@@ -339,7 +339,7 @@
     <label for="iem10Fa" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Fa') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Fa" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Fa" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Fa'), 'form-control-success': fields.iem10Fa && fields.iem10Fa.valid}"
                id="iem10Fa" name="iem10Fa" placeholder="{{ trans('admin.sici.columns.iem10Fa') }}">
@@ -354,7 +354,7 @@
     <label for="iem10Fb" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Fb') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Fb" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Fb" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Fb'), 'form-control-success': fields.iem10Fb && fields.iem10Fb.valid}"
                id="iem10Fb" name="iem10Fb" placeholder="{{ trans('admin.sici.columns.iem10Fb') }}">
@@ -369,7 +369,7 @@
     <label for="iem10Fc" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Fc') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Fc" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Fc" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Fc'), 'form-control-success': fields.iem10Fc && fields.iem10Fc.valid}"
                id="iem10Fc" name="iem10Fc" placeholder="{{ trans('admin.sici.columns.iem10Fc') }}">
@@ -384,7 +384,7 @@
     <label for="iem10Fd" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Fd') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Fd" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Fd" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Fd'), 'form-control-success': fields.iem10Fd && fields.iem10Fd.valid}"
                id="iem10Fd" name="iem10Fd" placeholder="{{ trans('admin.sici.columns.iem10Fd') }}">
@@ -399,7 +399,7 @@
     <label for="iem10Ja" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Ja') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Ja" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Ja" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Ja'), 'form-control-success': fields.iem10Ja && fields.iem10Ja.valid}"
                id="iem10Ja" name="iem10Ja" placeholder="{{ trans('admin.sici.columns.iem10Ja') }}">
@@ -414,7 +414,7 @@
     <label for="iem10Jb" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Jb') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Jb" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Jb" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Jb'), 'form-control-success': fields.iem10Jb && fields.iem10Jb.valid}"
                id="iem10Jb" name="iem10Jb" placeholder="{{ trans('admin.sici.columns.iem10Jb') }}">
@@ -429,7 +429,7 @@
     <label for="iem10Jc" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Jc') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Jc" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Jc" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Jc'), 'form-control-success': fields.iem10Jc && fields.iem10Jc.valid}"
                id="iem10Jc" name="iem10Jc" placeholder="{{ trans('admin.sici.columns.iem10Jc') }}">
@@ -444,7 +444,7 @@
     <label for="iem10Jd" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem10Jd') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem10Jd" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem10Jd" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem10Jd'), 'form-control-success': fields.iem10Jd && fields.iem10Jd.valid}"
                id="iem10Jd" name="iem10Jd" placeholder="{{ trans('admin.sici.columns.iem10Jd') }}">
@@ -2209,7 +2209,7 @@
     <label for="ipl1a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl1a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl1a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl1a'), 'form-control-success': fields.ipl1a && fields.ipl1a.valid}"
                id="ipl1a" name="ipl1a" placeholder="{{ trans('admin.sici.columns.ipl1a') }}">
@@ -2223,7 +2223,7 @@
     <label for="ipl1b" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1b') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl1b" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl1b" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl1b'), 'form-control-success': fields.ipl1b && fields.ipl1b.valid}"
                id="ipl1b" name="ipl1b" placeholder="{{ trans('admin.sici.columns.ipl1b') }}">
@@ -2237,7 +2237,7 @@
     <label for="ipl1c" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1c') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl1c" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl1c" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl1c'), 'form-control-success': fields.ipl1c && fields.ipl1c.valid}"
                id="ipl1c" name="ipl1c" placeholder="{{ trans('admin.sici.columns.ipl1c') }}">
@@ -2251,7 +2251,7 @@
     <label for="ipl1d" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1d') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl1d" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl1d" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl1d'), 'form-control-success': fields.ipl1d && fields.ipl1d.valid}"
                id="ipl1d" name="ipl1d" placeholder="{{ trans('admin.sici.columns.ipl1d') }}">
@@ -2265,7 +2265,7 @@
     <label for="ipl2a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl2a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl2a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl2a'), 'form-control-success': fields.ipl2a && fields.ipl2a.valid}"
                id="ipl2a" name="ipl2a" placeholder="{{ trans('admin.sici.columns.ipl2a') }}">
@@ -2279,7 +2279,7 @@
     <label for="ipl2b" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2b') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl2b" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl2b" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl2b'), 'form-control-success': fields.ipl2b && fields.ipl2b.valid}"
                id="ipl2b" name="ipl2b" placeholder="{{ trans('admin.sici.columns.ipl2b') }}">
@@ -2293,7 +2293,7 @@
     <label for="ipl2c" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2c') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl2c" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl2c" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl2c'), 'form-control-success': fields.ipl2c && fields.ipl2c.valid}"
                id="ipl2c" name="ipl2c" placeholder="{{ trans('admin.sici.columns.ipl2c') }}">
@@ -2307,7 +2307,7 @@
     <label for="ipl2d" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2d') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl2d" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.ipl2d" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('ipl2d'), 'form-control-success': fields.ipl2d && fields.ipl2d.valid}"
                id="ipl2d" name="ipl2d" placeholder="{{ trans('admin.sici.columns.ipl2d') }}">
@@ -2321,7 +2321,7 @@
     <label for="iem1a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1a'), 'form-control-success': fields.iem1a && fields.iem1a.valid}"
                id="iem1a" name="iem1a" placeholder="{{ trans('admin.sici.columns.iem1a') }}">
@@ -2335,7 +2335,7 @@
     <label for="iem1b" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1b') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1b" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1b" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1b'), 'form-control-success': fields.iem1b && fields.iem1b.valid}"
                id="iem1b" name="iem1b" placeholder="{{ trans('admin.sici.columns.iem1b') }}">
@@ -2349,7 +2349,7 @@
     <label for="iem1c" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1c') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1c" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1c" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1c'), 'form-control-success': fields.iem1c && fields.iem1c.valid}"
                id="iem1c" name="iem1c" placeholder="{{ trans('admin.sici.columns.iem1c') }}">
@@ -2363,7 +2363,7 @@
     <label for="iem1d" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1d') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1d" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1d" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1d'), 'form-control-success': fields.iem1d && fields.iem1d.valid}"
                id="iem1d" name="iem1d" placeholder="{{ trans('admin.sici.columns.iem1d') }}">
@@ -2377,7 +2377,7 @@
     <label for="iem1e" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1e') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1e" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1e" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1e'), 'form-control-success': fields.iem1e && fields.iem1e.valid}"
                id="iem1e" name="iem1e" placeholder="{{ trans('admin.sici.columns.iem1e') }}">
@@ -2391,7 +2391,7 @@
     <label for="iem1f" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1f') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1f" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1f" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1f'), 'form-control-success': fields.iem1f && fields.iem1f.valid}"
                id="iem1f" name="iem1f" placeholder="{{ trans('admin.sici.columns.iem1f') }}">
@@ -2405,7 +2405,7 @@
     <label for="iem1g" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1g') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem1g" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem1g" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem1g'), 'form-control-success': fields.iem1g && fields.iem1g.valid}"
                id="iem1g" name="iem1g" placeholder="{{ trans('admin.sici.columns.iem1g') }}">
@@ -2419,7 +2419,7 @@
     <label for="iem2a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem2a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem2a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem2a'), 'form-control-success': fields.iem2a && fields.iem2a.valid}"
                id="iem2a" name="iem2a" placeholder="{{ trans('admin.sici.columns.iem2a') }}">
@@ -2433,7 +2433,7 @@
     <label for="iem2b" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2b') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem2b" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem2b" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem2b'), 'form-control-success': fields.iem2b && fields.iem2b.valid}"
                id="iem2b" name="iem2b" placeholder="{{ trans('admin.sici.columns.iem2b') }}">
@@ -2447,7 +2447,7 @@
     <label for="iem2c" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2c') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem2c" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem2c" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem2c'), 'form-control-success': fields.iem2c && fields.iem2c.valid}"
                id="iem2c" name="iem2c" placeholder="{{ trans('admin.sici.columns.iem2c') }}">
@@ -2461,7 +2461,7 @@
     <label for="iem3a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem3a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem3a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem3a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem3a'), 'form-control-success': fields.iem3a && fields.iem3a.valid}"
                id="iem3a" name="iem3a" placeholder="{{ trans('admin.sici.columns.iem3a') }}">
@@ -2475,7 +2475,7 @@
     <label for="iem6a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem6a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem6a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem6a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem6a'), 'form-control-success': fields.iem6a && fields.iem6a.valid}"
                id="iem6a" name="iem6a" placeholder="{{ trans('admin.sici.columns.iem6a') }}">
@@ -2489,7 +2489,7 @@
     <label for="iem7a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem7a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem7a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem7a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem7a'), 'form-control-success': fields.iem7a && fields.iem7a.valid}"
                id="iem7a" name="iem7a" placeholder="{{ trans('admin.sici.columns.iem7a') }}">
@@ -2503,7 +2503,7 @@
     <label for="iem8a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem8a" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem8a" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem8a'), 'form-control-success': fields.iem8a && fields.iem8a.valid}"
                id="iem8a" name="iem8a" placeholder="{{ trans('admin.sici.columns.iem8a') }}">
@@ -2517,7 +2517,7 @@
     <label for="iem8b" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8b') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem8b" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem8b" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem8b'), 'form-control-success': fields.iem8b && fields.iem8b.valid}"
                id="iem8b" name="iem8b" placeholder="{{ trans('admin.sici.columns.iem8b') }}">
@@ -2531,7 +2531,7 @@
     <label for="iem8c" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8c') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem8c" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem8c" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem8c'), 'form-control-success': fields.iem8c && fields.iem8c.valid}"
                id="iem8c" name="iem8c" placeholder="{{ trans('admin.sici.columns.iem8c') }}">
@@ -2545,7 +2545,7 @@
     <label for="iem8d" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8d') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem8d" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem8d" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem8d'), 'form-control-success': fields.iem8d && fields.iem8d.valid}"
                id="iem8d" name="iem8d" placeholder="{{ trans('admin.sici.columns.iem8d') }}">
@@ -2559,7 +2559,7 @@
     <label for="iem8e" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8e') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem8e" v-validate="'decimal'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.iem8e" v-validate="''" @input="validate($event)" class="form-control"
                v-money="money"
                :class="{'form-control-danger': errors.has('iem8e'), 'form-control-success': fields.iem8e && fields.iem8e.valid}"
                id="iem8e" name="iem8e" placeholder="{{ trans('admin.sici.columns.iem8e') }}">
