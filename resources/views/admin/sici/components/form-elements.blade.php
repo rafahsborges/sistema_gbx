@@ -171,7 +171,7 @@
     <label for="iem4a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem4a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem4a" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.iem4a" v-validate="'integer'" v-money="integer"
                @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('iem4a'), 'form-control-success': fields.iem4a && fields.iem4a.valid}"
                id="iem4a" name="iem4a" placeholder="{{ trans('admin.sici.columns.iem4a') }}">
@@ -185,7 +185,7 @@
     <label for="iem5a" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem5a') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iem5a" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.iem5a" v-validate="'integer'" v-money="integer"
                @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('iem5a'), 'form-control-success': fields.iem5a && fields.iem5a.valid}"
                id="iem5a" name="iem5a" placeholder="{{ trans('admin.sici.columns.iem5a') }}">
@@ -459,7 +459,7 @@
     <label for="ipl3Fa" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl3Fa') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl3Fa" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.ipl3Fa" v-validate="'integer'" v-money="integer"
                @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('ipl3Fa'), 'form-control-success': fields.ipl3Fa && fields.ipl3Fa.valid}"
                id="ipl3Fa" name="ipl3Fa" placeholder="{{ trans('admin.sici.columns.ipl3Fa') }}">
@@ -473,7 +473,7 @@
     <label for="ipl3Ja" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl3Ja') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl3Ja" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.ipl3Ja" v-validate="'integer'" v-money="integer"
                @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('ipl3Ja'), 'form-control-success': fields.ipl3Ja && fields.ipl3Ja.valid}"
                id="ipl3Ja" name="ipl3Ja" placeholder="{{ trans('admin.sici.columns.ipl3Ja') }}">
@@ -487,7 +487,7 @@
     <label for="qaipl4smAqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smAqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smAqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smAqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smAqaipl5sm'), 'form-control-success': fields.qaipl4smAqaipl5sm && fields.qaipl4smAqaipl5sm.valid}"
@@ -504,7 +504,7 @@
     <label for="qaipl4smAtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smAtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smAtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smAtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smAtotal'), 'form-control-success': fields.qaipl4smAtotal && fields.qaipl4smAtotal.valid}"
@@ -520,7 +520,7 @@
     <label for="qaipl4smA15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smA15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smA15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smA15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smA15'), 'form-control-success': fields.qaipl4smA15 && fields.qaipl4smA15.valid}"
@@ -536,7 +536,7 @@
     <label for="qaipl4smA16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smA16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smA16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smA16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smA16'), 'form-control-success': fields.qaipl4smA16 && fields.qaipl4smA16.valid}"
@@ -552,7 +552,7 @@
     <label for="qaipl4smA17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smA17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smA17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smA17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smA17'), 'form-control-success': fields.qaipl4smA17 && fields.qaipl4smA17.valid}"
@@ -568,7 +568,7 @@
     <label for="qaipl4smA18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smA18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smA18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smA18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smA18'), 'form-control-success': fields.qaipl4smA18 && fields.qaipl4smA18.valid}"
@@ -584,7 +584,7 @@
     <label for="qaipl4smA19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smA19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smA19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smA19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smA19'), 'form-control-success': fields.qaipl4smA19 && fields.qaipl4smA19.valid}"
@@ -600,7 +600,7 @@
     <label for="qaipl4smBqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smBqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smBqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smBqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smBqaipl5sm'), 'form-control-success': fields.qaipl4smBqaipl5sm && fields.qaipl4smBqaipl5sm.valid}"
@@ -617,7 +617,7 @@
     <label for="qaipl4smBtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smBtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smBtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smBtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smBtotal'), 'form-control-success': fields.qaipl4smBtotal && fields.qaipl4smBtotal.valid}"
@@ -633,7 +633,7 @@
     <label for="qaipl4smB15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smB15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smB15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smB15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smB15'), 'form-control-success': fields.qaipl4smB15 && fields.qaipl4smB15.valid}"
@@ -649,7 +649,7 @@
     <label for="qaipl4smB16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smB16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smB16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smB16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smB16'), 'form-control-success': fields.qaipl4smB16 && fields.qaipl4smB16.valid}"
@@ -665,7 +665,7 @@
     <label for="qaipl4smB17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smB17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smB17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smB17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smB17'), 'form-control-success': fields.qaipl4smB17 && fields.qaipl4smB17.valid}"
@@ -681,7 +681,7 @@
     <label for="qaipl4smB18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smB18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smB18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smB18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smB18'), 'form-control-success': fields.qaipl4smB18 && fields.qaipl4smB18.valid}"
@@ -697,7 +697,7 @@
     <label for="qaipl4smB19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smB19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smB19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smB19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smB19'), 'form-control-success': fields.qaipl4smB19 && fields.qaipl4smB19.valid}"
@@ -713,7 +713,7 @@
     <label for="qaipl4smCqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smCqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smCqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smCqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smCqaipl5sm'), 'form-control-success': fields.qaipl4smCqaipl5sm && fields.qaipl4smCqaipl5sm.valid}"
@@ -730,7 +730,7 @@
     <label for="qaipl4smCtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smCtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smCtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smCtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smCtotal'), 'form-control-success': fields.qaipl4smCtotal && fields.qaipl4smCtotal.valid}"
@@ -746,7 +746,7 @@
     <label for="qaipl4smC15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smC15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smC15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smC15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smC15'), 'form-control-success': fields.qaipl4smC15 && fields.qaipl4smC15.valid}"
@@ -762,7 +762,7 @@
     <label for="qaipl4smC16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smC16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smC16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smC16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smC16'), 'form-control-success': fields.qaipl4smC16 && fields.qaipl4smC16.valid}"
@@ -778,7 +778,7 @@
     <label for="qaipl4smC17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smC17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smC17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smC17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smC17'), 'form-control-success': fields.qaipl4smC17 && fields.qaipl4smC17.valid}"
@@ -794,7 +794,7 @@
     <label for="qaipl4smC18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smC18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smC18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smC18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smC18'), 'form-control-success': fields.qaipl4smC18 && fields.qaipl4smC18.valid}"
@@ -810,7 +810,7 @@
     <label for="qaipl4smC19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smC19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smC19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smC19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smC19'), 'form-control-success': fields.qaipl4smC19 && fields.qaipl4smC19.valid}"
@@ -826,7 +826,7 @@
     <label for="qaipl4smDqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smDqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smDqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smDqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smDqaipl5sm'), 'form-control-success': fields.qaipl4smDqaipl5sm && fields.qaipl4smDqaipl5sm.valid}"
@@ -843,7 +843,7 @@
     <label for="qaipl4smDtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smDtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smDtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smDtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smDtotal'), 'form-control-success': fields.qaipl4smDtotal && fields.qaipl4smDtotal.valid}"
@@ -859,7 +859,7 @@
     <label for="qaipl4smD15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smD15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smD15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smD15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smD15'), 'form-control-success': fields.qaipl4smD15 && fields.qaipl4smD15.valid}"
@@ -875,7 +875,7 @@
     <label for="qaipl4smD16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smD16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smD16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smD16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smD16'), 'form-control-success': fields.qaipl4smD16 && fields.qaipl4smD16.valid}"
@@ -891,7 +891,7 @@
     <label for="qaipl4smD17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smD17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smD17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smD17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smD17'), 'form-control-success': fields.qaipl4smD17 && fields.qaipl4smD17.valid}"
@@ -907,7 +907,7 @@
     <label for="qaipl4smD18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smD18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smD18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smD18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smD18'), 'form-control-success': fields.qaipl4smD18 && fields.qaipl4smD18.valid}"
@@ -923,7 +923,7 @@
     <label for="qaipl4smD19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smD19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smD19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smD19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smD19'), 'form-control-success': fields.qaipl4smD19 && fields.qaipl4smD19.valid}"
@@ -939,7 +939,7 @@
     <label for="qaipl4smEqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smEqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smEqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smEqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smEqaipl5sm'), 'form-control-success': fields.qaipl4smEqaipl5sm && fields.qaipl4smEqaipl5sm.valid}"
@@ -956,7 +956,7 @@
     <label for="qaipl4smEtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smEtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smEtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smEtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smEtotal'), 'form-control-success': fields.qaipl4smEtotal && fields.qaipl4smEtotal.valid}"
@@ -972,7 +972,7 @@
     <label for="qaipl4smE15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smE15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smE15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smE15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smE15'), 'form-control-success': fields.qaipl4smE15 && fields.qaipl4smE15.valid}"
@@ -988,7 +988,7 @@
     <label for="qaipl4smE16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smE16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smE16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smE16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smE16'), 'form-control-success': fields.qaipl4smE16 && fields.qaipl4smE16.valid}"
@@ -1004,7 +1004,7 @@
     <label for="qaipl4smE17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smE17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smE17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smE17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smE17'), 'form-control-success': fields.qaipl4smE17 && fields.qaipl4smE17.valid}"
@@ -1020,7 +1020,7 @@
     <label for="qaipl4smE18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smE18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smE18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smE18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smE18'), 'form-control-success': fields.qaipl4smE18 && fields.qaipl4smE18.valid}"
@@ -1036,7 +1036,7 @@
     <label for="qaipl4smE19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smE19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smE19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smE19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smE19'), 'form-control-success': fields.qaipl4smE19 && fields.qaipl4smE19.valid}"
@@ -1052,7 +1052,7 @@
     <label for="qaipl4smFqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smFqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smFqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smFqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smFqaipl5sm'), 'form-control-success': fields.qaipl4smFqaipl5sm && fields.qaipl4smFqaipl5sm.valid}"
@@ -1069,7 +1069,7 @@
     <label for="qaipl4smFtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smFtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smFtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smFtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smFtotal'), 'form-control-success': fields.qaipl4smFtotal && fields.qaipl4smFtotal.valid}"
@@ -1085,7 +1085,7 @@
     <label for="qaipl4smF15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smF15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smF15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smF15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smF15'), 'form-control-success': fields.qaipl4smF15 && fields.qaipl4smF15.valid}"
@@ -1101,7 +1101,7 @@
     <label for="qaipl4smF16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smF16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smF16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smF16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smF16'), 'form-control-success': fields.qaipl4smF16 && fields.qaipl4smF16.valid}"
@@ -1117,7 +1117,7 @@
     <label for="qaipl4smF17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smF17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smF17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smF17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smF17'), 'form-control-success': fields.qaipl4smF17 && fields.qaipl4smF17.valid}"
@@ -1133,7 +1133,7 @@
     <label for="qaipl4smF18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smF18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smF18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smF18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smF18'), 'form-control-success': fields.qaipl4smF18 && fields.qaipl4smF18.valid}"
@@ -1149,7 +1149,7 @@
     <label for="qaipl4smF19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smF19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smF19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smF19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smF19'), 'form-control-success': fields.qaipl4smF19 && fields.qaipl4smF19.valid}"
@@ -1165,7 +1165,7 @@
     <label for="qaipl4smGqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smGqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smGqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smGqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smGqaipl5sm'), 'form-control-success': fields.qaipl4smGqaipl5sm && fields.qaipl4smGqaipl5sm.valid}"
@@ -1182,7 +1182,7 @@
     <label for="qaipl4smGtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smGtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smGtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smGtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smGtotal'), 'form-control-success': fields.qaipl4smGtotal && fields.qaipl4smGtotal.valid}"
@@ -1198,7 +1198,7 @@
     <label for="qaipl4smG15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smG15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smG15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smG15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smG15'), 'form-control-success': fields.qaipl4smG15 && fields.qaipl4smG15.valid}"
@@ -1214,7 +1214,7 @@
     <label for="qaipl4smG16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smG16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smG16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smG16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smG16'), 'form-control-success': fields.qaipl4smG16 && fields.qaipl4smG16.valid}"
@@ -1230,7 +1230,7 @@
     <label for="qaipl4smG17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smG17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smG17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smG17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smG17'), 'form-control-success': fields.qaipl4smG17 && fields.qaipl4smG17.valid}"
@@ -1246,7 +1246,7 @@
     <label for="qaipl4smG18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smG18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smG18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smG18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smG18'), 'form-control-success': fields.qaipl4smG18 && fields.qaipl4smG18.valid}"
@@ -1262,7 +1262,7 @@
     <label for="qaipl4smG19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smG19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smG19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smG19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smG19'), 'form-control-success': fields.qaipl4smG19 && fields.qaipl4smG19.valid}"
@@ -1278,7 +1278,7 @@
     <label for="qaipl4smHqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smHqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smHqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smHqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smHqaipl5sm'), 'form-control-success': fields.qaipl4smHqaipl5sm && fields.qaipl4smHqaipl5sm.valid}"
@@ -1295,7 +1295,7 @@
     <label for="qaipl4smHtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smHtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smHtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smHtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smHtotal'), 'form-control-success': fields.qaipl4smHtotal && fields.qaipl4smHtotal.valid}"
@@ -1311,7 +1311,7 @@
     <label for="qaipl4smH15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smH15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smH15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smH15'), 'form-control-success': fields.qaipl4smH15 && fields.qaipl4smH15.valid}"
@@ -1327,7 +1327,7 @@
     <label for="qaipl4smH16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smH16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smH16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smH16'), 'form-control-success': fields.qaipl4smH16 && fields.qaipl4smH16.valid}"
@@ -1343,7 +1343,7 @@
     <label for="qaipl4smH17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smH17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smH17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smH17'), 'form-control-success': fields.qaipl4smH17 && fields.qaipl4smH17.valid}"
@@ -1359,7 +1359,7 @@
     <label for="qaipl4smH18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smH18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smH18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smH18'), 'form-control-success': fields.qaipl4smH18 && fields.qaipl4smH18.valid}"
@@ -1375,7 +1375,7 @@
     <label for="qaipl4smH19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smH19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smH19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smH19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smH19'), 'form-control-success': fields.qaipl4smH19 && fields.qaipl4smH19.valid}"
@@ -1391,7 +1391,7 @@
     <label for="qaipl4smIqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smIqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smIqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smIqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smIqaipl5sm'), 'form-control-success': fields.qaipl4smIqaipl5sm && fields.qaipl4smIqaipl5sm.valid}"
@@ -1408,7 +1408,7 @@
     <label for="qaipl4smItotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smItotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smItotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smItotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smItotal'), 'form-control-success': fields.qaipl4smItotal && fields.qaipl4smItotal.valid}"
@@ -1424,7 +1424,7 @@
     <label for="qaipl4smI15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smI15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smI15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smI15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smI15'), 'form-control-success': fields.qaipl4smI15 && fields.qaipl4smI15.valid}"
@@ -1440,7 +1440,7 @@
     <label for="qaipl4smI16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smI16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smI16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smI16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smI16'), 'form-control-success': fields.qaipl4smI16 && fields.qaipl4smI16.valid}"
@@ -1456,7 +1456,7 @@
     <label for="qaipl4smI17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smI17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smI17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smI17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smI17'), 'form-control-success': fields.qaipl4smI17 && fields.qaipl4smI17.valid}"
@@ -1472,7 +1472,7 @@
     <label for="qaipl4smI18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smI18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smI18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smI18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smI18'), 'form-control-success': fields.qaipl4smI18 && fields.qaipl4smI18.valid}"
@@ -1488,7 +1488,7 @@
     <label for="qaipl4smI19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smI19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smI19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smI19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smI19'), 'form-control-success': fields.qaipl4smI19 && fields.qaipl4smI19.valid}"
@@ -1504,7 +1504,7 @@
     <label for="qaipl4smJqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJqaipl5sm'), 'form-control-success': fields.qaipl4smJqaipl5sm && fields.qaipl4smJqaipl5sm.valid}"
@@ -1521,7 +1521,7 @@
     <label for="qaipl4smJtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJtotal'), 'form-control-success': fields.qaipl4smJtotal && fields.qaipl4smJtotal.valid}"
@@ -1537,7 +1537,7 @@
     <label for="qaipl4smJ15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJ15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJ15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJ15'), 'form-control-success': fields.qaipl4smJ15 && fields.qaipl4smJ15.valid}"
@@ -1553,7 +1553,7 @@
     <label for="qaipl4smJ16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJ16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJ16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJ16'), 'form-control-success': fields.qaipl4smJ16 && fields.qaipl4smJ16.valid}"
@@ -1569,7 +1569,7 @@
     <label for="qaipl4smJ17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJ17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJ17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJ17'), 'form-control-success': fields.qaipl4smJ17 && fields.qaipl4smJ17.valid}"
@@ -1585,7 +1585,7 @@
     <label for="qaipl4smJ18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJ18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJ18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJ18'), 'form-control-success': fields.qaipl4smJ18 && fields.qaipl4smJ18.valid}"
@@ -1601,7 +1601,7 @@
     <label for="qaipl4smJ19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smJ19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smJ19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smJ19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smJ19'), 'form-control-success': fields.qaipl4smJ19 && fields.qaipl4smJ19.valid}"
@@ -1617,7 +1617,7 @@
     <label for="qaipl4smKqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smKqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smKqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smKqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smKqaipl5sm'), 'form-control-success': fields.qaipl4smKqaipl5sm && fields.qaipl4smKqaipl5sm.valid}"
@@ -1634,7 +1634,7 @@
     <label for="qaipl4smKtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smKtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smKtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smKtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smKtotal'), 'form-control-success': fields.qaipl4smKtotal && fields.qaipl4smKtotal.valid}"
@@ -1650,7 +1650,7 @@
     <label for="qaipl4smK15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smK15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smK15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smK15'), 'form-control-success': fields.qaipl4smK15 && fields.qaipl4smK15.valid}"
@@ -1666,7 +1666,7 @@
     <label for="qaipl4smK16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smK16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smK16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smK16'), 'form-control-success': fields.qaipl4smK16 && fields.qaipl4smK16.valid}"
@@ -1682,7 +1682,7 @@
     <label for="qaipl4smK17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smK17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smK17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smK17'), 'form-control-success': fields.qaipl4smK17 && fields.qaipl4smK17.valid}"
@@ -1698,7 +1698,7 @@
     <label for="qaipl4smK18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smK18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smK18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smK18'), 'form-control-success': fields.qaipl4smK18 && fields.qaipl4smK18.valid}"
@@ -1714,7 +1714,7 @@
     <label for="qaipl4smK19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smK19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smK19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smK19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smK19'), 'form-control-success': fields.qaipl4smK19 && fields.qaipl4smK19.valid}"
@@ -1730,7 +1730,7 @@
     <label for="qaipl4smLqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smLqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smLqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smLqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smLqaipl5sm'), 'form-control-success': fields.qaipl4smLqaipl5sm && fields.qaipl4smLqaipl5sm.valid}"
@@ -1747,7 +1747,7 @@
     <label for="qaipl4smLtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smLtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smLtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smLtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smLtotal'), 'form-control-success': fields.qaipl4smLtotal && fields.qaipl4smLtotal.valid}"
@@ -1763,7 +1763,7 @@
     <label for="qaipl4smL15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smL15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smL15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smL15'), 'form-control-success': fields.qaipl4smL15 && fields.qaipl4smL15.valid}"
@@ -1779,7 +1779,7 @@
     <label for="qaipl4smL16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smL16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smL16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smL16'), 'form-control-success': fields.qaipl4smL16 && fields.qaipl4smL16.valid}"
@@ -1795,7 +1795,7 @@
     <label for="qaipl4smL17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smL17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smL17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smL17'), 'form-control-success': fields.qaipl4smL17 && fields.qaipl4smL17.valid}"
@@ -1811,7 +1811,7 @@
     <label for="qaipl4smL18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smL18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smL18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smL18'), 'form-control-success': fields.qaipl4smL18 && fields.qaipl4smL18.valid}"
@@ -1827,7 +1827,7 @@
     <label for="qaipl4smL19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smL19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smL19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smL19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smL19'), 'form-control-success': fields.qaipl4smL19 && fields.qaipl4smL19.valid}"
@@ -1843,7 +1843,7 @@
     <label for="qaipl4smMqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smMqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smMqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smMqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smMqaipl5sm'), 'form-control-success': fields.qaipl4smMqaipl5sm && fields.qaipl4smMqaipl5sm.valid}"
@@ -1860,7 +1860,7 @@
     <label for="qaipl4smMtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smMtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smMtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smMtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smMtotal'), 'form-control-success': fields.qaipl4smMtotal && fields.qaipl4smMtotal.valid}"
@@ -1876,7 +1876,7 @@
     <label for="qaipl4smM15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smM15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smM15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smM15'), 'form-control-success': fields.qaipl4smM15 && fields.qaipl4smM15.valid}"
@@ -1892,7 +1892,7 @@
     <label for="qaipl4smM16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smM16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smM16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smM16'), 'form-control-success': fields.qaipl4smM16 && fields.qaipl4smM16.valid}"
@@ -1908,7 +1908,7 @@
     <label for="qaipl4smM17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smM17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smM17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smM17'), 'form-control-success': fields.qaipl4smM17 && fields.qaipl4smM17.valid}"
@@ -1924,7 +1924,7 @@
     <label for="qaipl4smM18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smM18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smM18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smM18'), 'form-control-success': fields.qaipl4smM18 && fields.qaipl4smM18.valid}"
@@ -1940,7 +1940,7 @@
     <label for="qaipl4smM19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smM19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smM19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smM19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smM19'), 'form-control-success': fields.qaipl4smM19 && fields.qaipl4smM19.valid}"
@@ -1956,7 +1956,7 @@
     <label for="qaipl4smNqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smNqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smNqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smNqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smNqaipl5sm'), 'form-control-success': fields.qaipl4smNqaipl5sm && fields.qaipl4smNqaipl5sm.valid}"
@@ -1973,7 +1973,7 @@
     <label for="qaipl4smNtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smNtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smNtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smNtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smNtotal'), 'form-control-success': fields.qaipl4smNtotal && fields.qaipl4smNtotal.valid}"
@@ -1989,7 +1989,7 @@
     <label for="qaipl4smN15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smN15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smN15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smN15'), 'form-control-success': fields.qaipl4smN15 && fields.qaipl4smN15.valid}"
@@ -2005,7 +2005,7 @@
     <label for="qaipl4smN16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smN16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smN16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smN16'), 'form-control-success': fields.qaipl4smN16 && fields.qaipl4smN16.valid}"
@@ -2021,7 +2021,7 @@
     <label for="qaipl4smN17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smN17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smN17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smN17'), 'form-control-success': fields.qaipl4smN17 && fields.qaipl4smN17.valid}"
@@ -2037,7 +2037,7 @@
     <label for="qaipl4smN18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smN18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smN18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smN18'), 'form-control-success': fields.qaipl4smN18 && fields.qaipl4smN18.valid}"
@@ -2053,7 +2053,7 @@
     <label for="qaipl4smN19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smN19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smN19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smN19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smN19'), 'form-control-success': fields.qaipl4smN19 && fields.qaipl4smN19.valid}"
@@ -2069,7 +2069,7 @@
     <label for="qaipl4smOqaipl5sm" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smOqaipl5sm') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smOqaipl5sm" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smOqaipl5sm" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smOqaipl5sm'), 'form-control-success': fields.qaipl4smOqaipl5sm && fields.qaipl4smOqaipl5sm.valid}"
@@ -2086,7 +2086,7 @@
     <label for="qaipl4smOtotal" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smOtotal') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smOtotal" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smOtotal" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smOtotal'), 'form-control-success': fields.qaipl4smOtotal && fields.qaipl4smOtotal.valid}"
@@ -2102,7 +2102,7 @@
     <label for="qaipl4smO15" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO15') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smO15" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smO15" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smO15'), 'form-control-success': fields.qaipl4smO15 && fields.qaipl4smO15.valid}"
@@ -2118,7 +2118,7 @@
     <label for="qaipl4smO16" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO16') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smO16" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smO16" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smO16'), 'form-control-success': fields.qaipl4smO16 && fields.qaipl4smO16.valid}"
@@ -2134,7 +2134,7 @@
     <label for="qaipl4smO17" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO17') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smO17" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smO17" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smO17'), 'form-control-success': fields.qaipl4smO17 && fields.qaipl4smO17.valid}"
@@ -2150,7 +2150,7 @@
     <label for="qaipl4smO18" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO18') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smO18" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smO18" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smO18'), 'form-control-success': fields.qaipl4smO18 && fields.qaipl4smO18.valid}"
@@ -2166,7 +2166,7 @@
     <label for="qaipl4smO19" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.qaipl4smO19') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.qaipl4smO19" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.qaipl4smO19" v-validate="'integer'" v-money="integer"
                @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('qaipl4smO19'), 'form-control-success': fields.qaipl4smO19 && fields.qaipl4smO19.valid}"
@@ -2182,7 +2182,7 @@
     <label for="ipl6im" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl6im') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.ipl6im" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.ipl6im" v-validate="'integer'" v-money="integer"
                @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('ipl6im'), 'form-control-success': fields.ipl6im && fields.ipl6im.valid}"
                id="ipl6im" name="ipl6im" placeholder="{{ trans('admin.sici.columns.ipl6im') }}">
@@ -2196,7 +2196,7 @@
     <label for="iau1" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iau1') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.iau1" v-validate="'integer'" @keypress="onlyForCurrency"
+        <input type="text" v-model="form.iau1" v-validate="'integer'" v-money="integer"
                @input="validate($event)" class="form-control"
                :class="{'form-control-danger': errors.has('iau1'), 'form-control-success': fields.iau1 && fields.iau1.valid}"
                id="iau1" name="iau1" placeholder="{{ trans('admin.sici.columns.iau1') }}">

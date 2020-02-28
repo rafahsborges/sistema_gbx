@@ -202,6 +202,10 @@ class StoreSici extends FormRequest
 
         //Add your code for manipulation with request data here
 
+        foreach ($sanitized as $key => $item) {
+            $sanitized[$key] = $this->prepareCurrencies($item);
+        }
+
         return $sanitized;
     }
 

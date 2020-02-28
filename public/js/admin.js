@@ -114270,6 +114270,16 @@ Vue.component('sici-form', {
         /* doesn't work with directive */
 
       },
+      integer: {
+        decimal: '',
+        thousands: '',
+        prefix: '',
+        suffix: '',
+        precision: 0,
+        masked: false
+        /* doesn't work with directive */
+
+      },
       years: [{
         nome: new Date().getFullYear() + 1,
         id: new Date().getFullYear() + 1
@@ -114321,23 +114331,8 @@ Vue.component('sici-form', {
   },
   directives: {
     money: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
-    percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
-  },
-  methods: {
-    onlyForCurrency: function onlyForCurrency($event) {
-      // console.log($event.keyCode); //keyCodes value
-      var keyCode = $event.keyCode ? $event.keyCode : $event.which; // only allow number and one dot
-
-      if ((keyCode < 48 || keyCode > 57) && (keyCode !== 46 || this.price.indexOf('.') != -1)) {
-        // 46 is dot
-        $event.preventDefault();
-      } // restrict to 2 decimal places
-
-
-      if (this.price != null && this.price.indexOf(".") > -1 && this.price.split('.')[1].length > 1) {
-        $event.preventDefault();
-      }
-    }
+    percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
+    integer: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
   }
 });
 

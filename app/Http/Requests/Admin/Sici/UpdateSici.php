@@ -202,7 +202,27 @@ class UpdateSici extends FormRequest
 
         //Add your code for manipulation with request data here
 
+        foreach ($sanitized as $key => $item) {
+            $sanitized[$key] = $this->prepareCurrencies($item);
+        }
+
         return $sanitized;
+    }
+
+    public function getAnoId()
+    {
+        if ($this->has('ano')) {
+            return $this->get('ano')['id'];
+        }
+        return null;
+    }
+
+    public function getMesId()
+    {
+        if ($this->has('mes')) {
+            return $this->get('mes')['id'];
+        }
+        return null;
     }
 
     public function getClienteId()
