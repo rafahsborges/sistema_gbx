@@ -36,6 +36,8 @@
             @if(auth()->user()->is_admin === 1)
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i
                             class="nav-icon icon-user"></i> {{ trans('admin.admin-user.title') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('admin/sicis') }}"><i
+                            class="nav-icon icon-energy"></i> {{ trans('admin.sici.title') }}</a></li>
                 <li class="nav-item" data-toggle="collapse" data-target="#servicos" class="collapsed active">
                     <a class="nav-link"><i
                             class="nav-icon icon-list"></i> {{ trans('admin.servico.title') }}

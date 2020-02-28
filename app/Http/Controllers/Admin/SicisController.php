@@ -24,6 +24,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Spatie\ArrayToXml\ArrayToXml;
 
 class SicisController extends Controller
 {
@@ -265,5 +266,56 @@ class SicisController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Sici $sici
+     * @return Factory|View
+     * @throws AuthorizationException
+     */
+    public function xml(Sici $sici)
+    {
+        $this->authorize('admin.sici.edit', $sici);
+
+        if (auth()->user()->is_admin !== 1) {
+            $clientes = AdminUser::where('id', auth()->user()->id)->get();
+            $servicos = Servico::where('id', $clientes[0]->id_servico)->get();
+        } else {
+            $clientes = AdminUser::all();
+            $servicos = Servico::all();
+        }
+
+        $sici = Sici::with('cidade')
+            ->with('estado')
+            ->with('cliente')
+            ->with('servico')
+            ->find($sici->id);
+
+        $array = [
+            'UploadSICI' => [
+                '_attributes' => [
+                    'ano' => $sici->ano,
+                    'mes' => $sici->mes,
+                ],
+                'Outorga' => [
+                    '_attributes' => [
+                        'fistel' => $sici->fistel,
+                    ]
+                ],
+            ],
+        ];
+
+        return $result = ArrayToXml::convert($array, [
+        ], true, 'UTF-8');
+
+        return view('admin.sici.edit', [
+            'sici' => $sici,
+            'clientes' => $clientes,
+            'servicos' => $servicos,
+            'estados' => Estado::all(),
+            'cidades' => Cidade::all(),
+        ]);
     }
 }

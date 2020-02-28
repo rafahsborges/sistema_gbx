@@ -273,15 +273,16 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('sicis')->name('sicis/')->group(static function() {
-            Route::get('/',                                             'SicisController@index')->name('index');
-            Route::get('/create',                                       'SicisController@create')->name('create');
-            Route::post('/',                                            'SicisController@store')->name('store');
-            Route::get('/{sici}/edit',                                  'SicisController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'SicisController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{sici}',                                      'SicisController@update')->name('update');
-            Route::delete('/{sici}',                                    'SicisController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('sicis')->name('sicis/')->group(static function () {
+            Route::get('/', 'SicisController@index')->name('index');
+            Route::get('/create', 'SicisController@create')->name('create');
+            Route::post('/', 'SicisController@store')->name('store');
+            Route::get('/{sici}/edit', 'SicisController@edit')->name('edit');
+            Route::get('/{sici}/xml', 'SicisController@xml')->name('xml');
+            Route::post('/bulk-destroy', 'SicisController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{sici}', 'SicisController@update')->name('update');
+            Route::delete('/{sici}', 'SicisController@destroy')->name('destroy');
         });
     });
 });
