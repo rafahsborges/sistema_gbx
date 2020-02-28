@@ -305,7 +305,7 @@ class SicisController extends Controller
                     ],
                     'Indicador' => [
                         '_attributes' => [
-                            'Sigla' => '',
+                            'Sigla' => 'IEM4',
                         ],
                         'Conteudo' => [
                             '_attributes' => [
