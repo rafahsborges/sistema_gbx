@@ -286,9 +286,7 @@ class SicisController extends Controller
             ->with('servico')
             ->find($sici->id);
 
-        return view('xml.xml', compact('sici'));
-
-        $file = Storage::put('file.xml', $contents);
+        $file = Storage::put('file.xml', view('xml.xml', compact('sici')));
 
         return Storage::download('file.xml');
     }
