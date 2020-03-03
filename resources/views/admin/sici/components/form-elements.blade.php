@@ -2567,3 +2567,36 @@
         </div>
     </div>
 </div>
+
+@if($mode === 'create' && auth()->user()->is_admin === 1)
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+        'mediaCollection' => app(App\Models\Sici::class)->getMediaCollection('pdf'),
+        'label' => 'Recibo'
+    ])
+@endif
+
+@if($mode === 'edit' && auth()->user()->is_admin === 1)
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+        'mediaCollection' => $sici->getMediaCollection('pdf'),
+        'media' => $sici->getThumbs200ForCollection('pdf'),
+        'label' => 'Recibo'
+    ])
+@endif
+
+@php
+    if(isset($sici)){
+        $mediaItems = $sici->getMedia('pdf');
+        $publicFullUrl = $mediaItems[0]->getFullUrl(); //url including domain
+    }
+@endphp
+
+@if(auth()->user()->is_admin !== 1 && isset($publicFullUrl))
+    <div class="form-group row align-items-center"
+         :class="{'has-danger': errors.has('iem8e'), 'has-success': fields.iem8e && fields.iem8e.valid }">
+        <label for="iem8e" class="col-form-label text-md-right"
+               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Recibo</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+            <a class="btn btn-primary" href="{{$publicFullUrl}}" target="_blank">Baixe aqui</a>
+        </div>
+    </div>
+@endif

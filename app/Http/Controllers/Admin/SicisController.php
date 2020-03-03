@@ -99,6 +99,7 @@ class SicisController extends Controller
             'servicos' => $servicos,
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'mode' => 'create',
         ]);
     }
 
@@ -184,6 +185,7 @@ class SicisController extends Controller
             'servicos' => $servicos,
             'estados' => Estado::all(),
             'cidades' => Cidade::all(),
+            'mode' => 'edit',
         ]);
     }
 

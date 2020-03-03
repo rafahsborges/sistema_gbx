@@ -114250,6 +114250,7 @@ Vue.component('sici-form', {
         qaipl4smO18: '',
         qaipl4smO19: ''
       },
+      mediaCollections: ['pdf'],
       money: {
         decimal: ',',
         thousands: '.',
