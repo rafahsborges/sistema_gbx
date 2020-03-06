@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Musonza\Chat\Traits\Messageable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Image\Exceptions\InvalidManipulation;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -33,7 +32,6 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     use HasMediaCollectionsTrait;
     use HasMediaThumbsTrait;
     use ProcessMediaTrait;
-    use Messageable;
 
     use LogsActivity;
     protected static $logFillable = true;
