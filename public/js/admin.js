@@ -112549,6 +112549,8 @@ new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
 
     this.fetchMessages();
     Echo["private"]('chat').listen('MessageSent', function (e) {
+      console.log('aqui');
+
       _this.messages.push({
         message: e.message.message,
         user: e.user

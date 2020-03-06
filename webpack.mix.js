@@ -1,5 +1,5 @@
 const mix = require("laravel-mix");
-//require("dotenv").config();
+require("dotenv").config();
 
 /*
  |--------------------------------------------------------------------------
@@ -17,12 +17,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js(['resources/js/admin/admin.js'], 'public/js')
     .sass('resources/sass/admin/admin.scss', 'public/css');
-
-/*mix.copy('public/js/app.js', 'js/app.js');
-mix.copy('public/js/admin.js', 'js/admin.js');
-mix.copy('public/css/app.css', 'css/app.css');
-mix.copy('public/css/admin.css', 'css/admin.css');
-*/
 
 if (mix.inProduction()) {
     mix.version();
