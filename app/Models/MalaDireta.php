@@ -16,7 +16,6 @@ class MalaDireta extends Model
         'agendamento',
         'enviado',
         'envio',
-
     ];
 
 
@@ -26,7 +25,6 @@ class MalaDireta extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-
     ];
 
     protected $appends = ['resource_url'];
