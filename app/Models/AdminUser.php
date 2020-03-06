@@ -226,7 +226,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
      */
     public function messages()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany('App\Models\Message', 'user_id');
     }
 
 }

@@ -15,7 +15,10 @@ class Message extends Model
      *
      * @var array
      */
-    protected $fillable = ['message'];
+    protected $fillable = [
+        'user_id',
+        'message'
+    ];
 
     /* ************************ RELATIONS ************************ */
 
@@ -26,7 +29,7 @@ class Message extends Model
      */
     public function cliente()
     {
-        return $this->belongsTo(AdminUser::class);
+        return $this->belongsTo('App\Models\AdminUser', 'user_id');
     }
 
 }

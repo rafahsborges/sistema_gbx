@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Events\MessageSent;
 use App\Http\Controllers\Controller;
 
+use App\Models\AdminUser;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -39,7 +40,9 @@ class ChatsController extends Controller
      */
     public function store(Request $request)
     {
-        $user = auth()->user();
+        $id = auth()->user()->id;
+
+        $user = AdminUser::find($id);
 
         $message = $user->messages()->create([
             'message' => $request->input('message')
@@ -47,6 +50,6 @@ class ChatsController extends Controller
 
         broadcast(new MessageSent($user, $message))->toOthers();
 
-        return ['status' => 'Message Sent!'];
+        return ['status' => 'Messagem Enviada!'];
     }
 }
