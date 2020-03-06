@@ -14,6 +14,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
+        "musonza/chat": "^4.3",
         "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "2.0.13",
         "pusher/pusher-php-server": "^4.1",
