@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\MessageSent;
 use App\Http\Controllers\Controller;
 
 use App\Models\Message;
@@ -27,7 +28,7 @@ class ChatsController extends Controller
      */
     public function list()
     {
-        return Message::with('user')->get();
+        return Message::with('cliente')->get();
     }
 
     /**
@@ -43,6 +44,8 @@ class ChatsController extends Controller
         $message = $user->messages()->create([
             'message' => $request->input('message')
         ]);
+
+        broadcast(new MessageSent($user, $message))->toOthers();
 
         return ['status' => 'Message Sent!'];
     }

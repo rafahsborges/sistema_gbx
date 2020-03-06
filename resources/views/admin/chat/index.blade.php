@@ -16,8 +16,8 @@
                     <div class="panel-footer">
                         <chat-form
                             v-on:messagesent="addMessage"
-                            :user="{{ auth()->user() }}"
-                        ></chat-form>
+                            :user="{{ auth()->user() }}">
+                        </chat-form>
                     </div>
                 </div>
             </div>

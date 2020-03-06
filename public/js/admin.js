@@ -112540,7 +112540,28 @@ vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(v_money__WEBPACK_IMPORTED_MODULE
   precision: 4
 });
 new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
-  mixins: [craftable__WEBPACK_IMPORTED_MODULE_9__["Admin"]]
+  mixins: [craftable__WEBPACK_IMPORTED_MODULE_9__["Admin"]],
+  data: {
+    messages: []
+  },
+  created: function created() {
+    this.fetchMessages();
+  },
+  methods: {
+    fetchMessages: function fetchMessages() {
+      var _this = this;
+
+      axios.get('messages').then(function (response) {
+        _this.messages = response.data;
+      });
+    },
+    addMessage: function addMessage(message) {
+      this.messages.push(message);
+      axios.post('messages', message).then(function (response) {
+        console.log(response.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -112841,6 +112862,66 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/chat/Form.js":
+/*!*****************************************!*\
+  !*** ./resources/js/admin/chat/Form.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Vue.component('chat-form', {
+  props: ['user'],
+  template: "\n        <div class=\"input-group\">\n            <input id=\"btn-input\" type=\"text\" name=\"message\" class=\"form-control input-sm\"\n                   placeholder=\"Type your message here...\" v-model=\"newMessage\" @keyup.enter=\"sendMessage\">\n\n            <span class=\"input-group-btn\">\n                <button class=\"btn btn-primary btn-sm\" id=\"btn-chat\" @click=\"sendMessage\">\n                    Send\n                </button>\n            </span>\n        </div>\n    ",
+  data: function data() {
+    return {
+      newMessage: ''
+    };
+  },
+  methods: {
+    sendMessage: function sendMessage() {
+      this.$emit('messagesent', {
+        user: this.user,
+        message: this.newMessage
+      });
+      this.newMessage = '';
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/chat/Listing.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/chat/Listing.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Vue.component('chat-messages', {
+  props: ['messages'],
+  template: "\n        <ul class=\"chat\">\n            <li class=\"left clearfix\" v-for=\"message in messages\">\n                <div class=\"chat-body clearfix\">\n                    <div class=\"header\">\n                        <strong class=\"primary-font\">\n                            {{ message.user.name }}\n                        </strong>\n                    </div>\n                    <p>\n                        {{ message.message }}\n                    </p>\n                </div>\n            </li>\n        </ul>\n    "
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/chat/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/chat/index.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/chat/Listing.js");
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Listing__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/chat/Form.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Form__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/cidade/Form.js":
 /*!*******************************************!*\
   !*** ./resources/js/admin/cidade/Form.js ***!
@@ -113076,6 +113157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mala_direta__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mala-direta */ "./resources/js/admin/mala-direta/index.js");
 /* harmony import */ var _boleto__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./boleto */ "./resources/js/admin/boleto/index.js");
 /* harmony import */ var _sici__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./sici */ "./resources/js/admin/sici/index.js");
+/* harmony import */ var _chat__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./chat */ "./resources/js/admin/chat/index.js");
+
 
 
 
