@@ -1667,413 +1667,385 @@
 
         <div class="card">
             <div class="card-header">
-
+                IPL1
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl1a'), 'has-success': fields.ipl1a && fields.ipl1a.valid }">
-            <label for="ipl1a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl1a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl1a'), 'form-control-success': fields.ipl1a && fields.ipl1a.valid}"
-                       id="ipl1a" name="ipl1a" placeholder="{{ trans('admin.sici.columns.ipl1a') }}">
-                <div v-if="errors.has('ipl1a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl1a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl1a'), 'has-success': fields.ipl1a && fields.ipl1a.valid }">
+                    <label for="ipl1a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl1a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl1a'), 'form-control-success': fields.ipl1a && fields.ipl1a.valid}"
+                               id="ipl1a" name="ipl1a" placeholder="{{ trans('admin.sici.columns.ipl1a') }}">
+                        <div v-if="errors.has('ipl1a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl1a') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl1b'), 'has-success': fields.ipl1b && fields.ipl1b.valid }">
-            <label for="ipl1b" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1b') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl1b" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl1b'), 'form-control-success': fields.ipl1b && fields.ipl1b.valid}"
-                       id="ipl1b" name="ipl1b" placeholder="{{ trans('admin.sici.columns.ipl1b') }}">
-                <div v-if="errors.has('ipl1b')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl1b') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl1b'), 'has-success': fields.ipl1b && fields.ipl1b.valid }">
+                    <label for="ipl1b" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1b') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl1b" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl1b'), 'form-control-success': fields.ipl1b && fields.ipl1b.valid}"
+                               id="ipl1b" name="ipl1b" placeholder="{{ trans('admin.sici.columns.ipl1b') }}">
+                        <div v-if="errors.has('ipl1b')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl1b') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl1c'), 'has-success': fields.ipl1c && fields.ipl1c.valid }">
-            <label for="ipl1c" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1c') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl1c" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl1c'), 'form-control-success': fields.ipl1c && fields.ipl1c.valid}"
-                       id="ipl1c" name="ipl1c" placeholder="{{ trans('admin.sici.columns.ipl1c') }}">
-                <div v-if="errors.has('ipl1c')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl1c') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl1c'), 'has-success': fields.ipl1c && fields.ipl1c.valid }">
+                    <label for="ipl1c" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1c') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl1c" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl1c'), 'form-control-success': fields.ipl1c && fields.ipl1c.valid}"
+                               id="ipl1c" name="ipl1c" placeholder="{{ trans('admin.sici.columns.ipl1c') }}">
+                        <div v-if="errors.has('ipl1c')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl1c') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl1d'), 'has-success': fields.ipl1d && fields.ipl1d.valid }">
-            <label for="ipl1d" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1d') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl1d" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl1d'), 'form-control-success': fields.ipl1d && fields.ipl1d.valid}"
-                       id="ipl1d" name="ipl1d" placeholder="{{ trans('admin.sici.columns.ipl1d') }}">
-                <div v-if="errors.has('ipl1d')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl1d') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl1d'), 'has-success': fields.ipl1d && fields.ipl1d.valid }">
+                    <label for="ipl1d" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl1d') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl1d" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl1d'), 'form-control-success': fields.ipl1d && fields.ipl1d.valid}"
+                               id="ipl1d" name="ipl1d" placeholder="{{ trans('admin.sici.columns.ipl1d') }}">
+                        <div v-if="errors.has('ipl1d')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl1d') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-
+                IPL2
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl2a'), 'has-success': fields.ipl2a && fields.ipl2a.valid }">
-            <label for="ipl2a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl2a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl2a'), 'form-control-success': fields.ipl2a && fields.ipl2a.valid}"
-                       id="ipl2a" name="ipl2a" placeholder="{{ trans('admin.sici.columns.ipl2a') }}">
-                <div v-if="errors.has('ipl2a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl2a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl2a'), 'has-success': fields.ipl2a && fields.ipl2a.valid }">
+                    <label for="ipl2a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl2a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl2a'), 'form-control-success': fields.ipl2a && fields.ipl2a.valid}"
+                               id="ipl2a" name="ipl2a" placeholder="{{ trans('admin.sici.columns.ipl2a') }}">
+                        <div v-if="errors.has('ipl2a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl2a') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl2b'), 'has-success': fields.ipl2b && fields.ipl2b.valid }">
-            <label for="ipl2b" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2b') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl2b" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl2b'), 'form-control-success': fields.ipl2b && fields.ipl2b.valid}"
-                       id="ipl2b" name="ipl2b" placeholder="{{ trans('admin.sici.columns.ipl2b') }}">
-                <div v-if="errors.has('ipl2b')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl2b') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl2b'), 'has-success': fields.ipl2b && fields.ipl2b.valid }">
+                    <label for="ipl2b" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2b') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl2b" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl2b'), 'form-control-success': fields.ipl2b && fields.ipl2b.valid}"
+                               id="ipl2b" name="ipl2b" placeholder="{{ trans('admin.sici.columns.ipl2b') }}">
+                        <div v-if="errors.has('ipl2b')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl2b') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl2c'), 'has-success': fields.ipl2c && fields.ipl2c.valid }">
-            <label for="ipl2c" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2c') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl2c" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl2c'), 'form-control-success': fields.ipl2c && fields.ipl2c.valid}"
-                       id="ipl2c" name="ipl2c" placeholder="{{ trans('admin.sici.columns.ipl2c') }}">
-                <div v-if="errors.has('ipl2c')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl2c') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl2c'), 'has-success': fields.ipl2c && fields.ipl2c.valid }">
+                    <label for="ipl2c" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2c') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl2c" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl2c'), 'form-control-success': fields.ipl2c && fields.ipl2c.valid}"
+                               id="ipl2c" name="ipl2c" placeholder="{{ trans('admin.sici.columns.ipl2c') }}">
+                        <div v-if="errors.has('ipl2c')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl2c') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('ipl2d'), 'has-success': fields.ipl2d && fields.ipl2d.valid }">
-            <label for="ipl2d" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2d') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.ipl2d" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('ipl2d'), 'form-control-success': fields.ipl2d && fields.ipl2d.valid}"
-                       id="ipl2d" name="ipl2d" placeholder="{{ trans('admin.sici.columns.ipl2d') }}">
-                <div v-if="errors.has('ipl2d')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('ipl2d') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('ipl2d'), 'has-success': fields.ipl2d && fields.ipl2d.valid }">
+                    <label for="ipl2d" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.ipl2d') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.ipl2d" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('ipl2d'), 'form-control-success': fields.ipl2d && fields.ipl2d.valid}"
+                               id="ipl2d" name="ipl2d" placeholder="{{ trans('admin.sici.columns.ipl2d') }}">
+                        <div v-if="errors.has('ipl2d')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('ipl2d') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-
+                IEM1
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1a'), 'has-success': fields.iem1a && fields.iem1a.valid }">
-            <label for="iem1a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1a'), 'form-control-success': fields.iem1a && fields.iem1a.valid}"
-                       id="iem1a" name="iem1a" placeholder="{{ trans('admin.sici.columns.iem1a') }}">
-                <div v-if="errors.has('iem1a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1a'), 'has-success': fields.iem1a && fields.iem1a.valid }">
+                    <label for="iem1a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1a'), 'form-control-success': fields.iem1a && fields.iem1a.valid}"
+                               id="iem1a" name="iem1a" placeholder="{{ trans('admin.sici.columns.iem1a') }}">
+                        <div v-if="errors.has('iem1a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1a') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1b'), 'has-success': fields.iem1b && fields.iem1b.valid }">
-            <label for="iem1b" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1b') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1b" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1b'), 'form-control-success': fields.iem1b && fields.iem1b.valid}"
-                       id="iem1b" name="iem1b" placeholder="{{ trans('admin.sici.columns.iem1b') }}">
-                <div v-if="errors.has('iem1b')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1b') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1b'), 'has-success': fields.iem1b && fields.iem1b.valid }">
+                    <label for="iem1b" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1b') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1b" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1b'), 'form-control-success': fields.iem1b && fields.iem1b.valid}"
+                               id="iem1b" name="iem1b" placeholder="{{ trans('admin.sici.columns.iem1b') }}">
+                        <div v-if="errors.has('iem1b')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1b') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1c'), 'has-success': fields.iem1c && fields.iem1c.valid }">
-            <label for="iem1c" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1c') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1c" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1c'), 'form-control-success': fields.iem1c && fields.iem1c.valid}"
-                       id="iem1c" name="iem1c" placeholder="{{ trans('admin.sici.columns.iem1c') }}">
-                <div v-if="errors.has('iem1c')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1c') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1c'), 'has-success': fields.iem1c && fields.iem1c.valid }">
+                    <label for="iem1c" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1c') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1c" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1c'), 'form-control-success': fields.iem1c && fields.iem1c.valid}"
+                               id="iem1c" name="iem1c" placeholder="{{ trans('admin.sici.columns.iem1c') }}">
+                        <div v-if="errors.has('iem1c')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1c') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1d'), 'has-success': fields.iem1d && fields.iem1d.valid }">
-            <label for="iem1d" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1d') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1d" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1d'), 'form-control-success': fields.iem1d && fields.iem1d.valid}"
-                       id="iem1d" name="iem1d" placeholder="{{ trans('admin.sici.columns.iem1d') }}">
-                <div v-if="errors.has('iem1d')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1d') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1d'), 'has-success': fields.iem1d && fields.iem1d.valid }">
+                    <label for="iem1d" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1d') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1d" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1d'), 'form-control-success': fields.iem1d && fields.iem1d.valid}"
+                               id="iem1d" name="iem1d" placeholder="{{ trans('admin.sici.columns.iem1d') }}">
+                        <div v-if="errors.has('iem1d')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1d') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1e'), 'has-success': fields.iem1e && fields.iem1e.valid }">
-            <label for="iem1e" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1e') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1e" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1e'), 'form-control-success': fields.iem1e && fields.iem1e.valid}"
-                       id="iem1e" name="iem1e" placeholder="{{ trans('admin.sici.columns.iem1e') }}">
-                <div v-if="errors.has('iem1e')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1e') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1e'), 'has-success': fields.iem1e && fields.iem1e.valid }">
+                    <label for="iem1e" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1e') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1e" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1e'), 'form-control-success': fields.iem1e && fields.iem1e.valid}"
+                               id="iem1e" name="iem1e" placeholder="{{ trans('admin.sici.columns.iem1e') }}">
+                        <div v-if="errors.has('iem1e')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1e') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1f'), 'has-success': fields.iem1f && fields.iem1f.valid }">
-            <label for="iem1f" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1f') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1f" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1f'), 'form-control-success': fields.iem1f && fields.iem1f.valid}"
-                       id="iem1f" name="iem1f" placeholder="{{ trans('admin.sici.columns.iem1f') }}">
-                <div v-if="errors.has('iem1f')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1f') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1f'), 'has-success': fields.iem1f && fields.iem1f.valid }">
+                    <label for="iem1f" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1f') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1f" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1f'), 'form-control-success': fields.iem1f && fields.iem1f.valid}"
+                               id="iem1f" name="iem1f" placeholder="{{ trans('admin.sici.columns.iem1f') }}">
+                        <div v-if="errors.has('iem1f')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1f') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem1g'), 'has-success': fields.iem1g && fields.iem1g.valid }">
-            <label for="iem1g" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1g') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem1g" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem1g'), 'form-control-success': fields.iem1g && fields.iem1g.valid}"
-                       id="iem1g" name="iem1g" placeholder="{{ trans('admin.sici.columns.iem1g') }}">
-                <div v-if="errors.has('iem1g')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem1g') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem1g'), 'has-success': fields.iem1g && fields.iem1g.valid }">
+                    <label for="iem1g" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem1g') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem1g" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem1g'), 'form-control-success': fields.iem1g && fields.iem1g.valid}"
+                               id="iem1g" name="iem1g" placeholder="{{ trans('admin.sici.columns.iem1g') }}">
+                        <div v-if="errors.has('iem1g')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem1g') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-
+                IEM2
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem2a'), 'has-success': fields.iem2a && fields.iem2a.valid }">
-            <label for="iem2a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem2a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem2a'), 'form-control-success': fields.iem2a && fields.iem2a.valid}"
-                       id="iem2a" name="iem2a" placeholder="{{ trans('admin.sici.columns.iem2a') }}">
-                <div v-if="errors.has('iem2a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem2a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem2a'), 'has-success': fields.iem2a && fields.iem2a.valid }">
+                    <label for="iem2a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem2a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem2a'), 'form-control-success': fields.iem2a && fields.iem2a.valid}"
+                               id="iem2a" name="iem2a" placeholder="{{ trans('admin.sici.columns.iem2a') }}">
+                        <div v-if="errors.has('iem2a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem2a') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem2b'), 'has-success': fields.iem2b && fields.iem2b.valid }">
-            <label for="iem2b" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2b') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem2b" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem2b'), 'form-control-success': fields.iem2b && fields.iem2b.valid}"
-                       id="iem2b" name="iem2b" placeholder="{{ trans('admin.sici.columns.iem2b') }}">
-                <div v-if="errors.has('iem2b')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem2b') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem2b'), 'has-success': fields.iem2b && fields.iem2b.valid }">
+                    <label for="iem2b" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2b') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem2b" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem2b'), 'form-control-success': fields.iem2b && fields.iem2b.valid}"
+                               id="iem2b" name="iem2b" placeholder="{{ trans('admin.sici.columns.iem2b') }}">
+                        <div v-if="errors.has('iem2b')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem2b') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem2c'), 'has-success': fields.iem2c && fields.iem2c.valid }">
-            <label for="iem2c" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2c') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem2c" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem2c'), 'form-control-success': fields.iem2c && fields.iem2c.valid}"
-                       id="iem2c" name="iem2c" placeholder="{{ trans('admin.sici.columns.iem2c') }}">
-                <div v-if="errors.has('iem2c')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem2c') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem2c'), 'has-success': fields.iem2c && fields.iem2c.valid }">
+                    <label for="iem2c" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem2c') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem2c" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem2c'), 'form-control-success': fields.iem2c && fields.iem2c.valid}"
+                               id="iem2c" name="iem2c" placeholder="{{ trans('admin.sici.columns.iem2c') }}">
+                        <div v-if="errors.has('iem2c')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem2c') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-
+                IEM6
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem3a'), 'has-success': fields.iem3a && fields.iem3a.valid }">
-            <label for="iem3a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem3a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem3a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem3a'), 'form-control-success': fields.iem3a && fields.iem3a.valid}"
-                       id="iem3a" name="iem3a" placeholder="{{ trans('admin.sici.columns.iem3a') }}">
-                <div v-if="errors.has('iem3a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem3a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem3a'), 'has-success': fields.iem3a && fields.iem3a.valid }">
+                    <label for="iem3a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem3a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem3a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem3a'), 'form-control-success': fields.iem3a && fields.iem3a.valid}"
+                               id="iem3a" name="iem3a" placeholder="{{ trans('admin.sici.columns.iem3a') }}">
+                        <div v-if="errors.has('iem3a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem3a') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-
+                IEM6
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem6a'), 'has-success': fields.iem6a && fields.iem6a.valid }">
-            <label for="iem6a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem6a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem6a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem6a'), 'form-control-success': fields.iem6a && fields.iem6a.valid}"
-                       id="iem6a" name="iem6a" placeholder="{{ trans('admin.sici.columns.iem6a') }}">
-                <div v-if="errors.has('iem6a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem6a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem6a'), 'has-success': fields.iem6a && fields.iem6a.valid }">
+                    <label for="iem6a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem6a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem6a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem6a'), 'form-control-success': fields.iem6a && fields.iem6a.valid}"
+                               id="iem6a" name="iem6a" placeholder="{{ trans('admin.sici.columns.iem6a') }}">
+                        <div v-if="errors.has('iem6a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem6a') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-
+                IEM7
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-
-                </h5>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem7a'), 'has-success': fields.iem7a && fields.iem7a.valid }">
-            <label for="iem7a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem7a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem7a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem7a'), 'form-control-success': fields.iem7a && fields.iem7a.valid}"
-                       id="iem7a" name="iem7a" placeholder="{{ trans('admin.sici.columns.iem7a') }}">
-                <div v-if="errors.has('iem7a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem7a') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem7a'), 'has-success': fields.iem7a && fields.iem7a.valid }">
+                    <label for="iem7a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem7a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem7a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem7a'), 'form-control-success': fields.iem7a && fields.iem7a.valid}"
+                               id="iem7a" name="iem7a" placeholder="{{ trans('admin.sici.columns.iem7a') }}">
+                        <div v-if="errors.has('iem7a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem7a') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
