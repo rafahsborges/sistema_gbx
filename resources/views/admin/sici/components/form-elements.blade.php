@@ -813,6 +813,798 @@
                                    placeholder="{{ trans('admin.sici.columns.qaipl4smC19') }}">
                         </td>
                     </tr>
+                    <tr>
+                        <td>FWA</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smDqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smDqaipl5sm'), 'form-control-success': fields.qaipl4smDqaipl5sm && fields.qaipl4smDqaipl5sm.valid}"
+                                   id="qaipl4smDqaipl5sm" name="qaipl4smDqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smDqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smDtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smDtotal'), 'form-control-success': fields.qaipl4smDtotal && fields.qaipl4smDtotal.valid}"
+                                   id="qaipl4smDtotal" name="qaipl4smDtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smDtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smD15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smD15'), 'form-control-success': fields.qaipl4smD15 && fields.qaipl4smD15.valid}"
+                                   id="qaipl4smD15" name="qaipl4smD15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smD15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smD16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smD16'), 'form-control-success': fields.qaipl4smD16 && fields.qaipl4smD16.valid}"
+                                   id="qaipl4smD16" name="qaipl4smD16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smD16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smD17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smD17'), 'form-control-success': fields.qaipl4smD17 && fields.qaipl4smD17.valid}"
+                                   id="qaipl4smD17" name="qaipl4smD17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smD17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smD18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smD18'), 'form-control-success': fields.qaipl4smD18 && fields.qaipl4smD18.valid}"
+                                   id="qaipl4smD18" name="qaipl4smD18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smD18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smD19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smD19'), 'form-control-success': fields.qaipl4smD19 && fields.qaipl4smD19.valid}"
+                                   id="qaipl4smD19" name="qaipl4smD19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smD19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MMDS</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smEqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smEqaipl5sm'), 'form-control-success': fields.qaipl4smEqaipl5sm && fields.qaipl4smEqaipl5sm.valid}"
+                                   id="qaipl4smEqaipl5sm" name="qaipl4smEqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smEqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smEtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smEtotal'), 'form-control-success': fields.qaipl4smEtotal && fields.qaipl4smEtotal.valid}"
+                                   id="qaipl4smEtotal" name="qaipl4smEtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smEtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smE15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smE15'), 'form-control-success': fields.qaipl4smE15 && fields.qaipl4smE15.valid}"
+                                   id="qaipl4smE15" name="qaipl4smE15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smE15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smE16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smE16'), 'form-control-success': fields.qaipl4smE16 && fields.qaipl4smE16.valid}"
+                                   id="qaipl4smE16" name="qaipl4smE16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smE16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smE17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smE17'), 'form-control-success': fields.qaipl4smE17 && fields.qaipl4smE17.valid}"
+                                   id="qaipl4smE17" name="qaipl4smE17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smE17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smE18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smE18'), 'form-control-success': fields.qaipl4smE18 && fields.qaipl4smE18.valid}"
+                                   id="qaipl4smE18" name="qaipl4smE18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smE18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smE19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smE19'), 'form-control-success': fields.qaipl4smE19 && fields.qaipl4smE19.valid}"
+                                   id="qaipl4smE19" name="qaipl4smE19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smE19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DTH</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smFqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smFqaipl5sm'), 'form-control-success': fields.qaipl4smFqaipl5sm && fields.qaipl4smFqaipl5sm.valid}"
+                                   id="qaipl4smFqaipl5sm" name="qaipl4smFqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smFqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smFtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smFtotal'), 'form-control-success': fields.qaipl4smFtotal && fields.qaipl4smFtotal.valid}"
+                                   id="qaipl4smFtotal" name="qaipl4smFtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smFtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smF15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smF15'), 'form-control-success': fields.qaipl4smF15 && fields.qaipl4smF15.valid}"
+                                   id="qaipl4smF15" name="qaipl4smF15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smF15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smF16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smF16'), 'form-control-success': fields.qaipl4smF16 && fields.qaipl4smF16.valid}"
+                                   id="qaipl4smF16" name="qaipl4smF16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smF16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smF17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smF17'), 'form-control-success': fields.qaipl4smF17 && fields.qaipl4smF17.valid}"
+                                   id="qaipl4smF17" name="qaipl4smF17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smF17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smF18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smF18'), 'form-control-success': fields.qaipl4smF18 && fields.qaipl4smF18.valid}"
+                                   id="qaipl4smF18" name="qaipl4smF18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smF18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smF19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smF19'), 'form-control-success': fields.qaipl4smF19 && fields.qaipl4smF19.valid}"
+                                   id="qaipl4smF19" name="qaipl4smF19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smF19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SATELITE</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smGqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smGqaipl5sm'), 'form-control-success': fields.qaipl4smGqaipl5sm && fields.qaipl4smGqaipl5sm.valid}"
+                                   id="qaipl4smGqaipl5sm" name="qaipl4smGqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smGqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smGtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smGtotal'), 'form-control-success': fields.qaipl4smGtotal && fields.qaipl4smGtotal.valid}"
+                                   id="qaipl4smGtotal" name="qaipl4smGtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smGtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smG15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smG15'), 'form-control-success': fields.qaipl4smG15 && fields.qaipl4smG15.valid}"
+                                   id="qaipl4smG15" name="qaipl4smG15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smG15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smG16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smG16'), 'form-control-success': fields.qaipl4smG16 && fields.qaipl4smG16.valid}"
+                                   id="qaipl4smG16" name="qaipl4smG16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smG16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smG17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smG17'), 'form-control-success': fields.qaipl4smG17 && fields.qaipl4smG17.valid}"
+                                   id="qaipl4smG17" name="qaipl4smG17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smG17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smG18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smG18'), 'form-control-success': fields.qaipl4smG18 && fields.qaipl4smG18.valid}"
+                                   id="qaipl4smG18" name="qaipl4smG18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smG18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smG19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smG19'), 'form-control-success': fields.qaipl4smG19 && fields.qaipl4smG19.valid}"
+                                   id="qaipl4smG19" name="qaipl4smG19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smG19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fibra</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smHqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smHqaipl5sm'), 'form-control-success': fields.qaipl4smHqaipl5sm && fields.qaipl4smHqaipl5sm.valid}"
+                                   id="qaipl4smHqaipl5sm" name="qaipl4smHqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smHqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smHtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smHtotal'), 'form-control-success': fields.qaipl4smHtotal && fields.qaipl4smHtotal.valid}"
+                                   id="qaipl4smHtotal" name="qaipl4smHtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smHtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smH15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smH15'), 'form-control-success': fields.qaipl4smH15 && fields.qaipl4smH15.valid}"
+                                   id="qaipl4smH15" name="qaipl4smH15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smH15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smH16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smH16'), 'form-control-success': fields.qaipl4smH16 && fields.qaipl4smH16.valid}"
+                                   id="qaipl4smH16" name="qaipl4smH16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smH16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smH17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smH17'), 'form-control-success': fields.qaipl4smH17 && fields.qaipl4smH17.valid}"
+                                   id="qaipl4smH17" name="qaipl4smH17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smH17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smH18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smH18'), 'form-control-success': fields.qaipl4smH18 && fields.qaipl4smH18.valid}"
+                                   id="qaipl4smH18" name="qaipl4smH18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smH18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smH19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smH19'), 'form-control-success': fields.qaipl4smH19 && fields.qaipl4smH19.valid}"
+                                   id="qaipl4smH19" name="qaipl4smH19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smH19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PLC</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smIqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smIqaipl5sm'), 'form-control-success': fields.qaipl4smIqaipl5sm && fields.qaipl4smIqaipl5sm.valid}"
+                                   id="qaipl4smIqaipl5sm" name="qaipl4smIqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smIqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smItotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smItotal'), 'form-control-success': fields.qaipl4smItotal && fields.qaipl4smItotal.valid}"
+                                   id="qaipl4smItotal" name="qaipl4smItotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smItotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smI15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smI15'), 'form-control-success': fields.qaipl4smI15 && fields.qaipl4smI15.valid}"
+                                   id="qaipl4smI15" name="qaipl4smI15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smI15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smI16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smI16'), 'form-control-success': fields.qaipl4smI16 && fields.qaipl4smI16.valid}"
+                                   id="qaipl4smI16" name="qaipl4smI16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smI16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smI17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smI17'), 'form-control-success': fields.qaipl4smI17 && fields.qaipl4smI17.valid}"
+                                   id="qaipl4smI17" name="qaipl4smI17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smI17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smI18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smI18'), 'form-control-success': fields.qaipl4smI18 && fields.qaipl4smI18.valid}"
+                                   id="qaipl4smI18" name="qaipl4smI18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smI18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smI19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smI19'), 'form-control-success': fields.qaipl4smI19 && fields.qaipl4smI19.valid}"
+                                   id="qaipl4smI19" name="qaipl4smI19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smI19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HFC</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJqaipl5sm'), 'form-control-success': fields.qaipl4smJqaipl5sm && fields.qaipl4smJqaipl5sm.valid}"
+                                   id="qaipl4smJqaipl5sm" name="qaipl4smJqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJtotal'), 'form-control-success': fields.qaipl4smJtotal && fields.qaipl4smJtotal.valid}"
+                                   id="qaipl4smJtotal" name="qaipl4smJtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJ15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJ15'), 'form-control-success': fields.qaipl4smJ15 && fields.qaipl4smJ15.valid}"
+                                   id="qaipl4smJ15" name="qaipl4smJ15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJ15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJ16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJ16'), 'form-control-success': fields.qaipl4smJ16 && fields.qaipl4smJ16.valid}"
+                                   id="qaipl4smJ16" name="qaipl4smJ16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJ16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJ17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJ17'), 'form-control-success': fields.qaipl4smJ17 && fields.qaipl4smJ17.valid}"
+                                   id="qaipl4smJ17" name="qaipl4smJ17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJ17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJ18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJ18'), 'form-control-success': fields.qaipl4smJ18 && fields.qaipl4smJ18.valid}"
+                                   id="qaipl4smJ18" name="qaipl4smJ18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJ18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smJ19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smJ19'), 'form-control-success': fields.qaipl4smJ19 && fields.qaipl4smJ19.valid}"
+                                   id="qaipl4smJ19" name="qaipl4smJ19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smJ19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>WIMAX</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smKqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smKqaipl5sm'), 'form-control-success': fields.qaipl4smKqaipl5sm && fields.qaipl4smKqaipl5sm.valid}"
+                                   id="qaipl4smKqaipl5sm" name="qaipl4smKqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smKqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smKtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smKtotal'), 'form-control-success': fields.qaipl4smKtotal && fields.qaipl4smKtotal.valid}"
+                                   id="qaipl4smKtotal" name="qaipl4smKtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smKtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smK15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smK15'), 'form-control-success': fields.qaipl4smK15 && fields.qaipl4smK15.valid}"
+                                   id="qaipl4smK15" name="qaipl4smK15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smK15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smK16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smK16'), 'form-control-success': fields.qaipl4smK16 && fields.qaipl4smK16.valid}"
+                                   id="qaipl4smK16" name="qaipl4smK16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smK16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smK17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smK17'), 'form-control-success': fields.qaipl4smK17 && fields.qaipl4smK17.valid}"
+                                   id="qaipl4smK17" name="qaipl4smK17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smK17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smK18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smK18'), 'form-control-success': fields.qaipl4smK18 && fields.qaipl4smK18.valid}"
+                                   id="qaipl4smK18" name="qaipl4smK18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smK18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smK19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smK19'), 'form-control-success': fields.qaipl4smK19 && fields.qaipl4smK19.valid}"
+                                   id="qaipl4smK19" name="qaipl4smK19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smK19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LTE</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smLqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smLqaipl5sm'), 'form-control-success': fields.qaipl4smLqaipl5sm && fields.qaipl4smLqaipl5sm.valid}"
+                                   id="qaipl4smLqaipl5sm" name="qaipl4smLqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smLqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smLtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smLtotal'), 'form-control-success': fields.qaipl4smLtotal && fields.qaipl4smLtotal.valid}"
+                                   id="qaipl4smLtotal" name="qaipl4smLtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smLtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smL15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smL15'), 'form-control-success': fields.qaipl4smL15 && fields.qaipl4smL15.valid}"
+                                   id="qaipl4smL15" name="qaipl4smL15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smL15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smL16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smL16'), 'form-control-success': fields.qaipl4smL16 && fields.qaipl4smL16.valid}"
+                                   id="qaipl4smL16" name="qaipl4smL16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smL16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smL17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smL17'), 'form-control-success': fields.qaipl4smL17 && fields.qaipl4smL17.valid}"
+                                   id="qaipl4smL17" name="qaipl4smL17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smL17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smL18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smL18'), 'form-control-success': fields.qaipl4smL18 && fields.qaipl4smL18.valid}"
+                                   id="qaipl4smL18" name="qaipl4smL18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smL18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smL19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smL19'), 'form-control-success': fields.qaipl4smL19 && fields.qaipl4smL19.valid}"
+                                   id="qaipl4smL19" name="qaipl4smL19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smL19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ETHERNET</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smMqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smMqaipl5sm'), 'form-control-success': fields.qaipl4smMqaipl5sm && fields.qaipl4smMqaipl5sm.valid}"
+                                   id="qaipl4smMqaipl5sm" name="qaipl4smMqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smMqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smMtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smMtotal'), 'form-control-success': fields.qaipl4smMtotal && fields.qaipl4smMtotal.valid}"
+                                   id="qaipl4smMtotal" name="qaipl4smMtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smMtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smM15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smM15'), 'form-control-success': fields.qaipl4smM15 && fields.qaipl4smM15.valid}"
+                                   id="qaipl4smM15" name="qaipl4smM15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smM15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smM16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smM16'), 'form-control-success': fields.qaipl4smM16 && fields.qaipl4smM16.valid}"
+                                   id="qaipl4smM16" name="qaipl4smM16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smM16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smM17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smM17'), 'form-control-success': fields.qaipl4smM17 && fields.qaipl4smM17.valid}"
+                                   id="qaipl4smM17" name="qaipl4smM17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smM17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smM18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smM18'), 'form-control-success': fields.qaipl4smM18 && fields.qaipl4smM18.valid}"
+                                   id="qaipl4smM18" name="qaipl4smM18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smM18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smM19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smM19'), 'form-control-success': fields.qaipl4smM19 && fields.qaipl4smM19.valid}"
+                                   id="qaipl4smM19" name="qaipl4smM19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smM19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FR</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smNqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smNqaipl5sm'), 'form-control-success': fields.qaipl4smNqaipl5sm && fields.qaipl4smNqaipl5sm.valid}"
+                                   id="qaipl4smNqaipl5sm" name="qaipl4smNqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smNqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smNtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smNtotal'), 'form-control-success': fields.qaipl4smNtotal && fields.qaipl4smNtotal.valid}"
+                                   id="qaipl4smNtotal" name="qaipl4smNtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smNtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smN15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smN15'), 'form-control-success': fields.qaipl4smN15 && fields.qaipl4smN15.valid}"
+                                   id="qaipl4smN15" name="qaipl4smN15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smN15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smN16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smN16'), 'form-control-success': fields.qaipl4smN16 && fields.qaipl4smN16.valid}"
+                                   id="qaipl4smN16" name="qaipl4smN16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smN16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smN17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smN17'), 'form-control-success': fields.qaipl4smN17 && fields.qaipl4smN17.valid}"
+                                   id="qaipl4smN17" name="qaipl4smN17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smN17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smN18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smN18'), 'form-control-success': fields.qaipl4smN18 && fields.qaipl4smN18.valid}"
+                                   id="qaipl4smN18" name="qaipl4smN18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smN18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smN19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smN19'), 'form-control-success': fields.qaipl4smN19 && fields.qaipl4smN19.valid}"
+                                   id="qaipl4smN19" name="qaipl4smN19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smN19') }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ATM</td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smOqaipl5sm" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smOqaipl5sm'), 'form-control-success': fields.qaipl4smOqaipl5sm && fields.qaipl4smOqaipl5sm.valid}"
+                                   id="qaipl4smOqaipl5sm" name="qaipl4smOqaipl5sm"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smOqaipl5sm') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smOtotal" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smOtotal'), 'form-control-success': fields.qaipl4smOtotal && fields.qaipl4smOtotal.valid}"
+                                   id="qaipl4smOtotal" name="qaipl4smOtotal"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smOtotal') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smO15" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smO15'), 'form-control-success': fields.qaipl4smO15 && fields.qaipl4smO15.valid}"
+                                   id="qaipl4smO15" name="qaipl4smO15"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smO15') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smO16" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smO16'), 'form-control-success': fields.qaipl4smO16 && fields.qaipl4smO16.valid}"
+                                   id="qaipl4smO16" name="qaipl4smO16"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smO16') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smO17" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smO17'), 'form-control-success': fields.qaipl4smO17 && fields.qaipl4smO17.valid}"
+                                   id="qaipl4smO17" name="qaipl4smO17"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smO17') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smO18" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smO18'), 'form-control-success': fields.qaipl4smO18 && fields.qaipl4smO18.valid}"
+                                   id="qaipl4smO18" name="qaipl4smO18"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smO18') }}">
+                        </td>
+                        <td>
+                            <input type="text" v-model="form.qaipl4smO19" v-validate="'integer'"
+                                   v-money="integer"
+                                   @input="validate($event)"
+                                   class="form-control"
+                                   :class="{'form-control-danger': errors.has('qaipl4smO19'), 'form-control-success': fields.qaipl4smO19 && fields.qaipl4smO19.valid}"
+                                   id="qaipl4smO19" name="qaipl4smO19"
+                                   placeholder="{{ trans('admin.sici.columns.qaipl4smO19') }}">
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
 
@@ -850,19 +1642,37 @@
     </div>
     <div class="card-body">
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iau1'), 'has-success': fields.iau1 && fields.iau1.valid }">
-            <label for="iau1" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iau1') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iau1" v-validate="'integer'" v-money="integer"
-                       @input="validate($event)" class="form-control"
-                       :class="{'form-control-danger': errors.has('iau1'), 'form-control-success': fields.iau1 && fields.iau1.valid}"
-                       id="iau1" name="iau1" placeholder="{{ trans('admin.sici.columns.iau1') }}">
-                <div v-if="errors.has('iau1')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iau1')
-                    }}
+        <div class="card">
+            <div class="card-header">
+                IAU
+            </div>
+            <div class="card-body">
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iau1'), 'has-success': fields.iau1 && fields.iau1.valid }">
+                    <label for="iau1" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iau1') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iau1" v-validate="'integer'" v-money="integer"
+                               @input="validate($event)" class="form-control"
+                               :class="{'form-control-danger': errors.has('iau1'), 'form-control-success': fields.iau1 && fields.iau1.valid}"
+                               id="iau1" name="iau1" placeholder="{{ trans('admin.sici.columns.iau1') }}">
+                        <div v-if="errors.has('iau1')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iau1')
+                            }}
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
             </div>
         </div>
 
@@ -930,6 +1740,17 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
+            </div>
+        </div>
+
         <div class="form-group row align-items-center"
              :class="{'has-danger': errors.has('ipl2a'), 'has-success': fields.ipl2a && fields.ipl2a.valid }">
             <label for="ipl2a" class="col-form-label text-md-right"
@@ -991,6 +1812,17 @@
                 <div v-if="errors.has('ipl2d')" class="form-control-feedback form-text" v-cloak>@{{
                     errors.first('ipl2d') }}
                 </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
             </div>
         </div>
 
@@ -1106,6 +1938,17 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
+            </div>
+        </div>
+
         <div class="form-group row align-items-center"
              :class="{'has-danger': errors.has('iem2a'), 'has-success': fields.iem2a && fields.iem2a.valid }">
             <label for="iem2a" class="col-form-label text-md-right"
@@ -1154,6 +1997,17 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
+            </div>
+        </div>
+
         <div class="form-group row align-items-center"
              :class="{'has-danger': errors.has('iem3a'), 'has-success': fields.iem3a && fields.iem3a.valid }">
             <label for="iem3a" class="col-form-label text-md-right"
@@ -1167,6 +2021,17 @@
                 <div v-if="errors.has('iem3a')" class="form-control-feedback form-text" v-cloak>@{{
                     errors.first('iem3a') }}
                 </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
             </div>
         </div>
 
@@ -1186,6 +2051,17 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
+            </div>
+        </div>
+
         <div class="form-group row align-items-center"
              :class="{'has-danger': errors.has('iem7a'), 'has-success': fields.iem7a && fields.iem7a.valid }">
             <label for="iem7a" class="col-form-label text-md-right"
@@ -1202,82 +2078,89 @@
             </div>
         </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem8a'), 'has-success': fields.iem8a && fields.iem8a.valid }">
-            <label for="iem8a" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8a') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem8a" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem8a'), 'form-control-success': fields.iem8a && fields.iem8a.valid}"
-                       id="iem8a" name="iem8a" placeholder="{{ trans('admin.sici.columns.iem8a') }}">
-                <div v-if="errors.has('iem8a')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem8a') }}
-                </div>
+        <div class="card">
+            <div class="card-header">
+                IEM8
             </div>
-        </div>
-
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem8b'), 'has-success': fields.iem8b && fields.iem8b.valid }">
-            <label for="iem8b" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8b') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem8b" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem8b'), 'form-control-success': fields.iem8b && fields.iem8b.valid}"
-                       id="iem8b" name="iem8b" placeholder="{{ trans('admin.sici.columns.iem8b') }}">
-                <div v-if="errors.has('iem8b')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem8b') }}
+            <div class="card-body">
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem8a'), 'has-success': fields.iem8a && fields.iem8a.valid }">
+                    <label for="iem8a" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8a') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem8a" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem8a'), 'form-control-success': fields.iem8a && fields.iem8a.valid}"
+                               id="iem8a" name="iem8a" placeholder="{{ trans('admin.sici.columns.iem8a') }}">
+                        <div v-if="errors.has('iem8a')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem8a') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem8c'), 'has-success': fields.iem8c && fields.iem8c.valid }">
-            <label for="iem8c" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8c') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem8c" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem8c'), 'form-control-success': fields.iem8c && fields.iem8c.valid}"
-                       id="iem8c" name="iem8c" placeholder="{{ trans('admin.sici.columns.iem8c') }}">
-                <div v-if="errors.has('iem8c')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem8c') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem8b'), 'has-success': fields.iem8b && fields.iem8b.valid }">
+                    <label for="iem8b" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8b') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem8b" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem8b'), 'form-control-success': fields.iem8b && fields.iem8b.valid}"
+                               id="iem8b" name="iem8b" placeholder="{{ trans('admin.sici.columns.iem8b') }}">
+                        <div v-if="errors.has('iem8b')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem8b') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem8d'), 'has-success': fields.iem8d && fields.iem8d.valid }">
-            <label for="iem8d" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8d') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem8d" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem8d'), 'form-control-success': fields.iem8d && fields.iem8d.valid}"
-                       id="iem8d" name="iem8d" placeholder="{{ trans('admin.sici.columns.iem8d') }}">
-                <div v-if="errors.has('iem8d')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem8d') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem8c'), 'has-success': fields.iem8c && fields.iem8c.valid }">
+                    <label for="iem8c" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8c') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem8c" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem8c'), 'form-control-success': fields.iem8c && fields.iem8c.valid}"
+                               id="iem8c" name="iem8c" placeholder="{{ trans('admin.sici.columns.iem8c') }}">
+                        <div v-if="errors.has('iem8c')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem8c') }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('iem8e'), 'has-success': fields.iem8e && fields.iem8e.valid }">
-            <label for="iem8e" class="col-form-label text-md-right"
-                   :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8e') }}</label>
-            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-                <input type="text" v-model="form.iem8e" v-validate="''" @input="validate($event)"
-                       class="form-control"
-                       v-money="money"
-                       :class="{'form-control-danger': errors.has('iem8e'), 'form-control-success': fields.iem8e && fields.iem8e.valid}"
-                       id="iem8e" name="iem8e" placeholder="{{ trans('admin.sici.columns.iem8e') }}">
-                <div v-if="errors.has('iem8e')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('iem8e') }}
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem8d'), 'has-success': fields.iem8d && fields.iem8d.valid }">
+                    <label for="iem8d" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8d') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem8d" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem8d'), 'form-control-success': fields.iem8d && fields.iem8d.valid}"
+                               id="iem8d" name="iem8d" placeholder="{{ trans('admin.sici.columns.iem8d') }}">
+                        <div v-if="errors.has('iem8d')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem8d') }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row align-items-center"
+                     :class="{'has-danger': errors.has('iem8e'), 'has-success': fields.iem8e && fields.iem8e.valid }">
+                    <label for="iem8e" class="col-form-label text-md-right"
+                           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.sici.columns.iem8e') }}</label>
+                    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                        <input type="text" v-model="form.iem8e" v-validate="''" @input="validate($event)"
+                               class="form-control"
+                               v-money="money"
+                               :class="{'form-control-danger': errors.has('iem8e'), 'form-control-success': fields.iem8e && fields.iem8e.valid}"
+                               id="iem8e" name="iem8e" placeholder="{{ trans('admin.sici.columns.iem8e') }}">
+                        <div v-if="errors.has('iem8e')" class="form-control-feedback form-text" v-cloak>@{{
+                            errors.first('iem8e') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
