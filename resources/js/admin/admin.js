@@ -45,14 +45,6 @@ new Vue({
 
     created() {
         this.fetchMessages();
-        Echo.private('chat')
-            .listen('MessageSent', (e) => {
-                console.log('aqui');
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
-            });
     },
 
     methods: {

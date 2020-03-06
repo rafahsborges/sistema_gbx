@@ -29,7 +29,7 @@ class ChatsController extends Controller
      */
     public function list()
     {
-        return Message::with('cliente')->get();
+        return Message::with('user')->get();
     }
 
     /**

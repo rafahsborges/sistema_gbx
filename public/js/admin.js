@@ -112545,24 +112545,14 @@ new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
     messages: []
   },
   created: function created() {
-    var _this = this;
-
     this.fetchMessages();
-    Echo["private"]('chat').listen('MessageSent', function (e) {
-      console.log('aqui');
-
-      _this.messages.push({
-        message: e.message.message,
-        user: e.user
-      });
-    });
   },
   methods: {
     fetchMessages: function fetchMessages() {
-      var _this2 = this;
+      var _this = this;
 
       axios.get('messages').then(function (response) {
-        _this2.messages = response.data;
+        _this.messages = response.data;
       });
     },
     addMessage: function addMessage(message) {
@@ -112909,7 +112899,7 @@ Vue.component('chat-form', {
 
 Vue.component('chat-messages', {
   props: ['messages'],
-  template: "\n        <ul class=\"chat\">\n            <li class=\"left clearfix\" v-for=\"message in messages\">\n                <div class=\"chat-body clearfix\">\n                    <div class=\"header\">\n                        <strong class=\"primary-font\">\n                            {{ message.user.name }}\n                        </strong>\n                    </div>\n                    <p>\n                        {{ message.message }}\n                    </p>\n                </div>\n            </li>\n        </ul>\n    "
+  template: "\n        <ul class=\"chat\">\n            <li class=\"left clearfix\" v-for=\"message in messages\">\n                <div class=\"chat-body clearfix\">\n                    <div class=\"header\">\n                        <strong class=\"primary-font\">\n                            {{ message.user.nome }}\n                        </strong>\n                    </div>\n                    <p>\n                        {{ message.message }}\n                    </p>\n                </div>\n            </li>\n        </ul>\n    "
 });
 
 /***/ }),

@@ -29237,6 +29237,8 @@ Vue.use(v_money__WEBPACK_IMPORTED_MODULE_1___default.a, {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
+var _this = undefined;
+
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -29259,6 +29261,14 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   key: "0917f46c8e3c923d1e23",
   cluster: "us2",
   forceTLS: true
+});
+window.Echo["private"]('chat').listen('MessageSent', function (e) {
+  console.log('aqui');
+
+  _this.messages.push({
+    message: e.message.message,
+    user: e.user
+  });
 });
 
 /***/ }),

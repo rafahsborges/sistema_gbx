@@ -27,7 +27,7 @@ class Message extends Model
      *
      * @return BelongsTo
      */
-    public function cliente()
+    public function user()
     {
         return $this->belongsTo('App\Models\AdminUser', 'user_id');
     }
