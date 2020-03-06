@@ -11,32 +11,32 @@
             </Indicador>
             <Indicador Sigla="IEM9">
                 <Pessoa item="F">
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{$sici->iem9Fa}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{$sici->iem9Fb}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{$sici->iem9Fc}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{$sici->iem9Fd}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="e" valor="{{$sici->iem9Fe}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{str_replace('.', ',', $sici->iem9Fa)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{str_replace('.', ',', $sici->iem9Fb)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{str_replace('.', ',', $sici->iem9Fc)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{str_replace('.', ',', $sici->iem9Fd)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="e" valor="{{str_replace('.', ',', $sici->iem9Fe)}}"/>
                 </Pessoa>
                 <Pessoa item="J">
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{$sici->iem9Ja}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{$sici->iem9Jb}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{$sici->iem9Jc}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{$sici->iem9Jd}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="e" valor="{{$sici->iem9Je}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{str_replace('.', ',', $sici->iem9Ja)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{str_replace('.', ',', $sici->iem9Jb)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{str_replace('.', ',', $sici->iem9Jc)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{str_replace('.', ',', $sici->iem9Jd)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="e" valor="{{str_replace('.', ',', $sici->iem9Je)}}"/>
                 </Pessoa>
             </Indicador>
             <Indicador Sigla="IEM10">
                 <Pessoa item="F">
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{$sici->iem10Fa}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{$sici->iem10Fb}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{$sici->iem10Fc}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{$sici->iem10Fd}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{str_replace('.', ',', $sici->iem10Fa)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{str_replace('.', ',', $sici->iem10Fb)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{str_replace('.', ',', $sici->iem10Fc)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{str_replace('.', ',', $sici->iem10Fd)}}"/>
                 </Pessoa>
                 <Pessoa item="J">
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{$sici->iem10Ja}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{$sici->iem10Jb}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{$sici->iem10Jc}}"/>
-                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{$sici->iem10Jd}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="a" valor="{{str_replace('.', ',', $sici->iem10Ja)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="b" valor="{{str_replace('.', ',', $sici->iem10Jb)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="c" valor="{{str_replace('.', ',', $sici->iem10Jc)}}"/>
+                    <Conteudo uf="{{$sici->estado->abreviacao}}" item="d" valor="{{str_replace('.', ',', $sici->iem10Jd)}}"/>
                 </Pessoa>
             </Indicador>
             <Indicador Sigla="IPL3">
@@ -195,46 +195,46 @@
                 <Conteudo valor="{{$sici->iau1}}"/>
             </Indicador>
             <Indicador Sigla="IPL1">
-                <Conteudo item="a" valor="{{$sici->ipl1a}}"/>
-                <Conteudo item="b" valor="{{$sici->ipl1b}}"/>
-                <Conteudo item="c" valor="{{$sici->ipl1c}}"/>
-                <Conteudo item="d" valor="{{$sici->ipl1d}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->ipl1a)}}"/>
+                <Conteudo item="b" valor="{{str_replace('.', ',', $sici->ipl1b)}}"/>
+                <Conteudo item="c" valor="{{str_replace('.', ',', $sici->ipl1c)}}"/>
+                <Conteudo item="d" valor="{{str_replace('.', ',', $sici->ipl1d)}}"/>
             </Indicador>
             <Indicador Sigla="IPL2">
-                <Conteudo item="a" valor="{{$sici->ipl2a}}"/>
-                <Conteudo item="b" valor="{{$sici->ipl2b}}"/>
-                <Conteudo item="c" valor="{{$sici->ipl2c}}"/>
-                <Conteudo item="d" valor="{{$sici->ipl2d}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->ipl2a)}}"/>
+                <Conteudo item="b" valor="{{str_replace('.', ',', $sici->ipl2b)}}"/>
+                <Conteudo item="c" valor="{{str_replace('.', ',', $sici->ipl2c)}}"/>
+                <Conteudo item="d" valor="{{str_replace('.', ',', $sici->ipl2d)}}"/>
             </Indicador>
             <Indicador Sigla="IEM1">
-                <Conteudo item="a" valor="{{$sici->iem1a}}"/>
-                <Conteudo item="b" valor="{{$sici->iem1b}}"/>
-                <Conteudo item="c" valor="{{$sici->iem1c}}"/>
-                <Conteudo item="d" valor="{{$sici->iem1d}}"/>
-                <Conteudo item="e" valor="{{$sici->iem1e}}"/>
-                <Conteudo item="f" valor="{{$sici->iem1f}}"/>
-                <Conteudo item="g" valor="{{$sici->iem1g}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->iem1a)}}"/>
+                <Conteudo item="b" valor="{{str_replace('.', ',', $sici->iem1b)}}"/>
+                <Conteudo item="c" valor="{{str_replace('.', ',', $sici->iem1c)}}"/>
+                <Conteudo item="d" valor="{{str_replace('.', ',', $sici->iem1d)}}"/>
+                <Conteudo item="e" valor="{{str_replace('.', ',', $sici->iem1e)}}"/>
+                <Conteudo item="f" valor="{{str_replace('.', ',', $sici->iem1f)}}"/>
+                <Conteudo item="g" valor="{{str_replace('.', ',', $sici->iem1g)}}"/>
             </Indicador>
             <Indicador Sigla="IEM2">
-                <Conteudo item="a" valor="{{$sici->iem2a}}"/>
-                <Conteudo item="b" valor="{{$sici->iem2b}}"/>
-                <Conteudo item="c" valor="{{$sici->iem2c}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->iem2a)}}"/>
+                <Conteudo item="b" valor="{{str_replace('.', ',', $sici->iem2b)}}"/>
+                <Conteudo item="c" valor="{{str_replace('.', ',', $sici->iem2c)}}"/>
             </Indicador>
             <Indicador Sigla="IEM3">
-                <Conteudo item="a" valor="{{$sici->iem3a}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->iem3a)}}"/>
             </Indicador>
             <Indicador Sigla="IEM6">
-                <Conteudo item="a" valor="{{$sici->iem6a}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->iem6a)}}"/>
             </Indicador>
             <Indicador Sigla="IEM7">
-                <Conteudo item="a" valor="{{$sici->iem7a}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->iem7a)}}"/>
             </Indicador>
             <Indicador Sigla="IEM8">
-                <Conteudo item="a" valor="{{$sici->iem8a}}"/>
-                <Conteudo item="b" valor="{{$sici->iem8b}}"/>
-                <Conteudo item="c" valor="{{$sici->iem8c}}"/>
-                <Conteudo item="d" valor="{{$sici->iem8d}}"/>
-                <Conteudo item="e" valor="{{$sici->iem8e}}"/>
+                <Conteudo item="a" valor="{{str_replace('.', ',', $sici->iem8a)}}"/>
+                <Conteudo item="b" valor="{{str_replace('.', ',', $sici->iem8b)}}"/>
+                <Conteudo item="c" valor="{{str_replace('.', ',', $sici->iem8c)}}"/>
+                <Conteudo item="d" valor="{{str_replace('.', ',', $sici->iem8d)}}"/>
+                <Conteudo item="e" valor="{{str_replace('.', ',', $sici->iem8e)}}"/>
             </Indicador>
         </Outorga>
     </UploadSICI>

@@ -166,6 +166,26 @@
     </div>
 </div>
 
+<h3>
+    Indicadores por UF e Município
+</h3>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">UF</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        @{{ form.estado.abreviacao }}
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <h5>IEM4</h5>
+    </div>
+</div>
+
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('iem4a'), 'has-success': fields.iem4a && fields.iem4a.valid }">
     <label for="iem4a" class="col-form-label text-md-right"
@@ -180,6 +200,14 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <h5>IEM5</h5>
+    </div>
+</div>
+
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('iem5a'), 'has-success': fields.iem5a && fields.iem5a.valid }">
     <label for="iem5a" class="col-form-label text-md-right"
@@ -191,6 +219,22 @@
                id="iem5a" name="iem5a" placeholder="{{ trans('admin.sici.columns.iem5a') }}">
         <div v-if="errors.has('iem5a')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('iem5a') }}
         </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <h5>IEM9</h5>
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Tipo:</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        Pessoa Física
     </div>
 </div>
 
@@ -264,6 +308,14 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Tipo:</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        Pessoa Jurídica
+    </div>
+</div>
+
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('iem9Ja'), 'has-success': fields.iem9Ja && fields.iem9Ja.valid }">
     <label for="iem9Ja" class="col-form-label text-md-right"
@@ -334,6 +386,22 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <h5>IEM10</h5>
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Tipo:</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        Pessoa Física
+    </div>
+</div>
+
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('iem10Fa'), 'has-success': fields.iem10Fa && fields.iem10Fa.valid }">
     <label for="iem10Fa" class="col-form-label text-md-right"
@@ -391,6 +459,14 @@
         <div v-if="errors.has('iem10Fd')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('iem10Fd')
             }}
         </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Tipo:</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        Pessoa Jurídica
     </div>
 </div>
 
@@ -454,6 +530,30 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Município</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        @{{ form.cidade.nome }}
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <h5>IPL3</h5>
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Tipo:</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        Pessoa Física
+    </div>
+</div>
+
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('ipl3Fa'), 'has-success': fields.ipl3Fa && fields.ipl3Fa.valid }">
     <label for="ipl3Fa" class="col-form-label text-md-right"
@@ -465,6 +565,14 @@
                id="ipl3Fa" name="ipl3Fa" placeholder="{{ trans('admin.sici.columns.ipl3Fa') }}">
         <div v-if="errors.has('ipl3Fa')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('ipl3Fa') }}
         </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center">
+    <label for="ano" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Tipo:</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        Pessoa Jurídica
     </div>
 </div>
 
