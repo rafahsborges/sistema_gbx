@@ -282,3 +282,14 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('chats')->name('chats/')->group(static function () {
+            Route::get('/', 'ChatsController@index')->name('index');
+            Route::get('messages', 'ChatsController@list')->name('list');
+            Route::post('messages', 'ChatsController@store')->name('store');
+        });
+    });
+});
