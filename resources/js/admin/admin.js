@@ -8,7 +8,7 @@ import Multiselect from 'vue-multiselect';
 import VeeValidate from 'vee-validate';
 import 'flatpickr/dist/flatpickr.css';
 import VueCookie from 'vue-cookie';
-import { Admin } from 'craftable';
+import {Admin} from 'craftable';
 import VModal from 'vue-js-modal'
 import Vue from 'vue';
 
@@ -28,7 +28,7 @@ import * as moment from 'moment';
 Vue.component('multiselect', Multiselect);
 Vue.use(VeeValidate, {strict: true});
 Vue.component('datetime', flatPickr);
-Vue.use(VModal, { dialog: true, dynamic: true, injectModalsContainer: true });
+Vue.use(VModal, {dialog: true, dynamic: true, injectModalsContainer: true});
 Vue.use(VueQuillEditor);
 Vue.use(Notifications);
 Vue.use(VueCookie);
@@ -44,7 +44,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    forceTLS: true
+    encrypted: true,
 });
 
 new Vue({
