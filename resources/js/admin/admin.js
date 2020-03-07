@@ -36,6 +36,17 @@ Vue.use(ViaCep);
 Vue.use(VueTheMask);
 Vue.use(money, {precision: 4});
 
+import Echo from 'laravel-echo';
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    forceTLS: true
+});
+
 new Vue({
     mixins: [Admin],
 
@@ -45,11 +56,19 @@ new Vue({
 
     created() {
         this.fetchMessages();
+        window.Echo.private('chat')
+            .listen('MessageSent', (e) => {
+                console.log('aqui');
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+            });
     },
 
     methods: {
         fetchMessages() {
-            axios.get('messages').then(response => {
+            axios.get('/admin/chats/messages').then(response => {
                 this.messages = response.data;
             });
         },
@@ -57,7 +76,7 @@ new Vue({
         addMessage(message) {
             this.messages.push(message);
 
-            axios.post('messages', message).then(response => {
+            axios.post('/admin/chats/messages', message).then(response => {
                 console.log(response.data);
             });
         }
