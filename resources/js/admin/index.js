@@ -16,4 +16,3 @@ import './orcamento';
 import './mala-direta';
 import './boleto';
 import './sici';
-import './chat';

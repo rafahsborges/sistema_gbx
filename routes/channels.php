@@ -11,10 +11,10 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
+Broadcast::channel('App.AdminUser.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
 Broadcast::channel('chat', function ($user) {
-    return auth()->check();
+    return $user;
 });

@@ -29,7 +29,7 @@
                 </div>
                 <li class="nav-item"><a class="nav-link" href="http://sei.anatel.gov.br" target="_blank"><i
                             class="nav-icon icon-energy"></i> {{ trans('admin.anatel.title') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('admin/messages') }}"><i
+                <li class="nav-item"><a class="nav-link" href="{{ url('admin/chats') }}"><i
                             class="nav-icon icon-energy"></i> {{ trans('admin.chat.title') }}</a></li>
             @endif
             {{-- Do not delete me :) I'm used for auto-generation menu items --}}
@@ -64,6 +64,8 @@
                             class="nav-icon icon-energy"></i> {{ trans('admin.mala-direta.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/orcamentos') }}"><i
                             class="nav-icon icon-magnet"></i> {{ trans('admin.orcamento.title') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('admin/chats') }}"><i
+                            class="nav-icon icon-energy"></i> {{ trans('admin.chat.title') }}</a></li>
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/status') }}"><i
                             class="nav-icon icon-star"></i> {{ trans('admin.status.title') }}</a></li>

@@ -24,6 +24,7 @@ import VueTheMask from 'vue-the-mask';
 import money from 'v-money';
 
 import * as moment from 'moment';
+import VueChatScroll from "vue-chat-scroll";
 
 Vue.component('multiselect', Multiselect);
 Vue.use(VeeValidate, {strict: true});
@@ -35,6 +36,7 @@ Vue.use(VueCookie);
 Vue.use(ViaCep);
 Vue.use(VueTheMask);
 Vue.use(money, {precision: 4});
+Vue.use(VueChatScroll);
 
 import Echo from 'laravel-echo';
 
@@ -44,41 +46,11 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    encrypted: true,
+    forceTLS: true
 });
+
+Vue.component('chat-component', require('./chat/components/ChatComponent.vue').default);
 
 new Vue({
     mixins: [Admin],
-
-    data: {
-        messages: []
-    },
-
-    created() {
-        this.fetchMessages();
-        window.Echo.private('chat')
-            .listen('MessageSent', (e) => {
-                console.log('aqui');
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
-            });
-    },
-
-    methods: {
-        fetchMessages() {
-            axios.get('/admin/chats/messages').then(response => {
-                this.messages = response.data;
-            });
-        },
-
-        addMessage(message) {
-            this.messages.push(message);
-
-            axios.post('/admin/chats/messages', message).then(response => {
-                console.log(response.data);
-            });
-        }
-    }
 });
