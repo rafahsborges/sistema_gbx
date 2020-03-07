@@ -339,6 +339,14 @@ return [
         ],
     ],
 
+    'chat' => [
+        'title' => 'Chats',
+
+        'actions' => [
+            'index' => 'Chats',
+        ],
+    ],
+
     'sici' => [
         'title' => 'Sicis',
 
