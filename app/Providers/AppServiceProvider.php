@@ -30,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
         if (date('I')) {
             date_default_timezone_set('America/Fortaleza');
         }
+        ini_set('memory_limit','512M');
     }
 }
