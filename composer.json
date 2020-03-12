@@ -12,6 +12,7 @@
         "barryvdh/laravel-dompdf": "^0.8.5",
         "brackets/craftable": "^5.0",
         "fideloper/proxy": "^4.0",
+        "firebase/php-jwt": "^5.1",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
         "orangehill/iseed": "^2.6",
@@ -21,7 +22,8 @@
         "snowfire/beautymail": "dev-master",
         "spatie/array-to-xml": "^2.11",
         "spatie/laravel-activitylog": "^3.9",
-        "symfony/css-selector": "^4.0"
+        "symfony/css-selector": "^4.0",
+        "ext-curl": "*"
     },
     "require-dev": {
         "brackets/admin-generator": "^5.0",

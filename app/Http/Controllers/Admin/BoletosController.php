@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Boleto\DestroyBoleto;
 use App\Http\Requests\Admin\Boleto\IndexBoleto;
 use App\Http\Requests\Admin\Boleto\StoreBoleto;
 use App\Http\Requests\Admin\Boleto\UpdateBoleto;
+use App\Juno\Juno;
 use App\Models\AdminUser;
 use App\Models\Boleto;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -207,5 +208,19 @@ class BoletosController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    public function juno()
+    {
+        $boletoFacil = new Juno("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJyYWZhZWxzb3V6YWJvcmdlc0BvdXRsb29rLmNvbSIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE1ODQxMjEwMDYsImp0aSI6IjRlNzVhYmI0LWFmNDItNGJmOC1iZGFmLTg2ODc5MmNlYWMyNSIsImNsaWVudF9pZCI6InZ1dnpEdTc3ZHdEOEFMVXYifQ.Gau3104uLceGjLFgV_9REWSI8htFr5ToevtNfbUsNVgWxAvFZE7qrw4WmEvz9oWUZ23-jNKCRCz4dqUrtm7Swr4yKviyAxCL2JSPx884oqXiIKGb8DBqb1AzGs8taG872luxRvP7OJa38-vqGd_bcDVR6A64d2IsYDb2O9rwiM5UijHHgKDIKWdUrxYJY0Yer1qfhdGYnjwphCJsW_DV1mAVwQUlVJ1JN_A8fbcddPcBEZJ7da_JHn5cyXv8A5qoTn1bfa1-cK2SIbq4c79bZ2bisZukDfWXbRIybzj4QAsm5BiGZJtBwHU05zCAodHOYERiGa4rkdZe-IFqrk6PTw", true);
+        $credentials = base64_encode("".env('CLIENT_ID').":".env('CLIENT_SECRET')."");
+        $result = $boletoFacil->getToken($credentials);
+        var_dump($result);
+
+        die();
+        $boletoFacil->createCharge("Rafael Souza Borges", "03591040100", "Pedido 00001", "150.00", "20/03/2020");
+        $boletoFacil->installments = 12;
+        $boletoFacil->payerEmail = "rafaelsouzaborges@outlook.com";
+        $boletoFacil->issueCharge();
     }
 }

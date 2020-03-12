@@ -49,8 +49,10 @@ class Juno
     private $token;
     private $sandbox;
 
-    const PROD_URL = "https://www.boletobancario.com/boletofacil/integration/api/v1/";
-    const SANDBOX_URL = "https://sandbox.boletobancario.com/boletofacil/integration/api/v1/";
+    const TOKEN_PROD_URL = "https://api.juno.com.br/oauth/token";
+    const TOKEN_SANDBOX_URL = "https://sandbox.boletobancario.com/api-integration/oauth/token";
+    const PROD_URL = "https://api.juno.com.br";
+    const SANDBOX_URL = "https://sandbox.boletobancario.com/api-integration";
     const RESPONSE_TYPE = "JSON";
 
     function __construct($token, $sandbox = false)
@@ -165,6 +167,27 @@ class Juno
         ));
         $response = curl_exec($curl);
         curl_close($curl);
+        return $response;
+    }
+
+    public function getToken($credentials)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, Juno::TOKEN_SANDBOX_URL);
+        //curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = [
+            'Content-Type: application/x-www-form-urlencoded',
+            'Authorization: Basic ' . $credentials,
+        ];
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
         return $response;
     }
 }
