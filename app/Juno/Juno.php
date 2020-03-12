@@ -62,10 +62,10 @@ class Juno
         $this->resource_token = $resource_token;
         $this->sandbox = $sandbox;
         $this->credentials = base64_encode("" . env('JUNO_CLIENT_ID') . ":" . env('JUNO_CLIENT_SECRET') . "");
-        $this->authorization_token = $this->token();
+        $this->authorization_token = $this->getToken();
     }
 
-    private function token()
+    private function getToken()
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->sandbox ? Juno::TOKEN_SANDBOX_URL : Juno::TOKEN_PROD_URL);
@@ -93,7 +93,7 @@ class Juno
         return $response['access_token'];
     }
 
-    public function charges()
+    public function listCharges()
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges');

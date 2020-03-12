@@ -213,7 +213,7 @@ class BoletosController extends Controller
     public function juno()
     {
         $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
-        $result = $boletoFacil->charges();
+        $result = $boletoFacil->listCharges();
         var_dump('<pre>');
         var_dump($result);
         var_dump('</pre>');
