@@ -23,7 +23,8 @@
         "spatie/array-to-xml": "^2.11",
         "spatie/laravel-activitylog": "^3.9",
         "symfony/css-selector": "^4.0",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
         "brackets/admin-generator": "^5.0",

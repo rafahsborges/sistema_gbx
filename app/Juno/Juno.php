@@ -46,19 +46,78 @@ class Juno
     public $notifyPayer;
     public $notificationUrl;
 
-    private $token;
+    private $resource_token;
+    private $authorization_token;
     private $sandbox;
+    private $credentials;
 
-    const TOKEN_PROD_URL = "https://api.juno.com.br/oauth/token";
-    const TOKEN_SANDBOX_URL = "https://sandbox.boletobancario.com/api-integration/oauth/token";
+    const TOKEN_PROD_URL = "https://api.juno.com.br/authorization-server";
+    const TOKEN_SANDBOX_URL = "https://sandbox.boletobancario.com/authorization-server/oauth/token";
     const PROD_URL = "https://api.juno.com.br";
     const SANDBOX_URL = "https://sandbox.boletobancario.com/api-integration";
     const RESPONSE_TYPE = "JSON";
 
-    function __construct($token, $sandbox = false)
+    function __construct($resource_token, $sandbox = false)
     {
-        $this->token = $token;
+        $this->resource_token = $resource_token;
         $this->sandbox = $sandbox;
+        $this->credentials = base64_encode("" . env('JUNO_CLIENT_ID') . ":" . env('JUNO_CLIENT_SECRET') . "");
+        $this->authorization_token = $this->token();
+    }
+
+    private function token()
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->sandbox ? Juno::TOKEN_SANDBOX_URL : Juno::TOKEN_PROD_URL);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = [
+            'Content-Type: application/x-www-form-urlencoded',
+            'Authorization: Basic ' . $this->credentials,
+        ];
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+
+        curl_close($ch);
+
+        $response = json_decode($response, true);
+
+        return $response['access_token'];
+    }
+
+    public function charges()
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = [
+            'Authorization: Bearer ' . $this->authorization_token,
+            'X-API-Version: 2',
+            'X-Resource-Token: ' . $this->resource_token,
+        ];
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+
+        curl_close($ch);
+
+        $response = json_decode($response, true);
+
+        return $response;
     }
 
     public function createCharge($payerName, $payerCpfCnpj, $description, $amount, $dueDate)
@@ -167,27 +226,6 @@ class Juno
         ));
         $response = curl_exec($curl);
         curl_close($curl);
-        return $response;
-    }
-
-    public function getToken($credentials)
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, Juno::TOKEN_SANDBOX_URL);
-        //curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $headers = [
-            'Content-Type: application/x-www-form-urlencoded',
-            'Authorization: Basic ' . $credentials,
-        ];
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        $response = curl_exec($ch);
-        curl_close($ch);
         return $response;
     }
 }
