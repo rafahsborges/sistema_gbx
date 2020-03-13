@@ -125,8 +125,6 @@ class Juno
         for ($i = 1; $i <= $boleto->parcelas; $i++) {
             $references[] = "Boleto " . $i;
         }
-        var_dump($references);
-        die();
         $data = [
             "charge" => [
                 "description" => $boleto->descricao,
@@ -136,18 +134,17 @@ class Juno
                 "totalAmount" => $boleto->valor,
                 "amount" => $boleto->valor,
                 "dueDate" => Carbon::createFromFormat('Y-m-d H:i:s', $boleto->vencimento)->format('Y-m-d'),
-                "installments" => 0,
-                "maxOverdueDays" => 0,
-                "fine" => 0,
-                "interest" => 0,
-                "discountAmount" => 0,
-                "discountDays" => -1,
+                "installments" => $boleto->parcelas,
+                "maxOverdueDays" => $boleto->dias_vencimento,
+                "fine" => $boleto->juros,
+                "interest" => $boleto->multa,
+                "discountAmount" => $boleto->desconto,
+                "discountDays" => $boleto->dias_desconto,
                 "paymentTypes" => [
                     "BOLETO",
                 ],
-                "feeSchemaToken" => "string",
-                "split" => [
-                ],
+                /*"split" => [
+                ],*/
             ],
             "billing" => [
                 "name" => $boleto->cliente->tipo == 0 ? $boleto->cliente->nome : $boleto->cliente->razao_social,
@@ -158,9 +155,6 @@ class Juno
                 "notify" => true,
             ]
         ];
-
-        var_dump($data);
-        die();
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges');
