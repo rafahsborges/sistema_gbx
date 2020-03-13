@@ -87,7 +87,8 @@
                                     @endif
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.id') }}</th>
-                                    <th is='sortable' :column="'descricao'">{{ trans('admin.boleto.columns.descricao') }}</th>
+                                    <th is='sortable'
+                                        :column="'descricao'">{{ trans('admin.boleto.columns.descricao') }}</th>
                                     <th is='sortable'
                                         :column="'id_cliente'">{{ trans('admin.boleto.columns.id_cliente') }}</th>
                                     <th is='sortable'
@@ -155,7 +156,13 @@
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto">
-                                                <a class="btn btn-sm btn-spinner btn-info"
+                                                <a class="btn btn-sm btn-spinner btn-warning"
+                                                   :href="item.resource_url + '/status'"
+                                                   title="{{ trans('admin.boleto.actions.status') }}"
+                                                   role="button"><i class="fa fa-check"></i></a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/boleto'"
                                                    title="{{ trans('admin.boleto.actions.boleto') }}"
                                                    role="button"><i class="fa fa-money"></i></a>

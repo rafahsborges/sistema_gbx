@@ -339,6 +339,7 @@ return [
             'id_cliente' => 'Cliente',
             'id_servico' => 'Serviço',
             'gerar' => 'Gerar Boleto',
+            'notificar' => 'Notificar via E-mail?',
             'status' => 'Status',
             'desconto' => 'Desconto',
             'dias_desconto' => 'Dias de Desconto',

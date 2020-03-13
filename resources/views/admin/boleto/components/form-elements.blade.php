@@ -43,10 +43,13 @@
     <label for="descricao" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.descricao') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.descricao" v-validate="'required'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.descricao" v-validate="'required'" @input="validate($event)"
+               class="form-control"
                :class="{'form-control-danger': errors.has('descricao'), 'form-control-success': fields.descricao && fields.descricao.valid}"
                id="descricao" name="descricao" placeholder="{{ trans('admin.boleto.columns.descricao') }}">
-        <div v-if="errors.has('descricao')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('descricao') }}</div>
+        <div v-if="errors.has('descricao')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('descricao') }}
+        </div>
     </div>
 </div>
 
@@ -92,7 +95,8 @@
         <input type="text" v-model="form.dias_vencimento" v-validate="'decimal'" @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('dias_vencimento'), 'form-control-success': fields.dias_vencimento && fields.dias_vencimento.valid}"
-               id="dias_vencimento" name="dias_vencimento" placeholder="{{ trans('admin.boleto.columns.dias_vencimento') }}">
+               id="dias_vencimento" name="dias_vencimento"
+               placeholder="{{ trans('admin.boleto.columns.dias_vencimento') }}">
         <div v-if="errors.has('dias_vencimento')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('dias_vencimento') }}
         </div>
@@ -132,7 +136,8 @@
     <label for="desconto" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.desconto') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-money="money" :maxlength="17" v-model="form.desconto" v-validate="''" @input="validate($event)"
+        <input type="text" v-money="money" :maxlength="17" v-model="form.desconto" v-validate="''"
+               @input="validate($event)"
                class="form-control"
                :class="{'form-control-danger': errors.has('desconto'), 'form-control-success': fields.desconto && fields.desconto.valid}"
                id="desconto" name="desconto" placeholder="{{ trans('admin.boleto.columns.desconto') }}">
@@ -189,41 +194,59 @@
     </div>
 </div>
 
-    <div class="form-group row align-items-center"
-         :class="{'has-danger': errors.has('valor_pago'), 'has-success': fields.valor_pago && fields.valor_pago.valid }">
-        <label for="valor_pago" class="col-form-label text-md-right"
-               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.valor_pago') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-            <input type="text" v-model="form.valor_pago" v-money="money" v-validate="'required'"
-                   @input="validate($event)"
-                   class="form-control" disabled="{{$mode === 'create' ? 'disabled': ''}}"
-                   :class="{'form-control-danger': errors.has('valor_pago'), 'form-control-success': fields.valor_pago && fields.valor_pago.valid}"
-                   id="valor_pago" name="valor_pago" placeholder="{{ trans('admin.boleto.columns.valor_pago') }}">
-            <div v-if="errors.has('valor_pago')" class="form-control-feedback form-text" v-cloak>@{{
-                errors.first('valor_pago') }}
-            </div>
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('notificar'), 'has-success': fields.notificar && fields.notificar.valid }">
+    <label for="notificar" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.notificar') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input class="form-check-input" id="notificar" type="checkbox" v-model="form.notificar" v-validate="''"
+               data-vv-name="notificar" name="notificar_fake_element">
+        <label class="form-check-label" for="notificar">
+            {{ trans('admin.boleto.columns.notificar') }}
+        </label>
+        <input type="hidden" name="notificar" :value="form.notificar">
+        <div v-if="errors.has('notificar')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('notificar')
+            }}
         </div>
     </div>
+</div>
 
-    <div class="form-group row align-items-center"
-         :class="{'has-danger': errors.has('pagamento'), 'has-success': fields.pagamento && fields.pagamento.valid }">
-        <label for="pagamento" class="col-form-label text-md-right"
-               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.pagamento') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-sm-8'">
-            <div class="input-group input-group--custom">
-                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                <datetime v-model="form.pagamento" :config="datePickerConfig"
-                          v-validate="'date_format:yyyy-MM-dd HH:mm:ss'"
-                          class="flatpickr" disabled="{{$mode === 'create' ? 'disabled': ''}}"
-                          :class="{'form-control-danger': errors.has('pagamento'), 'form-control-success': fields.pagamento && fields.pagamento.valid}"
-                          id="pagamento" name="pagamento"
-                          placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
-            </div>
-            <div v-if="errors.has('pagamento')" class="form-control-feedback form-text" v-cloak>@{{
-                errors.first('pagamento') }}
-            </div>
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('valor_pago'), 'has-success': fields.valor_pago && fields.valor_pago.valid }">
+    <label for="valor_pago" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.valor_pago') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.valor_pago" v-money="money" v-validate="'required'"
+               @input="validate($event)"
+               class="form-control" disabled="{{$mode === 'create' ? 'disabled': ''}}"
+               :class="{'form-control-danger': errors.has('valor_pago'), 'form-control-success': fields.valor_pago && fields.valor_pago.valid}"
+               id="valor_pago" name="valor_pago" placeholder="{{ trans('admin.boleto.columns.valor_pago') }}">
+        <div v-if="errors.has('valor_pago')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('valor_pago') }}
         </div>
     </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('pagamento'), 'has-success': fields.pagamento && fields.pagamento.valid }">
+    <label for="pagamento" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.pagamento') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-sm-8'">
+        <div class="input-group input-group--custom">
+            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <datetime v-model="form.pagamento" :config="datePickerConfig"
+                      v-validate="'date_format:yyyy-MM-dd HH:mm:ss'"
+                      class="flatpickr" disabled="{{$mode === 'create' ? 'disabled': ''}}"
+                      :class="{'form-control-danger': errors.has('pagamento'), 'form-control-success': fields.pagamento && fields.pagamento.valid}"
+                      id="pagamento" name="pagamento"
+                      placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+        </div>
+        <div v-if="errors.has('pagamento')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('pagamento') }}
+        </div>
+    </div>
+</div>
 
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('status'), 'has-success': fields.status && fields.status.valid }">

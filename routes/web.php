@@ -260,6 +260,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/create', 'BoletosController@create')->name('create');
             Route::post('/', 'BoletosController@store')->name('store');
             Route::get('/{boleto}/edit', 'BoletosController@edit')->name('edit');
+            Route::get('/{boleto}/boleto', 'BoletosController@boleto')->name('boleto');
+            Route::get('/{boleto}/status', 'BoletosController@status')->name('status');
             Route::post('/bulk-destroy', 'BoletosController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{boleto}', 'BoletosController@update')->name('update');
             Route::delete('/{boleto}', 'BoletosController@destroy')->name('destroy');

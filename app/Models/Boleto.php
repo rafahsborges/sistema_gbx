@@ -19,6 +19,7 @@ class Boleto extends Model
         'id_cliente',
         'id_servico',
         'gerar',
+        'notificar',
         'status',
         'juno_id',
         'parcelas',
@@ -27,7 +28,6 @@ class Boleto extends Model
         'juros',
         'multa',
     ];
-
 
     protected $dates = [
         'vencimento',

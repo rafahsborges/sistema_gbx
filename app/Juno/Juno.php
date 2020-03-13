@@ -152,7 +152,7 @@ class Juno
                 "email" => $boleto->cliente->email,
                 "secondaryEmail" => $boleto->cliente->email2,
                 "phone" => $boleto->cliente->telefone,
-                "notify" => true,
+                "notify" => $boleto->notificar,
             ]
         ];
 

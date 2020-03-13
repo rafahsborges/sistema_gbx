@@ -19,6 +19,7 @@ Vue.component('boleto-form', {
                 cliente: '',
                 servico: '',
                 gerar: true,
+                notificar: true,
                 status: '',
                 parcelas: '1',
                 desconto: '',

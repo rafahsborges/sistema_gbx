@@ -35,6 +35,7 @@ class UpdateBoleto extends FormRequest
             'cliente' => ['sometimes'],
             'servico' => ['sometimes'],
             'gerar' => ['sometimes', 'boolean'],
+            'notificar' => ['sometimes', 'boolean'],
             'status' => ['sometimes'],
             'parcelas' => ['nullable'],
             'desconto' => ['nullable'],

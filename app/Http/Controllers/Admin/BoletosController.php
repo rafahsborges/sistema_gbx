@@ -41,7 +41,7 @@ class BoletosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'valor', 'vencimento', 'valor_pago', 'pagamento', 'id_cliente', 'status'],
+            ['id', 'descricao', 'valor', 'vencimento', 'valor_pago', 'pagamento', 'id_cliente', 'status'],
 
             // set columns to searchIn
             ['id'],
@@ -113,18 +113,23 @@ class BoletosController extends Controller
         // Store the Boleto
         $boleto = Boleto::create($sanitized);
 
-        if($boleto->gerar === true){
+        if($boleto->gerar === true && $boleto->juno_id === null){
             $juno = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
             $result = $juno->createCharge($boleto);
-            if($boleto->parcela > 1){
-
+            if($boleto->parcelas > 1){
+                foreach ($result['_embedded']['charges'] as $key => $charge){
+                    if($key == 0){
+                        $boleto->update(['juno_id' => $charge['id']]);
+                    } else {
+                        $sanitized['juno_id'] = $charge['id'];
+                        // Store the others Boleto
+                        $boleto = Boleto::create($sanitized);
+                    }
+                }
             }else{
                 $boleto->update(['juno_id' => $result['_embedded']['charges'][0]['id']]);
             }
-            var_dump($result['_embedded']['charges'][0]['id']);
         }
-
-        die();
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/boletos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -200,6 +205,24 @@ class BoletosController extends Controller
         // Update changed values Boleto
         $boleto->update($sanitized);
 
+        if($boleto->gerar === true && $boleto->juno_id === null){
+            $juno = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+            $result = $juno->createCharge($boleto);
+            if($boleto->parcelas > 1){
+                foreach ($result['_embedded']['charges'] as $key => $charge){
+                    if($key == 0){
+                        $boleto->update(['juno_id' => $charge['id']]);
+                    } else {
+                        $sanitized['juno_id'] = $charge['id'];
+                        // Store the others Boleto
+                        $boleto = Boleto::create($sanitized);
+                    }
+                }
+            }else{
+                $boleto->update(['juno_id' => $result['_embedded']['charges'][0]['id']]);
+            }
+        }
+
         if ($request->ajax()) {
             return [
                 'redirect' => url('admin/boletos'),
@@ -252,6 +275,46 @@ class BoletosController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Boleto $boleto
+     * @return RedirectResponse|Redirector
+     * @throws AuthorizationException
+     */
+    public function boleto(Boleto $boleto)
+    {
+        $this->authorize('admin.boleto.edit', $boleto);
+
+        $boleto = Boleto::with('cliente')->find($boleto->id);
+
+        $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+        $result = $boletoFacil->getCharge($boleto->juno_id);
+
+        return redirect($result['installmentLink']);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Boleto $boleto
+     * @return Factory|View
+     * @throws AuthorizationException
+     */
+    public function status(Boleto $boleto)
+    {
+        $this->authorize('admin.boleto.edit', $boleto);
+
+        $boleto = Boleto::with('cliente')->find($boleto->id);
+
+        $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+        $result = $boletoFacil->getCharge($boleto->juno_id);
+
+        var_dump('<pre>');
+        var_dump($result);
+        var_dump('</pre>');
     }
 
     public function juno()
