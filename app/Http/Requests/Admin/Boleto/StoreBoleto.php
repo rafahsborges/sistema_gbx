@@ -32,6 +32,7 @@ class StoreBoleto extends FormRequest
             'valor_pago' => ['required'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['required'],
+            'gerar' => ['required', 'boolean'],
             'status' => ['required'],
         ];
     }
@@ -64,5 +65,10 @@ class StoreBoleto extends FormRequest
             return $this->get('status')['id'];
         }
         return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }

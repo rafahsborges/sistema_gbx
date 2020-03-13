@@ -99,6 +99,9 @@ class BoletosController extends Controller
         $sanitized['id_cliente'] = $request->getClienteId();
         $sanitized['status'] = $request->getStatusId();
 
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['valor_pago'] = $request->prepareCurrencies($sanitized['valor_pago']);
+
         // Store the Boleto
         $boleto = Boleto::create($sanitized);
 
@@ -134,6 +137,15 @@ class BoletosController extends Controller
     {
         $this->authorize('admin.boleto.edit', $boleto);
 
+        $boleto = Boleto::with('cliente')->find($boleto->id);
+
+        if ($boleto->status == 0) {
+            $boleto->status = array('nome' => 'A Pagar', 'id' => 0);
+        } elseif ($boleto->status == 1) {
+            $boleto->status = array('nome' => 'Pago', 'id' => 1);
+        } else {
+            $boleto->status = array('nome' => 'Vencido', 'id' => 2);
+        }
 
         return view('admin.boleto.edit', [
             'boleto' => $boleto,
@@ -154,6 +166,9 @@ class BoletosController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
         $sanitized['status'] = $request->getStatusId();
+
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['valor_pago'] = $request->prepareCurrencies($sanitized['valor_pago']);
 
         // Update changed values Boleto
         $boleto->update($sanitized);

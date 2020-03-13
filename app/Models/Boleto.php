@@ -15,6 +15,7 @@ class Boleto extends Model
         'valor_pago',
         'pagamento',
         'id_cliente',
+        'gerar',
         'status',
     ];
 

@@ -14,9 +14,11 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> {{ trans('admin.boleto.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
-                           href="{{ url('admin/boletos/create') }}" role="button"><i
-                                class="fa fa-plus"></i>&nbsp; {{ trans('admin.boleto.actions.create') }}</a>
+                        @if(auth()->user()->is_admin === 1)
+                            <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
+                               href="{{ url('admin/boletos/create') }}" role="button"><i
+                                    class="fa fa-plus"></i>&nbsp; {{ trans('admin.boleto.actions.create') }}</a>
+                        @endif
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -54,31 +56,35 @@
                                     </div>
                                 </div>
                                 <div class="row" v-if="showAdvancedFilter">
-                                    <div class="col col-lg-6 col-xl-6 form-group">
-                                        <multiselect v-model="clientesMultiselect"
-                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
-                                                     label="label"
-                                                     track-by="key"
-                                                     placeholder="{{ __('Type to search a cliente/s') }}"
-                                                     :limit="2"
-                                                     :multiple="true">
-                                        </multiselect>
-                                    </div>
+                                    @if(auth()->user()->is_admin === 1)
+                                        <div class="col col-lg-6 col-xl-6 form-group">
+                                            <multiselect v-model="clientesMultiselect"
+                                                         :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
+                                                         label="label"
+                                                         track-by="key"
+                                                         placeholder="{{ __('Type to search a cliente/s') }}"
+                                                         :limit="2"
+                                                         :multiple="true">
+                                            </multiselect>
+                                        </div>
+                                    @endif
                                 </div>
                             </form>
 
                             <table class="table table-hover table-listing">
                                 <thead>
                                 <tr>
-                                    <th class="bulk-checkbox">
-                                        <input class="form-check-input" id="enabled" type="checkbox"
-                                               v-model="isClickedAll" v-validate="''" data-vv-name="enabled"
-                                               name="enabled_fake_element"
-                                               @click="onBulkItemsClickedAllWithPagination()">
-                                        <label class="form-check-label" for="enabled">
-                                            #
-                                        </label>
-                                    </th>
+                                    @if(auth()->user()->is_admin === 1)
+                                        <th class="bulk-checkbox">
+                                            <input class="form-check-input" id="enabled" type="checkbox"
+                                                   v-model="isClickedAll" v-validate="''" data-vv-name="enabled"
+                                                   name="enabled_fake_element"
+                                                   @click="onBulkItemsClickedAllWithPagination()">
+                                            <label class="form-check-label" for="enabled">
+                                                #
+                                            </label>
+                                        </th>
+                                    @endif
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.id') }}</th>
                                     <th is='sortable'
@@ -93,9 +99,11 @@
                                     <th is='sortable' :column="'status'">{{ trans('admin.boleto.columns.status') }}</th>
 
                                     <th></th>
+
                                 </tr>
-                                <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                    <td class="bg-bulk-info d-table-cell text-center" colspan="9">
+                                @if(auth()->user()->is_admin === 1)
+                                    <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="9">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a
                                                     href="#" class="text-primary"
                                                     @click="onBulkItemsClickedAll('/admin/boletos')"
@@ -106,26 +114,30 @@
                                                     href="#" class="text-primary"
                                                     @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
-                                        <span class="pull-right pr-2">
+                                            <span class="pull-right pr-2">
                                                 <button class="btn btn-sm btn-danger pr-3 pl-3"
                                                         @click="bulkDelete('/admin/boletos/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
                                             </span>
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endif
                                 </thead>
                                 <tbody>
                                 <tr v-for="(item, index) in collection" :key="item.id"
                                     :class="bulkItems[item.id] ? 'bg-bulk' : ''">
-                                    <td class="bulk-checkbox">
-                                        <input class="form-check-input" :id="'enabled' + item.id" type="checkbox"
-                                               v-model="bulkItems[item.id]" v-validate="''"
-                                               :data-vv-name="'enabled' + item.id"
-                                               :name="'enabled' + item.id + '_fake_element'"
-                                               @click="onBulkItemClicked(item.id)" :disabled="bulkCheckingAllLoader">
-                                        <label class="form-check-label" :for="'enabled' + item.id">
-                                        </label>
-                                    </td>
+                                    @if(auth()->user()->is_admin === 1)
+                                        <td class="bulk-checkbox">
+                                            <input class="form-check-input" :id="'enabled' + item.id" type="checkbox"
+                                                   v-model="bulkItems[item.id]" v-validate="''"
+                                                   :data-vv-name="'enabled' + item.id"
+                                                   :name="'enabled' + item.id + '_fake_element'"
+                                                   @click="onBulkItemClicked(item.id)"
+                                                   :disabled="bulkCheckingAllLoader">
+                                            <label class="form-check-label" :for="'enabled' + item.id">
+                                            </label>
+                                        </td>
+                                    @endif
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.cliente.nome }}</td>
@@ -139,15 +151,24 @@
                                         <div class="row no-gutters">
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-info"
-                                                   :href="item.resource_url + '/edit'"
-                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
-                                                   role="button"><i class="fa fa-edit"></i></a>
+                                                   :href="item.resource_url + '/boleto'"
+                                                   title="{{ trans('admin.boleto.actions.boleto') }}"
+                                                   role="button"><i class="fa fa-money"></i></a>
                                             </div>
-                                            <form class="col" @submit.prevent="deleteItem(item.resource_url)">
-                                                <button type="submit" class="btn btn-sm btn-danger"
-                                                        title="{{ trans('brackets/admin-ui::admin.btn.delete') }}"><i
-                                                        class="fa fa-trash-o"></i></button>
-                                            </form>
+                                            @if(auth()->user()->is_admin === 1)
+                                                <div class="col-auto">
+                                                    <a class="btn btn-sm btn-spinner btn-info"
+                                                       :href="item.resource_url + '/edit'"
+                                                       title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                       role="button"><i class="fa fa-edit"></i></a>
+                                                </div>
+                                                <form class="col" @submit.prevent="deleteItem(item.resource_url)">
+                                                    <button type="submit" class="btn btn-sm btn-danger"
+                                                            title="{{ trans('brackets/admin-ui::admin.btn.delete') }}">
+                                                        <i
+                                                            class="fa fa-trash-o"></i></button>
+                                                </form>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

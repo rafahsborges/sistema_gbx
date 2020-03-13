@@ -325,6 +325,7 @@ return [
             'index' => 'Boletos',
             'create' => 'New Boleto',
             'edit' => 'Edit :name',
+            'boleto' => 'Gerar Boleto',
         ],
 
         'columns' => [

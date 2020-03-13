@@ -32,6 +32,7 @@ class UpdateBoleto extends FormRequest
             'valor_pago' => ['sometimes'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['sometimes'],
+            'gerar' => ['sometimes', 'boolean'],
             'status' => ['sometimes'],
         ];
     }
@@ -64,5 +65,10 @@ class UpdateBoleto extends FormRequest
             return $this->get('status')['id'];
         }
         return null;
+    }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
     }
 }

@@ -24,6 +24,7 @@ class CreateBoletosTable extends Migration
                 ->references('id')->on('admin_users')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
+            $table->boolean('gerar');
             $table->boolean('status');
             $table->timestamps();
             $table->softDeletes();
