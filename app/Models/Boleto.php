@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Traits\SoftDeletesWithDeleted;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Boleto extends Model
 {
-    use SoftDeletes;
+    use SoftDeletesWithDeleted;
+
     protected $fillable = [
         'descricao',
         'valor',

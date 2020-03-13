@@ -68,6 +68,16 @@
                                             </multiselect>
                                         </div>
                                     @endif
+                                        <div class="col col-lg-6 col-xl-6 form-group">
+                                            <multiselect v-model="servicosMultiselect"
+                                                         :options="{{ $servicos->map(function($servico) { return ['key' => $servico->id, 'label' =>  $servico->nome]; })->toJson() }}"
+                                                         label="label"
+                                                         track-by="key"
+                                                         placeholder="{{ __('Type to search a servico/s') }}"
+                                                         :limit="2"
+                                                         :multiple="true">
+                                            </multiselect>
+                                        </div>
                                 </div>
                             </form>
 
@@ -151,10 +161,12 @@
                                     <td>R$ @{{ item.valor }}</td>
                                     <td>@{{ item.pagamento | date('DD/MM/YYYY')}}</td>
                                     <td>R$ @{{ item.valor_pago }}</td>
-                                    <td>@{{ item.status == 0 ? 'A Pagar' : item.status == 1 ? 'Pago' : 'Vencido' }}</td>
+                                    <td>@{{ item.status == 0 ? 'A Pagar' : item.status == 1 ? 'Pago' : item.status == 2
+                                        ? 'Vencido' : 'Cancelado' }}
+                                    </td>
 
                                     <td>
-                                        <div class="row no-gutters">
+                                        <div class="row no-gutters" v-if="item.status !== 3">
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-warning"
                                                    :href="item.resource_url + '/status'"

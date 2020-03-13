@@ -178,6 +178,26 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('status'), 'has-success': fields.status && fields.status.valid }">
+    <label for="status" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.status') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.status"
+            :options="statuses"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.boleto.columns.status') }}"
+            placeholder="{{ trans('admin.boleto.columns.status') }}">
+        </multiselect>
+        <div v-if="errors.has('status')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('status') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('gerar'), 'has-success': fields.gerar && fields.gerar.valid }">
     <label for="gerar" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.gerar') }}</label>
@@ -244,26 +264,6 @@
         </div>
         <div v-if="errors.has('pagamento')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('pagamento') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('status'), 'has-success': fields.status && fields.status.valid }">
-    <label for="status" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.status') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <multiselect
-            v-model="form.status"
-            :options="statuses"
-            :multiple="false"
-            track-by="id"
-            label="nome"
-            tag-placeholder="{{ trans('admin.boleto.columns.status') }}"
-            placeholder="{{ trans('admin.boleto.columns.status') }}">
-        </multiselect>
-        <div v-if="errors.has('status')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('status') }}
         </div>
     </div>
 </div>
