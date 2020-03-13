@@ -53,6 +53,9 @@ class BoletosController extends Controller
                 if ($request->has('clientes')) {
                     $query->whereIn('id_cliente', $request->get('clientes'));
                 }
+                if ($request->has('servicos')) {
+                    $query->whereIn('id_servico', $request->get('servicos'));
+                }
                 if (auth()->user()->is_admin !== 1) {
                     $query->where('id_cliente', auth()->user()->id);
                 }
@@ -71,6 +74,7 @@ class BoletosController extends Controller
         return view('admin.boleto.index', [
             'data' => $data,
             'clientes' => AdminUser::all(),
+            'servicos' => Servico::all(),
         ]);
     }
 
