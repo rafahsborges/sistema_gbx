@@ -87,7 +87,7 @@
                                     @endif
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.id') }}</th>
-                                    <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.descricao') }}</th>
+                                    <th is='sortable' :column="'descricao'">{{ trans('admin.boleto.columns.descricao') }}</th>
                                     <th is='sortable'
                                         :column="'id_cliente'">{{ trans('admin.boleto.columns.id_cliente') }}</th>
                                     <th is='sortable'

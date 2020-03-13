@@ -90,7 +90,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.dias_vencimento') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.dias_vencimento" v-validate="'decimal'" @input="validate($event)"
-               class="form-control" @blur="setQtddias_vencimento"
+               class="form-control"
                :class="{'form-control-danger': errors.has('dias_vencimento'), 'form-control-success': fields.dias_vencimento && fields.dias_vencimento.valid}"
                id="dias_vencimento" name="dias_vencimento" placeholder="{{ trans('admin.boleto.columns.dias_vencimento') }}">
         <div v-if="errors.has('dias_vencimento')" class="form-control-feedback form-text" v-cloak>@{{
@@ -148,7 +148,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.dias_desconto') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.dias_desconto" v-validate="'decimal'" @input="validate($event)"
-               class="form-control" @blur="setQtddias_desconto"
+               class="form-control"
                :class="{'form-control-danger': errors.has('dias_desconto'), 'form-control-success': fields.dias_desconto && fields.dias_desconto.valid}"
                id="dias_desconto" name="dias_desconto" placeholder="{{ trans('admin.boleto.columns.dias_desconto') }}">
         <div v-if="errors.has('dias_desconto')" class="form-control-feedback form-text" v-cloak>@{{
@@ -163,7 +163,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.parcelas') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.parcelas" v-validate="'decimal'" @input="validate($event)"
-               class="form-control" @blur="setQtdParcelas"
+               class="form-control"
                :class="{'form-control-danger': errors.has('parcelas'), 'form-control-success': fields.parcelas && fields.parcelas.valid}"
                id="parcelas" name="parcelas" placeholder="{{ trans('admin.boleto.columns.parcelas') }}">
         <div v-if="errors.has('parcelas')" class="form-control-feedback form-text" v-cloak>@{{
