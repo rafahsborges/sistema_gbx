@@ -83,6 +83,7 @@ class BoletosController extends Controller
 
         return view('admin.boleto.create', [
             'clientes' => AdminUser::all(),
+            'mode' => 'create',
         ]);
     }
 
@@ -150,6 +151,7 @@ class BoletosController extends Controller
         return view('admin.boleto.edit', [
             'boleto' => $boleto,
             'clientes' => AdminUser::all(),
+            'mode' => 'edit',
         ]);
     }
 

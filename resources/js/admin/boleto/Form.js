@@ -14,6 +14,7 @@ Vue.component('boleto-form', {
                 valor_pago: '',
                 pagamento: '',
                 cliente: '',
+                gerar: true,
                 status: '',
             },
             statuses: [

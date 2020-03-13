@@ -29,7 +29,7 @@ class StoreBoleto extends FormRequest
         return [
             'valor' => ['required'],
             'vencimento' => ['required', 'date'],
-            'valor_pago' => ['required'],
+            'valor_pago' => ['nullable'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['required'],
             'gerar' => ['required', 'boolean'],

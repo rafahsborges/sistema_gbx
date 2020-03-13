@@ -17,7 +17,7 @@ class CreateBoletosTable extends Migration
             $table->bigIncrements('id');
             $table->decimal('valor', 9);
             $table->date('vencimento');
-            $table->decimal('valor_pago', 9);
+            $table->decimal('valor_pago', 9)->nullable();
             $table->date('pagamento')->nullable();
             $table->unsignedBigInteger('id_cliente');
             $table->foreign('id_cliente')

@@ -335,8 +335,8 @@ return [
             'valor_pago' => 'Valor pago',
             'pagamento' => 'Pagamento',
             'id_cliente' => 'Id cliente',
+            'gerar' => 'Gerar Boleto',
             'status' => 'Status',
-
         ],
     ],
 

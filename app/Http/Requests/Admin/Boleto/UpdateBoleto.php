@@ -29,7 +29,7 @@ class UpdateBoleto extends FormRequest
         return [
             'valor' => ['sometimes'],
             'vencimento' => ['sometimes', 'date'],
-            'valor_pago' => ['sometimes'],
+            'valor_pago' => ['nullable'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['sometimes'],
             'gerar' => ['sometimes', 'boolean'],
