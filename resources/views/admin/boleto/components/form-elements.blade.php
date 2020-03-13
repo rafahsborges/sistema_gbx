@@ -85,6 +85,94 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('dias_vencimento'), 'has-success': fields.dias_vencimento && fields.dias_vencimento.valid }">
+    <label for="dias_vencimento" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.dias_vencimento') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.dias_vencimento" v-validate="'decimal'" @input="validate($event)"
+               class="form-control" @blur="setQtddias_vencimento"
+               :class="{'form-control-danger': errors.has('dias_vencimento'), 'form-control-success': fields.dias_vencimento && fields.dias_vencimento.valid}"
+               id="dias_vencimento" name="dias_vencimento" placeholder="{{ trans('admin.boleto.columns.dias_vencimento') }}">
+        <div v-if="errors.has('dias_vencimento')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('dias_vencimento') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('multa'), 'has-success': fields.multa && fields.multa.valid }">
+    <label for="multa" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.multa') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-money="percent" :maxlength="7" v-model="form.multa" v-validate="''"
+               @input="validate($event)" class="form-control"
+               :class="{'form-control-danger': errors.has('multa'), 'form-control-success': fields.multa && fields.multa.valid}"
+               id="multa" name="multa" placeholder="{{ trans('admin.boleto.columns.multa') }}">
+        <div v-if="errors.has('multa')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('multa') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('juros'), 'has-success': fields.juros && fields.juros.valid }">
+    <label for="juros" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.juros') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-money="percent" :maxlength="7" v-model="form.juros" v-validate="''"
+               @input="validate($event)" class="form-control"
+               :class="{'form-control-danger': errors.has('juros'), 'form-control-success': fields.juros && fields.juros.valid}"
+               id="juros" name="juros" placeholder="{{ trans('admin.boleto.columns.juros') }}">
+        <div v-if="errors.has('juros')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('juros') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('desconto'), 'has-success': fields.desconto && fields.desconto.valid }">
+    <label for="desconto" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.desconto') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-money="money" :maxlength="17" v-model="form.desconto" v-validate="''" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('desconto'), 'form-control-success': fields.desconto && fields.desconto.valid}"
+               id="desconto" name="desconto" placeholder="{{ trans('admin.boleto.columns.desconto') }}">
+        <div v-if="errors.has('desconto')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('desconto')
+            }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('dias_desconto'), 'has-success': fields.dias_desconto && fields.dias_desconto.valid }">
+    <label for="dias_desconto" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.dias_desconto') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.dias_desconto" v-validate="'decimal'" @input="validate($event)"
+               class="form-control" @blur="setQtddias_desconto"
+               :class="{'form-control-danger': errors.has('dias_desconto'), 'form-control-success': fields.dias_desconto && fields.dias_desconto.valid}"
+               id="dias_desconto" name="dias_desconto" placeholder="{{ trans('admin.boleto.columns.dias_desconto') }}">
+        <div v-if="errors.has('dias_desconto')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('dias_desconto') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('parcelas'), 'has-success': fields.parcelas && fields.parcelas.valid }">
+    <label for="parcelas" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.parcelas') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.parcelas" v-validate="'decimal'" @input="validate($event)"
+               class="form-control" @blur="setQtdParcelas"
+               :class="{'form-control-danger': errors.has('parcelas'), 'form-control-success': fields.parcelas && fields.parcelas.valid}"
+               id="parcelas" name="parcelas" placeholder="{{ trans('admin.boleto.columns.parcelas') }}">
+        <div v-if="errors.has('parcelas')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('parcelas') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('gerar'), 'has-success': fields.gerar && fields.gerar.valid }">
     <label for="gerar" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.gerar') }}</label>

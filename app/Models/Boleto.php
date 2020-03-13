@@ -13,6 +13,7 @@ class Boleto extends Model
         'descricao',
         'valor',
         'vencimento',
+        'dias_vencimento',
         'valor_pago',
         'pagamento',
         'id_cliente',
@@ -20,6 +21,11 @@ class Boleto extends Model
         'gerar',
         'status',
         'juno_id',
+        'parcelas',
+        'desconto',
+        'dias_desconto',
+        'juros',
+        'multa',
     ];
 
 
@@ -46,5 +52,13 @@ class Boleto extends Model
     public function cliente()
     {
         return $this->belongsTo('App\Models\AdminUser', 'id_cliente');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function servico()
+    {
+        return $this->belongsTo('App\Models\Servico', 'id_servico');
     }
 }

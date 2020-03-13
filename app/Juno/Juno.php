@@ -10,6 +10,8 @@
 
 namespace App\Juno;
 
+use Carbon\Carbon;
+
 /**
  * Class Juno
  * @package App\Juno
@@ -119,17 +121,21 @@ class Juno
 
     public function createCharge($boleto)
     {
-        var_dump($boleto);
+        $references = [];
+        for ($i = 1; $i <= $boleto->parcelas; $i++) {
+            $references[] = "Boleto " . $i;
+        }
+        var_dump($references);
         die();
         $data = [
             "charge" => [
-                "description" => "string",
+                "description" => $boleto->descricao,
                 "references" => [
-                    "string"
+                    $references,
                 ],
-                "totalAmount" => 0.01,
-                "amount" => 0.01,
-                "dueDate" => "yyyy-MM-dd",
+                "totalAmount" => $boleto->valor,
+                "amount" => $boleto->valor,
+                "dueDate" => Carbon::createFromFormat('Y-m-d H:i:s', $boleto->vencimento)->format('Y-m-d'),
                 "installments" => 0,
                 "maxOverdueDays" => 0,
                 "fine" => 0,
@@ -137,22 +143,24 @@ class Juno
                 "discountAmount" => 0,
                 "discountDays" => -1,
                 "paymentTypes" => [
-                    "string"
+                    "BOLETO",
                 ],
                 "feeSchemaToken" => "string",
                 "split" => [
                 ],
             ],
             "billing" => [
-                "name" => "",
-                "document" => "",
-                "email" => "",
-                "secondaryEmail" => "",
-                "phone" => "",
-                "birthDate" => "",
+                "name" => $boleto->cliente->tipo == 0 ? $boleto->cliente->nome : $boleto->cliente->razao_social,
+                "document" => $boleto->cliente->tipo == 0 ? $boleto->cliente->cpf : $boleto->cliente->cnpj,
+                "email" => $boleto->cliente->email,
+                "secondaryEmail" => $boleto->cliente->email2,
+                "phone" => $boleto->cliente->telefone,
                 "notify" => true,
             ]
         ];
+
+        var_dump($data);
+        die();
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges');

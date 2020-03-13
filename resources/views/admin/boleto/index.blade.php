@@ -144,13 +144,13 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.descricao }}</td>
-                                    <td>@{{ item.cliente.nome }}</td>
-                                    <td>@{{ item.servico.nome }}</td>
+                                    <td>@{{ item.cliente !== null ? item.cliente.nome : '' }}</td>
+                                    <td>@{{ item.servico !== null ? item.servico.nome : '' }}</td>
                                     <td>@{{ item.vencimento | date('DD/MM/YYYY')}}</td>
                                     <td>R$ @{{ item.valor }}</td>
                                     <td>@{{ item.pagamento | date('DD/MM/YYYY')}}</td>
                                     <td>R$ @{{ item.valor_pago }}</td>
-                                    <td>@{{ item.status }}</td>
+                                    <td>@{{ item.status == 0 ? 'A Pagar' : item.status == 1 ? 'Pago' : 'Vencido' }}</td>
 
                                     <td>
                                         <div class="row no-gutters">

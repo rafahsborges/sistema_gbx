@@ -36,6 +36,12 @@ class UpdateBoleto extends FormRequest
             'servico' => ['sometimes'],
             'gerar' => ['sometimes', 'boolean'],
             'status' => ['sometimes'],
+            'parcelas' => ['nullable'],
+            'desconto' => ['nullable'],
+            'dias_desconto' => ['nullable'],
+            'dias_vencimento' => ['nullable'],
+            'juros' => ['nullable'],
+            'multa' => ['nullable'],
         ];
     }
 

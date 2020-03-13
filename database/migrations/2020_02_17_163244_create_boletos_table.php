@@ -18,6 +18,12 @@ class CreateBoletosTable extends Migration
             $table->string('descricao');
             $table->decimal('valor', 9);
             $table->date('vencimento');
+            $table->decimal('dias_vencimento', 2, 0)->nullable();
+            $table->decimal('parcelas', 2, 0)->nullable();
+            $table->decimal('desconto', 9)->nullable();
+            $table->decimal('dias_desconto', 2, 0)->nullable();
+            $table->decimal('juros', 5)->nullable();
+            $table->decimal('multa', 5)->nullable();
             $table->decimal('valor_pago', 9)->nullable();
             $table->date('pagamento')->nullable();
             $table->unsignedBigInteger('id_cliente');

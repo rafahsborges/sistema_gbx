@@ -36,6 +36,12 @@ class StoreBoleto extends FormRequest
             'servico' => ['required'],
             'gerar' => ['required', 'boolean'],
             'status' => ['required'],
+            'parcelas' => ['nullable'],
+            'desconto' => ['nullable'],
+            'dias_desconto' => ['nullable'],
+            'dias_vencimento' => ['nullable'],
+            'juros' => ['nullable'],
+            'multa' => ['nullable'],
         ];
     }
 

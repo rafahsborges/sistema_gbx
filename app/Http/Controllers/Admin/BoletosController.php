@@ -48,6 +48,7 @@ class BoletosController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['cliente']);
+                $query->with(['servico']);
                 if ($request->has('clientes')) {
                     $query->whereIn('id_cliente', $request->get('clientes'));
                 }
