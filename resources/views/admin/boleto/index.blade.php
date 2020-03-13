@@ -106,7 +106,7 @@
                                 </tr>
                                 @if(auth()->user()->is_admin === 1)
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="9">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="11">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a
                                                     href="#" class="text-primary"
                                                     @click="onBulkItemsClickedAll('/admin/boletos')"

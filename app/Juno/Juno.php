@@ -158,9 +158,6 @@ class Juno
 
         $data = json_encode($fields);
 
-        //var_dump($data);
-        //die();
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -184,9 +181,6 @@ class Juno
         }
 
         curl_close($ch);
-
-        var_dump($response);
-        die();
 
         $response = json_decode($response, true);
 

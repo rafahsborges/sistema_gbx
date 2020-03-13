@@ -116,7 +116,12 @@ class BoletosController extends Controller
         if($boleto->gerar === true){
             $juno = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
             $result = $juno->createCharge($boleto);
-            var_dump($result);
+            if($boleto->parcela > 1){
+
+            }else{
+                $boleto->update(['juno_id' => $result['_embedded']['charges'][0]['id']]);
+            }
+            var_dump($result['_embedded']['charges'][0]['id']);
         }
 
         die();
