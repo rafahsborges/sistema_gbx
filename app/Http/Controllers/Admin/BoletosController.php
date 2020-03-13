@@ -188,6 +188,9 @@ class BoletosController extends Controller
 
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
         $sanitized['valor_pago'] = $request->prepareCurrencies($sanitized['valor_pago']);
+        $sanitized['juros'] = $request->prepareCurrencies($sanitized['juros']);
+        $sanitized['multa'] = $request->prepareCurrencies($sanitized['multa']);
+        $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         // Update changed values Boleto
         $boleto->update($sanitized);
