@@ -41,7 +41,7 @@ class Juno
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->sandbox ? Juno::TOKEN_SANDBOX_URL : Juno::TOKEN_PROD_URL);
-        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -122,16 +122,16 @@ class Juno
     public function createCharge($boleto)
     {
         $references = [];
+
         for ($i = 1; $i <= $boleto->parcelas; $i++) {
-            $references[] = "Boleto " . $i;
+            array_push($references, "Boleto " . $i);
         }
-        $data = [
+
+        $fields = [
             "charge" => [
                 "description" => $boleto->descricao,
-                "references" => [
-                    $references,
-                ],
-                "totalAmount" => $boleto->valor,
+                "references" => $references,
+                /*"totalAmount" => $boleto->valor,*/
                 "amount" => $boleto->valor,
                 "dueDate" => Carbon::createFromFormat('Y-m-d H:i:s', $boleto->vencimento)->format('Y-m-d'),
                 "installments" => $boleto->parcelas,
@@ -148,7 +148,7 @@ class Juno
             ],
             "billing" => [
                 "name" => $boleto->cliente->tipo == 0 ? $boleto->cliente->nome : $boleto->cliente->razao_social,
-                "document" => $boleto->cliente->tipo == 0 ? $boleto->cliente->cpf : $boleto->cliente->cnpj,
+                "document" => $boleto->cliente->tipo == 0 ? preg_replace('/\D/', '', $boleto->cliente->cpf) : preg_replace('/\D/', '', $boleto->cliente->cnpj),
                 "email" => $boleto->cliente->email,
                 "secondaryEmail" => $boleto->cliente->email2,
                 "phone" => $boleto->cliente->telefone,
@@ -156,13 +156,20 @@ class Juno
             ]
         ];
 
+        $data = json_encode($fields);
+
+        //var_dump($data);
+        //die();
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges');
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
         $headers = [
+            'Content-type: application/json',
             'Authorization: Bearer ' . $this->authorization_token,
             'X-API-Version: 2',
             'X-Resource-Token: ' . $this->resource_token,
@@ -177,6 +184,9 @@ class Juno
         }
 
         curl_close($ch);
+
+        var_dump($response);
+        die();
 
         $response = json_decode($response, true);
 
