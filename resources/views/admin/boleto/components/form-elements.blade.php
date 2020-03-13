@@ -21,7 +21,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('valor'), 'has-success': fields.valor && fields.valor.valid }">
     <label for="valor" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.valor') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.valor" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('valor'), 'form-control-success': fields.valor && fields.valor.valid}" id="valor" name="valor" placeholder="{{ trans('admin.boleto.columns.valor') }}">
+        <input type="text" v-model="form.valor" v-money="money" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('valor'), 'form-control-success': fields.valor && fields.valor.valid}" id="valor" name="valor" placeholder="{{ trans('admin.boleto.columns.valor') }}">
         <div v-if="errors.has('valor')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valor') }}</div>
     </div>
 </div>
@@ -40,7 +40,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('valor_pago'), 'has-success': fields.valor_pago && fields.valor_pago.valid }">
     <label for="valor_pago" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.valor_pago') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.valor_pago" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('valor_pago'), 'form-control-success': fields.valor_pago && fields.valor_pago.valid}" id="valor_pago" name="valor_pago" placeholder="{{ trans('admin.boleto.columns.valor_pago') }}">
+        <input type="text" v-model="form.valor_pago" v-money="money" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('valor_pago'), 'form-control-success': fields.valor_pago && fields.valor_pago.valid}" id="valor_pago" name="valor_pago" placeholder="{{ trans('admin.boleto.columns.valor_pago') }}">
         <div v-if="errors.has('valor_pago')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valor_pago') }}</div>
     </div>
 </div>

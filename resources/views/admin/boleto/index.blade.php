@@ -81,15 +81,15 @@
                                     </th>
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.id') }}</th>
-                                    <th is='sortable' :column="'valor'">{{ trans('admin.boleto.columns.valor') }}</th>
+                                    <th is='sortable'
+                                        :column="'id_cliente'">{{ trans('admin.boleto.columns.id_cliente') }}</th>
                                     <th is='sortable'
                                         :column="'vencimento'">{{ trans('admin.boleto.columns.vencimento') }}</th>
-                                    <th is='sortable'
-                                        :column="'valor_pago'">{{ trans('admin.boleto.columns.valor_pago') }}</th>
+                                    <th is='sortable' :column="'valor'">{{ trans('admin.boleto.columns.valor') }}</th>
                                     <th is='sortable'
                                         :column="'pagamento'">{{ trans('admin.boleto.columns.pagamento') }}</th>
                                     <th is='sortable'
-                                        :column="'id_cliente'">{{ trans('admin.boleto.columns.id_cliente') }}</th>
+                                        :column="'valor_pago'">{{ trans('admin.boleto.columns.valor_pago') }}</th>
                                     <th is='sortable' :column="'status'">{{ trans('admin.boleto.columns.status') }}</th>
 
                                     <th></th>
@@ -128,11 +128,11 @@
                                     </td>
 
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.valor }}</td>
-                                    <td>@{{ item.vencimento | date }}</td>
-                                    <td>@{{ item.valor_pago }}</td>
-                                    <td>@{{ item.pagamento | date }}</td>
                                     <td>@{{ item.cliente.nome }}</td>
+                                    <td>@{{ item.vencimento | date('DD/MM/YYYY')}}</td>
+                                    <td>R$ @{{ item.valor }}</td>
+                                    <td>@{{ item.pagamento | date('DD/MM/YYYY')}}</td>
+                                    <td>R$ @{{ item.valor_pago }}</td>
                                     <td>@{{ item.status }}</td>
 
                                     <td>

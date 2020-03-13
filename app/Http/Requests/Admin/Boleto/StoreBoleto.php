@@ -27,20 +27,20 @@ class StoreBoleto extends FormRequest
     public function rules(): array
     {
         return [
-            'valor' => ['required', 'numeric'],
+            'valor' => ['required'],
             'vencimento' => ['required', 'date'],
-            'valor_pago' => ['required', 'numeric'],
+            'valor_pago' => ['required'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['required'],
-            'status' => ['required', 'boolean'],
+            'status' => ['required'],
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -54,6 +54,14 @@ class StoreBoleto extends FormRequest
     {
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getStatusId()
+    {
+        if ($this->has('status')) {
+            return $this->get('status')['id'];
         }
         return null;
     }

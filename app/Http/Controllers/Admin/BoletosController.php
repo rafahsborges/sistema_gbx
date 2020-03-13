@@ -97,6 +97,7 @@ class BoletosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['status'] = $request->getStatusId();
 
         // Store the Boleto
         $boleto = Boleto::create($sanitized);
@@ -152,6 +153,7 @@ class BoletosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['status'] = $request->getStatusId();
 
         // Update changed values Boleto
         $boleto->update($sanitized);

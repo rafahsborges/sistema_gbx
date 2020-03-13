@@ -27,12 +27,12 @@ class UpdateBoleto extends FormRequest
     public function rules(): array
     {
         return [
-            'valor' => ['sometimes', 'numeric'],
+            'valor' => ['sometimes'],
             'vencimento' => ['sometimes', 'date'],
-            'valor_pago' => ['sometimes', 'numeric'],
+            'valor_pago' => ['sometimes'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['sometimes'],
-            'status' => ['sometimes', 'boolean'],
+            'status' => ['sometimes'],
         ];
     }
 
@@ -54,6 +54,14 @@ class UpdateBoleto extends FormRequest
     {
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getStatusId()
+    {
+        if ($this->has('status')) {
+            return $this->get('status')['id'];
         }
         return null;
     }
