@@ -313,7 +313,10 @@ class BoletosController extends Controller
         $result = $boletoFacil->getCharge($boleto->juno_id);
 
         var_dump('<pre>');
-        var_dump($result);
+        var_dump($result['payments'][0]);
+        var_dump($result['payments'][0]['date']);
+        var_dump($result['payments'][0]['amount']);
+        var_dump($result['payments'][0]['status']);
         var_dump('</pre>');
     }
 

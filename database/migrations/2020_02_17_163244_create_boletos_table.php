@@ -37,6 +37,7 @@ class CreateBoletosTable extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
             $table->boolean('gerar');
+            $table->boolean('notificar');
             $table->boolean('status');
             $table->string('juno_id')->nullable();
             $table->timestamps();
