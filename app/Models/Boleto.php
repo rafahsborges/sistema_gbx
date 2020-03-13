@@ -10,13 +10,16 @@ class Boleto extends Model
 {
     use SoftDeletes;
     protected $fillable = [
+        'descricao',
         'valor',
         'vencimento',
         'valor_pago',
         'pagamento',
         'id_cliente',
+        'id_servico',
         'gerar',
         'status',
+        'juno_id',
     ];
 
 

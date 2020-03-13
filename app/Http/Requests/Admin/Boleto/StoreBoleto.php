@@ -27,11 +27,13 @@ class StoreBoleto extends FormRequest
     public function rules(): array
     {
         return [
+            'descricao' => ['required'],
             'valor' => ['required'],
             'vencimento' => ['required', 'date'],
             'valor_pago' => ['nullable'],
             'pagamento' => ['nullable', 'date'],
             'cliente' => ['required'],
+            'servico' => ['required'],
             'gerar' => ['required', 'boolean'],
             'status' => ['required'],
         ];
@@ -55,6 +57,14 @@ class StoreBoleto extends FormRequest
     {
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getServicoId()
+    {
+        if ($this->has('servico')) {
+            return $this->get('servico')['id'];
         }
         return null;
     }

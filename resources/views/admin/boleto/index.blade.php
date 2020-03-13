@@ -87,8 +87,11 @@
                                     @endif
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.id') }}</th>
+                                    <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.descricao') }}</th>
                                     <th is='sortable'
                                         :column="'id_cliente'">{{ trans('admin.boleto.columns.id_cliente') }}</th>
+                                    <th is='sortable'
+                                        :column="'id_servico'">{{ trans('admin.boleto.columns.id_servico') }}</th>
                                     <th is='sortable'
                                         :column="'vencimento'">{{ trans('admin.boleto.columns.vencimento') }}</th>
                                     <th is='sortable' :column="'valor'">{{ trans('admin.boleto.columns.valor') }}</th>
@@ -140,7 +143,9 @@
                                     @endif
 
                                     <td>@{{ item.id }}</td>
+                                    <td>@{{ item.descricao }}</td>
                                     <td>@{{ item.cliente.nome }}</td>
+                                    <td>@{{ item.servico.nome }}</td>
                                     <td>@{{ item.vencimento | date('DD/MM/YYYY')}}</td>
                                     <td>R$ @{{ item.valor }}</td>
                                     <td>@{{ item.pagamento | date('DD/MM/YYYY')}}</td>

@@ -330,11 +330,13 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            'descricao' => 'Descrição',
             'valor' => 'Valor',
             'vencimento' => 'Vencimento',
             'valor_pago' => 'Valor pago',
             'pagamento' => 'Pagamento',
-            'id_cliente' => 'Id cliente',
+            'id_cliente' => 'Cliente',
+            'id_servico' => 'Serviço',
             'gerar' => 'Gerar Boleto',
             'status' => 'Status',
         ],

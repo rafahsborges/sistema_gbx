@@ -11,6 +11,7 @@
                 :action="'{{ $boleto->resource_url }}'"
                 :data="{{ $boleto->toJson() }}"
                 :clientes="{{$clientes->toJson()}}"
+                :servicos="{{$servicos->toJson()}}"
                 v-cloak
                 inline-template>
 

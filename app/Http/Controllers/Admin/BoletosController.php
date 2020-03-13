@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Boleto\UpdateBoleto;
 use App\Juno\Juno;
 use App\Models\AdminUser;
 use App\Models\Boleto;
+use App\Models\Servico;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -83,6 +84,7 @@ class BoletosController extends Controller
 
         return view('admin.boleto.create', [
             'clientes' => AdminUser::all(),
+            'servicos' => Servico::all(),
             'mode' => 'create',
         ]);
     }
@@ -98,6 +100,7 @@ class BoletosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['id_servico'] = $request->getServicoId();
         $sanitized['status'] = $request->getStatusId();
 
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
@@ -105,6 +108,14 @@ class BoletosController extends Controller
 
         // Store the Boleto
         $boleto = Boleto::create($sanitized);
+
+        if($boleto->gerar === true){
+            $juno = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+            $result = $juno->createCharge($boleto);
+            var_dump($result);
+        }
+
+        die();
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/boletos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -151,6 +162,7 @@ class BoletosController extends Controller
         return view('admin.boleto.edit', [
             'boleto' => $boleto,
             'clientes' => AdminUser::all(),
+            'servicos' => Servico::all(),
             'mode' => 'edit',
         ]);
     }
@@ -167,6 +179,7 @@ class BoletosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['id_servico'] = $request->getServicoId();
         $sanitized['status'] = $request->getStatusId();
 
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
@@ -232,7 +245,7 @@ class BoletosController extends Controller
     public function juno()
     {
         $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
-        $result = $boletoFacil->listCharges();
+        $result = $boletoFacil->getCharge('chr_D04093F693D07871A67085F1BF4244E9');
         var_dump('<pre>');
         var_dump($result);
         var_dump('</pre>');

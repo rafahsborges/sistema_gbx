@@ -6,9 +6,11 @@ Vue.component('boleto-listing', {
         return {
             showAdvancedFilter: false,
             clientesMultiselect: {},
+            servicosMultiselect: {},
 
             filters: {
                 clientes: [],
+                servicos: [],
             },
         }
     },
@@ -16,10 +18,15 @@ Vue.component('boleto-listing', {
     watch: {
         showAdvancedFilter: function (newVal, oldVal) {
             this.clientesMultiselect = [];
+            this.servicosMultiselect = [];
         },
         clientesMultiselect: function(newVal, oldVal) {
             this.filters.clientes = newVal.map(function(object) { return object['key']; });
             this.filter('clientes', this.filters.clientes);
+        },
+        servicosMultiselect: function(newVal, oldVal) {
+            this.filters.servicos = newVal.map(function(object) { return object['key']; });
+            this.filter('servicos', this.filters.servicos);
         }
     }
 });

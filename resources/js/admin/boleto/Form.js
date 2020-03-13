@@ -5,15 +5,18 @@ Vue.component('boleto-form', {
     mixins: [AppForm],
     props: [
         'clientes',
+        'servicos',
     ],
     data: function () {
         return {
             form: {
+                descricao: '',
                 valor: '',
                 vencimento: '',
                 valor_pago: '',
                 pagamento: '',
                 cliente: '',
+                servico: '',
                 gerar: true,
                 status: '',
             },

@@ -11,6 +11,7 @@
         <boleto-form
             :action="'{{ url('admin/boletos') }}'"
             :clientes="{{$clientes->toJson()}}"
+            :servicos="{{$servicos->toJson()}}"
             v-cloak
             inline-template>
 
