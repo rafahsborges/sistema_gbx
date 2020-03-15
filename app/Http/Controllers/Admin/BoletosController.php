@@ -342,9 +342,11 @@ class BoletosController extends Controller
 
         $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
         $result = $boletoFacil->getCharge($boleto->juno_id);
-        //var_dump('<pre>');
-        //var_dump($result);
-        //var_dump('</pre>');
+
+        /*var_dump('<pre>');
+        var_dump($result);
+        var_dump('</pre>');
+        die();*/
 
         if (isset($result['payNumber'])) {
 
@@ -354,17 +356,23 @@ class BoletosController extends Controller
                         'status' => 3,
                         'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     ]);
-            }
-
-            if ($result['payNumber'] === 'BOLETO PAGO' && isset($result['payments'])) {
-                $data_pagamento = $result['payments'][0]['date'];
-                $valor_pagamento = $result['payments'][0]['amount'];
-                $status = $result['payments'][0]['status'] === 'CONFIRMED' ? 1 : 0;
-                $boleto->update([
-                    'pagamento' => $data_pagamento,
-                    'valor_pago' => $valor_pagamento,
-                    'status' => $status
-                ]);
+            } elseif ($result['payNumber'] === 'BOLETO PAGO') {
+                if (isset($result['payments'])) {
+                    $data_pagamento = $result['payments'][0]['date'];
+                    $valor_pagamento = $result['payments'][0]['amount'];
+                    $status = $result['payments'][0]['status'] === 'CONFIRMED' ? 1 : 0;
+                    $boleto->update([
+                        'pagamento' => $data_pagamento,
+                        'valor_pago' => $valor_pagamento,
+                        'status' => $status,
+                    ]);
+                }
+            } else {
+                if (Carbon::createFromFormat('Y-m-d', $result['dueDate'])->isPast()) {
+                    $boleto->update([
+                        'status' => 2,
+                    ]);
+                }
             }
         }
 

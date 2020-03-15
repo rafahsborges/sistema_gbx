@@ -186,4 +186,32 @@ class Juno
 
         return $response;
     }
+
+    public function cancelCharge($id)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, ($this->sandbox ? Juno::SANDBOX_URL : Juno::PROD_URL) . '/charges/' . $id . '/cancelation');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = [
+            'Authorization: Bearer ' . $this->authorization_token,
+            'X-API-Version: 2',
+            'X-Resource-Token: ' . $this->resource_token,
+        ];
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+
+        curl_close($ch);
+
+        $response = json_decode($response, true);
+
+        return $response;
+    }
 }
