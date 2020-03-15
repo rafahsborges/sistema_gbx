@@ -59,6 +59,10 @@ class BoletosController extends Controller
                 if (auth()->user()->is_admin !== 1) {
                     $query->where('id_cliente', auth()->user()->id);
                 }
+                if ($request->has('status')) {
+                    $query->whereIn('status', $request->get('status'));
+                }
+                $query->orderBy('status', 'ASC');
             }
         );
 
@@ -266,7 +270,11 @@ class BoletosController extends Controller
      */
     public function destroy(DestroyBoleto $request, Boleto $boleto)
     {
-        $boleto->delete();
+        DB::table('boletos')->where('id', $boleto->id)
+            ->update([
+                'status' => 3,
+                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);

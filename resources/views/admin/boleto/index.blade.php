@@ -78,6 +78,16 @@
                                                          :multiple="true">
                                             </multiselect>
                                         </div>
+                                        <div class="col col-lg-6 col-xl-6 form-group">
+                                            <multiselect v-model="statusMultiselect"
+                                                         :options="statuses"
+                                                         label="nome"
+                                                         track-by="id"
+                                                         placeholder="{{ __('Digite para procurar por status') }}"
+                                                         :limit="2"
+                                                         :multiple="true">
+                                            </multiselect>
+                                        </div>
                                 </div>
                             </form>
 
