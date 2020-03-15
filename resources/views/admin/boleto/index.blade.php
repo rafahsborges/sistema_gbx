@@ -177,26 +177,26 @@
 
                                     <td>
                                         <div class="row no-gutters" v-if="item.status !== 3">
-                                            <div class="col-auto">
+                                            <div class="col-auto" v-if="item.status !== 1">
                                                 <a class="btn btn-sm btn-spinner btn-warning"
                                                    :href="item.resource_url + '/status'"
                                                    title="{{ trans('admin.boleto.actions.status') }}"
                                                    role="button"><i class="fa fa-check"></i></a>
                                             </div>
-                                            <div class="col-auto">
+                                            <div class="col-auto" v-if="item.status !== 1">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/boleto'"
                                                    title="{{ trans('admin.boleto.actions.boleto') }}"
                                                    role="button"><i class="fa fa-money"></i></a>
                                             </div>
                                             @if(auth()->user()->is_admin === 1)
-                                                <div class="col-auto">
+                                                <div class="col-auto" v-if="item.status !== 1">
                                                     <a class="btn btn-sm btn-spinner btn-info"
                                                        :href="item.resource_url + '/edit'"
                                                        title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
                                                        role="button"><i class="fa fa-edit"></i></a>
                                                 </div>
-                                                <form class="col" @submit.prevent="deleteItem(item.resource_url)">
+                                                <form class="col" @submit.prevent="deleteItem(item.resource_url)" v-if="item.status !== 1">
                                                     <button type="submit" class="btn btn-sm btn-danger"
                                                             title="{{ trans('brackets/admin-ui::admin.btn.delete') }}">
                                                         <i

@@ -15,7 +15,7 @@ Vue.component('boleto-listing', {
             },
 
             statuses: [
-                {nome: 'A pagar', id: '0'},
+                {nome: 'Pendente', id: '0'},
                 {nome: 'Pago', id: '1'},
                 {nome: 'Vencido', id: '2'},
                 {nome: 'Cancelado', id: '3'},

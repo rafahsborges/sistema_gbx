@@ -127,34 +127,60 @@ class Juno
             array_push($references, "Boleto " . $i);
         }
 
-        $fields = [
-            "charge" => [
-                "description" => $boleto->descricao,
-                "references" => $references,
-                /*"totalAmount" => $boleto->valor,*/
-                "amount" => $boleto->valor,
-                "dueDate" => Carbon::createFromFormat('Y-m-d H:i:s', $boleto->vencimento)->format('Y-m-d'),
-                "installments" => $boleto->parcelas,
-                "maxOverdueDays" => $boleto->dias_vencimento,
-                "fine" => $boleto->juros,
-                "interest" => $boleto->multa,
-                "discountAmount" => $boleto->desconto,
-                "discountDays" => $boleto->dias_desconto,
-                "paymentTypes" => [
-                    "BOLETO",
+        $fields = '';
+
+        if ($boleto->parcelas > 1) {
+            $fields = [
+                "charge" => [
+                    "description" => $boleto->descricao,
+                    "references" => $references,
+                    "amount" => round($boleto->valor / $boleto->parcelas, 2),
+                    "dueDate" => Carbon::createFromFormat('Y-m-d H:i:s', $boleto->vencimento)->format('Y-m-d'),
+                    "installments" => $boleto->parcelas,
+                    "maxOverdueDays" => $boleto->dias_vencimento,
+                    "fine" => $boleto->juros,
+                    "interest" => $boleto->multa,
+                    "discountAmount" => $boleto->desconto,
+                    "discountDays" => $boleto->dias_desconto,
+                    "paymentTypes" => [
+                        "BOLETO",
+                    ],
                 ],
-                /*"split" => [
-                ],*/
-            ],
-            "billing" => [
-                "name" => $boleto->cliente->tipo == 0 ? $boleto->cliente->nome : $boleto->cliente->razao_social,
-                "document" => $boleto->cliente->tipo == 0 ? preg_replace('/\D/', '', $boleto->cliente->cpf) : preg_replace('/\D/', '', $boleto->cliente->cnpj),
-                "email" => $boleto->cliente->email,
-                "secondaryEmail" => $boleto->cliente->email2,
-                "phone" => $boleto->cliente->telefone,
-                "notify" => $boleto->notificar,
-            ]
-        ];
+                "billing" => [
+                    "name" => $boleto->cliente->tipo == 0 ? $boleto->cliente->nome : $boleto->cliente->razao_social,
+                    "document" => $boleto->cliente->tipo == 0 ? preg_replace('/\D/', '', $boleto->cliente->cpf) : preg_replace('/\D/', '', $boleto->cliente->cnpj),
+                    "email" => $boleto->cliente->email,
+                    "secondaryEmail" => $boleto->cliente->email2,
+                    "phone" => $boleto->cliente->telefone,
+                    "notify" => $boleto->notificar,
+                ]
+            ];
+        } else {
+            $fields = [
+                "charge" => [
+                    "description" => $boleto->descricao,
+                    "references" => $references,
+                    "amount" => $boleto->valor,
+                    "dueDate" => Carbon::createFromFormat('Y-m-d H:i:s', $boleto->vencimento)->format('Y-m-d'),
+                    "maxOverdueDays" => $boleto->dias_vencimento,
+                    "fine" => $boleto->juros,
+                    "interest" => $boleto->multa,
+                    "discountAmount" => $boleto->desconto,
+                    "discountDays" => $boleto->dias_desconto,
+                    "paymentTypes" => [
+                        "BOLETO",
+                    ],
+                ],
+                "billing" => [
+                    "name" => $boleto->cliente->tipo == 0 ? $boleto->cliente->nome : $boleto->cliente->razao_social,
+                    "document" => $boleto->cliente->tipo == 0 ? preg_replace('/\D/', '', $boleto->cliente->cpf) : preg_replace('/\D/', '', $boleto->cliente->cnpj),
+                    "email" => $boleto->cliente->email,
+                    "secondaryEmail" => $boleto->cliente->email2,
+                    "phone" => $boleto->cliente->telefone,
+                    "notify" => $boleto->notificar,
+                ]
+            ];
+        }
 
         $data = json_encode($fields);
 
@@ -209,9 +235,5 @@ class Juno
         }
 
         curl_close($ch);
-
-        $response = json_decode($response, true);
-
-        return $response;
     }
 }

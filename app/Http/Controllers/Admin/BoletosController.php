@@ -135,9 +135,13 @@ class BoletosController extends Controller
                 if ($boleto->parcelas > 1) {
                     foreach ($result['_embedded']['charges'] as $key => $charge) {
                         if ($key == 0) {
-                            $boleto->update(['juno_id' => $charge['id']]);
+                            $boleto->update([
+                                'valor' => $charge['amount'],
+                                'juno_id' => $charge['id'],
+                            ]);
                         } else {
                             $sanitized['juno_id'] = $charge['id'];
+                            $sanitized['valor'] = $charge['amount'];
                             // Store the others Boleto
                             $boleto = Boleto::create($sanitized);
                         }
@@ -236,9 +240,13 @@ class BoletosController extends Controller
                 if ($boleto->parcelas > 1) {
                     foreach ($result['_embedded']['charges'] as $key => $charge) {
                         if ($key == 0) {
-                            $boleto->update(['juno_id' => $charge['id']]);
+                            $boleto->update([
+                                'valor' => $charge['amount'],
+                                'juno_id' => $charge['id'],
+                            ]);
                         } else {
                             $sanitized['juno_id'] = $charge['id'];
+                            $sanitized['valor'] = $charge['amount'];
                             // Store the others Boleto
                             $boleto = Boleto::create($sanitized);
                         }
@@ -270,6 +278,11 @@ class BoletosController extends Controller
      */
     public function destroy(DestroyBoleto $request, Boleto $boleto)
     {
+        if (isset($boleto->juno_id)) {
+            $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+            $boletoFacil->cancelCharge($boleto->juno_id);
+        }
+
         DB::table('boletos')->where('id', $boleto->id)
             ->update([
                 'status' => 3,
@@ -296,8 +309,14 @@ class BoletosController extends Controller
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
+                    $boleto = Boleto::find($bulkChunk);
+                    if (isset($boleto->juno_id)) {
+                        $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+                        $boletoFacil->cancelCharge($boleto->juno_id);
+                    }
                     DB::table('boletos')->whereIn('id', $bulkChunk)
                         ->update([
+                            'status' => 3,
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                         ]);
 
@@ -343,11 +362,6 @@ class BoletosController extends Controller
         $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
         $result = $boletoFacil->getCharge($boleto->juno_id);
 
-        /*var_dump('<pre>');
-        var_dump($result);
-        var_dump('</pre>');
-        die();*/
-
         if (isset($result['payNumber'])) {
 
             if ($result['payNumber'] === 'BOLETO CANCELADO') {
@@ -372,25 +386,15 @@ class BoletosController extends Controller
                     $boleto->update([
                         'status' => 2,
                     ]);
+                } else {
+                    $boleto->update([
+                        'valor' => $result['amount'],
+                        'status' => 0,
+                    ]);
                 }
             }
         }
 
         return redirect('admin/boletos');
-    }
-
-    public function juno()
-    {
-        $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
-        $result = $boletoFacil->getCharge('chr_D04093F693D07871A67085F1BF4244E9');
-        var_dump('<pre>');
-        var_dump($result);
-        var_dump('</pre>');
-
-        die();
-        $boletoFacil->createCharge("Rafael Souza Borges", "03591040100", "Pedido 00001", "150.00", "20/03/2020");
-        $boletoFacil->installments = 12;
-        $boletoFacil->payerEmail = "rafaelsouzaborges@outlook.com";
-        $boletoFacil->issueCharge();
     }
 }
