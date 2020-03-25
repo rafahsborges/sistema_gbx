@@ -29,6 +29,13 @@ Route::get('/clear-cache', function () {
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::get('/admin', function () {
+        return view('admin.home');
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::prefix('admin-users')->name('admin-users/')->group(static function () {
             Route::get('/', 'AdminUsersController@index')->name('index');

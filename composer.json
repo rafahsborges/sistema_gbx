@@ -24,7 +24,8 @@
         "spatie/laravel-activitylog": "^3.9",
         "symfony/css-selector": "^4.0",
         "ext-curl": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-http": "*"
     },
     "require-dev": {
         "brackets/admin-generator": "^5.0",
