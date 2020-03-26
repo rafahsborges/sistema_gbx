@@ -1,5 +1,5 @@
 import AppListing from '../app-components/Listing/AppListing';
 
-Vue.component('servico-listing', {
+Vue.component('servico-home-listing', {
     mixins: [AppListing],
 });

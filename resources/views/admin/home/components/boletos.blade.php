@@ -1,4 +1,4 @@
-<boleto-listing
+<boleto-home-listing
     :data="{{ $boletos->toJson() }}"
     :url="'{{ url('admin/boletos') }}'"
     inline-template>
@@ -118,4 +118,4 @@
             </div>
         </div>
     </div>
-</boleto-listing>
+</boleto-home-listing>

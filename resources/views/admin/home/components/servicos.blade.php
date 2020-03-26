@@ -1,4 +1,4 @@
-<servico-listing
+<servico-home-listing
     :data="{{ $servicos->toJson() }}"
     :url="'{{ url('admin/servicos') }}'"
     inline-template>
@@ -142,4 +142,4 @@
             </div>
         </div>
     </div>
-</servico-listing>
+</servico-home-listing>

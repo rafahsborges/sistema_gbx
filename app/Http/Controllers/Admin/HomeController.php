@@ -53,6 +53,7 @@ class HomeController extends Controller
             function ($query) use ($request) {
                 $query->with(['status']);
                 $query->with(['etapa']);
+                $query->where('id_status', 1);
             }
         );
 

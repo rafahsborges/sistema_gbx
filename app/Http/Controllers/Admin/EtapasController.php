@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Etapa\IndexEtapa;
 use App\Http\Requests\Admin\Etapa\StoreEtapa;
 use App\Http\Requests\Admin\Etapa\UpdateEtapa;
 use App\Models\Etapa;
+use App\Models\Item;
 use App\Models\Servico;
 use App\Models\Status;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -140,6 +141,8 @@ class EtapasController extends Controller
         $etapa = Etapa::with('status')
             ->find($etapa->id);
 
+        $etapa['servico'] = Servico::find($etapa->id_servico);
+
         return view('admin.etapa.edit', [
             'etapa' => $etapa,
             'statuses' => Status::all(),
@@ -160,6 +163,24 @@ class EtapasController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
         $sanitized['id_servico'] = $request->getServicoId();
+
+        $itens = Item::where('id_etapa', $etapa->id)->get();
+
+        foreach ($itens as $item) {
+
+            if ($item->id_status == 1) {
+                $canFinish = false;
+            }
+
+        }
+
+        if (!$canFinish && $sanitized['id_status'] == 2) {
+            $sanitized['id_status'] = 1;
+        }
+
+        if (!$canFinish && $sanitized['id_status'] == 4) {
+            $sanitized['id_status'] = 1;
+        }
 
         // Update changed values Etapa
         $etapa->update($sanitized);

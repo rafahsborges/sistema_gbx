@@ -195,6 +195,31 @@ class ServicosController extends Controller
      */
     public function update(UpdateServico $request, Servico $servico)
     {
+        $servico = Servico::with('etapa')
+            ->with('etapa.itens')
+            ->find($servico->id);
+
+        $etapas = Etapa::where('id_servico', $servico->id)->get();
+
+        $canFinish = true;
+
+        foreach ($etapas as $etapa) {
+
+            if ($etapa->id_status == 1) {
+                $canFinish = false;
+            }
+
+            $itens = Item::where('id_etapa', $etapa->id)->get();
+
+            foreach ($itens as $item) {
+
+                if ($item->id_status == 1) {
+                    $canFinish = false;
+                }
+
+            }
+        }
+
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
@@ -205,6 +230,14 @@ class ServicosController extends Controller
         $itens = [];
 
         $etapasList = isset($sanitized['etapas']) ? $sanitized['etapas'] : null;
+
+        if (!$canFinish && $sanitized['id_status'] == 2) {
+            $sanitized['id_status'] = 1;
+        }
+
+        if (!$canFinish && $sanitized['id_status'] == 4) {
+            $sanitized['id_status'] = 1;
+        }
 
         // Update changed values Servico
         $servico->update($sanitized);
