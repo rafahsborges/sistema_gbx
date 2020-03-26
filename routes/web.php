@@ -31,6 +31,8 @@ Route::get('/clear-cache', function () {
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/{boleto}/boleto', 'HomeController@boleto')->name('boleto');
+        Route::get('/{boleto}/status', 'HomeController@status')->name('status');
     });
 });
 

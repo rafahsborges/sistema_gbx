@@ -4,6 +4,8 @@
 
     @include('admin.home.components.boletos')
 
-    @include('admin.home.components.servicos')
+    @if(auth()->user()->is_admin === 1)
+        @include('admin.home.components.servicos')
+    @endif
 
 @endsection
