@@ -53,6 +53,101 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_status'), 'has-success': fields.id_status && fields.id_status.valid }">
+    <label for="id_status" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.id_status') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect
+            v-model="form.status"
+            :options="statuses"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.servico.columns.id_status') }}"
+            placeholder="{{ trans('admin.servico.columns.id_status') }}">
+        </multiselect>
+        <div v-if="errors.has('id_status')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_status') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center" v-if="form.status.id === 3 || form.status.id === 4"
+     :class="{'has-danger': errors.has('observacao'), 'has-success': fields.observacao && fields.observacao.valid }">
+    <label for="observacao" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.observacao') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <div>
+            <wysiwyg v-model="form.observacao" v-validate="''" id="observacao" name="observacao"
+                     :config="mediaWysiwygConfig"></wysiwyg>
+        </div>
+        <div v-if="errors.has('observacao')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('observacao') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('documento'), 'has-success': fields.documento && fields.documento.valid }">
+    <label for="documento" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.documento') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input class="form-check-input" id="documento" type="checkbox" v-model="form.documento" v-validate="''"
+               data-vv-name="documento" name="documento_fake_element">
+        <label class="form-check-label" for="documento">
+            {{ trans('admin.admin-user.columns.documento') }}
+        </label>
+        <input type="hidden" name="documento" :value="form.documento">
+        <div v-if="errors.has('documento')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('documento')
+            }}
+        </div>
+    </div>
+</div>
+
+<div v-if="form.documento === true || form.documento === 1">
+
+    @if ($mode === 'create')
+        @include('brackets/admin-ui::admin.includes.media-uploader', [
+            'mediaCollection' => app(App\Models\Servico::class)->getMediaCollection('gallery'),
+            'label' => 'Gallery of photos'
+        ])
+        @include('brackets/admin-ui::admin.includes.media-uploader', [
+            'mediaCollection' => app(App\Models\Servico::class)->getMediaCollection('pdf'),
+            'label' => 'PDF appendix'
+        ])
+    @else
+        @include('brackets/admin-ui::admin.includes.media-uploader', [
+           'mediaCollection' => $orcamento->getMediaCollection('gallery'),
+           'media' => $orcamento->getThumbs200ForCollection('gallery'),
+           'label' => 'Gallery of photos'
+       ])
+        @include('brackets/admin-ui::admin.includes.media-uploader', [
+            'mediaCollection' => $orcamento->getMediaCollection('pdf'),
+            'media' => $orcamento->getThumbs200ForCollection('pdf'),
+            'label' => 'PDF appendix'
+        ])
+    @endif
+
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('valido'), 'has-success': fields.valido && fields.valido.valid }">
+    <label for="valido" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.valido') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input class="form-check-input" id="valido" type="checkbox" v-model="form.valido" v-validate="''"
+               data-vv-name="valido" name="valido_fake_element">
+        <label class="form-check-label" for="valido">
+            {{ trans('admin.admin-user.columns.valido') }}
+        </label>
+        <input type="hidden" name="valido" :value="form.valido">
+        <div v-if="errors.has('valido')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valido')
+            }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('id_etapa'), 'has-success': fields.id_etapa && fields.id_etapa.valid }">
     <label for="id_etapa" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.id_etapa') }}</label>
@@ -198,39 +293,4 @@
 
     </div>
 
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('id_status'), 'has-success': fields.id_status && fields.id_status.valid }">
-    <label for="id_status" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.id_status') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <multiselect
-            v-model="form.status"
-            :options="statuses"
-            :multiple="false"
-            track-by="id"
-            label="nome"
-            tag-placeholder="{{ trans('admin.servico.columns.id_status') }}"
-            placeholder="{{ trans('admin.servico.columns.id_status') }}">
-        </multiselect>
-        <div v-if="errors.has('id_status')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('id_status') }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center" v-if="form.status.id === 3 || form.status.id === 4"
-     :class="{'has-danger': errors.has('observacao'), 'has-success': fields.observacao && fields.observacao.valid }">
-    <label for="observacao" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.observacao') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <div>
-            <wysiwyg v-model="form.observacao" v-validate="''" id="observacao" name="observacao"
-                     :config="mediaWysiwygConfig"></wysiwyg>
-        </div>
-        <div v-if="errors.has('observacao')" class="form-control-feedback form-text" v-cloak>@{{
-            errors.first('observacao') }}
-        </div>
-    </div>
 </div>

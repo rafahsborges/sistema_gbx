@@ -30,6 +30,8 @@ class CreateServicosTable extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
             $table->text('observacao')->nullable();
+            $table->boolean('documento')->default(false);
+            $table->boolean('valido')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

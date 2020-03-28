@@ -41,7 +41,7 @@ class ServicosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'valor', 'orgao', 'id_etapa', 'id_status'],
+            ['id', 'nome', 'valor', 'orgao', 'id_etapa', 'id_status', 'documento', 'valido'],
 
             // set columns to searchIn
             ['id', 'nome', 'orgao', 'descricao', 'observacao'],

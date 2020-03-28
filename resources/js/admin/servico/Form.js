@@ -17,6 +17,8 @@ Vue.component('servico-form', {
                 etapa:  '' ,
                 status:  '' ,
                 observacao:  '' ,
+                documento:  false ,
+                valido:  false ,
                 etapas: [],
             },
             money: {
