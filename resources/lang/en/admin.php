@@ -328,6 +328,7 @@ return [
             'create' => 'Novo Boleto',
             'edit' => 'Alterar :name',
             'boleto' => 'Gerar Boleto',
+            'reload' => 'Recarregar do Juno',
         ],
 
         'columns' => [
@@ -541,9 +542,18 @@ return [
         'title' => 'Documentos',
 
         'actions' => [
-            'index' => 'Chats',
+            'index' => 'Documentos',
         ],
     ],
+
+    'relatorio' => [
+        'title' => 'Relatórios',
+
+        'actions' => [
+            'index' => 'Relatórios',
+        ],
+    ],
+
 
     // Do not delete me :) I'm used for auto-generation
 ];

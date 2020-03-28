@@ -412,4 +412,23 @@ class BoletosController extends Controller
 
         return redirect('admin/boletos');
     }
+
+    public function reload(){
+        $boletoFacil = new Juno(env('JUNO_RESOURCE_TOKEN'), true);
+        $result = $boletoFacil->listCharges();
+
+        if (isset($result['_embedded'])) {
+            $boletos = $result['_embedded']['charges'];
+
+            foreach ($boletos as $boleto){
+                var_dump('<pre>');
+                var_dump($boleto);
+                var_dump('</pre>');
+            }
+        }
+
+        die();
+
+        return redirect('admin/boletos');
+    }
 }

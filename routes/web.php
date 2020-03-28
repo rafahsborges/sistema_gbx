@@ -284,7 +284,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy', 'BoletosController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{boleto}', 'BoletosController@update')->name('update');
             Route::delete('/{boleto}', 'BoletosController@destroy')->name('destroy');
-            Route::get('/juno', 'BoletosController@juno')->name('juno');
+            Route::get('/reload', 'BoletosController@reload')->name('reload');
         });
     });
 });
