@@ -102,9 +102,7 @@ class ServicosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
-        if($sanitized['etapa']) {
-            $sanitized['id_etapa'] = $request->getEtapaId();
-        }
+        $sanitized['id_etapa'] = $sanitized['etapa'] ? $request->getEtapaId() : null;
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         $etapas = [];
@@ -227,9 +225,7 @@ class ServicosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
-        if($sanitized['etapa']) {
-            $sanitized['id_etapa'] = $request->getEtapaId();
-        }
+        $sanitized['id_etapa'] = $sanitized['etapa'] ? $request->getEtapaId() : null;
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         $etapas = [];

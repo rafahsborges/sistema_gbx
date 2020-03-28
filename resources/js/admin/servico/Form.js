@@ -21,6 +21,7 @@ Vue.component('servico-form', {
                 valido:  false ,
                 etapas: [],
             },
+            mediaCollections: ['gallery', 'pdf'],
             money: {
                 decimal: ',',
                 thousands: '.',

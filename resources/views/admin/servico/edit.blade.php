@@ -27,13 +27,14 @@
                         @include('admin.servico.components.form-elements')
                     </div>
 
-
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary" :disabled="submiting">
-                            <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-download'"></i>
-                            {{ trans('brackets/admin-ui::admin.btn.save') }}
-                        </button>
-                    </div>
+                    @if(auth()->user()->is_admin === 1)
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary" :disabled="submiting">
+                                <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-download'"></i>
+                                {{ trans('brackets/admin-ui::admin.btn.save') }}
+                            </button>
+                        </div>
+                    @endif
 
                 </form>
 

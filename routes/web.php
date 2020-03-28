@@ -199,6 +199,16 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('documentos')->name('documentos/')->group(static function () {
+            Route::get('/{servico}/edit', 'ServicosController@edit')->name('edit');
+            Route::post('/{servico}', 'ServicosController@update')->name('update');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::prefix('notifications')->name('notifications/')->group(static function () {
             Route::get('/', 'NotificationsController@index')->name('index');
             Route::get('/create', 'NotificationsController@create')->name('create');

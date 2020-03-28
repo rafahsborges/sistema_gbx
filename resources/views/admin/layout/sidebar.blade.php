@@ -1,3 +1,14 @@
+@php
+    use App\Models\Servico;
+    $hasDocuments = false;
+    $hasValidsDocuments = false;
+    if(isset(auth()->user()->id_servico)){
+        $servico = Servico::find(auth()->user()->id_servico);
+        $hasDocuments = $servico->documento == 1;
+        $hasValidsDocuments = $servico->valido == 1;
+    }
+@endphp
+
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
@@ -9,8 +20,10 @@
                             class="nav-icon icon-energy"></i> {{ trans('admin.boleto.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/sicis') }}"><i
                             class="nav-icon icon-energy"></i> {{ trans('admin.sici.title') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('admin/documentos') }}"><i
-                            class="nav-icon icon-energy"></i> {{ trans('admin.documento.title') }}</a></li>
+                @if(isset($hasDocuments) && $hasDocuments)
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin/documentos/'.auth()->user()->id_servico.'/edit') }}"><i
+                                class="nav-icon icon-energy"></i> {{ trans('admin.documento.title') }}</a></li>
+                @endif
                 <li class="nav-item" data-toggle="collapse" data-target="#profile" class="collapsed active">
                     <a class="nav-link"><i
                             class="nav-icon icon-list"></i> {{ trans('brackets/admin-ui::admin.profile_dropdown.account') }}

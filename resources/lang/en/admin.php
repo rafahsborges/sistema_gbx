@@ -537,5 +537,13 @@ return [
         ],
     ],
 
+    'documento' => [
+        'title' => 'Documentos',
+
+        'actions' => [
+            'index' => 'Chats',
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
