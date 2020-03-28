@@ -60,7 +60,7 @@ class UpdateAdminUser extends FormRequest
             'apontamentos' => ['nullable'],
             'pontos' => ['nullable'],
             'desconto' => ['nullable'],
-            'id_servico' => ['nullable'],
+            'servico' => ['nullable'],
         ];
 
         if (Config::get('admin-auth.activation_enabled')) {

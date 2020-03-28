@@ -90,15 +90,16 @@
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('documento'), 'has-success': fields.documento && fields.documento.valid }">
     <label for="documento" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.documento') }}</label>
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.documento') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input class="form-check-input" id="documento" type="checkbox" v-model="form.documento" v-validate="''"
                data-vv-name="documento" name="documento_fake_element">
         <label class="form-check-label" for="documento">
-            {{ trans('admin.admin-user.columns.documento') }}
+            {{ trans('admin.servico.columns.documento') }}
         </label>
         <input type="hidden" name="documento" :value="form.documento">
-        <div v-if="errors.has('documento')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('documento')
+        <div v-if="errors.has('documento')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('documento')
             }}
         </div>
     </div>
@@ -109,42 +110,42 @@
     @if ($mode === 'create')
         @include('brackets/admin-ui::admin.includes.media-uploader', [
             'mediaCollection' => app(App\Models\Servico::class)->getMediaCollection('gallery'),
-            'label' => 'Gallery of photos'
+            'label' => 'Imagens'
         ])
         @include('brackets/admin-ui::admin.includes.media-uploader', [
             'mediaCollection' => app(App\Models\Servico::class)->getMediaCollection('pdf'),
-            'label' => 'PDF appendix'
+            'label' => 'PDFs'
         ])
     @else
         @include('brackets/admin-ui::admin.includes.media-uploader', [
-           'mediaCollection' => $orcamento->getMediaCollection('gallery'),
-           'media' => $orcamento->getThumbs200ForCollection('gallery'),
-           'label' => 'Gallery of photos'
+           'mediaCollection' => $servico->getMediaCollection('gallery'),
+           'media' => $servico->getThumbs200ForCollection('gallery'),
+           'label' => 'Imagens'
        ])
         @include('brackets/admin-ui::admin.includes.media-uploader', [
-            'mediaCollection' => $orcamento->getMediaCollection('pdf'),
-            'media' => $orcamento->getThumbs200ForCollection('pdf'),
-            'label' => 'PDF appendix'
+            'mediaCollection' => $servico->getMediaCollection('pdf'),
+            'media' => $servico->getThumbs200ForCollection('pdf'),
+            'label' => 'PDFs'
         ])
     @endif
 
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('valido'), 'has-success': fields.valido && fields.valido.valid }">
-    <label for="valido" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.admin-user.columns.valido') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input class="form-check-input" id="valido" type="checkbox" v-model="form.valido" v-validate="''"
-               data-vv-name="valido" name="valido_fake_element">
-        <label class="form-check-label" for="valido">
-            {{ trans('admin.admin-user.columns.valido') }}
-        </label>
-        <input type="hidden" name="valido" :value="form.valido">
-        <div v-if="errors.has('valido')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valido')
-            }}
+    <div class="form-group row align-items-center"
+         :class="{'has-danger': errors.has('valido'), 'has-success': fields.valido && fields.valido.valid }">
+        <label for="valido" class="col-form-label text-md-right"
+               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servico.columns.valido') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+            <input class="form-check-input" id="valido" type="checkbox" v-model="form.valido" v-validate="''"
+                   data-vv-name="valido" name="valido_fake_element">
+            <label class="form-check-label" for="valido">
+                {{ trans('admin.servico.columns.valido') }}
+            </label>
+            <input type="hidden" name="valido" :value="form.valido">
+            <div v-if="errors.has('valido')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valido')
+                }}
+            </div>
         </div>
     </div>
+
 </div>
 
 <div class="form-group row align-items-center"

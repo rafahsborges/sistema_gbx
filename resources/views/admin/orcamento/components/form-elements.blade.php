@@ -303,21 +303,21 @@
 @if ($mode === 'create')
     @include('brackets/admin-ui::admin.includes.media-uploader', [
         'mediaCollection' => app(App\Models\Orcamento::class)->getMediaCollection('gallery'),
-        'label' => 'Gallery of photos'
+        'label' => 'Imagens'
     ])
     @include('brackets/admin-ui::admin.includes.media-uploader', [
         'mediaCollection' => app(App\Models\Orcamento::class)->getMediaCollection('pdf'),
-        'label' => 'PDF appendix'
+        'label' => 'PDFs'
     ])
 @else
     @include('brackets/admin-ui::admin.includes.media-uploader', [
        'mediaCollection' => $orcamento->getMediaCollection('gallery'),
        'media' => $orcamento->getThumbs200ForCollection('gallery'),
-       'label' => 'Gallery of photos'
+       'label' => 'Imagens'
    ])
     @include('brackets/admin-ui::admin.includes.media-uploader', [
         'mediaCollection' => $orcamento->getMediaCollection('pdf'),
         'media' => $orcamento->getThumbs200ForCollection('pdf'),
-        'label' => 'PDF appendix'
+        'label' => 'PDFs'
     ])
 @endif

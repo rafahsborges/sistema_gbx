@@ -111,10 +111,16 @@ class AdminUsersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getModifiedData();
-        $sanitized['id_estado'] = $request->getEstadoId();
-        $sanitized['id_cidade'] = $request->getCidadeId();
+        if($sanitized['estado']) {
+            $sanitized['id_estado'] = $request->getEstadoId();
+        }
+        if($sanitized['cidade']) {
+            $sanitized['id_cidade'] = $request->getCidadeId();
+        }
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
-        $sanitized['id_servico'] = $request->getServicoId();
+        if($sanitized['servico']) {
+            $sanitized['id_servico'] = $request->getServicoId();
+        }
         $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         $representantes = [];
@@ -229,10 +235,16 @@ class AdminUsersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getModifiedData();
-        $sanitized['id_estado'] = $request->getEstadoId();
-        $sanitized['id_cidade'] = $request->getCidadeId();
+        if($sanitized['estado']) {
+            $sanitized['id_estado'] = $request->getEstadoId();
+        }
+        if($sanitized['cidade']) {
+            $sanitized['id_cidade'] = $request->getCidadeId();
+        }
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
-        $sanitized['id_servico'] = $request->getServicoId();
+        if($sanitized['servico']) {
+            $sanitized['id_servico'] = $request->getServicoId();
+        }
         $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         $representantes = [];
@@ -282,6 +294,10 @@ class AdminUsersController extends Controller
         if ($request->input('roles')) {
             $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
         }
+
+        $modelHasRoles = DB::table('model_has_roles')
+            ->where('model_type', 'App\Models\AdminUser')
+            ->delete();
 
         $modelHasRoles = DB::table('model_has_roles')
             ->where('model_id', $adminUser->id)

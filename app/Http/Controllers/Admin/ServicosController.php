@@ -87,6 +87,7 @@ class ServicosController extends Controller
         return view('admin.servico.create', [
             'statuses' => Status::all(),
             'etapas' => Etapa::all(),
+            'mode' => 'create',
         ]);
     }
 
@@ -101,7 +102,9 @@ class ServicosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
-        $sanitized['id_etapa'] = $request->getEtapaId();
+        if($sanitized['etapa']) {
+            $sanitized['id_etapa'] = $request->getEtapaId();
+        }
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         $etapas = [];
@@ -183,6 +186,7 @@ class ServicosController extends Controller
             'servico' => $servico,
             'statuses' => Status::all(),
             'etapas' => Etapa::all(),
+            'mode' => 'edit',
         ]);
     }
 
@@ -223,7 +227,9 @@ class ServicosController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_status'] = $request->getStatusId();
-        $sanitized['id_etapa'] = $request->getEtapaId();
+        if($sanitized['etapa']) {
+            $sanitized['id_etapa'] = $request->getEtapaId();
+        }
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
 
         $etapas = [];

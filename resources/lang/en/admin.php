@@ -6,48 +6,48 @@ return [
 
         'actions' => [
             'index' => 'Clientes',
-            'create' => 'New Cliente',
-            'edit' => 'Edit :name',
-            'edit_profile' => 'Edit Profile',
-            'edit_password' => 'Edit Password',
+            'create' => 'Novo Cliente',
+            'edit' => 'Alterar :name',
+            'edit_profile' => 'Alterar Profile',
+            'edit_password' => 'Alterar Password',
         ],
 
         'columns' => [
             'id' => 'ID',
             'tipo' => 'Tipo',
             'nome' => 'Nome',
-            'razao_social' => 'Razao social',
-            'cpf' => 'Cpf',
-            'cnpj' => 'Cnpj',
-            'email' => 'Email',
-            'email2' => 'Email2',
-            'email3' => 'Email3',
+            'razao_social' => 'Razão social',
+            'cpf' => 'CPF',
+            'cnpj' => 'CNPJ',
+            'email' => 'E-mail',
+            'email2' => 'E-mail2',
+            'email3' => 'E-mail3',
             'telefone' => 'Telefone',
             'celular' => 'Celular',
             'logradouro' => 'Logradouro',
-            'numero' => 'Numero',
+            'numero' => 'Número',
             'complemento' => 'Complemento',
             'bairro' => 'Bairro',
             'id_cidade' => 'Cidade',
-            'id_estado' => 'Uf',
-            'cep' => 'Cep',
+            'id_estado' => 'UF',
+            'cep' => 'CEP',
             'vencimento' => 'Vencimento',
             'valor' => 'Valor',
-            'ini_contrato' => 'Ini contrato',
+            'ini_contrato' => 'Início contrato',
             'fim_contrato' => 'Fim contrato',
             'fistel' => 'Fistel',
-            'is_admin' => 'Is admin',
-            'activated' => 'Activated',
-            'forbidden' => 'Forbidden',
-            'language' => 'Language',
-            'enabled' => 'Enabled',
-            'password' => 'Password',
-            'password_repeat' => 'Password Confirmation',
-            'id_servico' => 'ID Servico',
+            'is_admin' => 'É administrador?',
+            'activated' => 'Ativado',
+            'forbidden' => 'Bloqueado',
+            'language' => 'Idioma',
+            'enabled' => 'Ativo',
+            'password' => 'Senha',
+            'password_repeat' => 'Confirmação',
+            'id_servico' => 'Serviço',
             'desconto' => 'Desconto',
 
             //Belongs to many relations
-            'roles' => 'Roles',
+            'roles' => 'Regras',
         ],
     ],
 
@@ -56,18 +56,18 @@ return [
 
         'actions' => [
             'index' => 'Representantes',
-            'create' => 'New Representante',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Representante',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-            'email' => 'Email',
+            'email' => 'E-mail',
             'telefone' => 'Telefone',
             'celular' => 'Celular',
             'cargo' => 'Cargo',
-            'id_cliente' => 'Id cliente',
+            'id_cliente' => 'Cliente',
         ],
     ],
 
@@ -76,26 +76,26 @@ return [
 
         'actions' => [
             'index' => 'Pontos',
-            'create' => 'New Ponto',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Ponto',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
             'logradouro' => 'Logradouro',
-            'numero' => 'Numero',
+            'numero' => 'Número',
             'complemento' => 'Complemento',
             'bairro' => 'Bairro',
             'id_cidade' => 'Cidade',
-            'id_estado' => 'Uf',
-            'cep' => 'Cep',
-            'estacao' => 'Estacao',
+            'id_estado' => 'UF',
+            'cep' => 'CEP',
+            'estacao' => 'Estação',
             'entidade' => 'Entidade',
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
             'altura' => 'Altura',
-            'id_cliente' => 'Id cliente',
+            'id_cliente' => 'Cliente',
         ],
     ],
 
@@ -104,14 +104,14 @@ return [
 
         'actions' => [
             'index' => 'Observações',
-            'create' => 'New Observação',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Observação',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
-            'descricao' => 'Descricao',
-            'id_cliente' => 'Id cliente',
+            'descricao' => 'Descrição',
+            'id_cliente' => 'Cliente',
         ],
     ],
 
@@ -120,15 +120,15 @@ return [
 
         'actions' => [
             'index' => 'Estados',
-            'create' => 'New Estado',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Estado',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-            'abreviacao' => 'Abreviacao',
-            'enabled' => 'Enabled',
+            'abreviacao' => 'Abreviação',
+            'enabled' => 'Ativado',
         ],
     ],
 
@@ -137,16 +137,16 @@ return [
 
         'actions' => [
             'index' => 'Cidades',
-            'create' => 'New Cidade',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Cidade',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-            'ibge_code' => 'Ibge code',
-            'id_estado' => 'Id estado',
-            'enabled' => 'Enabled',
+            'ibge_code' => 'Código IBGE',
+            'id_estado' => 'UF',
+            'enabled' => 'Ativado',
         ],
     ],
 
@@ -155,8 +155,8 @@ return [
 
         'actions' => [
             'index' => 'Status',
-            'create' => 'New Status',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Status',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
@@ -170,15 +170,15 @@ return [
 
         'actions' => [
             'index' => 'Etapas',
-            'create' => 'New Etapa',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Etapa',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-            'id_servico' => 'Id servico',
-            'id_status' => 'Id status',
+            'id_servico' => 'Serviço',
+            'id_status' => 'Status',
         ],
     ],
 
@@ -187,15 +187,15 @@ return [
 
         'actions' => [
             'index' => 'Itens',
-            'create' => 'New Item',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Item',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
-            'id_etapa' => 'Id etapa',
-            'id_status' => 'Id status',
+            'id_etapa' => 'Etapa',
+            'id_status' => 'Status',
         ],
     ],
 
@@ -204,19 +204,21 @@ return [
 
         'actions' => [
             'index' => 'Servicos',
-            'create' => 'New Servico',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Serviço',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
             'valor' => 'Valor',
-            'orgao' => 'Orgao',
-            'descricao' => 'Descricao',
-            'id_etapa' => 'Id etapa',
-            'id_status' => 'Id status',
-            'observacao' => 'Observacao',
+            'orgao' => 'Orgão',
+            'descricao' => 'Descrição',
+            'id_etapa' => 'Etapa',
+            'id_status' => 'Status',
+            'observacao' => 'Observação',
+            'documento' => 'Tem documentos?',
+            'valido' => 'Documentos válidos?',
         ],
     ],
 
@@ -225,16 +227,16 @@ return [
 
         'actions' => [
             'index' => 'Notificações',
-            'create' => 'New Notificação',
+            'create' => 'Novo Notificação',
             'show' => 'Show Notificação',
-            'edit' => 'Edit :name',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'assunto' => 'Assunto',
-            'conteudo' => 'Conteudo',
-            'id_cliente' => 'Id cliente',
+            'conteudo' => 'Conteúdo',
+            'id_cliente' => 'Cliente',
             'agendar' => 'Agendar',
             'agendamento' => 'Agendamento',
             'enviado' => 'Enviado',
@@ -251,8 +253,8 @@ return [
 
         'actions' => [
             'index' => 'Informativos',
-            'create' => 'New Informativo',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Informativo',
+            'edit' => 'Alterar :name',
             'show' => 'Show :name',
         ],
 
@@ -260,7 +262,7 @@ return [
             'id' => 'ID',
             'assunto' => 'Assunto',
             'conteudo' => 'Conteudo',
-            'id_servico' => 'Id servico',
+            'id_servico' => 'Serviço',
         ],
     ],
 
@@ -269,15 +271,15 @@ return [
 
         'actions' => [
             'index' => 'Mala Diretas',
-            'create' => 'New Mala Direta',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Mala Direta',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'assunto' => 'Assunto',
             'conteudo' => 'Conteudo',
-            'id_cliente' => 'Id cliente',
+            'id_cliente' => 'Cliente',
             'agendar' => 'Agendar',
             'agendamento' => 'Agendamento',
             'enviado' => 'Enviado',
@@ -290,8 +292,8 @@ return [
 
         'actions' => [
             'index' => 'Orcamentos',
-            'create' => 'New Orcamento',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Orcamento',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
@@ -323,8 +325,8 @@ return [
 
         'actions' => [
             'index' => 'Boletos',
-            'create' => 'New Boleto',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Boleto',
+            'edit' => 'Alterar :name',
             'boleto' => 'Gerar Boleto',
         ],
 
@@ -362,14 +364,14 @@ return [
 
         'actions' => [
             'index' => 'Sicis',
-            'create' => 'New Sici',
-            'edit' => 'Edit :name',
+            'create' => 'Novo Sici',
+            'edit' => 'Alterar :name',
         ],
 
         'columns' => [
             'id' => 'ID',
             'ano' => 'Ano',
-            'mes' => 'Mes',
+            'mes' => 'Mês',
             'id_cliente' => 'Autorizada',
             'id_servico' => 'Serviço',
             'fistel' => 'Fistel',
