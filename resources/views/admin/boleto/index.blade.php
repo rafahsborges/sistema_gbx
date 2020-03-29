@@ -18,9 +18,9 @@
                             <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0  ml-1"
                                href="{{ url('admin/boletos/create') }}" role="button"><i
                                     class="fa fa-plus"></i>&nbsp; {{ trans('admin.boleto.actions.create') }}</a>
-                            <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
+                            {{--<a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
                                href="{{ url('admin/boletos/reload') }}" role="button"><i
-                                    class="fa fa-refresh"></i>&nbsp; {{ trans('admin.boleto.actions.reload') }}</a>
+                                    class="fa fa-refresh"></i>&nbsp; {{ trans('admin.boleto.actions.reload') }}</a>--}}
                         @endif
                     </div>
                     <div class="card-body" v-cloak>
