@@ -24,10 +24,10 @@
         "spatie/laravel-activitylog": "^3.9",
         "symfony/css-selector": "^4.0",
         "ext-curl": "*",
-        "ext-json": "*",
-        "ext-http": "*"
+        "ext-json": "*"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "brackets/admin-generator": "^5.0",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
